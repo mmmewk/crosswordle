@@ -126,7 +126,7 @@ function App() {
 
   const updateKnownLetters = (direction: Direction, wordData: ClueTypeOriginal) => {
     const newKnownLetters = Array.from(wordData.answer).map((_, index) => {
-      if (!crosswordRef.current) return;
+      if (!crosswordRef.current) return undefined;
 
       let letterRow = wordData.row;
       let letterCol = wordData.col;
@@ -177,7 +177,7 @@ function App() {
             variant="success"
           /> */}
           <div className="flex w-80 mx-auto items-center mb-8">
-            <h1 className="text-xl grow font-bold">Crosswordle</h1>
+            <h1 className="text-xl grow font-bold">Crosswordle - {crosswordIndex + 1}</h1>
             <InformationCircleIcon
               className="h-6 w-6 cursor-pointer"
               onClick={() => setIsInfoModalOpen(true)}

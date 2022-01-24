@@ -61,9 +61,10 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      This is an open source clone of the game Wordle -{' '}
+                      This is an open source variation of the game wordle
+                      where you solve an entire crossword using wordle rules -{' '}
                       <a
-                        href="https://github.com/hannahcode/wordle"
+                        href="https://github.com/mmmewk/crosswordle"
                         className="underline font-bold"
                       >
                         check out the code here
