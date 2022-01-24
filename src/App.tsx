@@ -19,21 +19,22 @@ import { notEmpty } from './lib/utils';
 
 const crosswordIndex = 2;
 const crosswordData = crosswords[crosswordIndex];
+const intialClue = crosswordData['across']['1'];
 
 function App() {
   const crosswordRef = useRef<CrosswordImperative>(null);
   const [knownLetters, setKnownLetters] = useState<(string | undefined)[]>([]);
   const [resetCrossword, setResetCrossword] = useState(false);
   const [currentGuess, setCurrentGuess] = useState('');
-  const [currentWord, setCurrentWord] = useState('');
+  const [currentWord, setCurrentWord] = useState(intialClue.answer);
   // const [isGameWon, setIsGameWon] = useState(false)
   // const [isWinModalOpen, setIsWinModalOpen] = useState(false)
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false);
   // const [isGameLost, setIsGameLost] = useState(false)
-  const [focusedClue, setFocusedClue] = useState<ClueTypeOriginal>();
-  const [focusedDirection, setFocusedDirection] = useState<Direction>();
+  const [focusedClue, setFocusedClue] = useState<ClueTypeOriginal>(intialClue);
+  const [focusedDirection, setFocusedDirection] = useState<Direction>('across');
   // const [shareComplete, setShareComplete] = useState(false)
   const [guesses, setGuesses] = useState<{ [word: string]: string[] }>(
     () => {
@@ -124,6 +125,10 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (crosswordRef.current) crosswordRef.current.focus();
+  }, [crosswordRef])
+
   const updateKnownLetters = (direction: Direction, wordData: ClueTypeOriginal) => {
     const newKnownLetters = Array.from(wordData.answer).map((_, index) => {
       if (!crosswordRef.current) return undefined;
@@ -139,6 +144,7 @@ function App() {
 
       return crosswordRef.current.getCurrentGuess(letterRow, letterCol);
     });
+
     setKnownLetters(newKnownLetters);
   }
 
