@@ -1,5 +1,5 @@
 import { InformationCircleIcon } from '@heroicons/react/outline';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Alert } from './components/alerts/Alert';
 import { Grid } from './components/grid/Grid';
 import { Keyboard } from './components/keyboard/Keyboard';
@@ -7,19 +7,23 @@ import { AboutModal } from './components/modals/AboutModal';
 import { InfoModal } from './components/modals/InfoModal';
 // import { WinModal } from './components/modals/WinModal';
 import { isWordInWordList } from './lib/words';
-// import {
-//   loadGameStateFromLocalStorage,
-//   saveGameStateToLocalStorage,
-// } from './lib/localStorage';
+import {
+  loadGameStateFromLocalStorage,
+  saveGameStateToLocalStorage,
+} from './lib/localStorage';
 import Crossword, { CrosswordImperative } from 'react-crossword-v2';
 import './App.css';
 import crosswords from './constants/crosswords';
 import { Direction, CellData, ClueTypeOriginal } from 'react-crossword-v2/dist/types';
+import { notEmpty } from './lib/utils';
 
-const crosswordData = crosswords[0];
+const crosswordIndex = 2;
+const crosswordData = crosswords[crosswordIndex];
 
 function App() {
   const crosswordRef = useRef<CrosswordImperative>(null);
+  const [knownLetters, setKnownLetters] = useState<(string | undefined)[]>([]);
+  const [resetCrossword, setResetCrossword] = useState(false);
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState('');
   // const [isGameWon, setIsGameWon] = useState(false)
@@ -27,25 +31,31 @@ function App() {
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false);
-  const [isGameLost, setIsGameLost] = useState(false)
+  // const [isGameLost, setIsGameLost] = useState(false)
   const [focusedClue, setFocusedClue] = useState<ClueTypeOriginal>();
   const [focusedDirection, setFocusedDirection] = useState<Direction>();
   // const [shareComplete, setShareComplete] = useState(false)
-  const [guesses, setGuesses] = useState<{ [word: string]: string[] }>({});
-    // () => {
-    //   const loaded = loadGameStateFromLocalStorage()
-    //   if (loaded?.solution !== solution) {
-    //     return []
-    //   }
-    //   if (loaded.guesses.includes(solution)) {
-    //     setIsGameWon(true)
-    //   }
-    //   return loaded.guesses
-    // }
+  const [guesses, setGuesses] = useState<{ [word: string]: string[] }>(
+    () => {
+      const loaded = loadGameStateFromLocalStorage();
+      if (!loaded || loaded.crosswordIndex !== crosswordIndex) {
+        setResetCrossword(true);
+        return {};
+      }
+      return loaded.guesses
+    }
+  );
 
-  // useEffect(() => {
-  //   saveGameStateToLocalStorage({ guesses, solution })
-  // }, [guesses])
+  useEffect(() => {
+    if (resetCrossword && crosswordRef.current) {
+      setResetCrossword(false);
+      crosswordRef.current.reset();
+    }
+  }, [resetCrossword, crosswordRef])
+
+  useEffect(() => {
+    saveGameStateToLocalStorage({ guesses, crosswordIndex })
+  }, [guesses])
 
   // useEffect(() => {
   //   if (isGameWon) {
@@ -79,10 +89,16 @@ function App() {
       
       if (focusedClue) {
         const { row, col } = focusedClue;
+        const newKnownLetters : (string | undefined)[] = [];
 
         Array.from(currentGuess).forEach((letter, index) => {
           if (!crosswordRef.current) return;
-          if (currentWord[index] !== letter) return;
+          if (currentWord[index] !== letter) {
+            newKnownLetters.push(undefined);
+            return;
+          }
+
+          newKnownLetters.push(letter);
 
           let rowToUpdate = row;
           let colToUpdate = col;
@@ -95,16 +111,36 @@ function App() {
 
           crosswordRef.current.setGuess(rowToUpdate, colToUpdate, letter);
         });
+
+        setKnownLetters(newKnownLetters);
       }
 
-      if (guessesForWord.length === 5) {
-        setIsGameLost(true)
-        return setTimeout(() => {
-          setIsGameLost(false)
-        }, 2000)
-      }
+      // if (guessesForWord.length === 5) {
+      //   setIsGameLost(true)
+      //   return setTimeout(() => {
+      //     setIsGameLost(false)
+      //   }, 2000)
+      // }
     }
   };
+
+  const updateKnownLetters = (direction: Direction, wordData: ClueTypeOriginal) => {
+    const newKnownLetters = Array.from(wordData.answer).map((_, index) => {
+      if (!crosswordRef.current) return;
+
+      let letterRow = wordData.row;
+      let letterCol = wordData.col;
+
+      if (direction === 'across') {
+        letterCol += index;
+      } else {
+        letterRow += index
+      }
+
+      return crosswordRef.current.getCurrentGuess(letterRow, letterCol);
+    });
+    setKnownLetters(newKnownLetters);
+  }
 
   const onMoved = (direction: Direction, row: number, col: number, cellData: CellData | undefined) => {
     if (cellData?.used && cellData[direction]) {
@@ -115,6 +151,7 @@ function App() {
       setCurrentGuess('');
       setFocusedClue(wordData);
       setFocusedDirection(direction);
+      updateKnownLetters(direction, wordData);
     }
   }
 
@@ -124,17 +161,16 @@ function App() {
         <Crossword
           ref={crosswordRef}
           data={crosswordData}
-          useStorage={false}
           onMoved={onMoved}
         />
       </div>
       <div className='w-1/2 flex justify-center items-center'>
         <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
           <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
-          <Alert
+          {/* <Alert
             message={`You lost, the word was ${currentWord}`}
             isOpen={isGameLost}
-          />
+          /> */}
           {/* <Alert
             message="Game copied to clipboard"
             isOpen={shareComplete}
@@ -147,9 +183,10 @@ function App() {
               onClick={() => setIsInfoModalOpen(true)}
             />
           </div>
-          <Grid guesses={guesses[currentWord] || []} currentGuess={currentGuess} solution={currentWord}/>
+          <Grid guesses={guesses[currentWord] || []} currentGuess={currentGuess} knownLetters={knownLetters} solution={currentWord}/>
           <Keyboard
             solution={currentWord}
+            knownChars={knownLetters.filter(notEmpty)}
             onChar={onChar}
             onDelete={onDelete}
             onEnter={onEnter}

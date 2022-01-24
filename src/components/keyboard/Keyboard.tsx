@@ -5,14 +5,18 @@ import { Key } from './Key'
 
 type Props = {
   solution: string,
+  knownChars?: string[],
   onChar: (value: string) => void
   onDelete: () => void
   onEnter: () => void
   guesses: string[]
 }
 
-export const Keyboard = ({ solution, onChar, onDelete, onEnter, guesses }: Props) => {
+export const Keyboard = ({ solution, knownChars, onChar, onDelete, onEnter, guesses }: Props) => {
   const charStatuses = getStatuses(solution, guesses);
+  knownChars?.forEach((letter) => {
+    charStatuses[letter] = 'correct';
+  });
 
   const onClick = (value: KeyValue) => {
     if (value === 'ENTER') {

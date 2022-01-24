@@ -1,4 +1,4 @@
-export type CharStatus = 'absent' | 'present' | 'correct'
+export type CharStatus = 'absent' | 'present' | 'correct' | 'known';
 
 export type CharValue =
   | 'Q'
@@ -30,7 +30,8 @@ export type CharValue =
 
 export const getStatuses = (
   solution: string,
-  guesses: string[]
+  guesses: string[],
+  knownChars?: string[]
 ): { [key: string]: CharStatus } => {
   const charObj: { [key: string]: CharStatus } = {}
 
@@ -52,6 +53,10 @@ export const getStatuses = (
       }
     })
   })
+
+  knownChars?.forEach((letter) => {
+    if (charObj[letter] !== 'correct') charObj[letter] = 'known'
+  });
 
   return charObj
 }
