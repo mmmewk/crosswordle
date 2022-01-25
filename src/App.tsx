@@ -5,7 +5,7 @@ import { Grid } from './components/grid/Grid';
 import { Keyboard } from './components/keyboard/Keyboard';
 import { AboutModal } from './components/modals/AboutModal';
 import { InfoModal } from './components/modals/InfoModal';
-// import { WinModal } from './components/modals/WinModal';
+import { WinModal } from './components/modals/WinModal';
 import { isWordInWordList } from './lib/words';
 import {
   loadGameStateFromLocalStorage,
@@ -13,12 +13,10 @@ import {
 } from './lib/localStorage';
 import Crossword, { CrosswordImperative } from 'react-crossword-v2';
 import './App.css';
-import crosswords from './constants/crosswords';
 import { Direction, CellData, ClueTypeOriginal } from 'react-crossword-v2/dist/types';
 import { notEmpty } from './lib/utils';
+import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 
-const crosswordIndex = 2;
-const crosswordData = crosswords[crosswordIndex];
 const intialClue = crosswordData['across']['1'];
 
 function App() {
@@ -27,8 +25,7 @@ function App() {
   const [resetCrossword, setResetCrossword] = useState(false);
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(intialClue.answer);
-  // const [isGameWon, setIsGameWon] = useState(false)
-  // const [isWinModalOpen, setIsWinModalOpen] = useState(false)
+  const [isWinModalOpen, setIsWinModalOpen] = useState(false)
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false);
@@ -57,12 +54,6 @@ function App() {
   useEffect(() => {
     saveGameStateToLocalStorage({ guesses, crosswordIndex })
   }, [guesses])
-
-  // useEffect(() => {
-  //   if (isGameWon) {
-  //     setIsWinModalOpen(true)
-  //   }
-  // }, [isGameWon])
 
   const onChar = (value: string) => {
     if (currentGuess.length < currentWord.length && guesses[currentWord].length < 6) {
@@ -116,12 +107,7 @@ function App() {
         setKnownLetters(newKnownLetters);
       }
 
-      // if (guessesForWord.length === 5) {
-      //   setIsGameLost(true)
-      //   return setTimeout(() => {
-      //     setIsGameLost(false)
-      //   }, 2000)
-      // }
+      if (crosswordRef.current?.isCrosswordCorrect()) setIsWinModalOpen(true);
     }
   };
 
@@ -144,7 +130,6 @@ function App() {
 
       return crosswordRef.current.getCurrentGuess(letterRow, letterCol);
     });
-
     setKnownLetters(newKnownLetters);
   }
 
@@ -198,18 +183,18 @@ function App() {
             onEnter={onEnter}
             guesses={guesses[currentWord] || []}
           />
-          {/* <WinModal
+          <WinModal
             isOpen={isWinModalOpen}
             handleClose={() => setIsWinModalOpen(false)}
             guesses={guesses}
             handleShare={() => {
               setIsWinModalOpen(false)
-              setShareComplete(true)
-              return setTimeout(() => {
-                setShareComplete(false)
-              }, 2000)
+              // setShareComplete(true)
+              // return setTimeout(() => {
+              //   setShareComplete(false)
+              // }, 2000)
             }}
-          /> */}
+          />
           <InfoModal
             isOpen={isInfoModalOpen}
             handleClose={() => setIsInfoModalOpen(false)}
