@@ -265,6 +265,72 @@ const crosswords: CluesInputOriginal[] = [
       }
     }
   },
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'HURT',
+        row: 0,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'UNHIP',
+        row: 1,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'HAITI',
+        row: 2,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'GNAT',
+        row: 3,
+        col: 1,
+      },
+      '9': {
+        clue: '',
+        answer: 'IONS',
+        row: 4,
+        col: 1,
+      }
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'HUH',
+        row: 0,
+        col: 0,
+      },
+      '2': {
+        clue: '',
+        answer: 'UNAGI',
+        row: 0,
+        col: 1,
+      },
+      '3': {
+        clue: '',
+        answer: 'RHINO',
+        row: 0,
+        col: 2,
+      },
+      '4': {
+        clue: '',
+        answer: 'TITAN',
+        row: 0,
+        col: 3,
+      },
+      '6': {
+        clue: '',
+        answer: 'PITS',
+        row: 1,
+        col: 4,
+      }
+    }
+  }
 ];
 
 export default crosswords;
