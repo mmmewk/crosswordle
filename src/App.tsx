@@ -81,16 +81,10 @@ function App() {
       
       if (focusedClue) {
         const { row, col } = focusedClue;
-        const newKnownLetters : (string | undefined)[] = [];
 
         Array.from(currentGuess).forEach((letter, index) => {
           if (!crosswordRef.current) return;
-          if (currentWord[index] !== letter) {
-            newKnownLetters.push(undefined);
-            return;
-          }
-
-          newKnownLetters.push(letter);
+          if (currentWord[index] !== letter) return;
 
           let rowToUpdate = row;
           let colToUpdate = col;
@@ -104,7 +98,9 @@ function App() {
           crosswordRef.current.setGuess(rowToUpdate, colToUpdate, letter);
         });
 
-        setKnownLetters(newKnownLetters);
+        setTimeout(() => {
+          updateKnownLetters(focusedDirection, focusedClue);
+        }, 0);
       }
 
       if (crosswordRef.current?.isCrosswordCorrect()) setIsWinModalOpen(true);
