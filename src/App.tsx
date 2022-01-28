@@ -13,7 +13,7 @@ import {
 } from './lib/localStorage';
 import Crossword, { CrosswordImperative } from 'react-crossword-v2';
 import './App.css';
-import { Direction, CellData, ClueTypeOriginal } from 'react-crossword-v2/dist/types';
+import { Direction, ClueTypeOriginal } from 'react-crossword-v2/dist/types';
 import { notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 
@@ -56,7 +56,9 @@ function App() {
   }, [guesses])
 
   const onChar = (value: string) => {
-    if (currentGuess.length < currentWord.length && guesses[currentWord].length < 6) {
+    const lastGuess = guesses[currentWord].slice(-1)[0];
+
+    if (currentGuess.length < currentWord.length && guesses[currentWord].length < 6 && lastGuess !== currentWord) {
       setCurrentGuess(`${currentGuess}${value}`)
     }
   }
@@ -97,18 +99,27 @@ function App() {
 
           crosswordRef.current.setGuess(rowToUpdate, colToUpdate, letter);
         });
-
-        setTimeout(() => {
-          updateKnownLetters(focusedDirection, focusedClue);
-        }, 0);
       }
-
-      if (crosswordRef.current?.isCrosswordCorrect()) setIsWinModalOpen(true);
     }
+
+    setTimeout(() => {
+      updateKnownLetters(focusedDirection, focusedClue);
+
+      const data = crosswordRef.current?.getData();
+      if (!data) return;
+
+      const crosswordCorrect = data.gridData.every((row) => {
+        return row.every((col) => !col.used || col.guess === col.answer);
+      });
+      setIsWinModalOpen(crosswordCorrect);
+    }, 0);
   };
 
   useEffect(() => {
-    if (crosswordRef.current) crosswordRef.current.focus();
+    if (crosswordRef.current) {
+      crosswordRef.current.focus();
+      crosswordRef.current.moveTo(initialClue.row, initialClue.col, 'across');
+    }
   }, [crosswordRef])
 
   const updateKnownLetters = (direction: Direction, wordData: ClueTypeOriginal) => {
@@ -129,7 +140,11 @@ function App() {
     setKnownLetters(newKnownLetters);
   }
 
-  const onMoved = (direction: Direction, row: number, col: number, cellData: CellData | undefined) => {
+  const onMoved = (direction: Direction, row: number, col: number) => {
+    if (!crosswordRef.current) return;
+
+    const cellData = crosswordRef.current.getCellData(row, col);
+
     if (cellData?.used && cellData[direction]) {
       const number = cellData[direction] || '';
       const wordData = crosswordData[direction][number];

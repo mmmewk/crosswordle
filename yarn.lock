@@ -1768,6 +1768,11 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
+"@types/lodash@^4.14.178":
+  version "4.14.178"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.178.tgz#341f6d2247db528d4a13ddbb374bcdc80406f4f8"
+  integrity sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==
+
 "@types/mime@^1":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-1.3.2.tgz#93e25bf9ee75fe0fd80b594bc4feb0e862111b5a"
@@ -6988,11 +6993,12 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
-react-crossword-v2@^4.2.4:
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/react-crossword-v2/-/react-crossword-v2-4.2.4.tgz#db485791a7d5c0cfa32c8f77eea9bd9481cc176d"
-  integrity sha512-dBHfgfpF9sZDC4lQ4HyAFMngoe3KW4O0kVkv49PzENir1IjmZK64ubxUq+BHr79RgFo2uOnNqOa5ieo37SQ2hg==
+react-crossword-v2@^4.2.9:
+  version "4.2.9"
+  resolved "https://registry.yarnpkg.com/react-crossword-v2/-/react-crossword-v2-4.2.9.tgz#3bf2ec8552b4fbcf7aca468cb339ac7d6486d2bf"
+  integrity sha512-fqy9JAjiqPnQvWctii/oFJkfajjAqhMblTv+iTKbZUlYDV5KIBRHMAAQ60wElREa6/Qhd9ghPH9YuhhRcucW6A==
   dependencies:
+    "@types/lodash" "^4.14.178"
     immer "^9.0.7"
     lodash "^4.17.21"
     prop-types "^15.8.0"
