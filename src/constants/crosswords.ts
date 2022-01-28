@@ -330,6 +330,126 @@ const crosswords: CluesInputOriginal[] = [
         col: 4,
       }
     }
+  },
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'RAD',
+        row: 0,
+        col: 1,
+      },
+      '4': {
+        clue: '',
+        answer: 'POLED',
+        row: 1,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'EBONY',
+        row: 2,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'RINSE',
+        row: 3,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'KNEE',
+        row: 4,
+        col: 0,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'ROBIN',
+        row: 0,
+        col: 1,
+      },
+      '2': {
+        clue: '',
+        answer: 'ALONE',
+        row: 0,
+        col: 2,
+      },
+      '3': {
+        clue: '',
+        answer: 'DENSE',
+        row: 0,
+        col: 3,
+      },
+      '4': {
+        clue: '',
+        answer: 'PERK',
+        row: 1,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'DYE',
+        row: 1,
+        col: 4,
+      },
+    }
+  },
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'I',
+        row: 0,
+        col: 1,
+      },
+      '3': {
+        clue: '',
+        answer: 'BRAND',
+        row: 1,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'OX',
+        row: 2,
+        col: 1,
+      },
+      '6': {
+        clue: '',
+        answer: 'SNEAK',
+        row: 3,
+        col: 0,
+      }
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'IRONY',
+        row: 0,
+        col: 1,
+      },
+      '2': {
+        clue: '',
+        answer: 'ON',
+        row: 0,
+        col: 3,
+      },
+      '4': {
+        clue: '',
+        answer: 'AXE',
+        row: 1,
+        col: 2
+      },
+      '7': {
+        clue: '',
+        answer: 'AS',
+        row: 3,
+        col: 3,
+      }
+    }
   }
 ];
 

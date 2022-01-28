@@ -17,20 +17,20 @@ import { Direction, CellData, ClueTypeOriginal } from 'react-crossword-v2/dist/t
 import { notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 
-const intialClue = crosswordData['across']['1'];
+const initialClue = crosswordData['across']['1'];
 
 function App() {
   const crosswordRef = useRef<CrosswordImperative>(null);
   const [knownLetters, setKnownLetters] = useState<(string | undefined)[]>([]);
   const [resetCrossword, setResetCrossword] = useState(false);
   const [currentGuess, setCurrentGuess] = useState('');
-  const [currentWord, setCurrentWord] = useState(intialClue.answer);
+  const [currentWord, setCurrentWord] = useState(initialClue.answer);
   const [isWinModalOpen, setIsWinModalOpen] = useState(false)
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false);
   // const [isGameLost, setIsGameLost] = useState(false)
-  const [focusedClue, setFocusedClue] = useState<ClueTypeOriginal>(intialClue);
+  const [focusedClue, setFocusedClue] = useState<ClueTypeOriginal>(initialClue);
   const [focusedDirection, setFocusedDirection] = useState<Direction>('across');
   // const [shareComplete, setShareComplete] = useState(false)
   const [guesses, setGuesses] = useState<{ [word: string]: string[] }>(
@@ -38,7 +38,7 @@ function App() {
       const loaded = loadGameStateFromLocalStorage();
       if (!loaded || loaded.crosswordIndex !== crosswordIndex) {
         setResetCrossword(true);
-        return {};
+        return { [currentWord]: [] };
       }
       return loaded.guesses
     }
