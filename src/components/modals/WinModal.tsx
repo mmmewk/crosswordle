@@ -2,11 +2,14 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/outline'
 import { XCircleIcon } from '@heroicons/react/outline'
+import { StoredGameState } from '../../lib/localStorage';
+
+type Guesses = StoredGameState['guesses'];
 
 type Props = {
   isOpen: boolean
   handleClose: () => void
-  guesses: { [key: string]: string[] }
+  guesses: Guesses;
   handleShare: () => void
 }
 
@@ -16,7 +19,9 @@ export const WinModal = ({
   guesses,
   handleShare,
 }: Props) => {
-  const totalGuesses = Object.values(guesses).flat().length;
+  const acrossGuesses = Object.values(guesses['across']).flat().length;
+  const downGuesses = Object.values(guesses['down']).flat().length;
+  const totalGuesses = acrossGuesses + downGuesses;
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>

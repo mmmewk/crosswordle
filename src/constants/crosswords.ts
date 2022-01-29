@@ -1,6 +1,7 @@
 import { CluesInputOriginal } from "react-crossword-v2/dist/types";
 
 const crosswords: CluesInputOriginal[] = [
+  // 1
   {
     across: {
       '1': {
@@ -67,6 +68,7 @@ const crosswords: CluesInputOriginal[] = [
       }
     },
   },
+  // 2
   {
     across: {
       '1': {
@@ -133,6 +135,7 @@ const crosswords: CluesInputOriginal[] = [
       },
     }
   },
+  // 3
   {
     across: {
       '1': {
@@ -199,6 +202,7 @@ const crosswords: CluesInputOriginal[] = [
       }
     }
   },
+  // 4
   {
     across: {
       '1': {
@@ -265,6 +269,7 @@ const crosswords: CluesInputOriginal[] = [
       }
     }
   },
+  // 5
   {
     across: {
       '1': {
@@ -331,6 +336,7 @@ const crosswords: CluesInputOriginal[] = [
       }
     }
   },
+  // 6
   {
     across: {
       '1': {
@@ -397,6 +403,7 @@ const crosswords: CluesInputOriginal[] = [
       },
     }
   },
+  // 7
   {
     across: {
       '1': {
@@ -450,6 +457,85 @@ const crosswords: CluesInputOriginal[] = [
         col: 3,
       }
     }
+  },
+  // 8
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'IT',
+        row: 0,
+        col: 0,
+      },
+      '3': {
+        clue: '',
+        answer: 'HI',
+        row: 0,
+        col: 3,
+      },
+      '5': {
+        clue: '',
+        answer: 'FACET',
+        row: 1,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'OOZED',
+        row: 3,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'NO',
+        row: 4,
+        col: 0,
+      },
+      '9': {
+        clue: '',
+        answer: 'DO',
+        row: 4,
+        col: 3,
+      }
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'IF',
+        row: 0,
+        col: 0,
+      },
+      '2': {
+        clue: '',
+        answer: 'TABOO',
+        row: 0,
+        col: 1,
+      },
+      '3': {
+        clue: '',
+        answer: 'HEXED',
+        row: 0,
+        col: 3,
+      },
+      '4': {
+        clue: '',
+        answer: 'IT',
+        row: 0,
+        col: 4,
+      },
+      '6': {
+        clue: '',
+        answer: 'ON',
+        row: 3,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'DO',
+        row: 3,
+        col: 4,
+      }
+    },
   }
 ];
 

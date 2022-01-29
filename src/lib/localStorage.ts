@@ -1,8 +1,12 @@
-const gameStateKey = 'gameState'
+const gameStateKey = 'gameState';
 
-type StoredGameState = {
+export type StoredGameState = {
   crosswordIndex: number;
-  guesses: { [word: string]: string[] };
+  guesses: {
+    [direction: string]: {
+      [number: string]: string[];
+    };
+  };
 }
 
 export const saveGameStateToLocalStorage = (gameState: StoredGameState) => {
