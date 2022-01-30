@@ -62,19 +62,23 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
                       This is an open source variation of the game wordle
-                      where you solve an entire crossword using wordle rules -{' '}
-                      <a
-                        href="https://github.com/mmmewk/crosswordle"
-                        className="underline font-bold"
-                      >
-                        check out the code here
-                      </a>{' '}
-                      and{' '}
+                      where you solve a daily mini crossword using wordle rules -{' '}
                       <a
                         href="https://www.powerlanguage.co.uk/wordle/"
                         className="underline font-bold"
+                        target="_blank"
+                        rel="noreferrer"
                       >
-                        play the original here
+                        play the wordle here
+                      </a>
+                      {' '}and{' '}
+                      <a
+                        href="https://www.nytimes.com/crosswords/game/mini"
+                        className="underline font-bold"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        play the daily crossword mini here
                       </a>
                     </p>
                   </div>

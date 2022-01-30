@@ -4,15 +4,16 @@ import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/outline'
 import { XCircleIcon } from '@heroicons/react/outline'
+import { XIcon } from '@heroicons/react/outline'
 import { StoredGameState } from '../../lib/localStorage';
 import { GridData } from 'react-crossword-v2/dist/types';
 import { MiniCrossword, CellColors } from '../mini-crossword/MiniCrossword';
 import { sleep } from '../../lib/utils';
 
 const GIF_SIZE = 250;
-const GIF_DELAY = 500;
+const GIF_DELAY = 300;
 
-const createGifEncoder = (filename: string) => {
+const createGifEncoder = (filename: string, onFinish?: () => void) => {
   const gifEncoder = new Gif({
     width: GIF_SIZE,
     height: GIF_SIZE,
@@ -23,6 +24,7 @@ const createGifEncoder = (filename: string) => {
   
   gifEncoder.on('finished', function(blob) {
     saveAs(blob, filename);
+    if (onFinish) onFinish();
   });
   
   return gifEncoder;
@@ -32,24 +34,27 @@ type Guesses = StoredGameState['guesses'];
 
 type Props = {
   isOpen: boolean;
+  isGameWon: boolean;
+  isGameLost: boolean;
   handleClose: () => void;
   guesses: Guesses;
   shareHistory?: CellColors[];
   getGridData: () => GridData | undefined;
   crosswordleIndex: number;
-  handleShare: () =>  void;
 }
 
 export const ShareModal = ({
   isOpen,
+  isGameWon,
+  isGameLost,
   handleClose,
   guesses,
   shareHistory = [],
   getGridData,
   crosswordleIndex,
-  handleShare,
 }: Props) => {
-  const [gifEncoder, setGifEncoder] = useState<Gif>(createGifEncoder(`Crosswordle-${crosswordleIndex}.gif`));
+  const [creatingGif, setCreatingGif] = useState<boolean>(false);
+  const [gifEncoder, setGifEncoder] = useState<Gif>(createGifEncoder(`Crosswordle-${crosswordleIndex + 1}.gif`, () => setCreatingGif(false)));
   const [gridData, setGridData] = useState<GridData>();
   const svgRef = useRef<SVGSVGElement>(null);
   const [cellColors, setCellColors] = useState<{ [key: string]: string }>();
@@ -58,11 +63,14 @@ export const ShareModal = ({
   const totalGuesses = acrossGuesses + downGuesses;
 
   useEffect(() => {
-    if (isOpen) setGridData(getGridData());
+    if (isOpen) {
+      setCellColors({});
+      setGridData(getGridData());
+    }
   }, [isOpen, getGridData]);
 
 
-  const addSvgFrame = useCallback((svg: SVGSVGElement) => {
+  const addSvgFrame = useCallback((svg: SVGSVGElement, delay: number = 0) => {
     return new Promise(async (resolve, reject) => {
       svg.setAttribute('width', GIF_SIZE.toString());
       svg.setAttribute('height', GIF_SIZE.toString());
@@ -78,7 +86,7 @@ export const ShareModal = ({
       document.body.appendChild(image);
 
       image.onload = () => {
-        gifEncoder.addFrame(image, { delay: GIF_DELAY });
+        gifEncoder.addFrame(image, { delay: delay });
         resolve(true);
       }
       image.onerror = reject;
@@ -89,21 +97,29 @@ export const ShareModal = ({
   const renderGif = useCallback(() => {
     gifEncoder.render();
     // Create a fresh encoder for next share
-    setGifEncoder(createGifEncoder(`Crosswordle-${crosswordleIndex}.gif`));
+    setGifEncoder(createGifEncoder(`Crosswordle-${crosswordleIndex + 1}.gif`));
   }, [gifEncoder, crosswordleIndex, setGifEncoder]);
 
   const createGif = useCallback(async () => {
     const svg = svgRef.current;
     if (!svg) return;
 
+    setCreatingGif(true);
+
     await addSvgFrame(svg);
     for (let i = 0; i < shareHistory.length; i++) {
       setCellColors(shareHistory[i]);
-      await sleep(100)
-      await addSvgFrame(svg);
+      await sleep(GIF_DELAY / 2);
+      // Show the last cell for a longer period of time
+      const delay = i === (shareHistory.length - 1) ? GIF_DELAY * 4 : GIF_DELAY;
+      await addSvgFrame(svg, delay);
     }
     renderGif();
   }, [svgRef, addSvgFrame, renderGif, shareHistory]);
+
+  let title = `Crosswordle - ${crosswordleIndex + 1}`;
+  if (isGameWon) title = 'You Won!';
+  if (isGameLost) title = 'You Lost!';
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
@@ -149,22 +165,43 @@ export const ShareModal = ({
                 />
               </div>
               <div>
-                <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-                  <CheckIcon
-                    className="h-6 w-6 text-green-600"
-                    aria-hidden="true"
-                  />
-                </div>
+                {isGameWon && (
+                  <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                    <CheckIcon
+                      className="h-6 w-6 text-green-600"
+                      aria-hidden="true"
+                    />
+                  </div>
+                )}
+                {isGameLost && (
+                  <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+                    <XIcon
+                      className="h-6 w-6 text-red-600"
+                      aria-hidden="true"
+                    />
+                  </div>
+                )}
                 <div className="mt-3 text-center sm:mt-5">
                   <Dialog.Title
                     as="h3"
                     className="text-lg leading-6 font-medium text-gray-900"
                   >
-                    You won!
+                    {title}
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p>You solved the crosswordle in {totalGuesses} guesses!</p>
-                    <p className="text-sm text-gray-500">Great job.</p>
+                  {isGameWon && (
+                    <>
+                      <p>You solved the crosswordle in {totalGuesses} guesses!</p>
+                      <p className="text-sm text-gray-500">Great job.</p>
+                    </>
+                  )}
+                  {isGameLost && (
+                    <>
+                      <p>You made {totalGuesses} guesses!</p>
+                      <p className="text-sm text-gray-500">Better luck next time!</p>
+                    </>
+                  )}
+                  {!isGameWon && !isGameLost && <p>You have made {totalGuesses} guesses!</p>}
                   </div>
                   <div className="flex justify-center w-full my-5">
                     {gridData && <MiniCrossword gridData={gridData} ref={svgRef} cellColors={cellColors} />}
@@ -174,13 +211,11 @@ export const ShareModal = ({
               <div className="mt-5 sm:mt-6">
                 <button
                   type="button"
-                  className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
-                  onClick={() => {
-                    createGif();
-                    handleShare();
-                  }}
+                  className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 disabled:bg-indigo-200 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                  disabled={creatingGif}
+                  onClick={createGif}
                 >
-                  Share
+                  {creatingGif ? 'Creating GIF' : 'Share'}
                 </button>
               </div>
             </div>

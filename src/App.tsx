@@ -8,71 +8,62 @@ import { InfoModal } from './components/modals/InfoModal';
 import { ShareModal } from './components/modals/ShareModal';
 import { isWordInWordList } from './lib/words';
 import {
+  Guesses,
+  initialStateFromLocalStorage,
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
-  StoredGameState,
+  generateInitialGuessState,
 } from './lib/localStorage';
 import Crossword, { CrosswordImperative } from 'react-crossword-v2';
 import './App.css';
-import { Direction, ClueTypeOriginal, CluesInputOriginal, UsedCellData, GridData } from 'react-crossword-v2/dist/types';
+import { Direction, ClueTypeOriginal, UsedCellData } from 'react-crossword-v2/dist/types';
 import { notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 import { CellColors } from './components/mini-crossword/MiniCrossword';
-import { WORDLE_CORRECT_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
-
-type Guesses = StoredGameState['guesses'];
+import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
 
 const initialClue = crosswordData['across']['1'];
 
-const generateInitialGuessState = (data: CluesInputOriginal[Direction]) => {
-  return Object.keys(data).reduce((guessData, num) => {
-    guessData[num] = [];
-    return guessData;
-  }, {} as Guesses[string])
-};
-
 function App() {
   const crosswordRef = useRef<CrosswordImperative>(null);
-  const [gridData, setGridData] = useState<GridData | null>(null);
   const [knownLetters, setKnownLetters] = useState<(string | undefined)[]>([]);
-  const [resetCrossword, setResetCrossword] = useState(false);
+  const [resetCrossword, setResetCrossword] = useState(() => {
+    const loaded = loadGameStateFromLocalStorage();
+    return !loaded || loaded.crosswordIndex !== crosswordIndex;
+  });
   const [checkGameState, setCheckGameState] = useState(false);
   const [checkKnownLetters, setCheckKnownLetters] = useState(false);
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(initialClue.answer);
-  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(() => {
+    const loaded = loadGameStateFromLocalStorage();
+    if (!loaded || loaded.crosswordIndex !== crosswordIndex) return false;
+    return Boolean(loaded.lostCell) || loaded.isGameWon;
+  });
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false);
-  const [isGameWon, setIsGameWon] = useState(false);
-  const [lostCell, setLostCell] = useState<UsedCellData | null>(null);
+  const [isGameWon, setIsGameWon] = useState<boolean>(
+    initialStateFromLocalStorage<boolean>({ key: 'isGameWon', defaultValue: false, crosswordIndex })
+  );
+  const [lostCell, setLostCell] = useState<UsedCellData | null>(
+    initialStateFromLocalStorage<UsedCellData | null>({ key: 'lostCell', defaultValue: null, crosswordIndex })
+  );
   const [focusedClue, setFocusedClue] = useState<ClueTypeOriginal>(initialClue);
   const [focusedDirection, setFocusedDirection] = useState<Direction>('across');
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
-  const [shareComplete, setShareComplete] = useState(false)
   const [guesses, setGuesses] = useState<Guesses>(
-    () => {
-      const loaded = loadGameStateFromLocalStorage();
-      if (!loaded || loaded.crosswordIndex !== crosswordIndex) {
-        setResetCrossword(true);
-        return {
-          across: generateInitialGuessState(crosswordData.across),
-          down: generateInitialGuessState(crosswordData.down),
-        };
-      }
-      return loaded.guesses;
-    }
+    initialStateFromLocalStorage<Guesses>({
+      key: 'guesses',
+      defaultValue: generateInitialGuessState(crosswordData),
+      crosswordIndex
+    })
   );
   const [shareHistory, setShareHistory] = useState<CellColors[]>(
-    () => {
-      const loaded = loadGameStateFromLocalStorage();
-      if (!loaded || loaded.crosswordIndex !== crosswordIndex) {
-        return [];
-      }
-      return loaded.shareHistory;
-    }
+    initialStateFromLocalStorage<CellColors[]>({ key: 'shareHistory', defaultValue: [], crosswordIndex })
   );
 
+  // When a new crossword is available and the crosswordRef is loaded reset the crossword game state
   useEffect(() => {
     if (resetCrossword && crosswordRef.current) {
       setResetCrossword(false);
@@ -80,10 +71,12 @@ function App() {
     }
   }, [resetCrossword, crosswordRef])
 
+  // When changes occur save to local storage
   useEffect(() => {
-    saveGameStateToLocalStorage({ guesses, crosswordIndex, shareHistory })
-  }, [guesses, shareHistory])
+    saveGameStateToLocalStorage({ guesses, crosswordIndex, shareHistory, isGameWon, lostCell })
+  }, [guesses, shareHistory, isGameWon, lostCell])
 
+  // Key event callbacks
   const onChar = (value: string) => {
     const lastGuess = guesses[focusedDirection][focusedNumber].slice(-1)[0];
     const guessesForWord = guesses[focusedDirection][focusedNumber];
@@ -97,7 +90,8 @@ function App() {
     setCurrentGuess(currentGuess.slice(0, -1));
   }
 
-  const updateShareHistory = (guess: string) => {
+  // Callbacks to keep move history in sync with guesses
+  const updateShareHistory = useCallback((guess: string) => {
     const { row, col, answer } = focusedClue;
     const previousCellColors = shareHistory.slice(-1)[0] || {};
     const newCellColors = { ...previousCellColors };
@@ -120,7 +114,14 @@ function App() {
     });
 
     setShareHistory([...shareHistory, newCellColors, onlyGreenCellColors])
-  };
+  }, [shareHistory, focusedClue, focusedDirection]);
+
+  const updateShareHistoryWithLoss = useCallback((cell: UsedCellData) => {
+    const previousCellColors = shareHistory.slice(-1)[0] || {};
+    const key = `${cell.row}_${cell.col}`;
+
+    setShareHistory([...shareHistory, { ...previousCellColors, [key]: WORDLE_LOSE_COLOR }]);
+  }, [shareHistory])
 
   const addGuess = (guess: string) => {
     const guessesForWord = guesses[focusedDirection][focusedNumber];
@@ -131,22 +132,28 @@ function App() {
         [focusedNumber]: [...guessesForWord, guess]
       }
     });
+    
+    // Add guess to crossword
+    Array.from(currentGuess).forEach((letter, index) => {
+      if (!crosswordRef.current) return;
+      if (currentWord[index] !== letter) return;
+
+      let rowToUpdate = focusedClue.row;
+      let colToUpdate = focusedClue.col;
+
+      if (focusedDirection === 'across') {
+        colToUpdate += index;
+      } else {
+        rowToUpdate += index
+      }
+
+      crosswordRef.current.setGuess(rowToUpdate, colToUpdate, letter);
+    });
+
     updateShareHistory(guess);
   };
 
-  const checkCrosswordCorrect = useCallback(() => {
-    const data = crosswordRef.current?.getData();
-    if (!data || data.gridData.length === 0) return;
-
-    const crosswordCorrect = data.gridData.every((row) => {
-      return row.every((col) => !col.used || col.guess === col.answer);
-    });
-
-    // Used for share
-    if (!gridData) setGridData(data.gridData);
-    setIsGameWon(crosswordCorrect);
-  }, [setIsGameWon, crosswordRef, gridData]);
-
+  // Check for game win or game loss
   const isCellLost = useCallback((cell: UsedCellData) => {
     if (cell.guess === cell.answer) return false;
 
@@ -161,64 +168,56 @@ function App() {
     return false;
   }, [guesses])
 
-  const checkCrosswordLoss = useCallback(() => {
+  const checkWinOrLoss = useCallback(() => {
     const data = crosswordRef.current?.getData();
-    if (!data) return;
+    if (!data || data.gridData.length === 0 || isGameWon || lostCell) return;
 
-    data.gridData.forEach((row) => {
-      row.forEach((cell) => {
-        if (cell.used && isCellLost(cell)) setLostCell(cell);
+    const crosswordCorrect = data.gridData.every((row) => {
+      return row.every((cell) => {
+        if (!cell.used) return true;
+        if (isCellLost(cell)) {
+          setLostCell(cell);
+          updateShareHistoryWithLoss(cell);
+          setIsAboutModalOpen(true);
+          return false;
+        }
+        return cell.guess === cell.answer;
       });
     });
-  }, [crosswordRef, setLostCell, isCellLost]);
+
+    if (crosswordCorrect) {
+      setIsGameWon(true);
+      setIsShareModalOpen(true);
+    }
+  }, [setIsGameWon, crosswordRef, isGameWon, lostCell, isCellLost, updateShareHistoryWithLoss]);
 
   const onEnter = () => {
+    // Alert user if guess is not a word
     if (!isWordInWordList(currentGuess) && currentGuess !== currentWord) {
       setIsWordNotFoundAlertOpen(true)
       return setTimeout(() => {
         setIsWordNotFoundAlertOpen(false)
-      }, 2000)
+      }, 2000);
     }
 
-    const { row, col } = focusedClue;
     const guessesForWord = guesses[focusedDirection][focusedNumber];
 
     if (currentGuess.length === currentWord.length && guessesForWord.length < 6) {
       addGuess(currentGuess)
       setCurrentGuess('');
-      
-      if (focusedClue) {
-        Array.from(currentGuess).forEach((letter, index) => {
-          if (!crosswordRef.current) return;
-          if (currentWord[index] !== letter) return;
-
-          let rowToUpdate = row;
-          let colToUpdate = col;
-
-          if (focusedDirection === 'across') {
-            colToUpdate += index;
-          } else {
-            rowToUpdate += index
-          }
-
-          crosswordRef.current.setGuess(rowToUpdate, colToUpdate, letter);
-        });
-      }
     }
 
-    setTimeout(() => {
-      setCheckKnownLetters(true);
-      setCheckGameState(true);
-    }, 0);
+    setCheckKnownLetters(true);
+    setCheckGameState(true);
   };
 
+  // Effects to update game state after crossword data has been input
   useEffect(() => {
     if (checkGameState) {
       setCheckGameState(false);
-      checkCrosswordCorrect();
-      checkCrosswordLoss();
+      checkWinOrLoss();
     }
-  }, [checkGameState, checkCrosswordCorrect, checkCrosswordLoss]);
+  }, [checkGameState, checkWinOrLoss]);
 
   useEffect(() => {
     if (checkKnownLetters) {
@@ -231,30 +230,23 @@ function App() {
     if (crosswordRef.current) {
       crosswordRef.current.focus();
       crosswordRef.current.moveTo(initialClue.row, initialClue.col, 'across');
-      setCheckGameState(true);
+      setCheckKnownLetters(true);
     }
   }, [crosswordRef])
-
-  useEffect(() => setIsShareModalOpen(isGameWon), [isGameWon]);
 
   const updateKnownLetters = (direction: Direction, wordData: ClueTypeOriginal) => {
     const newKnownLetters = Array.from(wordData.answer).map((_, index) => {
       if (!crosswordRef.current) return undefined;
 
-      let letterRow = wordData.row;
-      let letterCol = wordData.col;
-
-      if (direction === 'across') {
-        letterCol += index;
-      } else {
-        letterRow += index
-      }
+      let letterRow = wordData.row + (direction === 'across' ? 0 : index);
+      let letterCol = wordData.col + (direction === 'across' ? index : 0);
 
       return crosswordRef.current.getCurrentGuess(letterRow, letterCol);
     });
     setKnownLetters(newKnownLetters);
   }
 
+  // When highlighted word on the crossword changes sync state to the crosswordle
   const onMoved = (direction: Direction, row: number, col: number) => {
     if (!crosswordRef.current) return;
 
@@ -272,28 +264,20 @@ function App() {
     }
   }
 
-  let loseMessage = 'You lost! You ran out of guesses on ';
-  const lostClues = []
-  if (lostCell?.across) lostClues.push(`${lostCell.across} Across`);
-  if (lostCell?.down) lostClues.push(`${lostCell.down} Down`);
-  loseMessage += `${lostClues.join(' and ')}. Better luck next time!`;
-
   return (
     <div className='h-screen'>
       <div className="flex w-100 mx-auto items-center border-b-slate-400 border-b-[1px] p-10">
         <h1 className="text-xl grow font-bold">Crosswordle - {crosswordIndex + 1}</h1>
-        {isGameWon && (
-          <PresentationChartBarIcon
-            className="h-6 w-6 mr-5 cursor-pointer"
-            onClick={() => setIsShareModalOpen(true)}
-          />
-        )}
+        <PresentationChartBarIcon
+          className="h-6 w-6 mr-5 cursor-pointer"
+          onClick={() => setIsShareModalOpen(true)}
+        />
         <InformationCircleIcon
           className="h-6 w-6 cursor-pointer"
           onClick={() => setIsInfoModalOpen(true)}
         />
       </div>
-      <div className='flex flex-col md:flex-row lg:flex-row'>
+      <div className='flex flex-col md:flex-row lg:flex-row main'>
         <div className='w-full flex justify-center items-center border-slate-400 border-b p-10 md:w-1/2 md:border-b-[0px] md:border-r'>
           <div className='max-w-[500px] w-full h-full flex items-center'>
             <Crossword
@@ -306,15 +290,6 @@ function App() {
         <div className='w-full flex justify-center items-center md:w-1/2'>
           <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
-            <Alert
-              message={loseMessage}
-              isOpen={Boolean(lostCell)}
-            />
-            <Alert
-              message="Crossworldle Gif downloaded share it with your friends!"
-              isOpen={shareComplete}
-              variant="success"
-            />
             <Grid guesses={guesses[focusedDirection][focusedNumber] || []} currentGuess={currentGuess} knownLetters={knownLetters} solution={currentWord}/>
             <Keyboard
               solution={currentWord}
@@ -330,17 +305,13 @@ function App() {
       <div className="flex w-100 mx-auto items-center border-t-slate-400 border-t-[1px] p-10">
         <ShareModal
           isOpen={isShareModalOpen}
+          isGameWon={isGameWon}
+          isGameLost={Boolean(lostCell)}
           handleClose={() => setIsShareModalOpen(false)}
           guesses={guesses}
           getGridData={() => crosswordRef.current?.getData()?.gridData}
           crosswordleIndex={crosswordIndex}
           shareHistory={shareHistory}
-          handleShare={() => {
-            setShareComplete(true)
-            return setTimeout(() => {
-              setShareComplete(false)
-            }, 2000)
-          }}
         />
         <InfoModal
           isOpen={isInfoModalOpen}
@@ -362,4 +333,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
