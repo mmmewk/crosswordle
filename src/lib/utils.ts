@@ -13,7 +13,7 @@ export function getPuzzleOfTheDay() {
   const msInDay = 86400000
   let index = Math.floor((now - epochMs) / msInDay);
   index = Math.min(index, crosswords.length - 1);
-
+  index=6
   return {
     crossword: crosswords[index],
     crosswordIndex: index,
@@ -21,3 +21,7 @@ export function getPuzzleOfTheDay() {
 };
 
 export const { crossword, crosswordIndex } = getPuzzleOfTheDay();
+
+export function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}

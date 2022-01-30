@@ -1,3 +1,5 @@
+import { CellColors } from "../components/mini-crossword/MiniCrossword";
+
 const gameStateKey = 'gameState';
 
 export type StoredGameState = {
@@ -7,6 +9,7 @@ export type StoredGameState = {
       [number: string]: string[];
     };
   };
+  shareHistory: CellColors[];
 }
 
 export const saveGameStateToLocalStorage = (gameState: StoredGameState) => {
