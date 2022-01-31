@@ -8,16 +8,17 @@ import { ShareIcon } from '@heroicons/react/outline';
 import { XIcon } from '@heroicons/react/outline';
 import { StoredGameState } from '../../lib/localStorage';
 import { GridData } from 'react-crossword-v2/dist/types';
-import { MiniCrossword, CellColors } from '../mini-crossword/MiniCrossword';
+import { MiniCrossword, CellColors, SVG_WIDTH, SVG_HEADER_SIZE } from '../mini-crossword/MiniCrossword';
 import { sleep, timeTillTomorrow } from '../../lib/utils';
 
-const GIF_SIZE = 250;
 const GIF_DELAY = 250;
+const GIF_WIDTH = 200;
+const GIF_HEIGHT = GIF_WIDTH * ((SVG_WIDTH + SVG_HEADER_SIZE) / SVG_WIDTH);
 
 const createGifEncoder = (filename: string, onFinish?: () => void) => {
   const gifEncoder = new Gif({
-    width: GIF_SIZE,
-    height: GIF_SIZE,
+    width: GIF_WIDTH,
+    height: GIF_HEIGHT,
     workers: 2,
     quality: 1,
     repeat: 0,
@@ -82,18 +83,11 @@ export const ShareModal = ({
 
   const addSvgFrame = useCallback((svg: SVGSVGElement, delay: number = 0) => {
     return new Promise(async (resolve, reject) => {
-      svg.setAttribute('width', GIF_SIZE.toString());
-      svg.setAttribute('height', GIF_SIZE.toString());
-
       const base64 = window.btoa(new XMLSerializer().serializeToString(svg));
 
-      svg.setAttribute('width', '200');
-      svg.setAttribute('height', '200');
-
       const image = new Image();
-      image.width = GIF_SIZE;
-      image.height = GIF_SIZE;
-      document.body.appendChild(image);
+      image.width = GIF_WIDTH;
+      image.height = GIF_HEIGHT;
 
       image.onload = () => {
         gifEncoder.addFrame(image, { delay: delay });
@@ -121,13 +115,13 @@ export const ShareModal = ({
       setCellColors(shareHistory[i]);
       await sleep(GIF_DELAY / 2);
       // Show the last cell for a longer period of time
-      const delay = i === (shareHistory.length - 1) ? GIF_DELAY * 8 : GIF_DELAY;
+      const delay = i === (shareHistory.length - 1) ? GIF_DELAY * 5 : GIF_DELAY;
       await addSvgFrame(svg, delay);
     }
     renderGif();
   }, [svgRef, addSvgFrame, renderGif, shareHistory]);
 
-  let title = `Crosswordle - ${crosswordleIndex + 1}`;
+  let title = `Crosswordle #${crosswordleIndex + 1}`;
   if (isGameWon) title = 'You Won!';
   if (isGameLost) title = 'You Lost!';
 
@@ -211,20 +205,20 @@ export const ShareModal = ({
                       <p className="text-sm text-gray-500">Better luck next time!</p>
                     </>
                   )}
-                  {!isGameWon && !isGameLost && <p>You have made {totalGuesses} guesses!</p>}
+                  {!isGameWon && !isGameLost && totalGuesses > 0 && <p>You have made {totalGuesses} guesses!</p>}
                   </div>
-                  <div className="flex justify-center w-full my-5">
-                    {gridData && <MiniCrossword gridData={gridData} ref={svgRef} cellColors={cellColors} />}
+                  <div className="flex justify-center items-end w-full overflow-y-hidden" style={{ height: SVG_WIDTH }}>
+                    {gridData && <MiniCrossword gridData={gridData} ref={svgRef} cellColors={cellColors} totalGuesses={totalGuesses} />}
                   </div>
                 </div>
               </div>
               <div className="mt-5 sm:mt-6">
-                <div className='flex justify-center align-center text-center'>
-                  <div className='w-1/2 border-r-slate-400 border-r-[1px] mr-2 flex-col justify-center align-center text-center'>
+                <div className='flex justify-center items-center text-center'>
+                  <div className='w-1/2 border-r-slate-400 border-r-[1px] mr-2 flex-col justify-center items-center text-center'>
                     <p>Next Crosswordle</p>
                     <p className='text-xl'>{timeTillNext}</p>
                   </div>
-                  <div className='w-1/2 ml-2 flex justify-center align-center text-center'>
+                  <div className='w-1/2 ml-2 flex justify-center items-center text-center'>
                     <button
                       type="button"
                       className="inline-flex justify-center w-full h-10 my-auto rounded-md border border-transparent shadow-sm px-4 py-2 disabled:bg-indigo-200 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"

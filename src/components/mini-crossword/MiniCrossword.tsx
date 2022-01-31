@@ -1,26 +1,34 @@
 import React from "react";
 import { CellData, GridData } from "react-crossword-v2/dist/types"
+import { crosswordIndex } from "../../lib/utils";
 
 export type CellColors = { [position: string]: string };
+
+export const SVG_WIDTH = 200;
+export const SVG_HEADER_SIZE = 30;
 
 type Props = {
   gridData: GridData;
   cellColors?: CellColors;
+  totalGuesses: number;
 }
 
-export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData, cellColors = {} }, ref) => {
-  const svgSize = 200;
-  const margin = 10;
-  const crosswordSize = svgSize - 2 * margin;
+export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData, cellColors = {}, totalGuesses }, ref) => {
+  const svgHeight = SVG_WIDTH + SVG_HEADER_SIZE;
+  const margin = 20;
+  const crosswordSize = SVG_WIDTH - 2 * margin;
   const gridSize = gridData.length;
   const squareSize = crosswordSize / gridSize;
   const borderSize = 0.125;
   const numberOffset = 0.5;
 
   return (
-    <svg viewBox={`0 0 ${svgSize} ${svgSize}`} width={svgSize} height={svgSize} ref={ref}>
-      <rect x={0} y={0} width={svgSize} height={svgSize} fill="white" />
-      <rect x={margin} y={margin} width={crosswordSize} height={crosswordSize} fill="black" />
+    <svg viewBox={`0 0 ${SVG_WIDTH} ${svgHeight}`} width={SVG_WIDTH} height={svgHeight} ref={ref}>
+      <rect x={0} y={0} width={SVG_WIDTH} height={svgHeight} fill="white" />
+      <text x={SVG_WIDTH / 2} y={SVG_HEADER_SIZE / 2} textAnchor="middle" dominantBaseline='hanging' fontSize={14}>
+        Crosswordle #{crosswordIndex + 1} - {totalGuesses} guesses
+      </text>
+      <rect x={margin} y={margin + SVG_HEADER_SIZE} width={crosswordSize} height={crosswordSize} fill="black" />
       {gridData.flat().map((cell: CellData) => {
         if (!cell.used) return null;
         const key = `${cell.row}_${cell.col}`;
@@ -29,7 +37,7 @@ export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData,
           <g key={key}>
             <rect
               x={cell.col * squareSize + borderSize + margin}
-              y={cell.row * squareSize + borderSize + margin}
+              y={cell.row * squareSize + borderSize + margin + SVG_HEADER_SIZE}
               width={squareSize - 2 * borderSize}
               height={squareSize - 2 * borderSize}
               fill={cellColors[key] || 'white'}
@@ -39,7 +47,7 @@ export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData,
             {cell.number && (
               <text
                 x={cell.col * squareSize + numberOffset + margin}
-                y={cell.row * squareSize + numberOffset + margin}
+                y={cell.row * squareSize + numberOffset + margin + SVG_HEADER_SIZE}
                 textAnchor="start"
                 dominantBaseline="hanging"
                 style={{ fontSize: '50%', fill: 'rgba(0, 0, 0, 0.25)'}}
