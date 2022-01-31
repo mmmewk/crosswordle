@@ -677,6 +677,140 @@ const crosswords: CluesInputOriginal[] = [
       },
     }
   },
+  // 11
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'SKEW',
+        row: 0,
+        col: 1,
+      },
+      '5': {
+        clue: '',
+        answer: 'ATONE',
+        row: 1,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'IRATE',
+        row: 2,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'ROLE',
+        row: 3,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'SPAR',
+        row: 4,
+        col: 0,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'STROP',
+        row: 0,
+        col: 1,
+      },
+      '2': {
+        clue: '',
+        answer: 'KOALA',
+        row: 0,
+        col: 2,
+      },
+      '3': {
+        clue: '',
+        answer: 'ENTER',
+        row: 0,
+        col: 3,
+      },
+      '4': {
+        clue: '',
+        answer: 'WEE',
+        row: 0,
+        col: 4,
+      },
+      '5': {
+        clue: '',
+        answer: 'AIRS',
+        row: 1,
+        col: 0,
+      },
+    }
+  },
+  // 12
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'GO',
+        row: 0,
+        col: 2,
+      },
+      '3': {
+        clue: '',
+        answer: 'CRAB',
+        row: 1,
+        col: 1,
+      },
+      '5': {
+        clue: '',
+        answer: 'SHIRE',
+        row: 2,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'OATS',
+        row: 3,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'IS',
+        row: 4,
+        col: 1,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'GRITS',
+        row: 0,
+        col: 2,
+      },
+      '2': {
+        clue: '',
+        answer: 'OARS',
+        row: 0,
+        col: 3,
+      },
+      '3': {
+        clue: '',
+        answer: 'CHAI',
+        row: 1,
+        col: 1,
+      },
+      '4': {
+        clue: '',
+        answer: 'BE',
+        row: 1,
+        col: 4,
+      },
+      '5': {
+        clue: '',
+        answer: 'SO',
+        row: 2,
+        col: 0,
+      },
+    }
+  },
 ];
 
 export default crosswords;
