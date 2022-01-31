@@ -749,6 +749,49 @@ const crosswords: CluesInputOriginal[] = [
     across: {
       '1': {
         clue: '',
+        answer: 'AFROS',
+        row: 0,
+        col: 0,
+      },
+      '4': {
+        clue: '',
+        answer: 'HOUSE',
+        row: 2,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'REEFS',
+        row: 4,
+        col: 0,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'ABHOR',
+        row: 0,
+        col: 0,
+      },
+      '2': {
+        clue: '',
+        answer: 'ROUSE',
+        row: 0,
+        col: 2,
+      },
+      '3': {
+        clue: '',
+        answer: 'SHEDS',
+        row: 0,
+        col: 4,
+      },
+    }
+  },
+  // 13
+  {
+    across: {
+      '1': {
+        clue: '',
         answer: 'GO',
         row: 0,
         col: 2,
