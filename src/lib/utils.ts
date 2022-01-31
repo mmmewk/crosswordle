@@ -1,4 +1,5 @@
 import crosswords from "../constants/crosswords";
+import padStart from 'lodash/padStart';
 
 export function notEmpty<TValue>(
   value: TValue | null | undefined,
@@ -13,7 +14,7 @@ export function getPuzzleOfTheDay() {
   const msInDay = 86400000
   let index = Math.floor((now - epochMs) / msInDay);
   index = Math.min(index, crosswords.length - 1);
-  index = 2;
+
   return {
     crossword: crosswords[index],
     crosswordIndex: index,
@@ -25,3 +26,13 @@ export const { crossword, crosswordIndex } = getPuzzleOfTheDay();
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+const padTime = (time: number) => padStart(time.toString(), 2, '0');
+
+export function timeTillTomorrow() {
+  const now = new Date();
+  const hours = 23 - now.getHours();
+  const minutes = 59 - now.getMinutes();
+  const seconds = 59 - now.getSeconds();
+  return `${padTime(hours)}:${padTime(minutes)}:${padTime(seconds)}`;
+};

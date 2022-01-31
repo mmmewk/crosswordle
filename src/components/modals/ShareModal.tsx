@@ -1,14 +1,15 @@
 import Gif from 'gif.js';
 import { saveAs } from 'file-saver';
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/outline'
-import { XCircleIcon } from '@heroicons/react/outline'
-import { XIcon } from '@heroicons/react/outline'
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import { CheckIcon } from '@heroicons/react/outline';
+import { XCircleIcon } from '@heroicons/react/outline';
+import { ShareIcon } from '@heroicons/react/outline';
+import { XIcon } from '@heroicons/react/outline';
 import { StoredGameState } from '../../lib/localStorage';
 import { GridData } from 'react-crossword-v2/dist/types';
 import { MiniCrossword, CellColors } from '../mini-crossword/MiniCrossword';
-import { sleep } from '../../lib/utils';
+import { sleep, timeTillTomorrow } from '../../lib/utils';
 
 const GIF_SIZE = 250;
 const GIF_DELAY = 300;
@@ -53,6 +54,7 @@ export const ShareModal = ({
   getGridData,
   crosswordleIndex,
 }: Props) => {
+  const [timeTillNext, setTimeTillNext] = useState(timeTillTomorrow);
   const [creatingGif, setCreatingGif] = useState<boolean>(false);
   const [gifEncoder, setGifEncoder] = useState<Gif>(createGifEncoder(`Crosswordle-${crosswordleIndex + 1}.gif`, () => setCreatingGif(false)));
   const [gridData, setGridData] = useState<GridData>();
@@ -61,6 +63,14 @@ export const ShareModal = ({
   const acrossGuesses = Object.values(guesses['across']).flat().length;
   const downGuesses = Object.values(guesses['down']).flat().length;
   const totalGuesses = acrossGuesses + downGuesses;
+
+  // Update time till next crosswordle every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeTillNext(timeTillTomorrow);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -209,14 +219,27 @@ export const ShareModal = ({
                 </div>
               </div>
               <div className="mt-5 sm:mt-6">
-                <button
-                  type="button"
-                  className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 disabled:bg-indigo-200 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
-                  disabled={creatingGif}
-                  onClick={createGif}
-                >
-                  {creatingGif ? 'Creating GIF' : 'Share'}
-                </button>
+                <div className='flex justify-center align-center text-center'>
+                  <div className='w-1/2 border-r-slate-400 border-r-[1px] mr-2 flex-col justify-center align-center text-center'>
+                    <p>Next Crosswordle</p>
+                    <p className='text-xl'>{timeTillNext}</p>
+                  </div>
+                  <div className='w-1/2 ml-2 flex justify-center align-center text-center'>
+                    <button
+                      type="button"
+                      className="inline-flex justify-center w-full h-10 my-auto rounded-md border border-transparent shadow-sm px-4 py-2 disabled:bg-indigo-200 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                      disabled={creatingGif}
+                      onClick={createGif}
+                    >
+                      {creatingGif ? 'Creating GIF' : (
+                        <>
+                          <span className="mr-2">Share</span>
+                          <ShareIcon width={20} height={20}/>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </Transition.Child>
