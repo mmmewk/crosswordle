@@ -536,7 +536,147 @@ const crosswords: CluesInputOriginal[] = [
         col: 4,
       }
     },
-  }
+  },
+  // 9
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'HARSH',
+        row: 0,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'ABATE',
+        row: 1,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'ROTOR',
+        row: 2,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'TV',
+        row: 3,
+        col: 0,
+      },
+      '9': {
+        clue: '',
+        answer: 'NO',
+        row: 3,
+        col: 3,
+      },
+      '10': {
+        clue: '',
+        answer: 'SEVEN',
+        row: 4,
+        col: 0,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'HARTS',
+        row: 0,
+        col: 0,
+      },
+      '2': {
+        clue: '',
+        answer: 'ABOVE',
+        row: 0,
+        col: 1,
+      },
+      '3': {
+        clue: '',
+        answer: 'RAT',
+        row: 0,
+        col: 2,
+      },
+      '4': {
+        clue: '',
+        answer: 'STONE',
+        row: 0,
+        col: 3,
+      },
+      '5': {
+        clue: '',
+        answer: 'HERON',
+        row: 0,
+        col: 4,
+      },
+    }
+  },
+  // 10
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'ORCA',
+        row: 0,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'DEAL',
+        row: 1,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'DENIM',
+        row: 2,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'LAVA',
+        row: 3,
+        col: 1,
+      },
+      '9': {
+        clue: '',
+        answer: 'SLEW',
+        row: 4,
+        col: 1,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'ODD',
+        row: 0,
+        col: 0,
+      },
+      '2': {
+        clue: '',
+        answer: 'REELS',
+        row: 0,
+        col: 1,
+      },
+      '3': {
+        clue: '',
+        answer: 'CANAL',
+        row: 0,
+        col: 2,
+      },
+      '4': {
+        clue: '',
+        answer: 'ALIVE',
+        row: 0,
+        col: 3,
+      },
+      '7': {
+        clue: '',
+        answer: 'MAW',
+        row: 2,
+        col: 4,
+      },
+    }
+  },
 ];
 
 export default crosswords;
