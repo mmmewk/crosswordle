@@ -79,6 +79,14 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
                         rel="noreferrer"
                       >
                         play the daily crossword mini here
+                      </a>. Crosswords are created using{' '}
+                      <a
+                        href="https://crosshare.org/"
+                        className="underline font-bold"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Crosshare.org
                       </a>
                     </p>
                   </div>
