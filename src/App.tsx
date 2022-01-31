@@ -94,8 +94,10 @@ function App() {
   const updateShareHistory = useCallback((guess: string) => {
     const { row, col, answer } = focusedClue;
     const previousCellColors = shareHistory.slice(-1)[0] || {};
-    const newCellColors = { ...previousCellColors };
-    const onlyGreenCellColors = { ...previousCellColors };
+    const newCellColors = Object.keys(previousCellColors).reduce((cellColors, key) => {
+      if (previousCellColors[key] === WORDLE_CORRECT_COLOR) cellColors[key] = previousCellColors[key];
+      return cellColors;
+    }, {} as CellColors)
 
     guess.split('').forEach((letter, index) => {
       const newRow = row + (focusedDirection === 'across' ? 0 : index);
@@ -105,7 +107,6 @@ function App() {
 
       if (letter === answer[index]) {
         newCellColors[`${newRow}_${newCol}`] = WORDLE_CORRECT_COLOR;
-        onlyGreenCellColors[`${newRow}_${newCol}`] = WORDLE_CORRECT_COLOR;
       } else if (answer.includes(letter)) {
         newCellColors[`${newRow}_${newCol}`] = WORDLE_MISPLACED_COLOR;
       } else {
@@ -113,7 +114,7 @@ function App() {
       }
     });
 
-    setShareHistory([...shareHistory, newCellColors, onlyGreenCellColors])
+    setShareHistory([...shareHistory, newCellColors])
   }, [shareHistory, focusedClue, focusedDirection]);
 
   const updateShareHistoryWithLoss = useCallback((cell: UsedCellData) => {

@@ -12,7 +12,7 @@ import { MiniCrossword, CellColors } from '../mini-crossword/MiniCrossword';
 import { sleep, timeTillTomorrow } from '../../lib/utils';
 
 const GIF_SIZE = 250;
-const GIF_DELAY = 300;
+const GIF_DELAY = 250;
 
 const createGifEncoder = (filename: string, onFinish?: () => void) => {
   const gifEncoder = new Gif({
@@ -87,8 +87,8 @@ export const ShareModal = ({
 
       const base64 = window.btoa(new XMLSerializer().serializeToString(svg));
 
-      svg.setAttribute('width', '100');
-      svg.setAttribute('height', '100');
+      svg.setAttribute('width', '200');
+      svg.setAttribute('height', '200');
 
       const image = new Image();
       image.width = GIF_SIZE;
@@ -107,7 +107,7 @@ export const ShareModal = ({
   const renderGif = useCallback(() => {
     gifEncoder.render();
     // Create a fresh encoder for next share
-    setGifEncoder(createGifEncoder(`Crosswordle-${crosswordleIndex + 1}.gif`));
+    setGifEncoder(createGifEncoder(`Crosswordle-${crosswordleIndex + 1}.gif`, () => setCreatingGif(false)));
   }, [gifEncoder, crosswordleIndex, setGifEncoder]);
 
   const createGif = useCallback(async () => {
@@ -121,7 +121,7 @@ export const ShareModal = ({
       setCellColors(shareHistory[i]);
       await sleep(GIF_DELAY / 2);
       // Show the last cell for a longer period of time
-      const delay = i === (shareHistory.length - 1) ? GIF_DELAY * 4 : GIF_DELAY;
+      const delay = i === (shareHistory.length - 1) ? GIF_DELAY * 8 : GIF_DELAY;
       await addSvgFrame(svg, delay);
     }
     renderGif();

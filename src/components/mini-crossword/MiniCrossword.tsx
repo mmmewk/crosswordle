@@ -9,13 +9,18 @@ type Props = {
 }
 
 export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData, cellColors = {} }, ref) => {
-  const squareSize = 20;
+  const svgSize = 200;
+  const margin = 10;
+  const crosswordSize = svgSize - 2 * margin;
+  const gridSize = gridData.length;
+  const squareSize = crosswordSize / gridSize;
   const borderSize = 0.125;
   const numberOffset = 0.5;
 
   return (
-    <svg viewBox="0 0 100 100" width={100} height={100} ref={ref}>
-      <rect x={0} y={0} width={100} height={100} fill="black" />
+    <svg viewBox={`0 0 ${svgSize} ${svgSize}`} width={svgSize} height={svgSize} ref={ref}>
+      <rect x={0} y={0} width={svgSize} height={svgSize} fill="white" />
+      <rect x={margin} y={margin} width={crosswordSize} height={crosswordSize} fill="black" />
       {gridData.flat().map((cell: CellData) => {
         if (!cell.used) return null;
         const key = `${cell.row}_${cell.col}`;
@@ -23,8 +28,8 @@ export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData,
         return (
           <g key={key}>
             <rect
-              x={cell.col * squareSize + borderSize}
-              y={cell.row * squareSize + borderSize}
+              x={cell.col * squareSize + borderSize + margin}
+              y={cell.row * squareSize + borderSize + margin}
               width={squareSize - 2 * borderSize}
               height={squareSize - 2 * borderSize}
               fill={cellColors[key] || 'white'}
@@ -33,8 +38,8 @@ export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData,
             />
             {cell.number && (
               <text
-                x={cell.col * squareSize + numberOffset}
-                y={cell.row * squareSize + numberOffset}
+                x={cell.col * squareSize + numberOffset + margin}
+                y={cell.row * squareSize + numberOffset + margin}
                 textAnchor="start"
                 dominantBaseline="hanging"
                 style={{ fontSize: '50%', fill: 'rgba(0, 0, 0, 0.25)'}}
