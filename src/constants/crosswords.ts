@@ -921,6 +921,73 @@ const crosswords: CluesInputOriginal[] = [
       },
     }
   },
+  // 15
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'GHOST',
+        row: 0,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'YEAH',
+        row: 1,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'KEG',
+        row: 2,
+        col: 2,
+      },
+      '8': {
+        clue: '',
+        answer: 'ODE',
+        row: 3,
+        col: 0,
+      },
+      '10': {
+        clue: '',
+        answer: 'SON',
+        row: 4,
+        col: 0,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'GYROS',
+        row: 0,
+        col: 0,
+      },
+      '2': {
+        clue: '',
+        answer: 'HE',
+        row: 0,
+        col: 1,
+      },
+      '3': {
+        clue: '',
+        answer: 'OAKEN',
+        row: 0,
+        col: 2,
+      },
+      '4': {
+        clue: '',
+        answer: 'SHE',
+        row: 0,
+        col: 3,
+      },
+      '7': {
+        clue: '',
+        answer: 'GUT',
+        row: 2,
+        col: 4,
+      },
+    }
+  },
 ];
 
 export default crosswords;
