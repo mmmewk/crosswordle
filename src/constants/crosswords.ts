@@ -986,6 +986,12 @@ const crosswords: CluesInputOriginal[] = [
         row: 2,
         col: 4,
       },
+      '9': {
+        clue: '',
+        answer: 'DO',
+        row: 3,
+        col: 1,
+      }
     }
   },
 ];
