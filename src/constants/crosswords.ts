@@ -854,6 +854,73 @@ const crosswords: CluesInputOriginal[] = [
       },
     }
   },
+  // 14
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'MISS',
+        row: 0,
+        col: 1,
+      },
+      '4': {
+        clue: '',
+        answer: 'TAG',
+        row: 1,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'OIL',
+        row: 2,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'PLOT',
+        row: 3,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'SOON',
+        row: 4,
+        col: 1,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'MAILS',
+        row: 0,
+        col: 1,
+      },
+      '2': {
+        clue: '',
+        answer: 'IGLOO',
+        row: 0,
+        col: 2,
+      },
+      '3': {
+        clue: '',
+        answer: 'SPY',
+        row: 0,
+        col: 4,
+      },
+      '4': {
+        clue: '',
+        answer: 'TOP',
+        row: 1,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'TO',
+        row: 3,
+        col: 3,
+      },
+    }
+  },
 ];
 
 export default crosswords;
