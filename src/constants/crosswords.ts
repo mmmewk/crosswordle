@@ -1061,6 +1061,67 @@ const crosswords: CluesInputOriginal[] = [
       }
     }
   },
+  // 17
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'BID',
+        row: 0,
+        col: 1,
+      },
+      '4': {
+        clue: '',
+        answer: 'CORED',
+        row: 1,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'ANIME',
+        row: 2,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'PESOS',
+        row: 3,
+        col: 0,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'BONE',
+        row: 0,
+        col: 1,
+      },
+      '2': {
+        clue: '',
+        answer: 'IRISH',
+        row: 0,
+        col: 2,
+      },
+      '3': {
+        clue: '',
+        answer: 'DEMO',
+        row: 0,
+        col: 3,
+      },
+      '4': {
+        clue: '',
+        answer: 'CAPE',
+        row: 1,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'DESK',
+        row: 1,
+        col: 4,
+      },
+    }
+  },
 ];
 
 export default crosswords;
