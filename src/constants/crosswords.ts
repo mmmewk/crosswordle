@@ -994,6 +994,73 @@ const crosswords: CluesInputOriginal[] = [
       }
     }
   },
+  // 16
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'UNZIP',
+        row: 0,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'POET',
+        row: 1,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'EERIE',
+        row: 3,
+        col: 0,
+      },
+      '9': {
+        clue: '',
+        answer: 'ANT',
+        row: 4,
+        col: 2,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'UPPER',
+        row: 0,
+        col: 0,
+      },
+      '2': {
+        clue: '',
+        answer: 'NO',
+        row: 0,
+        col: 1,
+      },
+      '3': {
+        clue: '',
+        answer: 'ZEBRA',
+        row: 0,
+        col: 2,
+      },
+      '4': {
+        clue: '',
+        answer: 'IT',
+        row: 0,
+        col: 3,
+      },
+      '6': {
+        clue: '',
+        answer: 'LET',
+        row: 2,
+        col: 4,
+      },
+      '8': {
+        clue: '',
+        answer: 'IN',
+        row: 3,
+        col: 3,
+      }
+    }
+  },
 ];
 
 export default crosswords;
