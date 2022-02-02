@@ -1,10 +1,10 @@
-import { InformationCircleIcon, PresentationChartBarIcon } from '@heroicons/react/outline';
+import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon } from '@heroicons/react/outline';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert } from './components/alerts/Alert';
 import { Grid } from './components/grid/Grid';
 import { Keyboard } from './components/keyboard/Keyboard';
 import { AboutModal } from './components/modals/AboutModal';
-import { InfoModal } from './components/modals/InfoModal';
+import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
 import { isWordInWordList } from './lib/words';
 import {
@@ -40,7 +40,7 @@ function App() {
     if (!loaded || loaded.crosswordIndex !== crosswordIndex) return false;
     return Boolean(loaded.lostCell) || loaded.isGameWon;
   });
-  const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
+  const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false);
   const [isGameWon, setIsGameWon] = useState<boolean>(
@@ -266,20 +266,42 @@ function App() {
   }
 
   return (
-    <div className='h-screen'>
-      <div className="flex w-100 mx-auto items-center border-b-slate-400 border-b-[1px] p-10">
+    <div className='flex flex-col h-screen'>
+      <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 md:p-6">
         <h1 className="text-xl grow font-bold">Crosswordle - {crosswordIndex + 1}</h1>
         <PresentationChartBarIcon
           className="h-6 w-6 mr-5 cursor-pointer"
           onClick={() => setIsShareModalOpen(true)}
         />
+        <ShareModal
+          isOpen={isShareModalOpen}
+          isGameWon={isGameWon}
+          isGameLost={Boolean(lostCell)}
+          handleClose={() => setIsShareModalOpen(false)}
+          guesses={guesses}
+          getGridData={() => crosswordRef.current?.getData()?.gridData}
+          crosswordleIndex={crosswordIndex}
+          shareHistory={shareHistory}
+        />
         <InformationCircleIcon
+          className="h-6 w-6 mr-5 cursor-pointer  md:hidden lg:hidden"
+          onClick={() => setIsAboutModalOpen(true)}
+        />
+        <AboutModal
+          isOpen={isAboutModalOpen}
+          handleClose={() => setIsAboutModalOpen(false)}
+        />
+        <QuestionMarkCircleIcon
           className="h-6 w-6 cursor-pointer"
-          onClick={() => setIsInfoModalOpen(true)}
+          onClick={() => setIsHelpModalOpen(true)}
+        />
+        <HelpModal
+          isOpen={isHelpModalOpen}
+          handleClose={() => setIsHelpModalOpen(false)}
         />
       </div>
-      <div className='flex flex-col md:flex-row lg:flex-row main'>
-        <div className='w-full flex justify-center items-center border-slate-400 border-b p-10 md:w-1/2 md:border-b-[0px] md:border-r'>
+      <div className='flex flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row flex-1'>
+        <div className='w-full flex justify-center items-center border-slate-400 border-b p-4 md:p-6 md:w-1/2 md:border-b-[0px] md:border-r'>
           <div className='max-w-[500px] w-full h-full flex items-center'>
             <Crossword
               ref={crosswordRef}
@@ -303,25 +325,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex w-100 mx-auto items-center border-t-slate-400 border-t-[1px] p-10">
-        <ShareModal
-          isOpen={isShareModalOpen}
-          isGameWon={isGameWon}
-          isGameLost={Boolean(lostCell)}
-          handleClose={() => setIsShareModalOpen(false)}
-          guesses={guesses}
-          getGridData={() => crosswordRef.current?.getData()?.gridData}
-          crosswordleIndex={crosswordIndex}
-          shareHistory={shareHistory}
-        />
-        <InfoModal
-          isOpen={isInfoModalOpen}
-          handleClose={() => setIsInfoModalOpen(false)}
-        />
-        <AboutModal
-          isOpen={isAboutModalOpen}
-          handleClose={() => setIsAboutModalOpen(false)}
-        />
+      <div className="flex w-screen mx-auto items-center border-t-slate-400 border-t-[1px] p-4 md:p-6 hidden md:block lg:block">
         <button
           type="button"
           className="mx-auto flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

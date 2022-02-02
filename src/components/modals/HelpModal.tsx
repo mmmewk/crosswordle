@@ -8,7 +8,7 @@ type Props = {
   handleClose: () => void
 }
 
-export const InfoModal = ({ isOpen, handleClose }: Props) => {
+export const HelpModal = ({ isOpen, handleClose }: Props) => {
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
