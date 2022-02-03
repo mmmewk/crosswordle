@@ -1368,6 +1368,39 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@react-hook/debounce@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@react-hook/debounce/-/debounce-3.0.0.tgz#9eea8b5d81d4cb67cd72dd8657b3ff724afc7cad"
+  integrity sha512-ir/kPrSfAzY12Gre0sOHkZ2rkEmM4fS5M5zFxCi4BnCeXh2nvx9Ujd+U4IGpKCuPA+EQD0pg1eK2NGLvfWejag==
+  dependencies:
+    "@react-hook/latest" "^1.0.2"
+
+"@react-hook/event@^1.2.1":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@react-hook/event/-/event-1.2.6.tgz#52f91578add934acc1203328ca09ab14fc7ee58e"
+  integrity sha512-JUL5IluaOdn5w5Afpe/puPa1rj8X6udMlQ9dt4hvMuKmTrBS1Ya6sb4sVgvfe2eU4yDuOfAhik8xhbcCekbg9Q==
+
+"@react-hook/latest@^1.0.2":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@react-hook/latest/-/latest-1.0.3.tgz#c2d1d0b0af8b69ec6e2b3a2412ba0768ac82db80"
+  integrity sha512-dy6duzl+JnAZcDbNTfmaP3xHiKtbXYOaz3G51MGVljh548Y8MWzTr+PHLOfvpypEVW9zwvl+VyKjbWKEVbV1Rg==
+
+"@react-hook/throttle@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@react-hook/throttle/-/throttle-2.2.0.tgz#d0402714a06e1ba0bc1da1fdf5c3c5cd0e08d45a"
+  integrity sha512-LJ5eg+yMV8lXtqK3lR+OtOZ2WH/EfWvuiEEu0M3bhR7dZRfTyEJKxH1oK9uyBxiXPtWXiQggWbZirMCXam51tg==
+  dependencies:
+    "@react-hook/latest" "^1.0.2"
+
+"@react-hook/window-size@^3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@react-hook/window-size/-/window-size-3.0.7.tgz#00d176e7a8eb55814e161eae34aae20afbcbe35d"
+  integrity sha512-bK5ed/jN+cxy0s1jt2CelCnUt7jZRseUvPQ22ZJkUl/QDOsD+7CA/6wcqC3c0QweM/fPBRP6uI56TJ48SnlVww==
+  dependencies:
+    "@react-hook/debounce" "^3.0.0"
+    "@react-hook/event" "^1.2.1"
+    "@react-hook/throttle" "^2.2.0"
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.0.tgz#9cb1c5146ddd6a4968ad96f209c50c62f92f9879"
@@ -1875,6 +1908,11 @@
   dependencies:
     "@types/mime" "^1"
     "@types/node" "*"
+
+"@types/smoothscroll-polyfill@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@types/smoothscroll-polyfill/-/smoothscroll-polyfill-0.3.1.tgz#77fb3a6e116bdab4a5959122e3b8e201224dcd49"
+  integrity sha512-+KkHw4y+EyeCtVXET7woHUhIbfWFCflc0E0mZnSV+ZdjPQeHt/9KPEuT7gSW/kFQ8O3EG30PLO++YhChDt8+Ag==
 
 "@types/sockjs@^0.3.33":
   version "0.3.33"
@@ -4256,6 +4294,11 @@ flatted@^3.1.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.4.tgz#28d9969ea90661b5134259f312ab6aa7929ac5e2"
   integrity sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==
+
+focus-options-polyfill@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/focus-options-polyfill/-/focus-options-polyfill-1.6.0.tgz#12ef3081dae9801d32dfcffd7b69259ca8f57198"
+  integrity sha512-uyrAmLZrPnUItQY5wTdg31TO9GGZRGsh/jmohUg9oLmLi/sw5y7LlTV/mwyd6rvbxIOGwmRiv6LcTS8w7Bk9NQ==
 
 follow-redirects@^1.0.0:
   version "1.14.7"
@@ -7013,10 +7056,10 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
-react-crossword-v2@^4.3.4:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/react-crossword-v2/-/react-crossword-v2-4.3.4.tgz#2f71b08a56d09ddfd6579bef89c364d074ff52b7"
-  integrity sha512-mzp+8nLhixUGBvxM2zEW9oHHHhjkeCAmTrFxzAhXNRIEqkQMSw/zNeBksN6wzOHpOaQmU13iFg6o2Y7UJsnitw==
+react-crossword-v2@^4.3.6:
+  version "4.3.6"
+  resolved "https://registry.yarnpkg.com/react-crossword-v2/-/react-crossword-v2-4.3.6.tgz#9a0b5b107482bf86cc1616ccd13a8ef6c5ddae63"
+  integrity sha512-m1q7f6CDwhOKVstRFviz2qWCwwwG3QujO+pgLbf/Supg5y8QItgSF3bHBldg2yk7sPQAB9tXnlCBw9Lxa8SsBw==
   dependencies:
     immer "^9.0.7"
     lodash "^4.17.21"
@@ -7612,6 +7655,11 @@ slash@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
+
+smoothscroll-polyfill@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
+  integrity sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==
 
 sockjs@^0.3.21:
   version "0.3.24"

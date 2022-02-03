@@ -5,17 +5,20 @@ type Props = {
   value?: string;
   knownValue?: string;
   status?: CharStatus;
+  size?: 'sm' | 'lg';
 }
 
-export const Cell = ({ value, knownValue, status }: Props) => {
+export const Cell = ({ value, knownValue, status, size = 'lg' }: Props) => {
   const classes = classnames(
-    'w-14 h-14 border-solid border-2 flex items-center justify-center mx-0.5 text-lg font-bold rounded',
+    'border-solid border-2 flex items-center justify-center mx-0.5 font-bold rounded',
     {
       'bg-white border-slate-200': !status,
       'bg-white border-slate-200 text-green-500 text-opacity-50': knownValue && !value,
       'bg-slate-400 text-white border-slate-400': status === 'absent',
       'bg-green-500 text-white border-green-500': status === 'correct',
       'bg-yellow-500 text-white border-yellow-500': status === 'present',
+      'w-14 h-14 text-lg': size === 'lg',
+      'w-5 h-5 text-sm': size === 'sm',
     }
   )
 

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { KeyValue } from '../../lib/keyboard'
 import { getStatuses } from '../../lib/statuses'
 import { Key } from './Key'
+import { BackspaceIcon } from '@heroicons/react/outline';
 
 type Props = {
   solution: string,
@@ -48,7 +49,7 @@ export const Keyboard = ({ solution, knownChars, onChar, onDelete, onEnter, gues
   }, [onEnter, onDelete, onChar])
 
   return (
-    <div>
+    <div className='mt-auto md:mt-none mb-3'>
       <div className="flex justify-center mb-1">
         <Key value="Q" onClick={onClick} status={charStatuses['Q']} />
         <Key value="W" onClick={onClick} status={charStatuses['W']} />
@@ -84,7 +85,7 @@ export const Keyboard = ({ solution, knownChars, onChar, onDelete, onEnter, gues
         <Key value="N" onClick={onClick} status={charStatuses['N']} />
         <Key value="M" onClick={onClick} status={charStatuses['M']} />
         <Key size='lg' value="DELETE" onClick={onClick}>
-          Delete
+          <BackspaceIcon width={25} height={25} />
         </Key>
       </div>
     </div>

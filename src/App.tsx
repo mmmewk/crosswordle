@@ -1,3 +1,4 @@
+import * as smoothscroll from 'smoothscroll-polyfill';
 import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon } from '@heroicons/react/outline';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert } from './components/alerts/Alert';
@@ -22,6 +23,7 @@ import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 import { CellColors } from './components/mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
 
+smoothscroll.polyfill();
 const initialClue = crosswordData['across']['1'];
 
 function App() {
@@ -179,7 +181,7 @@ function App() {
         if (isCellLost(cell)) {
           setLostCell(cell);
           updateShareHistoryWithLoss(cell);
-          setIsAboutModalOpen(true);
+          setIsShareModalOpen(true);
           return false;
         }
         return cell.guess === cell.answer;
@@ -268,7 +270,7 @@ function App() {
   return (
     <div className='flex flex-col h-screen'>
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 md:p-6">
-        <h1 className="text-xl grow font-bold">Crosswordle - {crosswordIndex + 1}</h1>
+        <h1 className="text-xl grow font-bold">Crosswordle {crosswordIndex + 1}</h1>
         <PresentationChartBarIcon
           className="h-6 w-6 mr-5 cursor-pointer"
           onClick={() => setIsShareModalOpen(true)}
@@ -300,9 +302,9 @@ function App() {
           handleClose={() => setIsHelpModalOpen(false)}
         />
       </div>
-      <div className='flex flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row flex-1'>
-        <div className='w-full flex justify-center items-center border-slate-400 border-b p-4 md:p-6 md:w-1/2 md:border-b-[0px] md:border-r'>
-          <div className='max-w-[500px] w-full h-full flex items-center'>
+      <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
+        <div className='w-full flex justify-center items-center border-slate-400 p-4 px-20 md:p-6 md:w-1/2 md:border-r' >
+          <div className='max-w-[500px] w-full h-full flex items-center max-width-static-mobile'>
             <Crossword
               ref={crosswordRef}
               data={crosswordData}
@@ -310,8 +312,8 @@ function App() {
             />
           </div>
         </div>
-        <div className='w-full flex justify-center items-center md:w-1/2'>
-          <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div className='w-full flex flex-1 md:items-center md:w-1/2'>
+          <div className="md:py-8 max-w-7xl mx-auto sm:px-6 lg:px-8 keyboard">
             <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
             <Grid guesses={guesses[focusedDirection][focusedNumber] || []} currentGuess={currentGuess} knownLetters={knownLetters} solution={currentWord}/>
             <Keyboard

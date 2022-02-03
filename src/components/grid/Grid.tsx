@@ -1,6 +1,8 @@
-import { CompletedRow } from './CompletedRow'
-import { CurrentRow } from './CurrentRow'
-import { EmptyRow } from './EmptyRow'
+import { useMediaBreakpoints } from '../../lib/useBreakpoints';
+import { CompletedRow } from './CompletedRow';
+import { CurrentRow } from './CurrentRow';
+import { EmptyRow } from './EmptyRow';
+import { MobileGrid } from './MobileGrid';
 
 type Props = {
   solution: string;
@@ -10,6 +12,10 @@ type Props = {
 }
 
 export const Grid = ({ solution, knownLetters = [], guesses, currentGuess }: Props) => {
+  const isMobile = useMediaBreakpoints('md', 'down');
+
+  if (isMobile) return <MobileGrid {...{ solution, knownLetters, guesses, currentGuess }} />;
+
   const empties =
     guesses.length < 5 ? Array.from(Array(5 - guesses.length)) : [];
 
