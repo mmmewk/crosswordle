@@ -7013,12 +7013,11 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
-react-crossword-v2@^4.2.9:
-  version "4.2.9"
-  resolved "https://registry.yarnpkg.com/react-crossword-v2/-/react-crossword-v2-4.2.9.tgz#3bf2ec8552b4fbcf7aca468cb339ac7d6486d2bf"
-  integrity sha512-fqy9JAjiqPnQvWctii/oFJkfajjAqhMblTv+iTKbZUlYDV5KIBRHMAAQ60wElREa6/Qhd9ghPH9YuhhRcucW6A==
+react-crossword-v2@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/react-crossword-v2/-/react-crossword-v2-4.3.4.tgz#2f71b08a56d09ddfd6579bef89c364d074ff52b7"
+  integrity sha512-mzp+8nLhixUGBvxM2zEW9oHHHhjkeCAmTrFxzAhXNRIEqkQMSw/zNeBksN6wzOHpOaQmU13iFg6o2Y7UJsnitw==
   dependencies:
-    "@types/lodash" "^4.14.178"
     immer "^9.0.7"
     lodash "^4.17.21"
     prop-types "^15.8.0"

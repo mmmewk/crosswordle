@@ -170,10 +170,10 @@ function App() {
   }, [guesses])
 
   const checkWinOrLoss = useCallback(() => {
-    const data = crosswordRef.current?.getData();
-    if (!data || data.gridData.length === 0 || isGameWon || lostCell) return;
+    const gridData = crosswordRef.current?.getGridData();
+    if (!gridData || gridData.length === 0 || isGameWon || lostCell) return;
 
-    const crosswordCorrect = data.gridData.every((row) => {
+    const crosswordCorrect = gridData.every((row) => {
       return row.every((cell) => {
         if (!cell.used) return true;
         if (isCellLost(cell)) {
@@ -279,7 +279,7 @@ function App() {
           isGameLost={Boolean(lostCell)}
           handleClose={() => setIsShareModalOpen(false)}
           guesses={guesses}
-          getGridData={() => crosswordRef.current?.getData()?.gridData}
+          getGridData={() => crosswordRef.current?.getGridData()}
           crosswordleIndex={crosswordIndex}
           shareHistory={shareHistory}
         />

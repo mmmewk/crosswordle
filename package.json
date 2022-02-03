@@ -11,6 +11,7 @@
     "@types/file-saver": "^2.0.5",
     "@types/gif.js": "^0.2.2",
     "@types/jest": "^27.4.0",
+    "@types/lodash": "^4.14.178",
     "@types/node": "^16.11.19",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
@@ -18,7 +19,7 @@
     "file-saver": "^2.0.5",
     "gif.js": "^0.2.0",
     "react": "^17.0.2",
-    "react-crossword-v2": "^4.2.9",
+    "react-crossword-v2": "^4.3.4",
     "react-dom": "^17.0.2",
     "react-is": "16.8.0",
     "react-scripts": "5.0.0",
@@ -30,6 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "stage": "aws s3 sync ./build s3://www.stage.mekoppe.com --delete",
     "deploy": "aws s3 sync ./build s3://www.crosswordle.mekoppe.com --delete"
   },
   "eslintConfig": {
