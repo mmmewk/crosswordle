@@ -10,19 +10,34 @@ type Props = {
 }
 
 export const MobileGrid = ({ solution, knownLetters = [], guesses, currentGuess }: Props) => {
-  const empties = Array.from(Array(6 - guesses.length));
+  const firstHalf = guesses.slice(0, 3);
+  const firstHalfEmpties = Array.from(Array(3 - firstHalf.length));
+  const secondHalf = guesses.slice(3, 6);
+  const secondHalfEmpties = Array.from(Array(3 - secondHalf.length));
+
+  const showCurrent = guesses.slice(-1)[0] !== solution && guesses.length < 6;
 
   return (
     <div className="pb-3">
-      <div className='grid grid-cols-2 my-3 max-w-screen'>
-        {guesses.map((guess, i) => (
-          <CompletedRow key={i} guess={guess} solution={solution} knownLetters={knownLetters} size='sm' />
-        ))}
-        {empties.map((_, i) => (
-          <EmptyRow key={i} solution={solution} size='sm' />
-        ))}
+      <div className='flex my-3 w-full'>
+        <div className='w-1/2'>
+          {firstHalf.map((guess, i) => (
+            <CompletedRow key={i} guess={guess} solution={solution} knownLetters={knownLetters} size='sm' />
+          ))}
+          {firstHalfEmpties.map((_, i) => (
+            <EmptyRow key={i} solution={solution} size='sm' />
+          ))}
+        </div>
+        <div className='w-1/2'>
+          {secondHalf.map((guess, i) => (
+            <CompletedRow key={i} guess={guess} solution={solution} knownLetters={knownLetters} size='sm' />
+          ))}
+          {secondHalfEmpties.map((_, i) => (
+            <EmptyRow key={i} solution={solution} size='sm' />
+          ))}
+        </div>
       </div>
-      {guesses.length < 6 && <CurrentRow guess={currentGuess} solution={solution} knownLetters={knownLetters} />}
+      {showCurrent && <CurrentRow guess={currentGuess} solution={solution} knownLetters={knownLetters} />}
     </div>
   )
 }
