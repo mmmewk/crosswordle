@@ -1250,6 +1250,73 @@ const crosswords: CluesInputOriginal[] = [
       }
     }
   },
+  // 20
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'TWAS',
+        row: 0,
+        col: 1,
+      },
+      '6': {
+        clue: '',
+        answer: 'AIL',
+        row: 1,
+        col: 2,
+      },
+      '7': {
+        clue: '',
+        answer: 'ULTRA',
+        row: 2,
+        col: 0,
+      },
+      '9': {
+        clue: '',
+        answer: 'LIT',
+        row: 3,
+        col: 0,
+      },
+      '10': {
+        clue: '',
+        answer: 'LESS',
+        row: 4,
+        col: 0,
+      },
+    },
+    down: {
+      '2': {
+        clue: '',
+        answer: 'WATTS',
+        row: 0,
+        col: 2,
+      },
+      '3': {
+        clue: '',
+        answer: 'AIR',
+        row: 0,
+        col: 3,
+      },
+      '4': {
+        clue: '',
+        answer: 'SLAP',
+        row: 0,
+        col: 4,
+      },
+      '5': {
+        clue: '',
+        answer: 'DULL',
+        row: 1,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'LIE',
+        row: 2,
+        col: 1,
+      }
+    }
+  },
 ];
 
 export default crosswords;
