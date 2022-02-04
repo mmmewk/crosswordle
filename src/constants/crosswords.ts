@@ -1183,6 +1183,73 @@ const crosswords: CluesInputOriginal[] = [
       },
     }
   },
+  // 19
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'ETHER',
+        row: 0,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'HAVE',
+        row: 1,
+        col: 1,
+      },
+      '7': {
+        clue: '',
+        answer: 'LEVEE',
+        row: 2,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'AMEND',
+        row: 3,
+        col: 0,
+      },
+      '9': {
+        clue: '',
+        answer: 'WENT',
+        row: 4,
+        col: 0,
+      },
+    },
+    down: {
+      '2': {
+        clue: '',
+        answer: 'THEME',
+        row: 0,
+        col: 1,
+      },
+      '3': {
+        clue: '',
+        answer: 'HAVEN',
+        row: 0,
+        col: 2,
+      },
+      '4': {
+        clue: '',
+        answer: 'EVENT',
+        row: 0,
+        col: 3,
+      },
+      '5': {
+        clue: '',
+        answer: 'REED',
+        row: 0,
+        col: 4,
+      },
+      '7': {
+        clue: '',
+        answer: 'LAW',
+        row: 2,
+        col: 0,
+      }
+    }
+  },
 ];
 
 export default crosswords;
