@@ -25,6 +25,7 @@ import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE
 
 smoothscroll.polyfill();
 const initialClue = crosswordData['across']['1'];
+if (window.location.origin === 'http://www.crosswordle.mekoppe.com') window.location.href = 'https://crosswordle.mekoppe.com';
 
 function App() {
   const crosswordRef = useRef<CrosswordImperative>(null);
@@ -87,6 +88,12 @@ function App() {
       setCurrentGuess(`${currentGuess}${value}`)
     }
   }
+
+  // Navigation key event callbacks
+  const onNavigate = () => {
+    if (!crosswordRef.current) return;
+    crosswordRef.current.focus();
+  };
 
   const onDelete = () => {
     setCurrentGuess(currentGuess.slice(0, -1));
@@ -263,12 +270,16 @@ function App() {
       setFocusedClue(wordData);
       setFocusedNumber(number)
       setFocusedDirection(direction);
+      setCheckGameState(true);
       setCheckKnownLetters(true);
     }
   }
 
   return (
     <div className='flex flex-col h-screen'>
+      {crosswordIndex === 14 && <div className='flex justify-center items-center w-screen bg-yellow-400 text-md p-1 text-center'>
+        <p>Realized the crosswordle today had a lot of luck involved so I updated it. Play the original <a href="?index=13" className='text-white'>here</a>.</p>
+      </div>}
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 md:p-6">
         <h1 className="text-xl grow font-bold">Crosswordle {crosswordIndex + 1}</h1>
         <PresentationChartBarIcon
@@ -320,6 +331,7 @@ function App() {
               solution={currentWord}
               knownChars={knownLetters.filter(notEmpty)}
               onChar={onChar}
+              onNavigate={onNavigate}
               onDelete={onDelete}
               onEnter={onEnter}
               guesses={guesses[focusedDirection][focusedNumber] || []}

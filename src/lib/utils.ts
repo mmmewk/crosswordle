@@ -1,3 +1,4 @@
+import queryString from 'query-string';
 import crosswords from "../constants/crosswords";
 import padStart from 'lodash/padStart';
 
@@ -8,12 +9,15 @@ export function notEmpty<TValue>(
 }
 
 export function getPuzzleOfTheDay() {
-  // January 22, 2022 Game Epoch
-  const epochMs = +new Date('2022-01-22T00:00:00');
+  const queryIndex = Number(queryString.parse(window.location.search)?.index as string);
+
+  // January 21, 2022 Game Epoch
+  const epochMs = +new Date('2022-01-21T00:00:00');
   const now = Date.now();
   const msInDay = 86400000
   let index = Math.floor((now - epochMs) / msInDay);
   index = Math.min(index, crosswords.length - 1);
+  if (queryIndex >= 0) index = Math.min(index, queryIndex);
 
   return {
     crossword: crosswords[index],

@@ -926,75 +926,136 @@ const crosswords: CluesInputOriginal[] = [
     across: {
       '1': {
         clue: '',
-        answer: 'GHOST',
+        answer: 'MIME',
         row: 0,
-        col: 0,
+        col: 1,
       },
-      '5': {
+      '4': {
         clue: '',
-        answer: 'YEAH',
+        answer: 'BAGEL',
         row: 1,
         col: 0,
       },
       '6': {
         clue: '',
-        answer: 'KEG',
+        answer: 'OIL',
         row: 2,
-        col: 2,
+        col: 0,
       },
-      '8': {
+      '7': {
         clue: '',
-        answer: 'ODE',
+        answer: 'PLOP',
         row: 3,
         col: 0,
       },
-      '10': {
+      '9': {
         clue: '',
-        answer: 'SON',
+        answer: 'SOIL',
         row: 4,
+        col: 1,
+      },
+    },
+    down: {
+      '1': {
+        clue: '',
+        answer: 'MAILS',
+        row: 0,
+        col: 1,
+      },
+      '2': {
+        clue: '',
+        answer: 'IGLOO',
+        row: 0,
+        col: 2,
+      },
+      '3': {
+        clue: '',
+        answer: 'ME',
+        row: 0,
+        col: 3,
+      },
+      '4': {
+        clue: '',
+        answer: 'ELK',
+        row: 0,
+        col: 4,
+      },
+      '5': {
+        clue: '',
+        answer: 'BOP',
+        row: 1,
+        col: 0,
+      },
+      '8': {
+        clue: '',
+        answer: 'PI',
+        row: 3,
+        col: 3,
+      },
+    }
+  },
+  // 16
+  {
+    across: {
+      '1': {
+        clue: '',
+        answer: 'BID',
+        row: 0,
+        col: 1,
+      },
+      '4': {
+        clue: '',
+        answer: 'CORED',
+        row: 1,
+        col: 0,
+      },
+      '6': {
+        clue: '',
+        answer: 'ANIME',
+        row: 2,
+        col: 0,
+      },
+      '7': {
+        clue: '',
+        answer: 'PESOS',
+        row: 3,
         col: 0,
       },
     },
     down: {
       '1': {
         clue: '',
-        answer: 'GYROS',
+        answer: 'BONE',
         row: 0,
-        col: 0,
+        col: 1,
       },
       '2': {
         clue: '',
-        answer: 'HE',
-        row: 0,
-        col: 1,
-      },
-      '3': {
-        clue: '',
-        answer: 'OAKEN',
+        answer: 'IRISH',
         row: 0,
         col: 2,
       },
-      '4': {
+      '3': {
         clue: '',
-        answer: 'SHE',
+        answer: 'DEMO',
         row: 0,
         col: 3,
       },
-      '7': {
+      '4': {
         clue: '',
-        answer: 'GUT',
-        row: 2,
+        answer: 'CAPE',
+        row: 1,
+        col: 0,
+      },
+      '5': {
+        clue: '',
+        answer: 'DESK',
+        row: 1,
         col: 4,
       },
-      '9': {
-        clue: '',
-        answer: 'DO',
-        row: 3,
-        col: 1,
-      }
     }
   },
-  // 16
+  // 17
   {
     across: {
       '1': {
@@ -1061,64 +1122,64 @@ const crosswords: CluesInputOriginal[] = [
       }
     }
   },
-  // 17
+  // 18
   {
     across: {
       '1': {
         clue: '',
-        answer: 'BID',
+        answer: 'GHOST',
         row: 0,
-        col: 1,
+        col: 0,
       },
-      '4': {
+      '5': {
         clue: '',
-        answer: 'CORED',
+        answer: 'YEAH',
         row: 1,
         col: 0,
       },
       '6': {
         clue: '',
-        answer: 'ANIME',
+        answer: 'KIT',
         row: 2,
-        col: 0,
+        col: 2,
       },
       '7': {
         clue: '',
-        answer: 'PESOS',
+        answer: 'OMEN',
         row: 3,
+        col: 0,
+      },
+      '9': {
+        clue: '',
+        answer: 'SENSE',
+        row: 4,
         col: 0,
       },
     },
     down: {
       '1': {
         clue: '',
-        answer: 'BONE',
+        answer: 'GYROS',
         row: 0,
-        col: 1,
+        col: 0,
       },
       '2': {
         clue: '',
-        answer: 'IRISH',
+        answer: 'HE',
         row: 0,
-        col: 2,
+        col: 1,
       },
       '3': {
         clue: '',
-        answer: 'DEMO',
+        answer: 'OAKEN',
         row: 0,
-        col: 3,
+        col: 2,
       },
       '4': {
         clue: '',
-        answer: 'CAPE',
-        row: 1,
-        col: 0,
-      },
-      '5': {
-        clue: '',
-        answer: 'DESK',
-        row: 1,
-        col: 4,
+        answer: 'SHINS',
+        row: 0,
+        col: 3,
       },
     }
   },

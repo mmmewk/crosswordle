@@ -5,15 +5,16 @@ import { Key } from './Key'
 import { BackspaceIcon } from '@heroicons/react/outline';
 
 type Props = {
-  solution: string,
-  knownChars?: string[],
-  onChar: (value: string) => void
-  onDelete: () => void
-  onEnter: () => void
-  guesses: string[]
+  solution: string;
+  knownChars?: string[];
+  onChar: (value: string) => void;
+  onNavigate: (value: string) => void;
+  onDelete: () => void;
+  onEnter: () => void;
+  guesses: string[];
 }
 
-export const Keyboard = ({ solution, knownChars, onChar, onDelete, onEnter, guesses }: Props) => {
+export const Keyboard = ({ solution, knownChars, onChar, onNavigate, onDelete, onEnter, guesses }: Props) => {
   const charStatuses = getStatuses(solution, guesses);
   knownChars?.forEach((letter) => {
     charStatuses[letter] = 'correct';
@@ -30,11 +31,14 @@ export const Keyboard = ({ solution, knownChars, onChar, onDelete, onEnter, gues
   }
 
   useEffect(() => {
+
     const listener = (e: KeyboardEvent) => {
       if (e.code === 'Enter') {
         onEnter()
       } else if (e.code === 'Backspace') {
         onDelete()
+      } else if (['ArrowLeft', 'ArrowRight', 'ArrowDown', 'ArrowUp', 'Tab', 'Space'].includes(e.code)) {
+        onNavigate(e.code);
       } else {
         const key = e.key.toUpperCase()
         if (key.length === 1 && key >= 'A' && key <= 'Z') {
@@ -46,7 +50,7 @@ export const Keyboard = ({ solution, knownChars, onChar, onDelete, onEnter, gues
     return () => {
       window.removeEventListener('keyup', listener)
     }
-  }, [onEnter, onDelete, onChar])
+  }, [onEnter, onDelete, onChar, onNavigate])
 
   return (
     <div className='mt-auto md:mt-none mb-3'>
