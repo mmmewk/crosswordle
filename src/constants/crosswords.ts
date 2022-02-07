@@ -1389,7 +1389,409 @@ const crosswords: CluesInputOriginal[] = [
             col: 4
         }
     }
-}
+  },
+  // 22
+  {
+    across: {
+        '1': {
+            clue: '',
+            answer: 'BAR',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            clue: '',
+            answer: 'AROSE',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            clue: '',
+            answer: 'SEWER',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            clue: '',
+            answer: 'INDIE',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            clue: '',
+            answer: 'LAY',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            clue: '',
+            answer: 'BASIL',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            clue: '',
+            answer: 'ARENA',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            clue: '',
+            answer: 'ROWDY',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            clue: '',
+            answer: 'HERE',
+            row: 0,
+            col: 4
+        },
+        '6': {
+            clue: '',
+            answer: 'SEI',
+            row: 1,
+            col: 3
+        }
+    }
+  },
+  // 23
+  {
+    across: {
+        '1': {
+            clue: '',
+            answer: 'TRAPS',
+            row: 0,
+            col: 0
+        },
+        '6': {
+            clue: '',
+            answer: 'EERIE',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            clue: '',
+            answer: 'ABOVE',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            clue: '',
+            answer: 'LEMON',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            clue: '',
+            answer: 'LAT',
+            row: 4,
+            col: 1
+        }
+    },
+    down: {
+        '1': {
+            clue: '',
+            answer: 'TEAL',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            clue: '',
+            answer: 'REBEL',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            clue: '',
+            answer: 'AROMA',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            clue: '',
+            answer: 'PIVOT',
+            row: 0,
+            col: 3
+        },
+        '5': {
+            clue: '',
+            answer: 'SEEN',
+            row: 0,
+            col: 4
+        }
+    }
+  },
+  // 24
+  {
+    across: {
+        '1': {
+            clue: '',
+            answer: 'COST',
+            row: 0,
+            col: 0
+        },
+        '4': {
+            clue: '',
+            answer: 'ODE',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            clue: '',
+            answer: 'CORAL',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            clue: '',
+            answer: 'ORATE',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            clue: '',
+            answer: 'AS',
+            row: 4,
+            col: 0
+        },
+        '10': {
+            clue: '',
+            answer: 'EX',
+            row: 4,
+            col: 3
+        }
+    },
+    down: {
+        '1': {
+            clue: '',
+            answer: 'COCOA',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            clue: '',
+            answer: 'ODORS',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            clue: '',
+            answer: 'SERA',
+            row: 0,
+            col: 2
+        },
+        '5': {
+            clue: '',
+            answer: 'FLEX',
+            row: 1,
+            col: 4
+        },
+        '7': {
+            clue: '',
+            answer: 'ATE',
+            row: 2,
+            col: 3
+        }
+    }
+  },
+  // 25
+  {
+    across: {
+        '1': {
+            clue: '',
+            answer: 'COY',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            clue: '',
+            answer: 'AWARE',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            clue: '',
+            answer: 'REPOT',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            clue: '',
+            answer: 'PAR',
+            row: 3,
+            col: 2
+        },
+        '9': {
+            clue: '',
+            answer: 'THYME',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            clue: '',
+            answer: 'CARET',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            clue: '',
+            answer: 'OWE',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            clue: '',
+            answer: 'YAPPY',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            clue: '',
+            answer: 'METRE',
+            row: 0,
+            col: 4
+        },
+        '6': {
+            clue: '',
+            answer: 'ROAM',
+            row: 1,
+            col: 3
+        }
+    }
+  },
+  // 26
+  {
+    across: {
+        '3': {
+            clue: '',
+            answer: 'ATLAS',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            clue: '',
+            answer: 'RHINO',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            clue: '',
+            answer: 'DECOY',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            clue: '',
+            answer: 'SEEN',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            clue: '',
+            answer: 'BARDS',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            clue: '',
+            answer: 'CANON',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            clue: '',
+            answer: 'THEE',
+            row: 1,
+            col: 1
+        },
+        '5': {
+            clue: '',
+            answer: 'LICE',
+            row: 1,
+            col: 2
+        },
+        '6': {
+            clue: '',
+            answer: 'SOY',
+            row: 1,
+            col: 4
+        }
+    }
+  },
+  // 27
+  {
+    across: {
+      '1': {
+          clue: '',
+          answer: 'LOB',
+          row: 0,
+          col: 0
+      },
+      '4': {
+          clue: '',
+          answer: 'APED',
+          row: 1,
+          col: 0
+      },
+      '6': {
+          clue: '',
+          answer: 'GATES',
+          row: 2,
+          col: 0
+      },
+      '8': {
+          clue: '',
+          answer: 'LASH',
+          row: 3,
+          col: 1
+      },
+      '9': {
+          clue: '',
+          answer: 'SKY',
+          row: 4,
+          col: 2
+      }
+  },
+  down: {
+      '1': {
+          clue: '',
+          answer: 'LAG',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          clue: '',
+          answer: 'OPAL',
+          row: 0,
+          col: 1
+      },
+      '3': {
+          clue: '',
+          answer: 'BETAS',
+          row: 0,
+          col: 2
+      },
+      '5': {
+          clue: '',
+          answer: 'DESK',
+          row: 1,
+          col: 3
+      },
+      '7': {
+          clue: '',
+          answer: 'SHY',
+          row: 2,
+          col: 4
+      }
+    }
+  },
 ];
 
 export default crosswords;
