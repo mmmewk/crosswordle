@@ -1,4 +1,4 @@
-import { CluesInputOriginal } from "react-crossword-v2/dist/types";
+import { CluesInputOriginal } from 'react-crossword-v2/dist/types';
 
 const crosswords: CluesInputOriginal[] = [
   // 1
@@ -1181,6 +1181,12 @@ const crosswords: CluesInputOriginal[] = [
         row: 0,
         col: 3,
       },
+      '8': {
+        clue: '',
+        answer: 'ME',
+        row: 3,
+        col: 1
+      }
     }
   },
   // 19
@@ -1317,6 +1323,73 @@ const crosswords: CluesInputOriginal[] = [
       }
     }
   },
+  // 21
+  {
+    across: {
+        '1': {
+            clue: '',
+            answer: 'OPTIC',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            clue: '',
+            answer: 'ROAN',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            clue: '',
+            answer: 'BELAY',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            clue: '',
+            answer: 'STONE',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            clue: '',
+            answer: 'NET',
+            row: 4,
+            col: 2
+        }
+    },
+    down: {
+        '1': {
+            clue: '',
+            answer: 'ORBS',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            clue: '',
+            answer: 'POET',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            clue: '',
+            answer: 'TALON',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            clue: '',
+            answer: 'INANE',
+            row: 0,
+            col: 3
+        },
+        '7': {
+            clue: '',
+            answer: 'YET',
+            row: 2,
+            col: 4
+        }
+    }
+}
 ];
 
 export default crosswords;
