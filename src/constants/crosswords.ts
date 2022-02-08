@@ -1595,6 +1595,120 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 28
+  {
+    across: {
+        '1': {
+            answer: 'RUSH',
+            row: 0,
+            col: 1
+        },
+        '5': {
+            answer: 'PESTO',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            answer: 'IS',
+            row: 2,
+            col: 3
+        },
+        '7': {
+            answer: 'ABET',
+            row: 3,
+            col: 1
+        },
+        '9': {
+            answer: 'ABYSS',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'REHAB',
+            row: 0,
+            col: 1
+        },
+        '2': {
+            answer: 'US',
+            row: 0,
+            col: 2
+        },
+        '3': {
+            answer: 'STIES',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            answer: 'HOSTS',
+            row: 0,
+            col: 4
+        },
+        '8': {
+            answer: 'BY',
+            row: 3,
+            col: 2
+        }
+    }
+  },
+  // 29
+  {
+    across: {
+        '1': {
+            answer: 'LASH',
+            row: 0,
+            col: 1
+        },
+        '5': {
+            answer: 'FLUTE',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            answer: 'RADAR',
+            row: 2,
+            col: 0
+        },
+        '7': {
+            answer: 'OMIT',
+            row: 3,
+            col: 0
+        },
+        '8': {
+            answer: 'GATED',
+            row: 4,
+            col: 0
+        }
+    },
+    'down': {
+        '1': {
+            answer: 'LLAMA',
+            row: 0,
+            col: 1
+        },
+        '2': {
+            answer: 'AUDIT',
+            row: 0,
+            col: 2
+        },
+        '3': {
+            answer: 'STATE',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            answer: 'HER',
+            row: 0,
+            col: 4
+        },
+        '5': {
+            answer: 'FROG',
+            row: 1,
+            col: 0
+        }
+    }
+  }
 ];
 
 export default crosswords;
