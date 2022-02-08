@@ -44,7 +44,7 @@ function addDown (cell, crosswordData) {
   for (row = cell.row; hasLetter(gridData, row, cell.col); row++) {
     answer += gridData[row][cell.col].letter;
   }
-  crosswordData.down[cell.number] = { clue: '', answer, row: cell.row, col: cell.col };
+  crosswordData.down[cell.number] = { answer, row: cell.row, col: cell.col };
 }
 
 function addAcross (cell, crosswordData) {
@@ -54,7 +54,7 @@ function addAcross (cell, crosswordData) {
   for (col = cell.col; hasLetter(gridData, cell.row, col); col++) {
     answer += gridData[cell.row][col].letter;
   }
-  crosswordData.across[cell.number] = { clue: '', answer, row: cell.row, col: cell.col };
+  crosswordData.across[cell.number] = { answer, row: cell.row, col: cell.col };
 }
 
 copy(crosswordData);

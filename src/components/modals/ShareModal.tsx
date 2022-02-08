@@ -7,9 +7,10 @@ import { XCircleIcon } from '@heroicons/react/outline';
 import { ShareIcon } from '@heroicons/react/outline';
 import { XIcon } from '@heroicons/react/outline';
 import { StoredGameState } from '../../lib/localStorage';
-import { GridData } from 'react-crossword-v2/dist/types';
 import { MiniCrossword, CellColors, SVG_WIDTH, SVG_HEADER_SIZE } from '../mini-crossword/MiniCrossword';
 import { sleep, timeTillTomorrow } from '../../lib/utils';
+import { CrosswordInput, GridData } from '../crossword/types';
+import { createGridData } from '../crossword/utils';
 
 const GIF_DELAY = 250;
 const GIF_WIDTH = 200;
@@ -41,8 +42,8 @@ type Props = {
   handleClose: () => void;
   guesses: Guesses;
   shareHistory?: CellColors[];
-  getGridData: () => GridData | undefined;
   crosswordleIndex: number;
+  data: CrosswordInput;
 }
 
 export const ShareModal = ({
@@ -52,15 +53,15 @@ export const ShareModal = ({
   handleClose,
   guesses,
   shareHistory = [],
-  getGridData,
   crosswordleIndex,
+  data,
 }: Props) => {
   const [timeTillNext, setTimeTillNext] = useState(timeTillTomorrow);
   const [creatingGif, setCreatingGif] = useState<boolean>(false);
   const [gifEncoder, setGifEncoder] = useState<Gif>(createGifEncoder(`Crosswordle-${crosswordleIndex + 1}.gif`, () => setCreatingGif(false)));
-  const [gridData, setGridData] = useState<GridData>();
   const svgRef = useRef<SVGSVGElement>(null);
   const [cellColors, setCellColors] = useState<{ [key: string]: string }>();
+  const [gridData] = useState<GridData>(createGridData(data));
   const acrossGuesses = Object.values(guesses['across']).flat().length;
   const downGuesses = Object.values(guesses['down']).flat().length;
   const totalGuesses = acrossGuesses + downGuesses;
@@ -74,11 +75,8 @@ export const ShareModal = ({
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      setCellColors({});
-      setGridData(getGridData());
-    }
-  }, [isOpen, getGridData]);
+    if (isOpen) setCellColors({});
+  }, [isOpen]);
 
 
   const addSvgFrame = useCallback((svg: SVGSVGElement, delay: number = 0) => {

@@ -1,4 +1,4 @@
-import { useMediaBreakpoints } from '../../lib/useBreakpoints';
+import { useMediaBreakpoints } from '../../lib/hooks';
 import { CompletedRow } from './CompletedRow';
 import { CurrentRow } from './CurrentRow';
 import { EmptyRow } from './EmptyRow';

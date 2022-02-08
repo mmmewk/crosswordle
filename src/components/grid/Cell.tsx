@@ -1,6 +1,6 @@
 import { CharStatus } from '../../lib/statuses'
 import classnames from 'classnames'
-import { useMediaBreakpoints } from '../../lib/useBreakpoints'
+import { useMediaBreakpoints } from '../../lib/hooks'
 
 type Props = {
   value?: string;

@@ -1,6 +1,6 @@
 import React from "react";
-import { CellData, GridData } from "react-crossword-v2/dist/types"
 import { crosswordIndex } from "../../lib/utils";
+import { CellData, GridData } from "../crossword/types";
 
 export type CellColors = { [position: string]: string };
 

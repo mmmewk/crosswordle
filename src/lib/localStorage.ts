@@ -1,4 +1,4 @@
-import { CluesInputOriginal, UsedCellData } from "react-crossword-v2/dist/types";
+import { CrosswordInput, UsedCellData } from "../components/crossword/types";
 import { CellColors } from "../components/mini-crossword/MiniCrossword";
 
 const gameStateKey = 'gameState';
@@ -38,7 +38,7 @@ export const initialStateFromLocalStorage = <T>(
   }
 };
 
-export const generateInitialGuessState = (data: CluesInputOriginal) => {
+export const generateInitialGuessState = (data: CrosswordInput) => {
   return {
     across: Object.keys(data['across']).reduce((guessData, num) => {
       guessData[num] = [];

@@ -1,6 +1,6 @@
 import * as smoothscroll from 'smoothscroll-polyfill';
 import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon } from '@heroicons/react/outline';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { ElementRef, useCallback, useEffect, useRef, useState } from 'react';
 import { Alert } from './components/alerts/Alert';
 import { Grid } from './components/grid/Grid';
 import { Keyboard } from './components/keyboard/Keyboard';
@@ -15,27 +15,26 @@ import {
   saveGameStateToLocalStorage,
   generateInitialGuessState,
 } from './lib/localStorage';
-import Crossword, { CrosswordImperative } from 'react-crossword-v2';
 import './App.css';
-import { Direction, ClueTypeOriginal, UsedCellData } from 'react-crossword-v2/dist/types';
 import { notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 import { CellColors } from './components/mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
+import { Crossword as MyCrossword } from './components/crossword/Crossword';
+import { get } from 'lodash';
+import { CellData, Direction, GridData, UsedCellData, WordInput } from './components/crossword/types';
 
 smoothscroll.polyfill();
-const initialClue = crosswordData['across']['1'];
+const initialClue = get(crosswordData, 'across.1', get(crosswordData, 'down.1')) as WordInput;
 if (window.location.origin === 'http://www.crosswordle.mekoppe.com') window.location.href = 'https://crosswordle.mekoppe.com';
 
 function App() {
-  const crosswordRef = useRef<CrosswordImperative>(null);
+  const crosswordRef = useRef<ElementRef<typeof MyCrossword>>(null);
   const [knownLetters, setKnownLetters] = useState<(string | undefined)[]>([]);
   const [resetCrossword, setResetCrossword] = useState(() => {
     const loaded = loadGameStateFromLocalStorage();
     return !loaded || loaded.crosswordIndex !== crosswordIndex;
   });
-  const [checkGameState, setCheckGameState] = useState(false);
-  const [checkKnownLetters, setCheckKnownLetters] = useState(false);
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(initialClue.answer);
   const [isShareModalOpen, setIsShareModalOpen] = useState(() => {
@@ -52,7 +51,7 @@ function App() {
   const [lostCell, setLostCell] = useState<UsedCellData | null>(
     initialStateFromLocalStorage<UsedCellData | null>({ key: 'lostCell', defaultValue: null, crosswordIndex })
   );
-  const [focusedClue, setFocusedClue] = useState<ClueTypeOriginal>(initialClue);
+  const [focusedClue, setFocusedClue] = useState<WordInput>(initialClue);
   const [focusedDirection, setFocusedDirection] = useState<Direction>('across');
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
   const [guesses, setGuesses] = useState<Guesses>(
@@ -81,23 +80,14 @@ function App() {
 
   // Key event callbacks
   const onChar = (value: string) => {
-    const lastGuess = guesses[focusedDirection][focusedNumber].slice(-1)[0];
     const guessesForWord = guesses[focusedDirection][focusedNumber];
 
-    if (currentGuess.length < currentWord.length && guessesForWord.length < 6 && lastGuess !== currentWord) {
-      setCurrentGuess(`${currentGuess}${value}`)
+    if (currentGuess.length < currentWord.length && guessesForWord.length < 6) {
+      setCurrentGuess(`${currentGuess}${value}`);
     }
   }
 
-  // Navigation key event callbacks
-  const onNavigate = () => {
-    if (!crosswordRef.current) return;
-    crosswordRef.current.focus();
-  };
-
-  const onDelete = () => {
-    setCurrentGuess(currentGuess.slice(0, -1));
-  }
+  const onDelete = () => setCurrentGuess(currentGuess.slice(0, -1));
 
   // Callbacks to keep move history in sync with guesses
   const updateShareHistory = useCallback((guess: string) => {
@@ -142,23 +132,8 @@ function App() {
         [focusedNumber]: [...guessesForWord, guess]
       }
     });
-    
-    // Add guess to crossword
-    Array.from(currentGuess).forEach((letter, index) => {
-      if (!crosswordRef.current) return;
-      if (currentWord[index] !== letter) return;
 
-      let rowToUpdate = focusedClue.row;
-      let colToUpdate = focusedClue.col;
-
-      if (focusedDirection === 'across') {
-        colToUpdate += index;
-      } else {
-        rowToUpdate += index
-      }
-
-      crosswordRef.current.setGuess(rowToUpdate, colToUpdate, letter);
-    });
+    crosswordRef.current?.guessWord(currentGuess);
 
     updateShareHistory(guess);
   };
@@ -176,11 +151,10 @@ function App() {
     }
 
     return false;
-  }, [guesses])
+  }, [guesses]);
 
-  const checkWinOrLoss = useCallback(() => {
-    const gridData = crosswordRef.current?.getGridData();
-    if (!gridData || gridData.length === 0 || isGameWon || lostCell) return;
+  const checkWinOrLoss = (gridData: GridData) => {
+    if (isGameWon || lostCell) return;
 
     const crosswordCorrect = gridData.every((row) => {
       return row.every((cell) => {
@@ -199,7 +173,7 @@ function App() {
       setIsGameWon(true);
       setIsShareModalOpen(true);
     }
-  }, [setIsGameWon, crosswordRef, isGameWon, lostCell, isCellLost, updateShareHistoryWithLoss]);
+  };
 
   const onEnter = () => {
     // Alert user if guess is not a word
@@ -212,68 +186,29 @@ function App() {
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
 
-    if (currentGuess.length === currentWord.length && guessesForWord.length < 6) {
+    if (currentGuess.length === currentWord.length && guessesForWord.length < 6 && !guessesForWord.includes(currentGuess)) {
       addGuess(currentGuess)
       setCurrentGuess('');
     }
-
-    setCheckKnownLetters(true);
-    setCheckGameState(true);
   };
 
-  // Effects to update game state after crossword data has been input
-  useEffect(() => {
-    if (checkGameState) {
-      setCheckGameState(false);
-      checkWinOrLoss();
-    }
-  }, [checkGameState, checkWinOrLoss]);
+  const onGridDataChange = (gridData: GridData, knownLetters: (string | undefined)[]) => {
+    checkWinOrLoss(gridData);
+    setKnownLetters(knownLetters);
+  };
 
-  useEffect(() => {
-    if (checkKnownLetters) {
-      updateKnownLetters(focusedDirection, focusedClue);
-      setCheckKnownLetters(false);
-    }
-  }, [checkKnownLetters, focusedDirection, focusedClue]);
+  const onMoved = (cell: CellData, direction: Direction, knownLetters: (string | undefined)[]) => {
+    if (!cell.used) return;
 
-  useEffect(() => {
-    if (crosswordRef.current) {
-      crosswordRef.current.focus();
-      crosswordRef.current.moveTo(initialClue.row, initialClue.col, 'across');
-      setCheckKnownLetters(true);
-    }
-  }, [crosswordRef])
-
-  const updateKnownLetters = (direction: Direction, wordData: ClueTypeOriginal) => {
-    const newKnownLetters = Array.from(wordData.answer).map((_, index) => {
-      if (!crosswordRef.current) return undefined;
-
-      let letterRow = wordData.row + (direction === 'across' ? 0 : index);
-      let letterCol = wordData.col + (direction === 'across' ? index : 0);
-
-      return crosswordRef.current.getCurrentGuess(letterRow, letterCol);
-    });
-    setKnownLetters(newKnownLetters);
-  }
-
-  // When highlighted word on the crossword changes sync state to the crosswordle
-  const onMoved = (direction: Direction, row: number, col: number) => {
-    if (!crosswordRef.current) return;
-
-    const cellData = crosswordRef.current.getCellData(row, col);
-
-    if (cellData?.used && cellData[direction]) {
-      const number = cellData[direction] || '';
-      const wordData = crosswordData[direction][number];
-      setCurrentWord(wordData.answer);
-      setCurrentGuess('');
-      setFocusedClue(wordData);
-      setFocusedNumber(number)
-      setFocusedDirection(direction);
-      setCheckGameState(true);
-      setCheckKnownLetters(true);
-    }
-  }
+    const number = cell[direction] || '';
+    const wordData = crosswordData[direction][number];
+    setCurrentWord(wordData.answer);
+    setCurrentGuess('');
+    setFocusedClue(wordData);
+    setFocusedNumber(number)
+    setFocusedDirection(direction);
+    setKnownLetters(knownLetters);
+  };
 
   return (
     <div className='flex flex-col h-screen'>
@@ -287,12 +222,12 @@ function App() {
           onClick={() => setIsShareModalOpen(true)}
         />
         <ShareModal
+          data={crosswordData}
           isOpen={isShareModalOpen}
           isGameWon={isGameWon}
           isGameLost={Boolean(lostCell)}
           handleClose={() => setIsShareModalOpen(false)}
           guesses={guesses}
-          getGridData={() => crosswordRef.current?.getGridData()}
           crosswordleIndex={crosswordIndex}
           shareHistory={shareHistory}
         />
@@ -316,11 +251,7 @@ function App() {
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
         <div className='w-full flex justify-center items-center border-slate-400 p-4 px-20 md:p-6 md:w-1/2 md:border-r' >
           <div className='max-w-[500px] w-full h-full flex items-center max-width-static-mobile'>
-            <Crossword
-              ref={crosswordRef}
-              data={crosswordData}
-              onMoved={onMoved}
-            />
+            <MyCrossword crosswordIndex={crosswordIndex} data={crosswordData} onMoved={onMoved} onChange={onGridDataChange} ref={crosswordRef} />
           </div>
         </div>
         <div className='w-full flex flex-1 md:items-center md:w-1/2'>
@@ -331,7 +262,6 @@ function App() {
               solution={currentWord}
               knownChars={knownLetters.filter(notEmpty)}
               onChar={onChar}
-              onNavigate={onNavigate}
               onDelete={onDelete}
               onEnter={onEnter}
               guesses={guesses[focusedDirection][focusedNumber] || []}
