@@ -1,7 +1,8 @@
 import * as smoothscroll from 'smoothscroll-polyfill';
 import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon } from '@heroicons/react/outline';
 import { ElementRef, useCallback, useEffect, useRef, useState } from 'react';
-import { Alert } from './components/alerts/Alert';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Grid } from './components/grid/Grid';
 import { Keyboard } from './components/keyboard/Keyboard';
 import { AboutModal } from './components/modals/AboutModal';
@@ -45,7 +46,6 @@ function App() {
   });
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
-  const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false);
   const [isGameWon, setIsGameWon] = useState<boolean>(
     initialStateFromLocalStorage<boolean>({ key: 'isGameWon', defaultValue: false, crosswordIndex })
   );
@@ -190,10 +190,8 @@ function App() {
   const onEnter = () => {
     // Alert user if guess is not a word
     if (!isWordInWordList(currentGuess) && currentGuess !== currentWord) {
-      setIsWordNotFoundAlertOpen(true)
-      return setTimeout(() => {
-        setIsWordNotFoundAlertOpen(false)
-      }, 2000);
+      toast.error('Word not found');
+      return;
     }
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
@@ -230,6 +228,7 @@ function App() {
       </div>}
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 md:p-6">
         <h1 className="text-xl grow font-bold">Crosswordle {crosswordIndex + 1}</h1>
+        <ToastContainer />
         <PresentationChartBarIcon
           className="h-6 w-6 mr-5 cursor-pointer"
           onClick={() => setIsShareModalOpen(true)}
@@ -269,7 +268,6 @@ function App() {
         </div>
         <div className='w-full flex flex-1 md:items-center md:w-1/2'>
           <div className="md:py-8 max-w-7xl mx-auto sm:px-6 lg:px-8 keyboard">
-            <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
             <Grid guesses={guesses[focusedDirection][focusedNumber] || []} currentGuess={currentGuess} knownLetters={knownLetters} solution={currentWord}/>
             <Keyboard
               solution={currentWord}

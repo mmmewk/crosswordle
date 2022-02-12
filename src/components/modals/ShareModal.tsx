@@ -12,6 +12,7 @@ import { getTotalGuesses, sleep, timeTillTomorrow } from '../../lib/utils';
 import { CrosswordInput, GridData } from '../crossword/types';
 import { createGridData } from '../crossword/utils';
 import { trackShare } from '../../lib/analytics';
+import { toast } from 'react-toastify';
 
 const GIF_DELAY = 250;
 const GIF_WIDTH = 200;
@@ -101,22 +102,34 @@ export const ShareModal = ({
     setGifEncoder(createGifEncoder(`Crosswordle-${crosswordleIndex + 1}.gif`, () => setCreatingGif(false)));
   }, [gifEncoder, crosswordleIndex, setGifEncoder]);
 
-  const createGif = useCallback(async () => {
+  const share = useCallback(async () => {
     trackShare(crosswordleIndex, isGameWon, isGameLost, totalGuesses);
     const svg = svgRef.current;
     if (!svg) return;
 
     setCreatingGif(true);
 
-    await addSvgFrame(svg);
-    for (let i = 0; i < shareHistory.length; i++) {
-      setCellColors(shareHistory[i]);
-      await sleep(GIF_DELAY / 2);
-      // Show the last cell for a longer period of time
-      const delay = i === (shareHistory.length - 1) ? GIF_DELAY * 5 : GIF_DELAY;
-      await addSvgFrame(svg, delay);
-    }
-    renderGif();
+    const playback = new Promise(async (resolve) => {
+      await addSvgFrame(svg);
+      for (let i = 0; i < shareHistory.length; i++) {
+        setCellColors(shareHistory[i]);
+        await sleep(GIF_DELAY / 2);
+        // Show the last cell for a longer period of time
+        const delay = i === (shareHistory.length - 1) ? GIF_DELAY * 5 : GIF_DELAY;
+        await addSvgFrame(svg, delay);
+      }
+      renderGif();
+      let shareText = 'https://crosswordle.mekoppe.com';
+      if (isGameWon) shareText = `I solved the crosswordle in ${totalGuesses} Guesses!\n${shareText}`;
+      navigator.clipboard.writeText(shareText);
+      resolve('');
+    });
+
+    toast.promise(playback, {
+      pending: 'Rendering shareable GIF',
+      success: 'Replay GIF downloaded and shareable link copied to clipboard',
+      error: 'Something went wrong...'
+    });
   }, [svgRef, addSvgFrame, renderGif, shareHistory, isGameWon, isGameLost, crosswordleIndex, totalGuesses]);
 
   let title = `Crosswordle #${crosswordleIndex + 1}`;
@@ -221,7 +234,7 @@ export const ShareModal = ({
                       type="button"
                       className="inline-flex justify-center w-full h-10 my-auto rounded-md border border-transparent shadow-sm px-4 py-2 disabled:bg-indigo-200 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
                       disabled={creatingGif}
-                      onClick={createGif}
+                      onClick={share}
                     >
                       {creatingGif ? 'Creating GIF' : (
                         <>
