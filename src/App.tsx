@@ -16,13 +16,14 @@ import {
   generateInitialGuessState,
 } from './lib/localStorage';
 import './App.css';
-import { notEmpty } from './lib/utils';
+import { gameProgress, getTotalGuesses, notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 import { CellColors } from './components/mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
 import { Crossword as MyCrossword } from './components/crossword/Crossword';
 import { get } from 'lodash';
 import { CellData, Direction, GridData, UsedCellData, WordInput } from './components/crossword/types';
+import { trackGameEnd, trackGameProgress, trackGuess } from './lib/analytics';
 
 smoothscroll.polyfill();
 const initialClue = get(crosswordData, 'across.1', get(crosswordData, 'down.1')) as WordInput;
@@ -124,6 +125,7 @@ function App() {
   }, [shareHistory])
 
   const addGuess = (guess: string) => {
+    trackGuess(crosswordIndex, guess);
     const guessesForWord = guesses[focusedDirection][focusedNumber];
     setGuesses({
       ...guesses,
@@ -156,10 +158,13 @@ function App() {
   const checkWinOrLoss = (gridData: GridData) => {
     if (isGameWon || lostCell) return;
 
+    let gameLost = false;
+
     const crosswordCorrect = gridData.every((row) => {
       return row.every((cell) => {
         if (!cell.used) return true;
         if (isCellLost(cell)) {
+          gameLost = true;
           setLostCell(cell);
           updateShareHistoryWithLoss(cell);
           setIsShareModalOpen(true);
@@ -169,7 +174,14 @@ function App() {
       });
     });
 
+    const totalGuesses = getTotalGuesses(guesses);
+
+    if (gameLost) {
+      trackGameEnd(crosswordIndex, 'game_lost', totalGuesses);
+    }
+
     if (crosswordCorrect) {
+      trackGameEnd(crosswordIndex, 'game_won', totalGuesses);
       setIsGameWon(true);
       setIsShareModalOpen(true);
     }
@@ -194,6 +206,7 @@ function App() {
 
   const onGridDataChange = (gridData: GridData, knownLetters: (string | undefined)[]) => {
     checkWinOrLoss(gridData);
+    trackGameProgress(crosswordIndex, gameProgress(gridData).toString());
     setKnownLetters(knownLetters);
   };
 

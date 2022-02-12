@@ -109,13 +109,13 @@ export const Crossword = React.forwardRef<Handle, Props>(({ data, onMoved, onCha
   useEffect(() => {
     if (onMoved) onMoved(focusedCell, focusedDirection, getKnownLetters());
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [focusedCell, focusedDirection, getKnownLetters]);
+  }, [focusedCell, focusedDirection]);
 
   useEffect(() => {
     if (onChange) onChange(gridData, getKnownLetters());
     saveGameStateToLocalStorage({ gridData, crosswordIndex });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gridData, crosswordIndex, getKnownLetters]);
+  }, [gridData, crosswordIndex]);
 
   useImperativeHandle(ref, () => ({
     guessWord: (guess: string) => {

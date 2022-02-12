@@ -1681,7 +1681,7 @@ const crosswords: CrosswordInput[] = [
             col: 0
         }
     },
-    'down': {
+    down: {
         '1': {
             answer: 'LLAMA',
             row: 0,
@@ -1708,7 +1708,225 @@ const crosswords: CrosswordInput[] = [
             col: 0
         }
     }
-  }
+  },
+  // 30
+  {
+    across: {
+        '1': {
+            answer: 'HASH',
+            row: 0,
+            col: 1
+        },
+        '4': {
+            answer: 'HILT',
+            row: 1,
+            col: 0
+        },
+        '5': {
+            answer: 'OPIUM',
+            row: 2,
+            col: 0
+        },
+        '7': {
+            answer: 'SPADE',
+            row: 3,
+            col: 0
+        },
+        '8': {
+            answer: 'TOSS',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'HIPPO',
+            row: 0,
+            col: 1
+        },
+        '2': {
+            answer: 'ALIAS',
+            row: 0,
+            col: 2
+        },
+        '3': {
+            answer: 'STUDS',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            answer: 'HOST',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            answer: 'ME',
+            row: 2,
+            col: 4
+        }
+    }
+  },
+  // 31
+  {
+    across: {
+        '1': {
+            answer: 'OWNER',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            answer: 'RAG',
+            row: 1,
+            col: 1
+        },
+        '6': {
+            answer: 'PIVOT',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'ATE',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            answer: 'RELAX',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '2': {
+            answer: 'WRITE',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'NAVEL',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'EGO',
+            row: 0,
+            col: 3
+        },
+        '6': {
+            answer: 'PAR',
+            row: 2,
+            col: 0
+        },
+        '7': {
+            answer: 'TAX',
+            row: 2,
+            col: 4
+        }
+    }
+  },
+  // 32
+  {
+    across: {
+        '1': {
+            answer: 'STAT',
+            row: 0,
+            col: 1
+        },
+        '5': {
+            answer: 'OPERA',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            answer: 'APEX',
+            row: 2,
+            col: 1
+        },
+        '7': {
+            answer: 'NINE',
+            row: 3,
+            col: 1
+        },
+        '8': {
+            answer: 'DAD',
+            row: 4,
+            col: 2
+        }
+    },
+    down: {
+        '1': {
+            answer: 'SPAN',
+            row: 0,
+            col: 1
+        },
+        '2': {
+            answer: 'TEPID',
+            row: 0,
+            col: 2
+        },
+        '3': {
+            answer: 'ARENA',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            answer: 'TAXED',
+            row: 0,
+            col: 4
+        }
+    }
+  },
+  // 33
+  {
+    across: {
+        '1': {
+            answer: 'YESES',
+            row: 0,
+            col: 0
+        },
+        '6': {
+            answer: 'OMEGA',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            answer: 'LUNGS',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'SEEDY',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'YOLKS',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'EMU',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'SENSE',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'EGG',
+            row: 0,
+            col: 3
+        },
+        '5': {
+            answer: 'SASSY',
+            row: 0,
+            col: 4
+        }
+    }
+  },
 ];
 
 export default crosswords;

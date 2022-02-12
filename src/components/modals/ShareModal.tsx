@@ -8,9 +8,10 @@ import { ShareIcon } from '@heroicons/react/outline';
 import { XIcon } from '@heroicons/react/outline';
 import { StoredGameState } from '../../lib/localStorage';
 import { MiniCrossword, CellColors, SVG_WIDTH, SVG_HEADER_SIZE } from '../mini-crossword/MiniCrossword';
-import { sleep, timeTillTomorrow } from '../../lib/utils';
+import { getTotalGuesses, sleep, timeTillTomorrow } from '../../lib/utils';
 import { CrosswordInput, GridData } from '../crossword/types';
 import { createGridData } from '../crossword/utils';
+import { trackShare } from '../../lib/analytics';
 
 const GIF_DELAY = 250;
 const GIF_WIDTH = 200;
@@ -62,9 +63,7 @@ export const ShareModal = ({
   const svgRef = useRef<SVGSVGElement>(null);
   const [cellColors, setCellColors] = useState<{ [key: string]: string }>();
   const [gridData] = useState<GridData>(createGridData(data));
-  const acrossGuesses = Object.values(guesses['across']).flat().length;
-  const downGuesses = Object.values(guesses['down']).flat().length;
-  const totalGuesses = acrossGuesses + downGuesses;
+  const totalGuesses = getTotalGuesses(guesses);
 
   // Update time till next crosswordle every second
   useEffect(() => {
@@ -103,6 +102,7 @@ export const ShareModal = ({
   }, [gifEncoder, crosswordleIndex, setGifEncoder]);
 
   const createGif = useCallback(async () => {
+    trackShare(crosswordleIndex, isGameWon, isGameLost, totalGuesses);
     const svg = svgRef.current;
     if (!svg) return;
 
@@ -117,7 +117,7 @@ export const ShareModal = ({
       await addSvgFrame(svg, delay);
     }
     renderGif();
-  }, [svgRef, addSvgFrame, renderGif, shareHistory]);
+  }, [svgRef, addSvgFrame, renderGif, shareHistory, isGameWon, isGameLost, crosswordleIndex, totalGuesses]);
 
   let title = `Crosswordle #${crosswordleIndex + 1}`;
   if (isGameWon) title = 'You Won!';

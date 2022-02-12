@@ -1,6 +1,8 @@
 import queryString from 'query-string';
 import crosswords from "../constants/crosswords";
 import padStart from 'lodash/padStart';
+import { Guesses } from './localStorage';
+import { GridData } from '../components/crossword/types';
 
 export function notEmpty<TValue>(
   value: TValue | null | undefined,
@@ -39,4 +41,25 @@ export function timeTillTomorrow() {
   const minutes = 59 - now.getMinutes();
   const seconds = 59 - now.getSeconds();
   return `${padTime(hours)}:${padTime(minutes)}:${padTime(seconds)}`;
+};
+
+export function getTotalGuesses(guesses: Guesses) {
+  const acrossGuesses = Object.values(guesses['across']).flat().length;
+  const downGuesses = Object.values(guesses['down']).flat().length;
+  return acrossGuesses + downGuesses;
+}
+
+export function gameProgress(gridData: GridData) {
+  let totalCells = 0;
+  let completedCells = 0;
+
+  gridData.forEach((row) => {
+    row.forEach((cell) => {
+      if (!cell.used) return;
+      totalCells += 1;
+      if (cell.guess === cell.answer) completedCells += 1;
+    });
+  });
+
+  return completedCells / totalCells;
 };
