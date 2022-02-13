@@ -58,3 +58,5 @@ function addAcross (cell, crosswordData) {
 }
 
 copy(crosswordData);
+
+// Regex replace: "([a-z]*)\": => $1:   ,    " => '

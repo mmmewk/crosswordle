@@ -1927,6 +1927,115 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
+  // 34
+  {
+    across: {
+        '1': {
+            answer: 'TOMB',
+            row: 0,
+            col: 1
+        },
+        '4': {
+            answer: 'COMA',
+            row: 1,
+            col: 0
+        },
+        '5': {
+            answer: 'APEX',
+            row: 2,
+            col: 0
+        },
+        '6': {
+            answer: 'RIGID',
+            row: 3,
+            col: 0
+        },
+        '7': {
+            answer: 'SCAM',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'TOPIC',
+            row: 0,
+            col: 1
+        },
+        '2': {
+            answer: 'OMEGA',
+            row: 0,
+            col: 2
+        },
+        '3': {
+            answer: 'MAXIM',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            answer: 'CARS',
+            row: 1,
+            col: 0
+        }
+    }
+  },
+  // 35
+  {
+    across: {
+        '1': {
+            answer: 'DAB',
+            row: 0,
+            col: 1
+        },
+        '4': {
+            answer: 'TOPAZ',
+            row: 1,
+            col: 0
+        },
+        '5': {
+            answer: 'HORN',
+            row: 2,
+            col: 0
+        },
+        '6': {
+            answer: 'EMOJI',
+            row: 3,
+            col: 0
+        },
+        '8': {
+            answer: 'NOT',
+            row: 4,
+            col: 2
+        }
+    },
+    down: {
+        '1': {
+            answer: 'DOOM',
+            row: 0,
+            col: 1
+        },
+        '2': {
+            answer: 'APRON',
+            row: 0,
+            col: 2
+        },
+        '3': {
+            answer: 'BANJO',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            answer: 'THE',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            answer: 'IT',
+            row: 3,
+            col: 4
+        }
+    }
+  }
 ];
 
 export default crosswords;
