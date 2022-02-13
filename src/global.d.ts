@@ -3,3 +3,5 @@ declare global {
     gtag: Gtag.Gtag;
   }
 }
+
+declare module 'redux-persist-indexeddb-storage';

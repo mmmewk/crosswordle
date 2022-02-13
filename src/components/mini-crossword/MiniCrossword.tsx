@@ -1,6 +1,6 @@
 import React from "react";
 import { crosswordIndex } from "../../lib/utils";
-import { CellData, GridData } from "../crossword/types";
+import { CellData, GridData } from "../../types";
 
 export type CellColors = { [position: string]: string };
 
@@ -9,11 +9,12 @@ export const SVG_HEADER_SIZE = 30;
 
 type Props = {
   gridData: GridData;
+  showLetters?: boolean;
   cellColors?: CellColors;
   totalGuesses: number;
 }
 
-export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData, cellColors = {}, totalGuesses }, ref) => {
+export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData, showLetters = false, cellColors = {}, totalGuesses }, ref) => {
   const svgHeight = SVG_WIDTH + SVG_HEADER_SIZE;
   const margin = 20;
   const crosswordSize = SVG_WIDTH - 2 * margin;
@@ -52,6 +53,15 @@ export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ gridData,
                 dominantBaseline="hanging"
                 style={{ fontSize: '50%', fill: 'rgba(0, 0, 0, 0.25)'}}
               >{cell.number}</text>
+            )}
+            {cell.guess && showLetters && (
+              <text
+                x={(cell.col + 0.5) * squareSize + margin}
+                y={(cell.row + 0.5) * squareSize + margin}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                style={{ fill: 'rgba(0, 0, 0)', userSelect: 'none', fontSize: '25px' }}
+              >{cell.guess}</text>
             )}
           </g>
         );

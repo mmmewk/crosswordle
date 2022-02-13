@@ -1,8 +1,8 @@
 import queryString from 'query-string';
 import crosswords from "../constants/crosswords";
 import padStart from 'lodash/padStart';
-import { Guesses } from './localStorage';
-import { GridData } from '../components/crossword/types';
+import { GridData } from '../types';
+import { Guesses } from '../redux/slices/wordleSlice';
 
 export function notEmpty<TValue>(
   value: TValue | null | undefined,

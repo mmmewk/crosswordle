@@ -1,7 +1,7 @@
 import * as smoothscroll from 'smoothscroll-polyfill';
 import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon } from '@heroicons/react/outline';
-import { ElementRef, useCallback, useEffect, useRef, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ElementRef, useCallback, useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Grid } from './components/grid/Grid';
 import { Keyboard } from './components/keyboard/Keyboard';
@@ -9,75 +9,42 @@ import { AboutModal } from './components/modals/AboutModal';
 import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
 import { isWordInWordList } from './lib/words';
-import {
-  Guesses,
-  initialStateFromLocalStorage,
-  loadGameStateFromLocalStorage,
-  saveGameStateToLocalStorage,
-  generateInitialGuessState,
-} from './lib/localStorage';
 import './App.css';
 import { gameProgress, getTotalGuesses, notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 import { CellColors } from './components/mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
-import { Crossword as MyCrossword } from './components/crossword/Crossword';
+import { Crossword } from './components/crossword/Crossword';
 import { get } from 'lodash';
-import { CellData, Direction, GridData, UsedCellData, WordInput } from './components/crossword/types';
+import { CellData, Direction, GridData, UsedCellData, WordInput } from './types';
 import { trackGameEnd, trackGameProgress, trackGuess } from './lib/analytics';
+import { useGameState } from './redux/hooks/useGameState';
 
 smoothscroll.polyfill();
 const initialClue = get(crosswordData, 'across.1', get(crosswordData, 'down.1')) as WordInput;
 if (window.location.origin === 'http://www.crosswordle.mekoppe.com') window.location.href = 'https://crosswordle.mekoppe.com';
 
 function App() {
-  const crosswordRef = useRef<ElementRef<typeof MyCrossword>>(null);
+  const crosswordRef = useRef<ElementRef<typeof Crossword>>(null);
+  const {
+    isGameWon,
+    lostCell,
+    guesses,
+    shareHistory,
+    addGuess: addGuessToState,
+    pushShareHistory,
+    win,
+    lose,
+  } = useGameState(crosswordIndex);
   const [knownLetters, setKnownLetters] = useState<(string | undefined)[]>([]);
-  const [resetCrossword, setResetCrossword] = useState(() => {
-    const loaded = loadGameStateFromLocalStorage();
-    return !loaded || loaded.crosswordIndex !== crosswordIndex;
-  });
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(initialClue.answer);
-  const [isShareModalOpen, setIsShareModalOpen] = useState(() => {
-    const loaded = loadGameStateFromLocalStorage();
-    if (!loaded || loaded.crosswordIndex !== crosswordIndex) return false;
-    return Boolean(loaded.lostCell) || loaded.isGameWon;
-  });
+  const [isShareModalOpen, setIsShareModalOpen] = useState(isGameWon);
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
-  const [isGameWon, setIsGameWon] = useState<boolean>(
-    initialStateFromLocalStorage<boolean>({ key: 'isGameWon', defaultValue: false, crosswordIndex })
-  );
-  const [lostCell, setLostCell] = useState<UsedCellData | null>(
-    initialStateFromLocalStorage<UsedCellData | null>({ key: 'lostCell', defaultValue: null, crosswordIndex })
-  );
   const [focusedClue, setFocusedClue] = useState<WordInput>(initialClue);
   const [focusedDirection, setFocusedDirection] = useState<Direction>('across');
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
-  const [guesses, setGuesses] = useState<Guesses>(
-    initialStateFromLocalStorage<Guesses>({
-      key: 'guesses',
-      defaultValue: generateInitialGuessState(crosswordData),
-      crosswordIndex
-    })
-  );
-  const [shareHistory, setShareHistory] = useState<CellColors[]>(
-    initialStateFromLocalStorage<CellColors[]>({ key: 'shareHistory', defaultValue: [], crosswordIndex })
-  );
-
-  // When a new crossword is available and the crosswordRef is loaded reset the crossword game state
-  useEffect(() => {
-    if (resetCrossword && crosswordRef.current) {
-      setResetCrossword(false);
-      crosswordRef.current.reset();
-    }
-  }, [resetCrossword, crosswordRef])
-
-  // When changes occur save to local storage
-  useEffect(() => {
-    saveGameStateToLocalStorage({ guesses, crosswordIndex, shareHistory, isGameWon, lostCell })
-  }, [guesses, shareHistory, isGameWon, lostCell])
 
   // Key event callbacks
   const onChar = (value: string) => {
@@ -114,26 +81,19 @@ function App() {
       }
     });
 
-    setShareHistory([...shareHistory, newCellColors])
-  }, [shareHistory, focusedClue, focusedDirection]);
+    pushShareHistory(newCellColors);
+  }, [shareHistory, pushShareHistory, focusedClue, focusedDirection]);
 
   const updateShareHistoryWithLoss = useCallback((cell: UsedCellData) => {
     const previousCellColors = shareHistory.slice(-1)[0] || {};
     const key = `${cell.row}_${cell.col}`;
 
-    setShareHistory([...shareHistory, { ...previousCellColors, [key]: WORDLE_LOSE_COLOR }]);
-  }, [shareHistory])
+    pushShareHistory({ ...previousCellColors, [key]: WORDLE_LOSE_COLOR });
+  }, [shareHistory, pushShareHistory])
 
   const addGuess = (guess: string) => {
     trackGuess(crosswordIndex, guess);
-    const guessesForWord = guesses[focusedDirection][focusedNumber];
-    setGuesses({
-      ...guesses,
-      [focusedDirection]: {
-        ...guesses[focusedDirection],
-        [focusedNumber]: [...guessesForWord, guess]
-      }
-    });
+    addGuessToState(focusedDirection, focusedNumber, guess);
 
     crosswordRef.current?.guessWord(currentGuess);
 
@@ -165,7 +125,7 @@ function App() {
         if (!cell.used) return true;
         if (isCellLost(cell)) {
           gameLost = true;
-          setLostCell(cell);
+          lose(cell);
           updateShareHistoryWithLoss(cell);
           setIsShareModalOpen(true);
           return false;
@@ -182,12 +142,14 @@ function App() {
 
     if (crosswordCorrect) {
       trackGameEnd(crosswordIndex, 'game_won', totalGuesses);
-      setIsGameWon(true);
+      win();
       setIsShareModalOpen(true);
     }
   };
 
   const onEnter = () => {
+    if (currentGuess.length !== currentWord.length) return;
+
     // Alert user if guess is not a word
     if (!isWordInWordList(currentGuess) && currentGuess !== currentWord) {
       toast.error('Word not found');
@@ -228,20 +190,13 @@ function App() {
       </div>}
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 md:p-6">
         <h1 className="text-xl grow font-bold">Crosswordle {crosswordIndex + 1}</h1>
-        <ToastContainer />
         <PresentationChartBarIcon
           className="h-6 w-6 mr-5 cursor-pointer"
           onClick={() => setIsShareModalOpen(true)}
         />
         <ShareModal
-          data={crosswordData}
           isOpen={isShareModalOpen}
-          isGameWon={isGameWon}
-          isGameLost={Boolean(lostCell)}
           handleClose={() => setIsShareModalOpen(false)}
-          guesses={guesses}
-          crosswordleIndex={crosswordIndex}
-          shareHistory={shareHistory}
         />
         <InformationCircleIcon
           className="h-6 w-6 mr-5 cursor-pointer  md:hidden lg:hidden"
@@ -263,7 +218,7 @@ function App() {
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
         <div className='w-full flex justify-center items-center border-slate-400 p-4 px-20 md:p-6 md:w-1/2 md:border-r' >
           <div className='max-w-[500px] w-full h-full flex items-center max-width-static-mobile'>
-            <MyCrossword crosswordIndex={crosswordIndex} data={crosswordData} onMoved={onMoved} onChange={onGridDataChange} ref={crosswordRef} />
+            <Crossword onMoved={onMoved} onChange={onGridDataChange} ref={crosswordRef} />
           </div>
         </div>
         <div className='w-full flex flex-1 md:items-center md:w-1/2'>

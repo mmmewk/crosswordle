@@ -1,4 +1,4 @@
-import { CrosswordInput } from '../components/crossword/types';
+import { CrosswordInput } from '../types';
 
 const crosswords: CrosswordInput[] = [
   // 1

@@ -1,19 +1,15 @@
 import { cloneDeep, get } from "lodash";
-import React, { useCallback, useEffect, useImperativeHandle, useState } from "react";
+import React, { useCallback, useEffect, useImperativeHandle } from "react";
 import { useRefState } from "../../lib/hooks";
-import { GridData, CellData, CrosswordInput, Direction, UsedCellData, WordInput } from "./types"
-import { createGridData, otherDirection } from "./utils";
-import {
-  initialStateFromLocalStorage,
-  saveGameStateToLocalStorage,
-} from './localStorage';
+import { GridData, CellData, Direction, UsedCellData, WordInput } from "../../types"
+import { createGridData, otherDirection } from "../../lib/crossword-utils";
+import { useGridData } from "../../redux/hooks/useGridData";
+import { crosswordIndex, crossword } from "../../lib/utils";
 
 const SELECTED_CELL_COLOR = '#FFFF00';
 const SELECTED_WORD_COLOR = 'rgb(255,255,204)';
 
 type Props = {
-  data: CrosswordInput;
-  crosswordIndex: number;
   onMoved?: (cell: CellData, direction: Direction, knownLetters: (string | undefined)[]) => void;
   onChange?: (gridData: GridData, knownLetters: (string | undefined)[]) => void;
 };
@@ -23,12 +19,10 @@ type Handle = {
   reset: () => void,
 }
 
-export const Crossword = React.forwardRef<Handle, Props>(({ data, onMoved, onChange, crosswordIndex }, ref) => {
-  const initialWord = get(data, 'across.1', get(data, 'down.1')) as WordInput;
+export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange }, ref) => {
+  const initialWord = get(crossword, 'across.1', get(crossword, 'down.1')) as WordInput;
 
-  const [gridData, setGridData] = useState<GridData>(
-    initialStateFromLocalStorage<GridData>({ key: 'gridData', defaultValue: createGridData(data), crosswordIndex })
-  );
+  const [gridData, setGridData] = useGridData(crosswordIndex);
   const [focusedCell, setFocusedCell, focusedCellRef] = useRefState<UsedCellData>(gridData[initialWord.row][initialWord.col] as UsedCellData);
   const [focusedDirection, setFocusedDirection, focusedDirectionRef] = useRefState<Direction>('across');
 
@@ -95,7 +89,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ data, onMoved, onCha
 
   const getKnownLetters = useCallback(() => {
     const number = focusedCell[focusedDirection] as string;
-    const focusedClue = data[focusedDirection][number] as WordInput;
+    const focusedClue = crossword[focusedDirection][number] as WordInput;
     return Array.from(focusedClue.answer).map((_, index) => {
       let letterRow = focusedClue.row + (focusedDirection === 'across' ? 0 : index);
       let letterCol = focusedClue.col + (focusedDirection === 'across' ? index : 0);
@@ -104,25 +98,24 @@ export const Crossword = React.forwardRef<Handle, Props>(({ data, onMoved, onCha
 
       return cell.guess;
     });
-  }, [focusedCell, focusedDirection, gridData, data])
+  }, [focusedCell, focusedDirection, gridData])
 
   useEffect(() => {
     if (onMoved) onMoved(focusedCell, focusedDirection, getKnownLetters());
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [focusedCell, focusedDirection]);
+  }, [focusedCell, focusedDirection, getKnownLetters]);
 
   useEffect(() => {
     if (onChange) onChange(gridData, getKnownLetters());
-    saveGameStateToLocalStorage({ gridData, crosswordIndex });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gridData, crosswordIndex]);
+  }, [gridData, getKnownLetters]);
 
   useImperativeHandle(ref, () => ({
     guessWord: (guess: string) => {
       const focusedNumber = focusedCell[focusedDirection];
 
       if (!focusedNumber) return;
-      const focusedWord = data[focusedDirection][focusedNumber];
+      const focusedWord = crossword[focusedDirection][focusedNumber];
 
       const gridDataClone = cloneDeep(gridData);
 
@@ -138,7 +131,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ data, onMoved, onCha
       setGridData(gridDataClone);
     },
     reset: () => {
-      setGridData(createGridData(data));
+      setGridData(createGridData(crossword));
     },
   }));
 

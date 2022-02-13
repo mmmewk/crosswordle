@@ -6,13 +6,14 @@ import { CheckIcon } from '@heroicons/react/outline';
 import { XCircleIcon } from '@heroicons/react/outline';
 import { ShareIcon } from '@heroicons/react/outline';
 import { XIcon } from '@heroicons/react/outline';
-import { StoredGameState } from '../../lib/localStorage';
-import { MiniCrossword, CellColors, SVG_WIDTH, SVG_HEADER_SIZE } from '../mini-crossword/MiniCrossword';
+import { MiniCrossword, SVG_WIDTH, SVG_HEADER_SIZE } from '../mini-crossword/MiniCrossword';
 import { getTotalGuesses, sleep, timeTillTomorrow } from '../../lib/utils';
-import { CrosswordInput, GridData } from '../crossword/types';
-import { createGridData } from '../crossword/utils';
+import { GridData } from '../../types';
+import { createGridData } from '../../lib/crossword-utils';
 import { trackShare } from '../../lib/analytics';
 import { toast } from 'react-toastify';
+import { crosswordIndex, crossword } from '../../lib/utils';
+import { useGameState } from '../../redux/hooks/useGameState';
 
 const GIF_DELAY = 250;
 const GIF_WIDTH = 200;
@@ -35,35 +36,23 @@ const createGifEncoder = (filename: string, onFinish?: () => void) => {
   return gifEncoder;
 };
 
-type Guesses = StoredGameState['guesses'];
-
 type Props = {
   isOpen: boolean;
-  isGameWon: boolean;
-  isGameLost: boolean;
   handleClose: () => void;
-  guesses: Guesses;
-  shareHistory?: CellColors[];
-  crosswordleIndex: number;
-  data: CrosswordInput;
 }
 
 export const ShareModal = ({
   isOpen,
-  isGameWon,
-  isGameLost,
   handleClose,
-  guesses,
-  shareHistory = [],
-  crosswordleIndex,
-  data,
 }: Props) => {
+  const { guesses, shareHistory, isGameWon, lostCell } = useGameState(crosswordIndex);
+  const isGameLost = Boolean(lostCell);
   const [timeTillNext, setTimeTillNext] = useState(timeTillTomorrow);
   const [creatingGif, setCreatingGif] = useState<boolean>(false);
-  const [gifEncoder, setGifEncoder] = useState<Gif>(createGifEncoder(`Crosswordle-${crosswordleIndex + 1}.gif`, () => setCreatingGif(false)));
+  const [gifEncoder, setGifEncoder] = useState<Gif>(createGifEncoder(`Crosswordle-${crosswordIndex + 1}.gif`, () => setCreatingGif(false)));
   const svgRef = useRef<SVGSVGElement>(null);
   const [cellColors, setCellColors] = useState<{ [key: string]: string }>();
-  const [gridData] = useState<GridData>(createGridData(data));
+  const [gridData] = useState<GridData>(createGridData(crossword));
   const totalGuesses = getTotalGuesses(guesses);
 
   // Update time till next crosswordle every second
@@ -99,11 +88,11 @@ export const ShareModal = ({
   const renderGif = useCallback(() => {
     gifEncoder.render();
     // Create a fresh encoder for next share
-    setGifEncoder(createGifEncoder(`Crosswordle-${crosswordleIndex + 1}.gif`, () => setCreatingGif(false)));
-  }, [gifEncoder, crosswordleIndex, setGifEncoder]);
+    setGifEncoder(createGifEncoder(`Crosswordle-${crosswordIndex + 1}.gif`, () => setCreatingGif(false)));
+  }, [gifEncoder, setGifEncoder]);
 
   const share = useCallback(async () => {
-    trackShare(crosswordleIndex, isGameWon, isGameLost, totalGuesses);
+    trackShare(crosswordIndex, isGameWon, isGameLost, totalGuesses);
     const svg = svgRef.current;
     if (!svg) return;
 
@@ -130,9 +119,9 @@ export const ShareModal = ({
       success: 'Replay GIF downloaded and shareable link copied to clipboard',
       error: 'Something went wrong...'
     });
-  }, [svgRef, addSvgFrame, renderGif, shareHistory, isGameWon, isGameLost, crosswordleIndex, totalGuesses]);
+  }, [svgRef, addSvgFrame, renderGif, shareHistory, isGameWon, isGameLost, totalGuesses]);
 
-  let title = `Crosswordle #${crosswordleIndex + 1}`;
+  let title = `Crosswordle #${crosswordIndex + 1}`;
   if (isGameWon) title = 'You Won!';
   if (isGameLost) title = 'You Lost!';
 

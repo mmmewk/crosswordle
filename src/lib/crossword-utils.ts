@@ -3,7 +3,7 @@ import type {
   Direction,
   GridData,
   UsedCellData,
-} from './types';
+} from '../types';
 
 type RowOrCol = 'row' | 'col';
 
