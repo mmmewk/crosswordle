@@ -1532,31 +1532,26 @@ const crosswords: CrosswordInput[] = [
   {
     across: {
       '1': {
-
           answer: 'LOB',
           row: 0,
           col: 0
       },
       '4': {
-
           answer: 'APED',
           row: 1,
           col: 0
       },
       '6': {
-
           answer: 'GATES',
           row: 2,
           col: 0
       },
       '8': {
-
           answer: 'LASH',
           row: 3,
           col: 1
       },
       '9': {
-
           answer: 'SKY',
           row: 4,
           col: 2
@@ -1564,31 +1559,26 @@ const crosswords: CrosswordInput[] = [
   },
   down: {
       '1': {
-
           answer: 'LAG',
           row: 0,
           col: 0
       },
       '2': {
-
           answer: 'OPAL',
           row: 0,
           col: 1
       },
       '3': {
-
           answer: 'BETAS',
           row: 0,
           col: 2
       },
       '5': {
-
           answer: 'DESK',
           row: 1,
           col: 3
       },
       '7': {
-
           answer: 'SHY',
           row: 2,
           col: 4
@@ -1982,60 +1972,112 @@ const crosswords: CrosswordInput[] = [
   // 35
   {
     across: {
-        '1': {
-            answer: 'DAB',
-            row: 0,
-            col: 1
-        },
-        '4': {
-            answer: 'TOPAZ',
-            row: 1,
-            col: 0
-        },
-        '5': {
-            answer: 'HORN',
-            row: 2,
-            col: 0
-        },
-        '6': {
-            answer: 'EMOJI',
-            row: 3,
-            col: 0
-        },
-        '8': {
-            answer: 'NOT',
-            row: 4,
-            col: 2
-        }
+      '1': {
+          answer: 'DAB',
+          row: 0,
+          col: 1
+      },
+      '4': {
+          answer: 'TOPAZ',
+          row: 1,
+          col: 0
+      },
+      '5': {
+          answer: 'HORN',
+          row: 2,
+          col: 0
+      },
+      '6': {
+          answer: 'EMOJI',
+          row: 3,
+          col: 0
+      },
+      '8': {
+          answer: 'NOT',
+          row: 4,
+          col: 2
+      }
     },
     down: {
-        '1': {
-            answer: 'DOOM',
-            row: 0,
-            col: 1
-        },
-        '2': {
-            answer: 'APRON',
-            row: 0,
-            col: 2
-        },
-        '3': {
-            answer: 'BANJO',
-            row: 0,
-            col: 3
-        },
-        '4': {
-            answer: 'THE',
-            row: 1,
-            col: 0
-        },
-        '7': {
-            answer: 'IT',
-            row: 3,
-            col: 4
-        }
+      '1': {
+          answer: 'DOOM',
+          row: 0,
+          col: 1
+      },
+      '2': {
+          answer: 'APRON',
+          row: 0,
+          col: 2
+      },
+      '3': {
+          answer: 'BANJO',
+          row: 0,
+          col: 3
+      },
+      '4': {
+          answer: 'THE',
+          row: 1,
+          col: 0
+      },
+      '7': {
+          answer: 'IT',
+          row: 3,
+          col: 4
+      }
     }
-  }
+  },
+  // 36
+  {
+    across: {
+      '1': {
+          answer: 'STABS',
+          row: 0,
+          col: 0
+      },
+      '5': {
+          answer: 'KEY',
+          row: 1,
+          col: 2
+      },
+      '6': {
+          answer: 'ALIGN',
+          row: 2,
+          col: 0
+      },
+      '8': {
+          answer: 'TONIC',
+          row: 3,
+          col: 0
+      }
+    },
+    down: {
+      '1': {
+          answer: 'STAT',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          answer: 'AKIN',
+          row: 0,
+          col: 2
+      },
+      '3': {
+          answer: 'BEGIN',
+          row: 0,
+          col: 3
+      },
+      '4': {
+          answer: 'SYNC',
+          row: 0,
+          col: 4
+      },
+      '7': {
+          answer: 'LOT',
+          row: 2,
+          col: 1
+      }
+    }
+  },
 ];
 
 export default crosswords;
