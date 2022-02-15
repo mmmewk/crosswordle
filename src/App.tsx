@@ -10,18 +10,17 @@ import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
 import { isWordInWordList } from './lib/words';
 import './App.css';
-import { gameProgress, getTotalGuesses, notEmpty } from './lib/utils';
+import { gameProgress, getInitialClue, getTotalGuesses, notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 import { CellColors } from './components/mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
 import { Crossword } from './components/crossword/Crossword';
-import { get } from 'lodash';
 import { CellData, Direction, GridData, UsedCellData, WordInput } from './types';
 import { trackGameEnd, trackGameProgress, trackGuess } from './lib/analytics';
 import { useGameState } from './redux/hooks/useGameState';
 
 smoothscroll.polyfill();
-const initialClue = get(crosswordData, 'across.1', get(crosswordData, 'down.1')) as WordInput;
+const { initialClue, initialDirection } = getInitialClue(crosswordData);
 if (window.location.origin === 'http://www.crosswordle.mekoppe.com') window.location.href = 'https://crosswordle.mekoppe.com';
 
 function App() {
@@ -43,7 +42,7 @@ function App() {
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [focusedClue, setFocusedClue] = useState<WordInput>(initialClue);
-  const [focusedDirection, setFocusedDirection] = useState<Direction>('across');
+  const [focusedDirection, setFocusedDirection] = useState<Direction>(initialDirection);
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
 
   // Key event callbacks

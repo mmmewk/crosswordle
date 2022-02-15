@@ -1,4 +1,4 @@
-export const trackEvent = (name: string, params?: Gtag.CustomParams | Gtag.ControlParams | Gtag.EventParams) {
+export const trackEvent = (name: string, params?: Gtag.CustomParams | Gtag.ControlParams | Gtag.EventParams) => {
   if (process.env.NODE_ENV === 'development') return;
 
   gtag('event', name, params);

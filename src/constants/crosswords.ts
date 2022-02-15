@@ -1470,62 +1470,53 @@ const crosswords: CrosswordInput[] = [
   // 26
   {
     across: {
-        '3': {
-  
-            answer: 'ATLAS',
-            row: 1,
-            col: 0
-        },
-        '7': {
-  
-            answer: 'RHINO',
-            row: 2,
-            col: 0
-        },
-        '8': {
-  
-            answer: 'DECOY',
-            row: 3,
-            col: 0
-        },
-        '9': {
-  
-            answer: 'SEEN',
-            row: 4,
-            col: 0
-        }
+      '3': {
+          answer: 'ATLAS',
+          row: 1,
+          col: 0
+      },
+      '7': {
+          answer: 'RHINO',
+          row: 2,
+          col: 0
+      },
+      '8': {
+          answer: 'DECOY',
+          row: 3,
+          col: 0
+      },
+      '9': {
+          answer: 'SEEN',
+          row: 4,
+          col: 0
+      }
     },
     down: {
-        '1': {
-  
-            answer: 'BARDS',
-            row: 0,
-            col: 0
-        },
-        '2': {
-  
-            answer: 'CANON',
-            row: 0,
-            col: 3
-        },
-        '4': {
-  
-            answer: 'THEE',
-            row: 1,
-            col: 1
-        },
-        '5': {
-  
-            answer: 'LICE',
-            row: 1,
-            col: 2
-        },
-        '6': {
-  
-            answer: 'SOY',
-            row: 1,
-            col: 4
-        }
+      '1': {
+          answer: 'BARDS',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          answer: 'CANON',
+          row: 0,
+          col: 3
+      },
+      '4': {
+          answer: 'THEE',
+          row: 1,
+          col: 1
+      },
+      '5': {
+          answer: 'LICE',
+          row: 1,
+          col: 2
+      },
+      '6': {
+          answer: 'SOY',
+          row: 1,
+          col: 4
+      }
     }
   },
   // 27
@@ -1588,6 +1579,58 @@ const crosswords: CrosswordInput[] = [
   // 28
   {
     across: {
+      '3': {
+          answer: 'ATLAS',
+          row: 1,
+          col: 0
+      },
+      '7': {
+          answer: 'RHINO',
+          row: 2,
+          col: 0
+      },
+      '8': {
+          answer: 'DECOY',
+          row: 3,
+          col: 0
+      },
+      '9': {
+          answer: 'SEEN',
+          row: 4,
+          col: 0
+      }
+    },
+    down: {
+      '1': {
+          answer: 'BARDS',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          answer: 'CANON',
+          row: 0,
+          col: 3
+      },
+      '4': {
+          answer: 'THEE',
+          row: 1,
+          col: 1
+      },
+      '5': {
+          answer: 'LICE',
+          row: 1,
+          col: 2
+      },
+      '6': {
+          answer: 'SOY',
+          row: 1,
+          col: 4
+      }
+    }
+  },
+  // 29
+  {
+    across: {
         '1': {
             answer: 'RUSH',
             row: 0,
@@ -1642,7 +1685,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 29
+  // 30
   {
     across: {
         '1': {
@@ -1699,7 +1742,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 30
+  // 31
   {
     across: {
         '1': {
@@ -1756,7 +1799,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 31
+  // 32
   {
     across: {
         '1': {
@@ -1813,7 +1856,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 32
+  // 33
   {
     across: {
         '1': {
@@ -1865,7 +1908,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 33
+  // 34
   {
     across: {
         '1': {
@@ -1917,7 +1960,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 34
+  // 35
   {
     across: {
         '1': {
@@ -1969,7 +2012,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 35
+  // 36
   {
     across: {
       '1': {
@@ -2026,7 +2069,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 36
+  // 37
   {
     across: {
       '1': {

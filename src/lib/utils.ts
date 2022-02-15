@@ -1,8 +1,9 @@
 import queryString from 'query-string';
 import crosswords from "../constants/crosswords";
 import padStart from 'lodash/padStart';
-import { GridData } from '../types';
+import { CrosswordInput, Direction, GridData, WordInput } from '../types';
 import { Guesses } from '../redux/slices/wordleSlice';
+import { get } from 'lodash';
 
 export function notEmpty<TValue>(
   value: TValue | null | undefined,
@@ -13,8 +14,8 @@ export function notEmpty<TValue>(
 export function getPuzzleOfTheDay() {
   const queryIndex = Number(queryString.parse(window.location.search)?.index as string);
 
-  // January 21, 2022 Game Epoch
-  const epochMs = +new Date('2022-01-21T00:00:00');
+  // January 20, 2022 Game Epoch
+  const epochMs = +new Date('2022-01-20T00:00:00');
   const now = Date.now();
   const msInDay = 86400000
   let index = Math.floor((now - epochMs) / msInDay);
@@ -28,6 +29,13 @@ export function getPuzzleOfTheDay() {
 };
 
 export const { crossword, crosswordIndex } = getPuzzleOfTheDay();
+
+export function getInitialClue(crossword: CrosswordInput) {
+  let initialClue = get(crossword, 'across.1') as WordInput;
+  const initialDirection = initialClue ? 'across' : 'down' as Direction;
+  if (!initialClue) initialClue = get(crossword, 'down.1');
+  return { initialClue, initialDirection };
+}
 
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));

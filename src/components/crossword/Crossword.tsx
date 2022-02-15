@@ -4,7 +4,7 @@ import { useRefState } from "../../lib/hooks";
 import { GridData, CellData, Direction, UsedCellData, WordInput } from "../../types"
 import { createGridData, otherDirection } from "../../lib/crossword-utils";
 import { useGridData } from "../../redux/hooks/useGridData";
-import { crosswordIndex, crossword } from "../../lib/utils";
+import { crosswordIndex, crossword, getInitialClue } from "../../lib/utils";
 
 const SELECTED_CELL_COLOR = '#FFFF00';
 const SELECTED_WORD_COLOR = 'rgb(255,255,204)';
@@ -19,12 +19,12 @@ type Handle = {
   reset: () => void,
 }
 
-export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange }, ref) => {
-  const initialWord = get(crossword, 'across.1', get(crossword, 'down.1')) as WordInput;
+const { initialClue: initialWord, initialDirection } = getInitialClue(crossword);
 
+export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange }, ref) => {
   const [gridData, setGridData] = useGridData(crosswordIndex);
   const [focusedCell, setFocusedCell, focusedCellRef] = useRefState<UsedCellData>(gridData[initialWord.row][initialWord.col] as UsedCellData);
-  const [focusedDirection, setFocusedDirection, focusedDirectionRef] = useRefState<Direction>('across');
+  const [focusedDirection, setFocusedDirection, focusedDirectionRef] = useRefState<Direction>(initialDirection);
 
   const svgSize = 240;
   const margin = 20;
@@ -90,6 +90,9 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange },
   const getKnownLetters = useCallback(() => {
     const number = focusedCell[focusedDirection] as string;
     const focusedClue = crossword[focusedDirection][number] as WordInput;
+
+    if (!number || !focusedClue) return [];
+
     return Array.from(focusedClue.answer).map((_, index) => {
       let letterRow = focusedClue.row + (focusedDirection === 'across' ? 0 : index);
       let letterCol = focusedClue.col + (focusedDirection === 'across' ? index : 0);
