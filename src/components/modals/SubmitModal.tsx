@@ -7,7 +7,7 @@ type Props = {
   handleClose: () => void
 }
 
-export const AboutModal = ({ isOpen, handleClose }: Props) => {
+export const SubmitModal = ({ isOpen, handleClose }: Props) => {
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
@@ -57,38 +57,27 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
                     as="h3"
                     className="text-lg leading-6 font-medium text-gray-900"
                   >
-                    About
+                    Submit a crosswordle
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      This is an open source variation of the game wordle
-                      where you solve a daily mini crossword using wordle rules -{' '}
-                      <a
-                        href="https://www.powerlanguage.co.uk/wordle/"
-                        className="underline font-bold"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        play the wordle here
-                      </a>
-                      {' '}and{' '}
-                      <a
-                        href="https://www.nytimes.com/crosswords/game/mini"
-                        className="underline font-bold"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        play the daily crossword mini here
-                      </a>. Crosswords are created using{' '}
-                      <a
-                        href="https://crosshare.org/"
-                        className="underline font-bold"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Crosshare.org
-                      </a>
+                      If you enjoy the crosswordle and are good at making crosswords consider submitting your own crosswordle for everyone to play!
                     </p>
+                    <p className='text-sm mt-3 text-gray-500'>
+                      First build a 5x5 crossword puzzle using only words in the english dictionary. I recommend using{' '}
+                      <a href="https://crosshare.org/construct" className="underline font-bold" target="_blank" rel="noreferrer">Crosshare.org</a>.
+                    </p>
+                    <p className='text-sm mt-3 text-gray-500'>
+                      Then take a screenshot of your crossword and email it to{' '}
+                      <a href="mailto:crosswordle.submissions@gmail.com" className="underline font-bold" target="_blank" rel="noreferrer">crosswordle.submissions@gmail.com</a>
+                      {' '}along with your name so you can get credit for the puzzle!
+                    </p>
+                    <p className='mt-3 text-gray-500'>A couple tips:</p>
+                    <ul style={{ listStyle: 'inside', textAlign: 'left' }} className='text-gray-500'>
+                      <li>Try and minimize the number of 2 and 3 letter words that you use as these require a significant amount of luck.</li>
+                      <li>If you do use short words make sure that all of their letters are used in both down and across directions.</li>
+                      <li>Generally try to keep to somewhat commonly known words, its no fun trying to guess <b>zibeb</b>.</li>
+                    </ul>
                   </div>
                 </div>
               </div>

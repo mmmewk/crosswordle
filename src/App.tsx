@@ -1,5 +1,5 @@
 import * as smoothscroll from 'smoothscroll-polyfill';
-import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon } from '@heroicons/react/outline';
+import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon, DocumentAddIcon } from '@heroicons/react/outline';
 import { ElementRef, useCallback, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,6 +18,7 @@ import { Crossword } from './components/crossword/Crossword';
 import { CellData, Direction, GridData, UsedCellData, WordInput } from './types';
 import { trackGameEnd, trackGameProgress, trackGuess } from './lib/analytics';
 import { useGameState } from './redux/hooks/useGameState';
+import { SubmitModal } from './components/modals/SubmitModal';
 
 smoothscroll.polyfill();
 const { initialClue, initialDirection } = getInitialClue(crosswordData);
@@ -39,6 +40,7 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(initialClue.answer);
   const [isShareModalOpen, setIsShareModalOpen] = useState(isGameWon);
+  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [focusedClue, setFocusedClue] = useState<WordInput>(initialClue);
@@ -188,9 +190,9 @@ function App() {
         <p>Realized the crosswordle today had a lot of luck involved so I updated it. Play the original <a href="?index=13" className='text-white'>here</a>.</p>
       </div>}
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 md:p-6">
-        <h1 className="text-xl grow font-bold">Crosswordle {crosswordIndex + 1}</h1>
+        <h1 className="text-l md:text-xl grow font-bold whitespace-nowrap ">Crosswordle {crosswordIndex + 1}</h1>
         <PresentationChartBarIcon
-          className="h-6 w-6 mr-5 cursor-pointer"
+          className="h-6 w-6 ml-3 mr-3 cursor-pointer"
           onClick={() => setIsShareModalOpen(true)}
         />
         <ShareModal
@@ -198,7 +200,7 @@ function App() {
           handleClose={() => setIsShareModalOpen(false)}
         />
         <InformationCircleIcon
-          className="h-6 w-6 mr-5 cursor-pointer  md:hidden lg:hidden"
+          className="h-6 w-6 mr-3 cursor-pointer  md:hidden lg:hidden"
           onClick={() => setIsAboutModalOpen(true)}
         />
         <AboutModal
@@ -206,12 +208,20 @@ function App() {
           handleClose={() => setIsAboutModalOpen(false)}
         />
         <QuestionMarkCircleIcon
-          className="h-6 w-6 cursor-pointer"
+          className="h-6 w-6 mr-3 cursor-pointer"
           onClick={() => setIsHelpModalOpen(true)}
         />
         <HelpModal
           isOpen={isHelpModalOpen}
           handleClose={() => setIsHelpModalOpen(false)}
+        />
+        <DocumentAddIcon
+          className="h-6 w-6 mr-3 cursor-pointer"
+          onClick={() => setIsSubmitModalOpen(true)}
+        />
+        <SubmitModal
+          isOpen={isSubmitModalOpen}
+          handleClose={() => setIsSubmitModalOpen(false)}
         />
       </div>
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
