@@ -197,6 +197,10 @@ function App() {
         />
         <ShareModal
           isOpen={isShareModalOpen}
+          openSubmitModal={() => {
+            setIsShareModalOpen(false);
+            setIsSubmitModalOpen(true);
+          }}
           handleClose={() => setIsShareModalOpen(false)}
         />
         <InformationCircleIcon
@@ -216,7 +220,7 @@ function App() {
           handleClose={() => setIsHelpModalOpen(false)}
         />
         <DocumentAddIcon
-          className="h-6 w-6 mr-3 cursor-pointer"
+          className="h-6 w-6 cursor-pointer"
           onClick={() => {
             trackEvent('open_submit_modal');
             setIsSubmitModalOpen(true)

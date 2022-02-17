@@ -38,11 +38,13 @@ const createGifEncoder = (filename: string, onFinish?: () => void) => {
 
 type Props = {
   isOpen: boolean;
+  openSubmitModal: () => void;
   handleClose: () => void;
 }
 
 export const ShareModal = ({
   isOpen,
+  openSubmitModal,
   handleClose,
 }: Props) => {
   const { guesses, shareHistory, isGameWon, lostCell } = useGameState(crosswordIndex);
@@ -214,7 +216,7 @@ export const ShareModal = ({
               </div>
               <div className="mt-5 sm:mt-6">
                 <div className='flex justify-center items-center text-center'>
-                  <div className='w-1/2 border-r-slate-400 border-r-[1px] mr-2 flex-col justify-center items-center text-center'>
+                  <div className='w-1/2 border-r-slate-300 border-r-[1px] mr-2 flex-col justify-center items-center text-center'>
                     <p>Next Crosswordle</p>
                     <p className='text-xl'>{timeTillNext}</p>
                   </div>
@@ -234,6 +236,18 @@ export const ShareModal = ({
                     </button>
                   </div>
                 </div>
+                { (
+                  <div className="flex mx-auto items-center m-4 md:m-6 hidden md:block lg:block text-center border-t border-t-slate-300">
+                    <p className="p-4">Enjoying the crosswordle?</p>
+                    <button
+                      type="button"
+                      className="mx-auto flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      onClick={openSubmitModal}
+                    >
+                      Submit your own crosswordle!
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </Transition.Child>
