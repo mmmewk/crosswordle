@@ -1470,52 +1470,52 @@ const crosswords: CrosswordInput[] = [
   // 26
   {
     across: {
-      '3': {
-          answer: 'ATLAS',
+      '1': {
+          answer: 'HEAT',
+          row: 0,
+          col: 1
+      },
+      '5': {
+          answer: 'COMMA',
           row: 1,
           col: 0
       },
-      '7': {
-          answer: 'RHINO',
+      '6': {
+          answer: 'AMBER',
           row: 2,
           col: 0
       },
-      '8': {
-          answer: 'DECOY',
-          row: 3,
-          col: 0
-      },
-      '9': {
+      '7': {
           answer: 'SEEN',
-          row: 4,
+          row: 3,
           col: 0
       }
     },
     down: {
       '1': {
-          answer: 'BARDS',
+          answer: 'HOME',
           row: 0,
-          col: 0
+          col: 1
       },
       '2': {
-          answer: 'CANON',
+          answer: 'EMBER',
+          row: 0,
+          col: 2
+      },
+      '3': {
+          answer: 'AMEN',
           row: 0,
           col: 3
       },
       '4': {
-          answer: 'THEE',
-          row: 1,
-          col: 1
+          answer: 'TAR',
+          row: 0,
+          col: 4
       },
       '5': {
-          answer: 'LICE',
+          answer: 'CASE',
           row: 1,
-          col: 2
-      },
-      '6': {
-          answer: 'SOY',
-          row: 1,
-          col: 4
+          col: 0
       }
     }
   },
@@ -2121,6 +2121,167 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 38
+  {
+    across: {
+      '1': {
+          answer: 'CILIA',
+          row: 0,
+          col: 0
+      },
+      '5': {
+          answer: 'UDON',
+          row: 1,
+          col: 0
+      },
+      '6': {
+          answer: 'REND',
+          row: 2,
+          col: 0
+      },
+      '7': {
+          answer: 'LAGER',
+          row: 3,
+          col: 0
+      }
+    },
+    down: {
+      '1': {
+          answer: 'CURL',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          answer: 'IDEAL',
+          row: 0,
+          col: 1
+      },
+      '3': {
+          answer: 'LONG',
+          row: 0,
+          col: 2
+      },
+      '4': {
+          answer: 'INDEX',
+          row: 0,
+          col: 3
+      }
+    }
+  },
+  // 39
+  {
+    across: {
+      '2': {
+          answer: 'APT',
+          row: 0,
+          col: 2
+      },
+      '5': {
+          answer: 'INDIE',
+          row: 1,
+          col: 0
+      },
+      '7': {
+          answer: 'ROMAN',
+          row: 2,
+          col: 0
+      },
+      '8': {
+          answer: 'SPIN',
+          row: 3,
+          col: 0
+      },
+      '9': {
+          answer: 'TENOR',
+          row: 4,
+          col: 0
+      }
+    },
+    down: {
+      '1': {
+          answer: 'FIRST',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          answer: 'ADMIN',
+          row: 0,
+          col: 2
+      },
+      '3': {
+          answer: 'PIANO',
+          row: 0,
+          col: 3
+      },
+      '4': {
+          answer: 'TEN',
+          row: 0,
+          col: 4
+      },
+      '6': {
+          answer: 'NOPE',
+          row: 1,
+          col: 1
+      }
+    }
+  },
+  // 40
+  {
+    across: {
+      '1': {
+          answer: 'ALAS',
+          row: 0,
+          col: 0
+      },
+      '5': {
+          answer: 'RAZOR',
+          row: 1,
+          col: 0
+      },
+      '7': {
+          answer: 'CRUDE',
+          row: 2,
+          col: 0
+      },
+      '8': {
+          answer: 'GRAD',
+          row: 3,
+          col: 1
+      },
+      '9': {
+          answer: 'WEE',
+          row: 4,
+          col: 0
+      }
+    },
+    down: {
+      '1': {
+          answer: 'ARC',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          answer: 'LARGE',
+          row: 0,
+          col: 1
+      },
+      '3': {
+          answer: 'AZURE',
+          row: 0,
+          col: 2
+      },
+      '4': {
+          answer: 'SODA',
+          row: 0,
+          col: 3
+      },
+      '6': {
+          answer: 'RED',
+          row: 1,
+          col: 4
+      }
+    }
+  }
 ];
 
 export default crosswords;
