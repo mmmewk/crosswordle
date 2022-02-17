@@ -57,7 +57,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange },
     const cellToSelect = targetDirection === focusedDirection ? newCell : oldCell;
 
     selectCell(cellToSelect.used ? cellToSelect : oldCell, targetDirection);
-  }, [focusedCellRef, getCell, selectCell]);
+  }, [focusedCellRef, getCell, selectCell, focusedDirection]);
 
   const switchDirections = useCallback(() => {
     const targetDirection = otherDirection(focusedDirectionRef.current);

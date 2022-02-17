@@ -16,7 +16,7 @@ import { CellColors } from './components/mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
 import { Crossword } from './components/crossword/Crossword';
 import { CellData, Direction, GridData, UsedCellData, WordInput } from './types';
-import { trackGameEnd, trackGameProgress, trackGuess } from './lib/analytics';
+import { trackEvent, trackGameEnd, trackGameProgress, trackGuess } from './lib/analytics';
 import { useGameState } from './redux/hooks/useGameState';
 import { SubmitModal } from './components/modals/SubmitModal';
 
@@ -217,7 +217,10 @@ function App() {
         />
         <DocumentAddIcon
           className="h-6 w-6 mr-3 cursor-pointer"
-          onClick={() => setIsSubmitModalOpen(true)}
+          onClick={() => {
+            trackEvent('open_submit_modal');
+            setIsSubmitModalOpen(true)
+          }}
         />
         <SubmitModal
           isOpen={isSubmitModalOpen}
