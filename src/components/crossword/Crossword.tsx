@@ -53,11 +53,10 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange },
   const moveRelative = useCallback((x: number, y: number) => {
     const oldCell = focusedCellRef.current;
     const newCell = getCell(oldCell.row + y, oldCell.col + x);
-    if (!newCell.used) return;
-
     const targetDirection = x !== 0 ? 'across' : 'down';
-    
-    selectCell(newCell, targetDirection)
+    const cellToSelect = targetDirection === focusedDirection ? newCell : oldCell;
+
+    selectCell(cellToSelect.used ? cellToSelect : oldCell, targetDirection);
   }, [focusedCellRef, getCell, selectCell]);
 
   const switchDirections = useCallback(() => {
