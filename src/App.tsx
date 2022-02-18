@@ -10,13 +10,13 @@ import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
 import { isWordInWordList } from './lib/words';
 import './App.css';
-import { gameProgress, getInitialClue, getTotalGuesses, notEmpty } from './lib/utils';
+import { getInitialClue, getTotalGuesses, notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 import { CellColors } from './components/mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
 import { Crossword } from './components/crossword/Crossword';
 import { CellData, Direction, GridData, UsedCellData, WordInput } from './types';
-import { trackEvent, trackGameEnd, trackGameProgress, trackGuess } from './lib/analytics';
+import { trackEvent, trackGameEnd, trackGuess } from './lib/analytics';
 import { useGameState } from './redux/hooks/useGameState';
 import { SubmitModal } from './components/modals/SubmitModal';
 
@@ -167,7 +167,6 @@ function App() {
 
   const onGridDataChange = (gridData: GridData, knownLetters: (string | undefined)[]) => {
     checkWinOrLoss(gridData);
-    trackGameProgress(crosswordIndex, gameProgress(gridData).toString());
     setKnownLetters(knownLetters);
   };
 

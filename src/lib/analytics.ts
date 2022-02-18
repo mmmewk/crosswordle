@@ -30,11 +30,3 @@ export const trackGuess = (index: number, guess: string) => {
     value: guess,
   })
 }
-
-export const trackGameProgress = (index: number, percentComplete: string) => {
-  trackEvent('progress', {
-    event_category: 'game_in_progress',
-    event_label: `crosswordle_${index}`,
-    value: percentComplete,
-  })
-}
