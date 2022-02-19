@@ -1801,58 +1801,58 @@ const crosswords: CrosswordInput[] = [
   },
   // 32
   {
-    across: {
-        '1': {
-            answer: 'OWNER',
-            row: 0,
-            col: 0
+    "across": {
+        "1": {
+            "answer": "TRADE",
+            "row": 0,
+            "col": 0
         },
-        '5': {
-            answer: 'RAG',
-            row: 1,
-            col: 1
+        "6": {
+            "answer": "RELAX",
+            "row": 1,
+            "col": 0
         },
-        '6': {
-            answer: 'PIVOT',
-            row: 2,
-            col: 0
+        "7": {
+            "answer": "AGATE",
+            "row": 2,
+            "col": 0
         },
-        '8': {
-            answer: 'ATE',
-            row: 3,
-            col: 0
+        "8": {
+            "answer": "CARER",
+            "row": 3,
+            "col": 0
         },
-        '9': {
-            answer: 'RELAX',
-            row: 4,
-            col: 0
+        "9": {
+            "answer": "ELM",
+            "row": 4,
+            "col": 0
         }
     },
-    down: {
-        '2': {
-            answer: 'WRITE',
-            row: 0,
-            col: 1
+    "down": {
+        "1": {
+            "answer": "TRACE",
+            "row": 0,
+            "col": 0
         },
-        '3': {
-            answer: 'NAVEL',
-            row: 0,
-            col: 2
+        "2": {
+            "answer": "REGAL",
+            "row": 0,
+            "col": 1
         },
-        '4': {
-            answer: 'EGO',
-            row: 0,
-            col: 3
+        "3": {
+            "answer": "ALARM",
+            "row": 0,
+            "col": 2
         },
-        '6': {
-            answer: 'PAR',
-            row: 2,
-            col: 0
+        "4": {
+            "answer": "DATE",
+            "row": 0,
+            "col": 3
         },
-        '7': {
-            answer: 'TAX',
-            row: 2,
-            col: 4
+        "5": {
+            "answer": "EXERT",
+            "row": 0,
+            "col": 4
         }
     }
   },
@@ -2072,6 +2072,63 @@ const crosswords: CrosswordInput[] = [
   // 37
   {
     across: {
+        '1': {
+            answer: 'OWNER',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            answer: 'RAG',
+            row: 1,
+            col: 1
+        },
+        '6': {
+            answer: 'PIVOT',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'ATE',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            answer: 'RELAX',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '2': {
+            answer: 'WRITE',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'NAVEL',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'EGO',
+            row: 0,
+            col: 3
+        },
+        '6': {
+            answer: 'PAR',
+            row: 2,
+            col: 0
+        },
+        '7': {
+            answer: 'TAX',
+            row: 2,
+            col: 4
+        }
+    }
+  },
+  // 38
+  {
+    across: {
       '1': {
           answer: 'STABS',
           row: 0,
@@ -2121,7 +2178,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 38
+  // 39
   {
     across: {
       '1': {
@@ -2168,7 +2225,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 39
+  // 40
   {
     across: {
       '2': {
@@ -2225,7 +2282,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 40
+  // 41
   {
     across: {
       '1': {
