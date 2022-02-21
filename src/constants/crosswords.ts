@@ -1964,6 +1964,68 @@ const crosswords: CrosswordInput[] = [
   // 35
   {
     across: {
+      '1': {
+        answer: 'HOST',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'YAHOO',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'ERA',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'FUN',
+        row: 3,
+        col: 2
+      },
+      '10': {
+        answer: 'ANTS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'HYENA',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'OAR',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'SHAFT',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'TO',
+        row: 0,
+        col: 3
+      },
+      '6': {
+        answer: 'OWN',
+        row: 1,
+        col: 4
+      },
+      '9': {
+        answer: 'US',
+        row: 3,
+        col: 3
+      }
+    }
+  },
+  // 36
+  {
+    across: {
         '1': {
             answer: 'TOMB',
             row: 0,
@@ -2013,7 +2075,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 36
+  // 37
   {
     across: {
       '1': {
@@ -2070,7 +2132,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 37
+  // 38
   {
     across: {
         '1': {
@@ -2127,7 +2189,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 38
+  // 39
   {
     across: {
       '1': {
@@ -2179,7 +2241,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 39
+  // 40
   {
     across: {
       '1': {
@@ -2226,7 +2288,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 40
+  // 41
   {
     across: {
       '2': {
@@ -2283,7 +2345,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 41
+  // 42
   {
     across: {
       '1': {

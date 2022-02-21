@@ -16,8 +16,6 @@ export const MobileGrid = ({ solution, knownLetters = [], guesses, currentGuess,
   const secondHalf = guesses.slice(3, 6);
   const secondHalfEmpties = Array.from(Array(3 - secondHalf.length));
 
-  const showCurrent = guesses.slice(-1)[0] !== solution && guesses.length < 6;
-
   return (
     <div className="pb-3">
       <div className='flex my-3 w-full'>
@@ -38,7 +36,7 @@ export const MobileGrid = ({ solution, knownLetters = [], guesses, currentGuess,
           ))}
         </div>
       </div>
-      {showCurrent && <CurrentRow guess={currentGuess} solution={solution} knownLetters={knownLetters} focusedIndex={focusedIndex} />}
+      <CurrentRow guess={currentGuess} solution={solution} knownLetters={knownLetters} focusedIndex={focusedIndex} />
     </div>
   )
 }
