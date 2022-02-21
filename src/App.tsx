@@ -184,12 +184,12 @@ function App() {
   };
 
   return (
-    <div className='flex flex-col h-screen'>
-      {crosswordIndex === 14 && <div className='flex justify-center items-center w-screen bg-yellow-400 text-md p-1 text-center'>
-        <p>Realized the crosswordle today had a lot of luck involved so I updated it. Play the original <a href="?index=13" className='text-white'>here</a>.</p>
-      </div>}
-      <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 md:p-6">
-        <h1 className="text-l md:text-xl grow font-bold whitespace-nowrap ">Crosswordle {crosswordIndex + 1}</h1>
+    <div className='flex flex-col min-h-screen'>
+      <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4">
+        <div className='grow'>
+          <h1 className="text-l md:text-xl font-bold whitespace-nowrap">Crosswordle {crosswordIndex + 1}</h1>
+          <p className="text-sm text-slate-400">By {crosswordData.author || 'Matthew Koppe'}</p>
+        </div>
         <PresentationChartBarIcon
           className="h-6 w-6 ml-3 mr-3 cursor-pointer"
           onClick={() => setIsShareModalOpen(true)}
@@ -203,7 +203,7 @@ function App() {
           handleClose={() => setIsShareModalOpen(false)}
         />
         <InformationCircleIcon
-          className="h-6 w-6 mr-3 cursor-pointer  md:hidden lg:hidden"
+          className="h-6 w-6 mr-3 cursor-pointer"
           onClick={() => setIsAboutModalOpen(true)}
         />
         <AboutModal
@@ -231,12 +231,12 @@ function App() {
         />
       </div>
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
-        <div className='w-full flex justify-center items-center border-slate-400 p-4 px-20 md:p-6 md:w-1/2 md:border-r' >
-          <div className='max-w-[500px] w-full h-full flex items-center max-width-static-mobile'>
+        <div className='w-full flex md:items-center justify-center p-2 px-20 md:p-6 md:w-1/2' >
+          <div className='max-w-[300px] md:max-w-[500px] w-full h-full justify-center flex flex-col max-width-static-mobile'>
             <Crossword onMoved={onMoved} onChange={onGridDataChange} ref={crosswordRef} />
           </div>
         </div>
-        <div className='w-full flex flex-1 md:items-center md:w-1/2'>
+        <div className='w-full flex flex-1 md:items-center md:w-1/2 md:border-l border-slate-400'>
           <div className="md:py-8 max-w-7xl mx-auto sm:px-6 lg:px-8 keyboard">
             <Grid guesses={guesses[focusedDirection][focusedNumber] || []} currentGuess={currentGuess} knownLetters={knownLetters} solution={currentWord}/>
             <Keyboard
@@ -249,15 +249,6 @@ function App() {
             />
           </div>
         </div>
-      </div>
-      <div className="flex w-screen mx-auto items-center border-t-slate-400 border-t-[1px] p-4 md:p-6 hidden md:block lg:block">
-        <button
-          type="button"
-          className="mx-auto flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          onClick={() => setIsAboutModalOpen(true)}
-        >
-          About this game
-        </button>
       </div>
     </div>
   )

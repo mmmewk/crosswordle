@@ -1,3 +1,4 @@
+import { useWindowHeight } from '@react-hook/window-size/throttled';
 import { useMediaBreakpoints } from '../../lib/hooks';
 import { CompletedRow } from './CompletedRow';
 import { CurrentRow } from './CurrentRow';
@@ -13,8 +14,9 @@ type Props = {
 
 export const Grid = ({ solution, knownLetters = [], guesses, currentGuess }: Props) => {
   const isMobile = useMediaBreakpoints('md', 'down');
+  const height = useWindowHeight();
 
-  if (isMobile) return <MobileGrid {...{ solution, knownLetters, guesses, currentGuess }} />;
+  if (isMobile || height < 600) return <MobileGrid {...{ solution, knownLetters, guesses, currentGuess }} />;
 
   const empties =
     guesses.length < 5 ? Array.from(Array(5 - guesses.length)) : [];

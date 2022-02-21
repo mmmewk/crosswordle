@@ -23,7 +23,9 @@ export type WordInput = {
  * keys/properties under 'across' and 'down' are canonically the clue/answer
  * numbers, they can be *any* string value
  */
-export type CrosswordInput = Record<Direction, Record<string, WordInput>>;
+export type CrosswordInput = Record<Direction, Record<string, WordInput>> & {
+  author?: string;
+};
 
 /**
  * The data stored/returned for a specific cell/position in the crossword.

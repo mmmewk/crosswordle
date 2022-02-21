@@ -24,3 +24,22 @@
     max-width: 70px;
   }
 }
+
+@media (min-width: 769px) and (max-width: 1000px) {
+  .keyboard-key {
+    width: calc((50vw - 5rem) / 10);
+    height:  calc((50vw - 5rem) * 3 / 20);
+    max-width: 40px;
+    max-height:  60px;
+  }
+
+  .keyboard-key-lg {
+    width: calc((50vw - 5rem) / 7);
+    max-width: 70px;
+  }
+}
+
+.short-tolerant {
+  max-height: calc(16vh - 3.5rem);
+  max-width: calc(16vh - 3.5rem);
+}

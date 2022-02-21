@@ -1801,58 +1801,59 @@ const crosswords: CrosswordInput[] = [
   },
   // 32
   {
-    "across": {
-        "1": {
-            "answer": "TRADE",
-            "row": 0,
-            "col": 0
+    author: 'Laurel Peterson',
+    across: {
+        '1': {
+            answer: 'TRADE',
+            row: 0,
+            col: 0
         },
-        "6": {
-            "answer": "RELAX",
-            "row": 1,
-            "col": 0
+        '6': {
+            answer: 'RELAX',
+            row: 1,
+            col: 0
         },
-        "7": {
-            "answer": "AGATE",
-            "row": 2,
-            "col": 0
+        '7': {
+            answer: 'AGATE',
+            row: 2,
+            col: 0
         },
-        "8": {
-            "answer": "CARER",
-            "row": 3,
-            "col": 0
+        '8': {
+            answer: 'CARER',
+            row: 3,
+            col: 0
         },
-        "9": {
-            "answer": "ELM",
-            "row": 4,
-            "col": 0
+        '9': {
+            answer: 'ELM',
+            row: 4,
+            col: 0
         }
     },
-    "down": {
-        "1": {
-            "answer": "TRACE",
-            "row": 0,
-            "col": 0
+    down: {
+        '1': {
+            answer: 'TRACE',
+            row: 0,
+            col: 0
         },
-        "2": {
-            "answer": "REGAL",
-            "row": 0,
-            "col": 1
+        '2': {
+            answer: 'REGAL',
+            row: 0,
+            col: 1
         },
-        "3": {
-            "answer": "ALARM",
-            "row": 0,
-            "col": 2
+        '3': {
+            answer: 'ALARM',
+            row: 0,
+            col: 2
         },
-        "4": {
-            "answer": "DATE",
-            "row": 0,
-            "col": 3
+        '4': {
+            answer: 'DATE',
+            row: 0,
+            col: 3
         },
-        "5": {
-            "answer": "EXERT",
-            "row": 0,
-            "col": 4
+        '5': {
+            answer: 'EXERT',
+            row: 0,
+            col: 4
         }
     }
   },

@@ -1,6 +1,7 @@
 import { CharStatus } from '../../lib/statuses'
 import classnames from 'classnames'
 import { useMediaBreakpoints } from '../../lib/hooks'
+import { useWindowHeight } from '@react-hook/window-size/throttled'
 
 type Props = {
   value?: string;
@@ -11,6 +12,7 @@ type Props = {
 
 export const Cell = ({ value, knownValue, status, size = 'lg' }: Props) => {
   const isMobile = useMediaBreakpoints('md', 'down');
+  const height = useWindowHeight();
 
   const classes = classnames(
     'border-solid border-2 flex items-center justify-center mx-0.5 font-bold rounded',
@@ -23,6 +25,7 @@ export const Cell = ({ value, knownValue, status, size = 'lg' }: Props) => {
       'w-14 h-14 text-lg': size === 'lg',
       'w-5 h-5 text-sm': size === 'sm',
       'w-12 h-12 text-lg': size === 'lg' && isMobile,
+      'short-tolerant': !isMobile && height > 600,
     }
   )
 
