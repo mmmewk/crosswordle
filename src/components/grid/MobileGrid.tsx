@@ -7,9 +7,10 @@ type Props = {
   knownLetters?: (string | undefined)[];
   guesses: string[];
   currentGuess: string;
+  focusedIndex: number;
 }
 
-export const MobileGrid = ({ solution, knownLetters = [], guesses, currentGuess }: Props) => {
+export const MobileGrid = ({ solution, knownLetters = [], guesses, currentGuess, focusedIndex }: Props) => {
   const firstHalf = guesses.slice(0, 3);
   const firstHalfEmpties = Array.from(Array(3 - firstHalf.length));
   const secondHalf = guesses.slice(3, 6);
@@ -37,7 +38,7 @@ export const MobileGrid = ({ solution, knownLetters = [], guesses, currentGuess 
           ))}
         </div>
       </div>
-      {showCurrent && <CurrentRow guess={currentGuess} solution={solution} knownLetters={knownLetters} />}
+      {showCurrent && <CurrentRow guess={currentGuess} solution={solution} knownLetters={knownLetters} focusedIndex={focusedIndex} />}
     </div>
   )
 }

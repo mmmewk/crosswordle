@@ -8,6 +8,7 @@ type Props = {
   value: KeyValue;
   size?: 'sm' | 'lg';
   status?: CharStatus;
+  crossedStatus?: CharStatus;
   onClick: (value: KeyValue) => void;
 }
 

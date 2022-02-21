@@ -10,18 +10,20 @@ const SELECTED_CELL_COLOR = '#FFFF00';
 const SELECTED_WORD_COLOR = 'rgb(255,255,204)';
 
 type Props = {
+  guess?: string;
   onMoved?: (cell: CellData, direction: Direction, knownLetters: (string | undefined)[]) => void;
   onChange?: (gridData: GridData, knownLetters: (string | undefined)[]) => void;
 };
 
 type Handle = {
+  moveTo: (row: number, col: number) => void,
   guessWord: (guess: string) => void,
   reset: () => void,
 }
 
 const { initialClue: initialWord, initialDirection } = getInitialClue(crossword);
 
-export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange }, ref) => {
+export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, guess }, ref) => {
   const [gridData, setGridData] = useGridData(crosswordIndex);
   const [focusedCell, setFocusedCell, focusedCellRef] = useRefState<UsedCellData>(gridData[initialWord.row][initialWord.col] as UsedCellData);
   const [focusedDirection, setFocusedDirection, focusedDirectionRef] = useRefState<Direction>(initialDirection);
@@ -135,7 +137,24 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange },
     reset: () => {
       setGridData(createGridData(crossword));
     },
+    moveTo: (row, col) => {
+      const cell = getCell(row, col);
+
+      if (!cell.used) return;
+      selectCell(cell, focusedDirection);
+    },
   }));
+
+  const getGuessedLetter = (cell: CellData) => {
+    if (!cell.used || !guess) return;
+
+    const focusedNumber = focusedCell[focusedDirection];
+
+    if (!focusedNumber || cell[focusedDirection] !== focusedNumber) return;
+    const focusedWord = crossword[focusedDirection][focusedNumber];
+    const letterIndex = cell.row - focusedWord.row || cell.col - focusedWord.col;
+    return guess[letterIndex];
+  };
 
   return (
     <svg viewBox={`0 0 ${svgSize} ${svgSize}`} width='100%' height='100%'>
@@ -150,6 +169,8 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange },
         } else if (cell[focusedDirection] === focusedCell[focusedDirection]) {
           color = SELECTED_WORD_COLOR;
         }
+
+        const guessedLetter = getGuessedLetter(cell);
 
         return (
           <g key={key} onClick={() => onClick(cell)}>
@@ -171,14 +192,14 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange },
                 style={{ fontSize: '50%', fill: 'rgba(0, 0, 0, 0.25)', userSelect: 'none' }}
               >{cell.number}</text>
             )}
-            {cell.guess && (
+            {(guessedLetter || cell.guess) && (
               <text
                 x={(cell.col + 0.5) * squareSize + margin}
                 y={(cell.row + 0.5) * squareSize + margin}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                style={{ fill: 'rgba(0, 0, 0)', userSelect: 'none', fontSize: '25px' }}
-              >{cell.guess}</text>
+                style={{ fill: guessedLetter ? 'rgba(0, 0, 255, 0.6)' : 'rgba(0, 0, 0)', userSelect: 'none', fontSize: '25px' }}
+              >{guessedLetter || cell.guess}</text>
             )}
           </g>
         );

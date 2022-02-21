@@ -1,6 +1,6 @@
 import * as smoothscroll from 'smoothscroll-polyfill';
 import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon, DocumentAddIcon } from '@heroicons/react/outline';
-import { ElementRef, useCallback, useRef, useState } from 'react';
+import { ElementRef, useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Grid } from './components/grid/Grid';
@@ -19,6 +19,7 @@ import { CellData, Direction, GridData, UsedCellData, WordInput } from './types'
 import { trackEvent, trackGameEnd, trackGuess } from './lib/analytics';
 import { useGameState } from './redux/hooks/useGameState';
 import { SubmitModal } from './components/modals/SubmitModal';
+import { otherDirection } from './lib/crossword-utils';
 
 smoothscroll.polyfill();
 const { initialClue, initialDirection } = getInitialClue(crosswordData);
@@ -39,13 +40,24 @@ function App() {
   const [knownLetters, setKnownLetters] = useState<(string | undefined)[]>([]);
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(initialClue.answer);
+  const [crossedWord, setCrossedWord] = useState<string | undefined>();
   const [isShareModalOpen, setIsShareModalOpen] = useState(isGameWon);
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
-  const [focusedClue, setFocusedClue] = useState<WordInput>(initialClue);
+  const [focusedWordData, setFocusedWordData] = useState<WordInput>(initialClue);
   const [focusedDirection, setFocusedDirection] = useState<Direction>(initialDirection);
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
+  const [crossedNumber, setCrossedNumber] = useState<string | undefined>(undefined);
+  const [focusedIndex, setFocusedIndex] = useState(0);
+
+  // After keyboard input move to the next square where you can type
+  const moveToNextGuessSquare = useCallback((step: number) => {
+    let { row, col } = focusedWordData;
+    if (focusedDirection === 'across') col += currentGuess.length + step;
+    if (focusedDirection === 'down') row += currentGuess.length + step;
+    crosswordRef.current?.moveTo(row, col);
+  }, [focusedDirection, currentGuess, crosswordRef, focusedWordData]);
 
   // Key event callbacks
   const onChar = (value: string) => {
@@ -53,14 +65,18 @@ function App() {
 
     if (currentGuess.length < currentWord.length && guessesForWord.length < 6) {
       setCurrentGuess(`${currentGuess}${value}`);
+      moveToNextGuessSquare(1);
     }
   }
 
-  const onDelete = () => setCurrentGuess(currentGuess.slice(0, -1));
+  const onDelete = () => {
+    moveToNextGuessSquare(-1);
+    setCurrentGuess(currentGuess.slice(0, -1));
+  }
 
   // Callbacks to keep move history in sync with guesses
   const updateShareHistory = useCallback((guess: string) => {
-    const { row, col, answer } = focusedClue;
+    const { row, col, answer } = focusedWordData;
     const previousCellColors = shareHistory.slice(-1)[0] || {};
     const newCellColors = Object.keys(previousCellColors).reduce((cellColors, key) => {
       if (previousCellColors[key] === WORDLE_CORRECT_COLOR) cellColors[key] = previousCellColors[key];
@@ -83,7 +99,7 @@ function App() {
     });
 
     pushShareHistory(newCellColors);
-  }, [shareHistory, pushShareHistory, focusedClue, focusedDirection]);
+  }, [shareHistory, pushShareHistory, focusedWordData, focusedDirection]);
 
   const updateShareHistoryWithLoss = useCallback((cell: UsedCellData) => {
     const previousCellColors = shareHistory.slice(-1)[0] || {};
@@ -174,14 +190,22 @@ function App() {
     if (!cell.used) return;
 
     const number = cell[direction] || '';
+    const otherNumber = cell[otherDirection(direction)];
     const wordData = crosswordData[direction][number];
+    const crossedWordData = otherNumber ? crosswordData[otherDirection(direction)][otherNumber] : undefined;
     setCurrentWord(wordData.answer);
-    setCurrentGuess('');
-    setFocusedClue(wordData);
-    setFocusedNumber(number)
+    setCrossedWord(crossedWordData?.answer);
+    setFocusedWordData(wordData);
+    setFocusedNumber(number);
+    setCrossedNumber(otherNumber);
     setFocusedDirection(direction);
     setKnownLetters(knownLetters);
+    setFocusedIndex(cell.row - wordData.row || cell.col - wordData.col);
   };
+
+  useEffect(() => {
+    setCurrentGuess('');
+  }, [focusedDirection, focusedNumber]);
 
   return (
     <div className='flex flex-col min-h-screen'>
@@ -233,19 +257,27 @@ function App() {
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
         <div className='w-full flex md:items-center justify-center p-2 px-20 md:p-6 md:w-1/2' >
           <div className='max-w-[300px] md:max-w-[500px] w-full h-full justify-center flex flex-col max-width-static-mobile'>
-            <Crossword onMoved={onMoved} onChange={onGridDataChange} ref={crosswordRef} />
+            <Crossword onMoved={onMoved} onChange={onGridDataChange} ref={crosswordRef} guess={currentGuess} />
           </div>
         </div>
         <div className='w-full flex flex-1 md:items-center md:w-1/2 md:border-l border-slate-400'>
           <div className="md:py-8 max-w-7xl mx-auto sm:px-6 lg:px-8 keyboard">
-            <Grid guesses={guesses[focusedDirection][focusedNumber] || []} currentGuess={currentGuess} knownLetters={knownLetters} solution={currentWord}/>
+            <Grid
+              guesses={guesses[focusedDirection][focusedNumber] || []}
+              currentGuess={currentGuess}
+              knownLetters={knownLetters}
+              solution={currentWord}
+              focusedIndex={focusedIndex}
+            />
             <Keyboard
               solution={currentWord}
+              crossedSolution={crossedWord}
               knownChars={knownLetters.filter(notEmpty)}
               onChar={onChar}
               onDelete={onDelete}
               onEnter={onEnter}
               guesses={guesses[focusedDirection][focusedNumber] || []}
+              crossGuesses={crossedNumber ? guesses[otherDirection(focusedDirection)][crossedNumber] : []}
             />
           </div>
         </div>

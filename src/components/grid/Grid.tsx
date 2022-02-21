@@ -10,13 +10,14 @@ type Props = {
   knownLetters?: (string | undefined)[];
   guesses: string[];
   currentGuess: string;
+  focusedIndex: number;
 }
 
-export const Grid = ({ solution, knownLetters = [], guesses, currentGuess }: Props) => {
+export const Grid = ({ solution, knownLetters = [], guesses, currentGuess, focusedIndex }: Props) => {
   const isMobile = useMediaBreakpoints('md', 'down');
   const height = useWindowHeight();
 
-  if (isMobile || height < 600) return <MobileGrid {...{ solution, knownLetters, guesses, currentGuess }} />;
+  if (isMobile || height < 600) return <MobileGrid {...{ solution, knownLetters, guesses, currentGuess, focusedIndex }} />;
 
   const empties =
     guesses.length < 5 ? Array.from(Array(5 - guesses.length)) : [];
@@ -26,7 +27,7 @@ export const Grid = ({ solution, knownLetters = [], guesses, currentGuess }: Pro
       {guesses.map((guess, i) => (
         <CompletedRow key={i} guess={guess} solution={solution} knownLetters={knownLetters} />
       ))}
-      {guesses.length < 6 && <CurrentRow guess={currentGuess} solution={solution} knownLetters={knownLetters} />}
+      {guesses.length < 6 && <CurrentRow guess={currentGuess} solution={solution} knownLetters={knownLetters} focusedIndex={focusedIndex} />}
       {empties.map((_, i) => (
         <EmptyRow key={i} solution={solution} />
       ))}

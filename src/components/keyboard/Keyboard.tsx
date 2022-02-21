@@ -6,15 +6,18 @@ import { BackspaceIcon } from '@heroicons/react/outline';
 
 type Props = {
   solution: string;
+  crossedSolution: string | undefined;
   knownChars?: string[];
   onChar: (value: string) => void;
   onDelete: () => void;
   onEnter: () => void;
   guesses: string[];
+  crossGuesses: string[];
 }
 
-export const Keyboard = ({ solution, knownChars, onChar, onDelete, onEnter, guesses }: Props) => {
+export const Keyboard = ({ solution, crossedSolution, knownChars, onChar, onDelete, onEnter, guesses, crossGuesses }: Props) => {
   const charStatuses = getStatuses(solution, guesses);
+  const crossedCharStatus = crossedSolution ? getStatuses(crossedSolution, crossGuesses) : {};
   knownChars?.forEach((letter) => {
     charStatuses[letter] = 'correct';
   });
@@ -51,39 +54,39 @@ export const Keyboard = ({ solution, knownChars, onChar, onDelete, onEnter, gues
   return (
     <div className='mt-auto md:mt-none mb-3'>
       <div className="flex justify-center mb-1">
-        <Key value="Q" onClick={onClick} status={charStatuses['Q']} />
-        <Key value="W" onClick={onClick} status={charStatuses['W']} />
-        <Key value="E" onClick={onClick} status={charStatuses['E']} />
-        <Key value="R" onClick={onClick} status={charStatuses['R']} />
-        <Key value="T" onClick={onClick} status={charStatuses['T']} />
-        <Key value="Y" onClick={onClick} status={charStatuses['Y']} />
-        <Key value="U" onClick={onClick} status={charStatuses['U']} />
-        <Key value="I" onClick={onClick} status={charStatuses['I']} />
-        <Key value="O" onClick={onClick} status={charStatuses['O']} />
-        <Key value="P" onClick={onClick} status={charStatuses['P']} />
+        <Key value="Q" onClick={onClick} status={charStatuses['Q']} crossedStatus={crossedCharStatus['Q']} />
+        <Key value="W" onClick={onClick} status={charStatuses['W']} crossedStatus={crossedCharStatus['W']} />
+        <Key value="E" onClick={onClick} status={charStatuses['E']} crossedStatus={crossedCharStatus['E']} />
+        <Key value="R" onClick={onClick} status={charStatuses['R']} crossedStatus={crossedCharStatus['R']} />
+        <Key value="T" onClick={onClick} status={charStatuses['T']} crossedStatus={crossedCharStatus['T']} />
+        <Key value="Y" onClick={onClick} status={charStatuses['Y']} crossedStatus={crossedCharStatus['Y']} />
+        <Key value="U" onClick={onClick} status={charStatuses['U']} crossedStatus={crossedCharStatus['U']} />
+        <Key value="I" onClick={onClick} status={charStatuses['I']} crossedStatus={crossedCharStatus['I']} />
+        <Key value="O" onClick={onClick} status={charStatuses['O']} crossedStatus={crossedCharStatus['O']} />
+        <Key value="P" onClick={onClick} status={charStatuses['P']} crossedStatus={crossedCharStatus['P']} />
       </div>
       <div className="flex justify-center mb-1">
-        <Key value="A" onClick={onClick} status={charStatuses['A']} />
-        <Key value="S" onClick={onClick} status={charStatuses['S']} />
-        <Key value="D" onClick={onClick} status={charStatuses['D']} />
-        <Key value="F" onClick={onClick} status={charStatuses['F']} />
-        <Key value="G" onClick={onClick} status={charStatuses['G']} />
-        <Key value="H" onClick={onClick} status={charStatuses['H']} />
-        <Key value="J" onClick={onClick} status={charStatuses['J']} />
-        <Key value="K" onClick={onClick} status={charStatuses['K']} />
-        <Key value="L" onClick={onClick} status={charStatuses['L']} />
+        <Key value="A" onClick={onClick} status={charStatuses['A']} crossedStatus={crossedCharStatus['A']} />
+        <Key value="S" onClick={onClick} status={charStatuses['S']} crossedStatus={crossedCharStatus['S']} />
+        <Key value="D" onClick={onClick} status={charStatuses['D']} crossedStatus={crossedCharStatus['D']} />
+        <Key value="F" onClick={onClick} status={charStatuses['F']} crossedStatus={crossedCharStatus['F']} />
+        <Key value="G" onClick={onClick} status={charStatuses['G']} crossedStatus={crossedCharStatus['G']} />
+        <Key value="H" onClick={onClick} status={charStatuses['H']} crossedStatus={crossedCharStatus['H']} />
+        <Key value="J" onClick={onClick} status={charStatuses['J']} crossedStatus={crossedCharStatus['J']} />
+        <Key value="K" onClick={onClick} status={charStatuses['K']} crossedStatus={crossedCharStatus['K']} />
+        <Key value="L" onClick={onClick} status={charStatuses['L']} crossedStatus={crossedCharStatus['L']} />
       </div>
       <div className="flex justify-center">
         <Key size='lg' value="ENTER" onClick={onClick}>
           Enter
         </Key>
-        <Key value="Z" onClick={onClick} status={charStatuses['Z']} />
-        <Key value="X" onClick={onClick} status={charStatuses['X']} />
-        <Key value="C" onClick={onClick} status={charStatuses['C']} />
-        <Key value="V" onClick={onClick} status={charStatuses['V']} />
-        <Key value="B" onClick={onClick} status={charStatuses['B']} />
-        <Key value="N" onClick={onClick} status={charStatuses['N']} />
-        <Key value="M" onClick={onClick} status={charStatuses['M']} />
+        <Key value="Z" onClick={onClick} status={charStatuses['Z']} crossedStatus={crossedCharStatus['Z']} />
+        <Key value="X" onClick={onClick} status={charStatuses['X']} crossedStatus={crossedCharStatus['X']} />
+        <Key value="C" onClick={onClick} status={charStatuses['C']} crossedStatus={crossedCharStatus['C']} />
+        <Key value="V" onClick={onClick} status={charStatuses['V']} crossedStatus={crossedCharStatus['V']} />
+        <Key value="B" onClick={onClick} status={charStatuses['B']} crossedStatus={crossedCharStatus['B']} />
+        <Key value="N" onClick={onClick} status={charStatuses['N']} crossedStatus={crossedCharStatus['N']} />
+        <Key value="M" onClick={onClick} status={charStatuses['M']} crossedStatus={crossedCharStatus['M']} />
         <Key size='lg' value="DELETE" onClick={onClick}>
           <BackspaceIcon width={25} height={25} />
         </Key>

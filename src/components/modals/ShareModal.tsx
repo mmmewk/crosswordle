@@ -237,7 +237,7 @@ export const ShareModal = ({
                   </div>
                 </div>
                 { (
-                  <div className="flex mx-auto items-center m-4 md:m-6 hidden md:block lg:block text-center border-t border-t-slate-300">
+                  <div className="flex flex-col mx-auto items-center m-4 md:m-6 text-center border-t border-t-slate-300">
                     <p className="p-4">Enjoying the crosswordle?</p>
                     <button
                       type="button"

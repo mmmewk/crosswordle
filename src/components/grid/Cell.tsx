@@ -8,9 +8,10 @@ type Props = {
   knownValue?: string;
   status?: CharStatus;
   size?: 'sm' | 'lg';
+  isFocused?: boolean;
 }
 
-export const Cell = ({ value, knownValue, status, size = 'lg' }: Props) => {
+export const Cell = ({ value, knownValue, status, size = 'lg', isFocused = false }: Props) => {
   const isMobile = useMediaBreakpoints('md', 'down');
   const height = useWindowHeight();
 
@@ -25,6 +26,7 @@ export const Cell = ({ value, knownValue, status, size = 'lg' }: Props) => {
       'w-14 h-14 text-lg': size === 'lg',
       'w-5 h-5 text-sm': size === 'sm',
       'w-12 h-12 text-lg': size === 'lg' && isMobile,
+      'border-yellow-300': isFocused,
       'short-tolerant': !isMobile && height > 600,
     }
   )

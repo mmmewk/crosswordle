@@ -4,9 +4,10 @@ type Props = {
   guess: string;
   knownLetters: (string | undefined)[];
   solution: string;
+  focusedIndex: number;
 }
 
-export const CurrentRow : React.FC<Props> = ({ guess, knownLetters, solution }) => {
+export const CurrentRow : React.FC<Props> = ({ guess, knownLetters, solution, focusedIndex }) => {
   const splitGuess = guess.split('');
   const emptyCells = Array.from(Array(solution.length - splitGuess.length));
   const guessLength = splitGuess.length;
@@ -14,10 +15,10 @@ export const CurrentRow : React.FC<Props> = ({ guess, knownLetters, solution }) 
   return (
     <div className="flex justify-center mb-1">
       {splitGuess.map((letter, i) => (
-        <Cell key={i} value={letter} knownValue={knownLetters[i]}/>
+        <Cell key={i} value={letter} knownValue={knownLetters[i]} isFocused={i === focusedIndex}/>
       ))}
       {emptyCells.map((_, i) => (
-        <Cell key={i} knownValue={knownLetters[i + guessLength]}/>
+        <Cell key={i} knownValue={knownLetters[i + guessLength]} isFocused={(i + guessLength) === focusedIndex}/>
       ))}
     </div>
   )
