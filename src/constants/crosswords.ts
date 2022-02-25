@@ -2401,6 +2401,172 @@ const crosswords: CrosswordInput[] = [
           col: 4
       }
     }
+  },
+  // 43
+  {
+    across: {
+        '1': {
+            answer: 'TALE',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            answer: 'ELEGY',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            answer: 'LIAR',
+            row: 2,
+            col: 0
+        },
+        '7': {
+            answer: 'LASER',
+            row: 3,
+            col: 0
+        },
+        '8': {
+            answer: 'SET',
+            row: 4,
+            col: 1
+        }
+    },
+    down: {
+        '1': {
+            answer: 'TELL',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'ALIAS',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'LEASE',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'EGRET',
+            row: 0,
+            col: 3
+        }
+    }
+  },
+  // 44
+  {
+    across: {
+        '1': {
+            answer: 'HOW',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            answer: 'ARIAL',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            answer: 'RADII',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'STERN',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            answer: 'HER',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'HARSH',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'ORATE',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'WIDER',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'SLING',
+            row: 0,
+            col: 4
+        },
+        '6': {
+            answer: 'AIR',
+            row: 1,
+            col: 3
+        }
+    }
+  },
+  // 45
+  {
+    across: {
+      '1': {
+          answer: 'WED',
+          row: 0,
+          col: 0
+      },
+      '5': {
+          answer: 'AGILE',
+          row: 1,
+          col: 0
+      },
+      '7': {
+          answer: 'ROTOR',
+          row: 2,
+          col: 0
+      },
+      '8': {
+          answer: 'TOE',
+          row: 3,
+          col: 2
+      },
+      '9': {
+          answer: 'SPOT',
+          row: 4,
+          col: 0
+      }
+    },
+    down: {
+      '1': {
+          answer: 'WARPS',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          answer: 'EGO',
+          row: 0,
+          col: 1
+      },
+      '3': {
+          answer: 'DITTO',
+          row: 0,
+          col: 2
+      },
+      '4': {
+          answer: 'WERE',
+          row: 0,
+          col: 4
+      },
+      '6': {
+          answer: 'LOOT',
+          row: 1,
+          col: 3
+      }
+    }
   }
 ];
 
