@@ -2567,6 +2567,234 @@ const crosswords: CrosswordInput[] = [
           col: 3
       }
     }
+  },
+  // 46
+  {
+    across: {
+      '1': {
+          answer: 'ITCHY',
+          row: 0,
+          col: 0
+      },
+      '5': {
+          answer: 'LIE',
+          row: 1,
+          col: 2
+      },
+      '6': {
+          answer: 'THEDA',
+          row: 2,
+          col: 0
+      },
+      '8': {
+          answer: 'REFER',
+          row: 3,
+          col: 0
+      },
+      '9': {
+          answer: 'ON',
+          row: 4,
+          col: 0
+      }
+    },
+    down: {
+      '1': {
+          answer: 'INTRO',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          answer: 'CLEF',
+          row: 0,
+          col: 2
+      },
+      '3': {
+          answer: 'HIDE',
+          row: 0,
+          col: 3
+      },
+      '4': {
+          answer: 'YEARN',
+          row: 0,
+          col: 4
+      },
+      '7': {
+          answer: 'HEN',
+          row: 2,
+          col: 1
+      }
+    }
+  },
+  // 47
+  {
+    across: {
+        '1': {
+            answer: 'STEMS',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            answer: 'SAT',
+            row: 1,
+            col: 2
+        },
+        '6': {
+            answer: 'SIR',
+            row: 2,
+            col: 2
+        },
+        '7': {
+            answer: 'INANE',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            answer: 'TOY',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'SPLIT',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'ESSAY',
+            row: 0,
+            col: 2
+        },
+        '3': {
+            answer: 'MAIN',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            answer: 'STREW',
+            row: 0,
+            col: 4
+        },
+        '8': {
+            answer: 'NO',
+            row: 3,
+            col: 1
+        }
+    }
+  },
+  // 48
+  {
+    across: {
+        '3': {
+            answer: 'TACO',
+            row: 1,
+            col: 1
+        },
+        '5': {
+            answer: 'LASER',
+            row: 2,
+            col: 0
+        },
+        '6': {
+            answer: 'EXILE',
+            row: 3,
+            col: 0
+        },
+        '7': {
+            answer: 'TILL',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'BASIL',
+            row: 0,
+            col: 2
+        },
+        '2': {
+            answer: 'SORE',
+            row: 0,
+            col: 4
+        },
+        '3': {
+            answer: 'TAXI',
+            row: 1,
+            col: 1
+        },
+        '4': {
+            answer: 'CELL',
+            row: 1,
+            col: 3
+        },
+        '5': {
+            answer: 'LET',
+            row: 2,
+            col: 0
+        }
+    }
+  },
+  // 49
+  {
+    across: {
+      '1': {
+          answer: 'BOBS',
+          row: 0,
+          col: 0
+      },
+      '5': {
+          answer: 'ONION',
+          row: 1,
+          col: 0
+      },
+      '7': {
+          answer: 'SUE',
+          row: 2,
+          col: 2
+      },
+      '8': {
+          answer: 'SMORE',
+          row: 3,
+          col: 0
+      },
+      '10': {
+          answer: 'TEN',
+          row: 4,
+          col: 0
+      }
+    },
+    down: {
+      '1': {
+          answer: 'BOAST',
+          row: 0,
+          col: 0
+      },
+      '2': {
+          answer: 'ON',
+          row: 0,
+          col: 1
+      },
+      '3': {
+          answer: 'BISON',
+          row: 0,
+          col: 2
+      },
+      '4': {
+          answer: 'SOUR',
+          row: 0,
+          col: 3
+      },
+      '6': {
+          answer: 'NEED',
+          row: 1,
+          col: 4
+      },
+      '9': {
+          answer: 'ME',
+          row: 3,
+          col: 1
+      }
+    }
   }
 ];
 
