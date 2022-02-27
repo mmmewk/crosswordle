@@ -9,7 +9,7 @@ import { AboutModal } from './components/modals/AboutModal';
 import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
 import { isWordInWordList } from './lib/words';
-import './App.css';
+import './App.scss';
 import { getInitialClue, getTotalGuesses, notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 import { CellColors } from './components/mini-crossword/MiniCrossword';

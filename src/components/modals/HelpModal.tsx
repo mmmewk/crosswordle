@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Cell } from '../grid/Cell'
 import { XCircleIcon } from '@heroicons/react/outline'
+import { Key } from '../keyboard/Key'
 
 type Props = {
   isOpen: boolean
@@ -62,8 +63,9 @@ export const HelpModal = ({ isOpen, handleClose }: Props) => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Guess the WORDLE in 6 tries to fill in the highlighted crossword row.
-                      After each guess, the color of the tiles will change to show how close your guess was
+                      Solve the Crosswordle by guessing the WORDLE for each down and across word.
+                      Click on a row in the crossword to begin guessing. You have 6 tries to guess each word.
+                      After each guess the color of the tiles will change to show how close your guess was
                       to the word.
                     </p>
 
@@ -100,6 +102,13 @@ export const HelpModal = ({ isOpen, handleClose }: Props) => {
                       The letter U is not in the word in any spot.
                     </p>
 
+                    <br />
+                    <p className="text-sm text-gray-500">
+                      If you are stuck on a word you can try solving the words that cross it.
+                      Click on the selected tile to change directions.
+                      Once a letter has been found in any word crossing the letter it will show up in green.
+                    </p>
+
                     <div className="flex justify-center mb-1 mt-4">
                       <Cell value="S" />
                       <Cell value="T" />
@@ -108,7 +117,61 @@ export const HelpModal = ({ isOpen, handleClose }: Props) => {
                       <Cell knownValue="D" />
                     </div>
                     <p className="text-sm text-gray-500">
-                      The letter D is known to be in this spot because it has been filled in on the crossword.
+                      The letter D is known to be in this spot because it has been found in either the down or across clue.
+                    </p>
+                    <br />
+
+                    <h4>Keyboard</h4>
+                    <p className='text-sm text-gray-500'>The virtual keyboard will update to reflect given information on the selected word.</p>
+                    <div className="flex mb-1 mt-4 items-center">
+                      <div className='grow mr-2'>
+                        <Key value="X"/>
+                      </div>
+                      <p className="text-sm text-gray-500 text-left">The letter X might appear in the selected word.</p>
+                    </div>
+                    <div className="flex mb-1 mt-4 items-center">
+                      <div className='grow mr-2'>
+                        <Key value="Y" status='present'/>
+                      </div>
+                      <p className="text-sm text-gray-500 text-left">The letter Y appears in the selected word but is in the wrong position.</p>
+                    </div>
+                    <div className="flex mb-1 mt-4 items-center">
+                      <div className='grow mr-2'>
+                        <Key value="Z" status='correct'/>
+                      </div>
+                      <p className="text-sm text-gray-500 text-left">
+                        The letter Z appears in the selected word and was previously guessed in the correct position.
+                        It may appear another time.
+                      </p>
+                    </div>
+                    <br />
+                    <p className="text-sm text-gray-500">
+                      Additionally you might see the following keys relating to the letter you have selected.
+                    </p>
+                    <div className="flex mb-1 mt-4 items-center">
+                      <div className='grow mr-2'>
+                        <Key value="X" crossedStatus='absent'/>
+                      </div>
+                      <p className="text-sm text-gray-500 text-left">The letter X might appear in the selected word but is not the selected letter.</p>
+                    </div>
+                    <div className="flex mb-1 mt-4 items-center">
+                      <div className='grow mr-2'>
+                        <Key value="Y" status='present' crossedStatus='absent'/>
+                      </div>
+                      <p className="text-sm text-gray-500 text-left">The letter Y appears in the selected word but is not the selected letter.</p>
+                    </div>
+                    <div className="flex mb-1 mt-4 items-center">
+                      <div className='grow mr-2'>
+                        <Key value="Z" status='correct' crossedStatus='absent'/>
+                      </div>
+                      <p className="text-sm text-gray-500 text-left">
+                        The letter Z appears in the selected word and was previously guessed in the correct position.
+                        It may appear another time, but is not the selected letter.
+                      </p>
+                    </div>
+                    <br />
+                    <p className="text-sm text-gray-500">
+                      When you type a letter the next letter in the word will automatically be selected.
                     </p>
                   </div>
                 </div>

@@ -9,15 +9,16 @@ type Props = {
   size?: 'sm' | 'lg';
   status?: CharStatus;
   crossedStatus?: CharStatus;
-  onClick: (value: KeyValue) => void;
+  onClick?: (value: KeyValue) => void;
 }
 
 export const Key = ({
   children,
   status,
+  crossedStatus,
   size = 'sm',
   value,
-  onClick,
+  onClick = () => {},
 }: Props) => {
   const classes = classnames(
     'flex items-center justify-center rounded mx-0.5 text-xs font-bold cursor-pointer keyboard-key',
@@ -29,6 +30,9 @@ export const Key = ({
         status === 'correct',
       'bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-white':
         status === 'present',
+      'bg-cross-slate': !status && crossedStatus === 'absent',
+      'bg-cross-yellow': status === 'present' && crossedStatus === 'absent',
+      'bg-cross-green': status === 'correct' && crossedStatus === 'absent',
     }
   )
 
