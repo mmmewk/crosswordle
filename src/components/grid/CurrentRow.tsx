@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const CurrentRow : React.FC<Props> = ({ guess, knownLetters, solution, focusedIndex }) => {
-  if (solution.length - guess.length <= 0) return null;
+  if (solution.length - guess.length < 0) return null;
 
   const splitGuess = guess.split('');
   const emptyCells = Array.from(Array(solution.length - splitGuess.length));

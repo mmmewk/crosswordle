@@ -106,7 +106,7 @@ export const HelpModal = ({ isOpen, handleClose }: Props) => {
                     <p className="text-sm text-gray-500">
                       If you are stuck on a word you can try solving the words that cross it.
                       Click on the selected tile to change directions.
-                      Once a letter has been found in any word crossing the letter it will show up in green.
+                      Once a letter has been found in any word crossing a letter it will show up in green.
                     </p>
 
                     <div className="flex justify-center mb-1 mt-4">
