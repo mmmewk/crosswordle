@@ -1,4 +1,5 @@
-import { cloneDeep, get } from "lodash";
+import get from "lodash/get";
+import cloneDeep from 'lodash/cloneDeep';
 import React, { useCallback, useEffect, useImperativeHandle } from "react";
 import { useRefState } from "../../lib/hooks";
 import { GridData, CellData, Direction, UsedCellData, WordInput } from "../../types"

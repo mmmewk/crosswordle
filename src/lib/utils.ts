@@ -3,7 +3,7 @@ import crosswords from "../constants/crosswords";
 import padStart from 'lodash/padStart';
 import { CrosswordInput, Direction, GridData, WordInput } from '../types';
 import { Guesses } from '../redux/slices/wordleSlice';
-import { get } from 'lodash';
+import get from 'lodash/get';
 
 export function notEmpty<TValue>(
   value: TValue | null | undefined,
