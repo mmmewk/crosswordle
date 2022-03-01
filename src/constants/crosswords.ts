@@ -2468,7 +2468,7 @@ const crosswords: CrosswordInput[] = [
   },
   // 44
   {
-    author: 'Chris Lam',
+    author: '@word.clamberer',
     across: {
         '1': {
             answer: 'CLIMB',
