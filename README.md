@@ -19,7 +19,7 @@ Puzzles should contain only words in the english dictionary, and be ~90% commonl
 Try to minimize the number of 2 letter words and letters only connected to a single word, as both of those add a larger element of luck into the puzzle.
 Include your name and I will give you credit as the author of the puzzle!
 
-# Bug Reporting
+## Bug Reporting
 
 use [Github Issues](https://github.com/mmmewk/crosswordle/issues) to submit bug reports. Include any relevant information like what device you are playing on, which puzzle the bug occured on and steps to reproduce.
 
