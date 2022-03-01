@@ -50,6 +50,7 @@ function App() {
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
   const [crossedNumber, setCrossedNumber] = useState<string | undefined>(undefined);
   const [focusedIndex, setFocusedIndex] = useState(0);
+  const [crossedFocusedIndex, setCrossedFocusedIndex] = useState<number | undefined>(undefined);
   const [validWords, loadValidWords] = useLazyLoadedValidWords();
 
 
@@ -210,6 +211,7 @@ function App() {
     setFocusedDirection(direction);
     setKnownLetters(knownLetters);
     setFocusedIndex(cell.row - wordData.row || cell.col - wordData.col);
+    setCrossedFocusedIndex(crossedWordData ? cell.row - crossedWordData.row || cell.col - crossedWordData.col : undefined);
   };
 
   useEffect(() => {
@@ -279,14 +281,16 @@ function App() {
               focusedIndex={focusedIndex}
             />
             <Keyboard
-              solution={currentWord}
-              crossedSolution={crossedWord}
-              knownChars={knownLetters.filter(notEmpty)}
               onChar={onChar}
               onDelete={onDelete}
               onEnter={onEnter}
+              knownChars={knownLetters.filter(notEmpty)}
+              solution={currentWord}
+              crossedSolution={crossedWord}
               guesses={guesses[focusedDirection][focusedNumber] || []}
-              crossGuesses={crossedNumber ? guesses[otherDirection(focusedDirection)][crossedNumber] : []}
+              crossedGuesses={crossedNumber ? guesses[otherDirection(focusedDirection)][crossedNumber] : []}
+              index={focusedIndex}
+              crossedIndex={crossedFocusedIndex}
             />
           </div>
         </div>

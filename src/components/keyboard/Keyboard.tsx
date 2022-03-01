@@ -12,14 +12,30 @@ type Props = {
   onDelete: () => void;
   onEnter: () => void;
   guesses: string[];
-  crossGuesses: string[];
+  crossedGuesses: string[];
+  index: number;
+  crossedIndex?: number;
 }
 
-export const Keyboard = ({ solution, crossedSolution, knownChars, onChar, onDelete, onEnter, guesses, crossGuesses }: Props) => {
+export const Keyboard = ({ solution, crossedSolution, knownChars, onChar, onDelete, onEnter, guesses, crossedGuesses, index, crossedIndex }: Props) => {
   const charStatuses = getStatuses(solution, guesses);
-  const crossedCharStatus = crossedSolution ? getStatuses(crossedSolution, crossGuesses) : {};
+  const crossedCharStatus = crossedSolution ? getStatuses(crossedSolution, crossedGuesses) : {};
+
+  // Update all known letters in the word to green
   knownChars?.forEach((letter) => {
     charStatuses[letter] = 'correct';
+  });
+
+  // Update all incorrect letters at the selected position to be partially gray
+  // TODO: Update crossedCharStatus to be an array of letters that should be partially grayed
+  // TODO: Given solution "bends" and guess "seedy" mark all e's except the 2nd index as partially gray
+  guesses.forEach((guess) => {
+    if (guess[index] !== solution[index]) crossedCharStatus[guess[index]] = 'absent';
+  });
+  crossedGuesses.forEach((guess) => {
+    if (crossedIndex === undefined || !crossedSolution) return;
+
+    if (guess[crossedIndex] !== crossedSolution[crossedIndex]) crossedCharStatus[guess[crossedIndex]] = 'absent';
   });
 
   const onClick = (value: KeyValue) => {
