@@ -8,7 +8,7 @@ import { Keyboard } from './components/keyboard/Keyboard';
 import { AboutModal } from './components/modals/AboutModal';
 import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
-import { isWordInWordList } from './lib/words';
+import { useLazyLoadedValidWords } from './lib/words';
 import './App.scss';
 import { getInitialClue, getTotalGuesses, notEmpty } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
@@ -50,6 +50,12 @@ function App() {
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
   const [crossedNumber, setCrossedNumber] = useState<string | undefined>(undefined);
   const [focusedIndex, setFocusedIndex] = useState(0);
+  const [validWords, loadValidWords] = useLazyLoadedValidWords();
+
+
+  useEffect(() => {
+    loadValidWords();
+  }, [loadValidWords]);
 
   // After keyboard input move to the next square where you can type
   const moveToNextGuessSquare = useCallback((step: number) => {
@@ -164,11 +170,14 @@ function App() {
     }
   };
 
-  const onEnter = () => {
+  const onEnter = async () => {
     if (currentGuess.length !== currentWord.length) return;
+    const allowedWords = validWords || await loadValidWords();
+
+    const wordAllowed = allowedWords.includes(currentGuess.toLowerCase());
 
     // Alert user if guess is not a word
-    if (!isWordInWordList(currentGuess) && currentGuess !== currentWord) {
+    if (!wordAllowed && currentGuess !== currentWord) {
       toast.error('Word not found');
       return;
     }

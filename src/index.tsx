@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 import { ToastContainer } from 'react-toastify';
+import Spinner from './components/shared/spinner';
 
+// Lazy load app to improve LCP time
+// Loading app involves loading word list and crossword database which takes a long time
+const App = React.lazy(() => import('./App'));
 let persistor = persistStore(store);
 
 ReactDOM.render(
@@ -16,7 +19,13 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ToastContainer hideProgressBar={true} />
-        <App />
+        <Suspense fallback={
+          <div className='w-screen h-screen flex justify-center items-center'>
+            <Spinner color="indigo-600" size={30} />
+          </div>
+        }>
+          <App />
+        </Suspense>
       </PersistGate>
     </Provider>
   </React.StrictMode>,
