@@ -31,9 +31,9 @@ Contributions are strongly encouraged! Just submit a PR and I will take the time
 
 Heres the next features that I'm thinking of working on. Feel free to submit a PR for any of these!
 
-[] Add streaks and statistics (to the share modal? Or have another modal for statistics?)
-[] Add archive (Allow users to play any puzzles in the past, and see how well they did on each one, allow filtering by author)
-[] Add pencil feature where users can write letters in the corners of the crossword squares (how to display this without being way too small?)
-[] Update partially grayed keys to include all edge cases (Given solution "bends" and guess "seedy" mark all e's except the 2nd index as partially gray)
-[] Add timed mode for those who care about speed rather than # of guesses 
-[] Update layout to use full screen height on tall narrow screens
+- [ ] Add streaks and statistics (to the share modal? Or have another modal for statistics?)
+- [ ] Add archive (Allow users to play any puzzles in the past, and see how well they did on each one, allow filtering by author)
+- [ ] Add pencil feature where users can write letters in the corners of the crossword squares (how to display this without being way too small?)
+- [ ] Update partially grayed keys to include all edge cases (Given solution "bends" and guess "seedy" mark all e's except the 2nd index as partially gray)
+- [ ] Add timed mode for those who care about speed rather than # of guesses 
+- [ ] Update layout to use full screen height on tall narrow screens
