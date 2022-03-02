@@ -14,7 +14,7 @@ Initially cloned the project from https://github.com/cwackerfuss/react-wordle
 
 Puzzles are all hand written using [crosshare](https://crosshare.org)
 
-If you would like to submit a puzzle email me at [submissions.crosswordle@gmail.com](mailto:submissions.crosswordle@gmail.com).
+If you would like to submit a puzzle email me at [crosswordle.submissions@gmail.com](mailto:crosswordle.submissions@gmail.com).
 Puzzles should contain only words in the english dictionary, and be ~90% commonly known words.
 Try to minimize the number of 2 letter words and letters only connected to a single word, as both of those add a larger element of luck into the puzzle.
 Include your name and I will give you credit as the author of the puzzle!
