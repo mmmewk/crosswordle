@@ -33,7 +33,9 @@ Heres the next features that I'm thinking of working on. Feel free to submit a P
 
 - [ ] Add streaks and statistics (to the share modal? Or have another modal for statistics?)
 - [ ] Add archive (Allow users to play any puzzles in the past, and see how well they did on each one, allow filtering by author)
-- [ ] Add pencil feature where users can write letters in the corners of the crossword squares (how to display this without being way too small?)
+- [ ] Add pencil feature where users can write letters in the corners of the crossword squares (where users can write directly in the crossword shows as gray shadow text in the wordle)
 - [ ] Update partially grayed keys to include all edge cases (Given solution "bends" and guess "seedy" mark all e's except the 2nd index as partially gray)
 - [ ] Add timed mode for those who care about speed rather than # of guesses 
 - [ ] Update layout to use full screen height on tall narrow screens
+- [ ] Support a language dropdown, different set of puzzles per language. We need a puzzle master and/or generator for each language to keep daily puzzles coming at high quality
+- [ ] Add dictionary feature to make it easy to look up words and expand your vocabulary
