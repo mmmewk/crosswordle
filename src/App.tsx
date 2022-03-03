@@ -55,8 +55,6 @@ function App() {
 
   useEffect(() => {
     loadValidWords();
-    // Testing CI/CD TODO: remove
-    console.log('loaded');
   }, [loadValidWords]);
 
   // After keyboard input move to the next square where you can type
