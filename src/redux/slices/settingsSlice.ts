@@ -14,8 +14,8 @@ export const settingsSlice = createSlice({
   name: 'crossword',
   initialState,
   reducers: {
-    toggleDarkMode: (state) => {
-      state.darkMode = !state.darkMode;
+    setDarkMode: (state, action: PayloadAction<boolean>) => {
+      state.darkMode = action.payload;
     },
     setAdvancedKeyboard: (state, action: PayloadAction<boolean>) => {
       state.advancedKeyboard = action.payload;
@@ -24,6 +24,6 @@ export const settingsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { toggleDarkMode, setAdvancedKeyboard } = settingsSlice.actions;
+export const { setDarkMode, setAdvancedKeyboard } = settingsSlice.actions;
 
 export default settingsSlice.reducer;

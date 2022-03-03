@@ -16,13 +16,13 @@ export const Cell = ({ value, knownValue, status, size = 'lg', isFocused = false
   const height = useWindowHeight();
 
   const classes = classnames(
-    'border-solid border-2 flex items-center justify-center mx-0.5 font-bold rounded',
+    'border-solid border-2 flex items-center justify-center mx-0.5 font-bold rounded dark:text-white',
     {
-      'bg-white border-slate-200': !status,
-      'bg-white border-slate-200 text-green-500 text-opacity-50': knownValue && !value,
-      'bg-slate-400 text-white border-slate-400': status === 'absent',
+      'bg-white border-slate-200 dark:bg-slate-900 dark:border-slate-600': !status,
+      'bg-white border-slate-200 text-green-500 text-opacity-50 dark:text-green-500': knownValue && !value,
+      'bg-slate-400 dark:bg-slate-700 text-white border-slate-400 dark:border-slate-700': status === 'absent',
       'bg-green-500 text-white border-green-500': status === 'correct',
-      'bg-yellow-500 text-white border-yellow-500': status === 'present',
+      'bg-yellow-500 dark:bg-yellow-700 text-white border-yellow-500 dark:border-yellow-700': status === 'present',
       'w-14 h-14 text-lg': size === 'lg',
       'w-5 h-5 text-sm': size === 'sm',
       'w-12 h-12 text-lg': size === 'lg' && isMobile,

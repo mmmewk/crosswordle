@@ -1,5 +1,5 @@
 import * as smoothscroll from 'smoothscroll-polyfill';
-import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon, DocumentAddIcon } from '@heroicons/react/outline';
+import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon, CogIcon } from '@heroicons/react/outline';
 import { ElementRef, useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,10 +16,13 @@ import { CellColors } from './components/mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
 import { Crossword } from './components/crossword/Crossword';
 import { CellData, Direction, GridData, UsedCellData, WordInput } from './types';
-import { trackEvent, trackGameEnd, trackGuess } from './lib/analytics';
+import { trackGameEnd, trackGuess } from './lib/analytics';
 import { useGameState } from './redux/hooks/useGameState';
 import { SubmitModal } from './components/modals/SubmitModal';
 import { otherDirection } from './lib/crossword-utils';
+import { SettingsModal } from './components/modals/SettingsModal';
+import { useSelector } from 'react-redux';
+import { RootState } from './redux/store';
 
 smoothscroll.polyfill();
 const { initialClue, initialDirection } = getInitialClue(crosswordData);
@@ -43,6 +46,7 @@ function App() {
   const [crossedWord, setCrossedWord] = useState<string | undefined>();
   const [isShareModalOpen, setIsShareModalOpen] = useState(isGameWon);
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
+  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [focusedWordData, setFocusedWordData] = useState<WordInput>(initialClue);
@@ -52,6 +56,16 @@ function App() {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [crossedFocusedIndex, setCrossedFocusedIndex] = useState<number | undefined>(undefined);
   const [validWords, loadValidWords] = useLazyLoadedValidWords();
+  const darkMode = useSelector((state: RootState) => state.settings.darkMode);
+
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   useEffect(() => {
     loadValidWords();
@@ -221,11 +235,11 @@ function App() {
     <div className='flex flex-col min-h-screen'>
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4">
         <div className='grow'>
-          <h1 className="text-l md:text-xl font-bold whitespace-nowrap">Crosswordle {crosswordIndex + 1}</h1>
+          <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">Crosswordle {crosswordIndex + 1}</h1>
           <p className="text-sm text-slate-400">By {crosswordData.author || 'Matthew Koppe'}</p>
         </div>
         <PresentationChartBarIcon
-          className="h-6 w-6 ml-3 mr-3 cursor-pointer"
+          className="h-6 w-6 ml-3 mr-3 cursor-pointer dark:stroke-white"
           onClick={() => setIsShareModalOpen(true)}
         />
         <ShareModal
@@ -237,7 +251,7 @@ function App() {
           handleClose={() => setIsShareModalOpen(false)}
         />
         <InformationCircleIcon
-          className="h-6 w-6 mr-3 cursor-pointer"
+          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
           onClick={() => setIsAboutModalOpen(true)}
         />
         <AboutModal
@@ -245,19 +259,20 @@ function App() {
           handleClose={() => setIsAboutModalOpen(false)}
         />
         <QuestionMarkCircleIcon
-          className="h-6 w-6 mr-3 cursor-pointer"
+          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
           onClick={() => setIsHelpModalOpen(true)}
         />
         <HelpModal
           isOpen={isHelpModalOpen}
           handleClose={() => setIsHelpModalOpen(false)}
         />
-        <DocumentAddIcon
-          className="h-6 w-6 cursor-pointer"
-          onClick={() => {
-            trackEvent('open_submit_modal');
-            setIsSubmitModalOpen(true)
-          }}
+        <CogIcon
+          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          onClick={() => setIsSettingsModalOpen(true)}
+        />
+        <SettingsModal
+          isOpen={isSettingsModalOpen}
+          handleClose={() => setIsSettingsModalOpen(false)}
         />
         <SubmitModal
           isOpen={isSubmitModalOpen}

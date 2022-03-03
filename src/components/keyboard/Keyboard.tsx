@@ -121,7 +121,7 @@ export const Keyboard = ({ solution, crossedSolution, knownChars, onChar, onDele
       </div>
       <div className='mt-3 flex items-center'>
         <Switch checked={advancedKeyboard} onChange={(enabled) => dispatch(setAdvancedKeyboard(enabled))} />
-        <span className='ml-2'>Advanced Keyboard</span>
+        <span className='ml-2 dark:text-white'>Advanced Keyboard</span>
         <QuestionMarkCircleIcon
           className="h-5 w-5 mr-3 cursor-pointer dark:stroke-white ml-1"
           onClick={() => setHelpModalOpen(true)}

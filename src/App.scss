@@ -87,3 +87,7 @@ $slate-400: rgba(148, 163, 184);
     @include bg-slash($slash-green-hover);
   }
 }
+
+html.dark {
+  background-color: rgb(15, 23, 42);
+}

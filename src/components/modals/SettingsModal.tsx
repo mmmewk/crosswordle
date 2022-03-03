@@ -1,13 +1,20 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XCircleIcon } from '@heroicons/react/outline'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
+import { setAdvancedKeyboard, setDarkMode } from '../../redux/slices/settingsSlice'
+import Switch from 'react-switch';
 
 type Props = {
   isOpen: boolean
   handleClose: () => void
 }
 
-export const AboutModal = ({ isOpen, handleClose }: Props) => {
+export const SettingsModal = ({ isOpen, handleClose }: Props) => {
+  const dispatch = useDispatch();
+  const { darkMode, advancedKeyboard } = useSelector((state: RootState) => state.settings);
+
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
@@ -57,38 +64,17 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
                     as="h3"
                     className="text-lg leading-6 font-medium text-gray-900"
                   >
-                    About
+                    Settings
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      This is an open source variation of the game wordle
-                      where you solve a daily mini crossword using wordle rules -{' '}
-                      <a
-                        href="https://www.powerlanguage.co.uk/wordle/"
-                        className="underline font-bold"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        play the wordle here
-                      </a>
-                      {' '}and{' '}
-                      <a
-                        href="https://www.nytimes.com/crosswords/game/mini"
-                        className="underline font-bold"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        play the daily crossword mini here
-                      </a>. Crosswords are hand made using{' '}
-                      <a
-                        href="https://crosshare.org/"
-                        className="underline font-bold"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Crosshare.org
-                      </a> by the crosswordle community. Thanks to everyone who has submitted a puzzle!
-                    </p>
+                    <div className='w-100 p-4 flex items-center'>
+                      <Switch className='mr-2' checked={darkMode} onChange={(enabled) => dispatch(setDarkMode(enabled))} />
+                      <span>Dark Mode</span>
+                    </div>
+                    <div className='w-100 p-4 flex items-center'>
+                      <Switch className='mr-2' checked={advancedKeyboard} onChange={(enabled) => dispatch(setAdvancedKeyboard(enabled))} />
+                      <span>Advanced Keyboard</span>
+                    </div>
                   </div>
                 </div>
               </div>
