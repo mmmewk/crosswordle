@@ -7194,6 +7194,13 @@ react-scripts@5.0.0:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-switch@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-switch/-/react-switch-6.0.0.tgz#bd4a2dea08f211b8a32e55e8314fd44bc1ec947e"
+  integrity sha512-QV3/6eRK5/5epdQzIqvDAHRoGLbCv/wDpHUi6yBMXY1Xco5XGuIZxvB49PHoV1v/SpEgOCJLD/Zo43iic+aEIw==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-toastify@^8.1.1:
   version "8.1.1"
   resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-8.1.1.tgz#79fada2487bcd2ca9b5910015f8d6f78cc65c984"

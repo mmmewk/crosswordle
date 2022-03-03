@@ -1,8 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { KeyValue } from '../../lib/keyboard'
-import { getStatuses } from '../../lib/statuses'
+import { CharStatus, getStatuses } from '../../lib/statuses'
 import { Key } from './Key'
-import { BackspaceIcon } from '@heroicons/react/outline';
+import { BackspaceIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
+import Switch from "react-switch";
+import { RootState } from '../../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAdvancedKeyboard } from '../../redux/slices/settingsSlice';
+import { HelpModal } from '../modals/HelpModal';
 
 type Props = {
   solution: string;
@@ -18,25 +23,32 @@ type Props = {
 }
 
 export const Keyboard = ({ solution, crossedSolution, knownChars, onChar, onDelete, onEnter, guesses, crossedGuesses, index, crossedIndex }: Props) => {
+  const dispatch = useDispatch();
+  const advancedKeyboard = useSelector((state: RootState) => state.settings.advancedKeyboard);
+  const [helpModalOpen, setHelpModalOpen] = useState(false);
   const charStatuses = getStatuses(solution, guesses);
-  const crossedCharStatus = crossedSolution ? getStatuses(crossedSolution, crossedGuesses) : {};
+  let crossedCharStatus : { [key: string]: CharStatus | undefined } = {};
 
   // Update all known letters in the word to green
   knownChars?.forEach((letter) => {
     charStatuses[letter] = 'correct';
   });
 
-  // Update all incorrect letters at the selected position to be partially gray
-  // TODO: Update crossedCharStatus to be an array of letters that should be partially grayed
-  // TODO: Given solution "bends" and guess "seedy" mark all e's except the 2nd index as partially gray
-  guesses.forEach((guess) => {
-    if (guess[index] !== solution[index]) crossedCharStatus[guess[index]] = 'absent';
-  });
-  crossedGuesses.forEach((guess) => {
-    if (crossedIndex === undefined || !crossedSolution) return;
+  if (advancedKeyboard) {
+    crossedCharStatus = crossedSolution ? getStatuses(crossedSolution, crossedGuesses) : {};
 
-    if (guess[crossedIndex] !== crossedSolution[crossedIndex]) crossedCharStatus[guess[crossedIndex]] = 'absent';
-  });
+    // Update all incorrect letters at the selected position to be partially gray
+    // TODO: Update crossedCharStatus to be an array of letters that should be partially grayed
+    // TODO: Given solution "bends" and guess "seedy" mark all e's except the 2nd index as partially gray
+    guesses.forEach((guess) => {
+      if (guess[index] !== solution[index]) crossedCharStatus[guess[index]] = 'absent';
+    });
+    crossedGuesses.forEach((guess) => {
+      if (crossedIndex === undefined || !crossedSolution) return;
+
+      if (guess[crossedIndex] !== crossedSolution[crossedIndex]) crossedCharStatus[guess[crossedIndex]] = 'absent';
+    });
+  }
 
   const onClick = (value: KeyValue) => {
     if (value === 'ENTER') {
@@ -106,6 +118,15 @@ export const Keyboard = ({ solution, crossedSolution, knownChars, onChar, onDele
         <Key size='lg' value="DELETE" onClick={onClick}>
           <BackspaceIcon width={25} height={25} />
         </Key>
+      </div>
+      <div className='mt-3 flex items-center'>
+        <Switch checked={advancedKeyboard} onChange={(enabled) => dispatch(setAdvancedKeyboard(enabled))} />
+        <span className='ml-2'>Advanced Keyboard</span>
+        <QuestionMarkCircleIcon
+          className="h-5 w-5 mr-3 cursor-pointer dark:stroke-white ml-1"
+          onClick={() => setHelpModalOpen(true)}
+        />
+        <HelpModal isOpen={helpModalOpen} handleClose={() => setHelpModalOpen(false)} onlyKeyboard={true} />
       </div>
     </div>
   )
