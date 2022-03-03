@@ -53,9 +53,10 @@ function App() {
   const [crossedFocusedIndex, setCrossedFocusedIndex] = useState<number | undefined>(undefined);
   const [validWords, loadValidWords] = useLazyLoadedValidWords();
 
-
   useEffect(() => {
     loadValidWords();
+    // Testing CI/CD TODO: remove
+    console.log('loaded');
   }, [loadValidWords]);
 
   // After keyboard input move to the next square where you can type
