@@ -39,4 +39,4 @@ Heres the next features that I'm thinking of working on. Feel free to submit a P
 - [ ] Update layout to use full screen height on tall narrow screens
 - [ ] Support a language dropdown, different set of puzzles per language. We need a puzzle master and/or generator for each language to keep daily puzzles coming at high quality
 - [ ] Add dictionary feature to make it easy to look up words and expand your vocabulary
-- [ ] Support one large crossword per month?
+- [ ] Support different size crosswordles
