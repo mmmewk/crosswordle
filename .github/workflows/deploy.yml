@@ -1,0 +1,34 @@
+# This is a basic workflow that is manually triggered
+
+name: Deploy Production
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v2
+      - name: Yarn install
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+      - name: Yarn Build
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+      - name: Deploy
+        run: |
+          aws s3 sync ./build s3://www.crosswordle.mekoppe.com --delete
