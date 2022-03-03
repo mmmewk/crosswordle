@@ -9,7 +9,7 @@ import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
 import { useLazyLoadedValidWords } from './lib/words';
 import './App.scss';
-import { getInitialClue, getTotalGuesses, notEmpty } from './lib/utils';
+import { getInitialClue, getTotalGuesses } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
 import { CellColors } from './components/mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from './constants/colors';
@@ -40,7 +40,6 @@ function App() {
     win,
     lose,
   } = useGameState(crosswordIndex);
-  const [knownLetters, setKnownLetters] = useState<(string | undefined)[]>([]);
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(initialClue.answer);
   const [crossedWord, setCrossedWord] = useState<string | undefined>();
@@ -217,12 +216,11 @@ function App() {
     }
   };
 
-  const onGridDataChange = (gridData: GridData, knownLetters: (string | undefined)[]) => {
+  const onGridDataChange = (gridData: GridData) => {
     checkWinOrLoss(gridData);
-    setKnownLetters(knownLetters);
   };
 
-  const onMoved = (cell: CellData, direction: Direction, knownLetters: (string | undefined)[]) => {
+  const onMoved = (cell: CellData, direction: Direction) => {
     if (!cell.used) return;
 
     const number = cell[direction] || '';
@@ -235,7 +233,6 @@ function App() {
     setFocusedNumber(number);
     setCrossedNumber(otherNumber);
     setFocusedDirection(direction);
-    setKnownLetters(knownLetters);
     setFocusedIndex(cell.row - wordData.row || cell.col - wordData.col);
     setCrossedFocusedIndex(crossedWordData ? cell.row - crossedWordData.row || cell.col - crossedWordData.col : undefined);
   };
@@ -243,6 +240,13 @@ function App() {
   useEffect(() => {
     setCurrentGuess('');
   }, [focusedDirection, focusedNumber]);
+  
+  const enablePencilMode = () => {
+    const enabled = !pencilMode;
+    dispatch(setPencilMode(enabled));
+    toast.info(`Pencil mode ${enabled ? 'enabled' : 'disabled'}`, { position: 'bottom-right' });
+    setCurrentGuess('');
+  };
 
   return (
     <div className='flex flex-col min-h-screen'>
@@ -258,7 +262,7 @@ function App() {
         <PencilIcon
           className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
           fill={pencilMode ? 'rgb(250, 200, 23)' : darkMode ? 'transparent' : 'white'}
-          onClick={() => dispatch(setPencilMode(!pencilMode))}
+          onClick={enablePencilMode}
         />
         <ShareModal
           isOpen={isShareModalOpen}
@@ -300,7 +304,6 @@ function App() {
             <Grid
               guesses={guesses[focusedDirection][focusedNumber] || []}
               currentGuess={currentGuess}
-              knownLetters={knownLetters}
               solution={currentWord}
               focusedIndex={focusedIndex}
             />
@@ -308,7 +311,6 @@ function App() {
               onChar={onChar}
               onDelete={onDelete}
               onEnter={onEnter}
-              knownChars={knownLetters.filter(notEmpty)}
               solution={currentWord}
               crossedSolution={crossedWord}
               guesses={guesses[focusedDirection][focusedNumber] || []}

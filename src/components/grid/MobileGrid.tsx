@@ -4,13 +4,12 @@ import { EmptyRow } from './EmptyRow'
 
 type Props = {
   solution: string;
-  knownLetters?: (string | undefined)[];
   guesses: string[];
   currentGuess: string;
   focusedIndex: number;
 }
 
-export const MobileGrid = ({ solution, knownLetters = [], guesses, currentGuess, focusedIndex }: Props) => {
+export const MobileGrid = ({ solution, guesses, currentGuess, focusedIndex }: Props) => {
   const firstHalf = guesses.slice(0, 3);
   const firstHalfEmpties = Array.from(Array(3 - firstHalf.length));
   const secondHalf = guesses.slice(3, 6);
@@ -21,7 +20,7 @@ export const MobileGrid = ({ solution, knownLetters = [], guesses, currentGuess,
       <div className='flex my-3 w-full'>
         <div className='w-1/2'>
           {firstHalf.map((guess, i) => (
-            <CompletedRow key={i} guess={guess} solution={solution} knownLetters={knownLetters} size='sm' />
+            <CompletedRow key={i} guess={guess} solution={solution} size='sm' />
           ))}
           {firstHalfEmpties.map((_, i) => (
             <EmptyRow key={i} solution={solution} size='sm' />
@@ -29,14 +28,14 @@ export const MobileGrid = ({ solution, knownLetters = [], guesses, currentGuess,
         </div>
         <div className='w-1/2'>
           {secondHalf.map((guess, i) => (
-            <CompletedRow key={i} guess={guess} solution={solution} knownLetters={knownLetters} size='sm' />
+            <CompletedRow key={i} guess={guess} solution={solution} size='sm' />
           ))}
           {secondHalfEmpties.map((_, i) => (
             <EmptyRow key={i} solution={solution} size='sm' />
           ))}
         </div>
       </div>
-      <CurrentRow guess={currentGuess} solution={solution} knownLetters={knownLetters} focusedIndex={focusedIndex} />
+      <CurrentRow guess={currentGuess} solution={solution} focusedIndex={focusedIndex} />
     </div>
   )
 }

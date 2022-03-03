@@ -6,13 +6,14 @@ import { GridData, CellData, Direction, UsedCellData, WordInput } from "../../ty
 import { createGridData, otherDirection } from "../../lib/crossword-utils";
 import { useGridData } from "../../redux/hooks/useGridData";
 import { crosswordIndex, crossword, getInitialClue } from "../../lib/utils";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import { setKnownLetters, setPenciledLetters } from "../../redux/slices/crosswordSlice";
 
 type Props = {
   guess?: string;
-  onMoved?: (cell: CellData, direction: Direction, knownLetters: (string | undefined)[]) => void;
-  onChange?: (gridData: GridData, knownLetters: (string | undefined)[]) => void;
+  onMoved?: (cell: CellData, direction: Direction) => void;
+  onChange?: (gridData: GridData) => void;
 };
 
 type Handle = {
@@ -26,6 +27,7 @@ type Handle = {
 const { initialClue: initialWord, initialDirection } = getInitialClue(crossword);
 
 export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, guess }, ref) => {
+  const dispatch = useDispatch();
   const darkMode = useSelector((state: RootState) => state.settings.darkMode);
   const [gridData, setGridData] = useGridData(crosswordIndex);
   const [focusedCell, setFocusedCell, focusedCellRef] = useRefState<UsedCellData>(gridData[initialWord.row][initialWord.col] as UsedCellData);
@@ -91,31 +93,42 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
     }
   }, [moveRelative, switchDirections]);
 
-  const getKnownLetters = useCallback(() => {
+  const updateShadowLetters = useCallback(() => {
     const number = focusedCell[focusedDirection] as string;
     const focusedClue = crossword[focusedDirection][number] as WordInput;
 
     if (!number || !focusedClue) return [];
 
-    return Array.from(focusedClue.answer).map((_, index) => {
+    const knownLetters : (string | undefined)[] = [];
+    const penciledLetters : (string | undefined)[] = [];
+
+    Array.from(focusedClue.answer).forEach((_, index) => {
       let letterRow = focusedClue.row + (focusedDirection === 'across' ? 0 : index);
       let letterCol = focusedClue.col + (focusedDirection === 'across' ? index : 0);
       const cell = gridData[letterRow][letterCol];
       if (!cell.used) return undefined;
 
-      return cell.guess;
+      knownLetters.push(cell.guess);
+      penciledLetters.push(cell.pencil);
     });
-  }, [focusedCell, focusedDirection, gridData])
+
+    dispatch(setKnownLetters(knownLetters));
+    dispatch(setPenciledLetters(penciledLetters));
+  }, [focusedCell, focusedDirection, gridData, dispatch])
 
   useEffect(() => {
-    if (onMoved) onMoved(focusedCell, focusedDirection, getKnownLetters());
+    if (onMoved) onMoved(focusedCell, focusedDirection);
+    updateShadowLetters();
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [focusedCell, focusedDirection, getKnownLetters]);
+  }, [focusedCell, focusedDirection, updateShadowLetters]);
 
   useEffect(() => {
-    if (onChange) onChange(gridData, getKnownLetters());
+    if (onChange) onChange(gridData);
+    updateShadowLetters();
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gridData, getKnownLetters]);
+  }, [gridData, updateShadowLetters]);
 
   useImperativeHandle(ref, () => ({
     guessWord: (guess: string) => {

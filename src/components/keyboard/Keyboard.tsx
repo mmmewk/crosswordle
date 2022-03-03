@@ -12,7 +12,6 @@ import { HelpModal } from '../modals/HelpModal';
 type Props = {
   solution: string;
   crossedSolution: string | undefined;
-  knownChars?: string[];
   onChar: (value: string) => void;
   onDelete: () => void;
   onEnter: () => void;
@@ -22,16 +21,17 @@ type Props = {
   crossedIndex?: number;
 }
 
-export const Keyboard = ({ solution, crossedSolution, knownChars, onChar, onDelete, onEnter, guesses, crossedGuesses, index, crossedIndex }: Props) => {
+export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter, guesses, crossedGuesses, index, crossedIndex }: Props) => {
   const dispatch = useDispatch();
   const advancedKeyboard = useSelector((state: RootState) => state.settings.advancedKeyboard);
+  const knownLetters = useSelector((state: RootState) => state.crossword.knownLetters);
   const [helpModalOpen, setHelpModalOpen] = useState(false);
   const charStatuses = getStatuses(solution, guesses);
   let crossedCharStatus : { [key: string]: CharStatus | undefined } = {};
 
   // Update all known letters in the word to green
-  knownChars?.forEach((letter) => {
-    charStatuses[letter] = 'correct';
+  knownLetters.forEach((letter) => {
+    if (letter) charStatuses[letter] = 'correct';
   });
 
   if (advancedKeyboard) {

@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Cell } from '../grid/Cell'
-import { XCircleIcon } from '@heroicons/react/outline'
+import { PencilIcon, XCircleIcon } from '@heroicons/react/outline'
 import { Key } from '../keyboard/Key'
 
 type Props = {
@@ -73,36 +73,36 @@ export const HelpModal = ({ isOpen, handleClose, onlyKeyboard = false }: Props) 
                         </p>
 
                         <div className="flex justify-center mb-1 mt-4">
-                          <Cell value="W" status="correct" />
-                          <Cell value="E" />
-                          <Cell value="A" />
-                          <Cell value="R" />
-                          <Cell value="Y" />
+                          <Cell value="R" status="correct" />
+                          <Cell value="I" />
+                          <Cell value="G" />
+                          <Cell value="H" />
+                          <Cell value="T" />
                         </div>
                         <p className="text-sm text-gray-500">
-                          The letter W is in the word and in the correct spot.
+                          The letter R is in the word and in the correct spot.
                         </p>
 
                         <div className="flex justify-center mb-1 mt-4">
-                          <Cell value="P" />
-                          <Cell value="I" />
+                          <Cell value="C" />
                           <Cell value="L" status="present" />
                           <Cell value="O" />
-                          <Cell value="T" />
+                          <Cell value="S" />
+                          <Cell value="E" />
                         </div>
                         <p className="text-sm text-gray-500">
                           The letter L is in the word but in the wrong spot.
                         </p>
 
                         <div className="flex justify-center mb-1 mt-4">
-                          <Cell value="V" />
-                          <Cell value="A" />
+                          <Cell value="W" />
+                          <Cell value="R" />
+                          <Cell value="O" status="absent" />
+                          <Cell value="N" />
                           <Cell value="G" />
-                          <Cell value="U" status="absent" />
-                          <Cell value="E" />
                         </div>
                         <p className="text-sm text-gray-500">
-                          The letter U is not in the word in any spot.
+                          The letter O is not in the word in any spot.
                         </p>
 
                         <br />
@@ -113,14 +113,30 @@ export const HelpModal = ({ isOpen, handleClose, onlyKeyboard = false }: Props) 
                         </p>
 
                         <div className="flex justify-center mb-1 mt-4">
-                          <Cell value="S" />
-                          <Cell value="T" />
-                          <Cell value="A" />
+                          <Cell value="K" />
                           <Cell value="N" />
-                          <Cell knownValue="D" />
+                          <Cell value="O" />
+                          <Cell value="W" mode="known" />
+                          <Cell value="N" />
                         </div>
                         <p className="text-sm text-gray-500">
-                          The letter D is known to be in this spot because it has been found in either the down or across clue.
+                          The letter W is known to be in this spot because it has been found in either the down or across clue.
+                        </p>
+                        <br />
+                        <p className="text-sm text-gray-500">
+                          If you would like to make a note on the crossword that you know what a letter goes in a specific location,
+                          enable pencil mode. Just click the <PencilIcon width={15} height={15} className='inline'/> icon to toggle pencil mode.
+                        </p>
+
+                        <div className="flex justify-center mb-1 mt-4">
+                          <Cell value="N" />
+                          <Cell value="O" />
+                          <Cell value="T" />
+                          <Cell value="E" />
+                          <Cell value="S" mode="pencil" />
+                        </div>
+                        <p className="text-sm text-gray-500">
+                          The you have noted that the letter S is probably in this spot.
                         </p>
                         <br />
                         <h4>Keyboard</h4>
