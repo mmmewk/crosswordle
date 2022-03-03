@@ -114,7 +114,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
 
     dispatch(setKnownLetters(knownLetters));
     dispatch(setPenciledLetters(penciledLetters));
-  }, [focusedCell, focusedDirection, gridData])
+  }, [focusedCell, focusedDirection, gridData, dispatch])
 
   useEffect(() => {
     if (onMoved) onMoved(focusedCell, focusedDirection);
