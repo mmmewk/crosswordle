@@ -1,11 +1,10 @@
 import * as smoothscroll from 'smoothscroll-polyfill';
-import { InformationCircleIcon, QuestionMarkCircleIcon, PresentationChartBarIcon, CogIcon } from '@heroicons/react/outline';
+import { QuestionMarkCircleIcon, PresentationChartBarIcon, CogIcon, PencilIcon } from '@heroicons/react/outline';
 import { ElementRef, useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Grid } from './components/grid/Grid';
 import { Keyboard } from './components/keyboard/Keyboard';
-import { AboutModal } from './components/modals/AboutModal';
 import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
 import { useLazyLoadedValidWords } from './lib/words';
@@ -21,8 +20,9 @@ import { useGameState } from './redux/hooks/useGameState';
 import { SubmitModal } from './components/modals/SubmitModal';
 import { otherDirection } from './lib/crossword-utils';
 import { SettingsModal } from './components/modals/SettingsModal';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
+import { setPencilMode } from './redux/slices/settingsSlice';
 
 smoothscroll.polyfill();
 const { initialClue, initialDirection } = getInitialClue(crosswordData);
@@ -48,7 +48,6 @@ function App() {
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
-  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [focusedWordData, setFocusedWordData] = useState<WordInput>(initialClue);
   const [focusedDirection, setFocusedDirection] = useState<Direction>(initialDirection);
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
@@ -56,8 +55,8 @@ function App() {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [crossedFocusedIndex, setCrossedFocusedIndex] = useState<number | undefined>(undefined);
   const [validWords, loadValidWords] = useLazyLoadedValidWords();
-  const darkMode = useSelector((state: RootState) => state.settings.darkMode);
-
+  const dispatch = useDispatch();
+  const { darkMode, pencilMode } = useSelector((state: RootState) => state.settings);
 
   useEffect(() => {
     if (darkMode) {
@@ -72,26 +71,40 @@ function App() {
   }, [loadValidWords]);
 
   // After keyboard input move to the next square where you can type
-  const moveToNextGuessSquare = useCallback((step: number) => {
+  const moveToIndex = useCallback((index: number) => {
     let { row, col } = focusedWordData;
-    if (focusedDirection === 'across') col += currentGuess.length + step;
-    if (focusedDirection === 'down') row += currentGuess.length + step;
+    if (focusedDirection === 'across') col += index;
+    if (focusedDirection === 'down') row += index;
     crosswordRef.current?.moveTo(row, col);
-  }, [focusedDirection, currentGuess, crosswordRef, focusedWordData]);
+  }, [focusedDirection, crosswordRef, focusedWordData]);
 
   // Key event callbacks
   const onChar = (value: string) => {
+    if (pencilMode) {
+      crosswordRef.current?.pencilLetter(value);
+      moveToIndex(focusedIndex + 1);
+      return;
+    }
+
     const guessesForWord = guesses[focusedDirection][focusedNumber];
 
     if (currentGuess.length < currentWord.length && guessesForWord.length < 6) {
-      setCurrentGuess(`${currentGuess}${value}`);
-      moveToNextGuessSquare(1);
+      const newGuess = `${currentGuess}${value}`;
+      setCurrentGuess(newGuess);
+      moveToIndex(newGuess.length);
     }
   }
 
   const onDelete = () => {
-    moveToNextGuessSquare(-1);
-    setCurrentGuess(currentGuess.slice(0, -1));
+    if (pencilMode) {
+      crosswordRef.current?.eraseLetter();
+      moveToIndex(focusedIndex - 1);
+      return;
+    }
+
+    const newGuess = currentGuess.slice(0, -1);
+    setCurrentGuess(newGuess);
+    moveToIndex(newGuess.length);  
   }
 
   // Callbacks to keep move history in sync with guesses
@@ -242,6 +255,11 @@ function App() {
           className="h-6 w-6 ml-3 mr-3 cursor-pointer dark:stroke-white"
           onClick={() => setIsShareModalOpen(true)}
         />
+        <PencilIcon
+          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
+          fill={pencilMode ? 'rgb(250, 200, 23)' : darkMode ? 'transparent' : 'white'}
+          onClick={() => dispatch(setPencilMode(!pencilMode))}
+        />
         <ShareModal
           isOpen={isShareModalOpen}
           openSubmitModal={() => {
@@ -249,14 +267,6 @@ function App() {
             setIsSubmitModalOpen(true);
           }}
           handleClose={() => setIsShareModalOpen(false)}
-        />
-        <InformationCircleIcon
-          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
-          onClick={() => setIsAboutModalOpen(true)}
-        />
-        <AboutModal
-          isOpen={isAboutModalOpen}
-          handleClose={() => setIsAboutModalOpen(false)}
         />
         <QuestionMarkCircleIcon
           className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"

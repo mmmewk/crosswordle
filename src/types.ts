@@ -43,6 +43,8 @@ export type UsedCellData = GridPosition & {
     across?: string;
     /** If present, the clue-number key for the "down" for this cell */
     down?: string;
+    /** If present, the penciled in letter that the user input */
+    pencil?: string;
 };
 
 /**
@@ -54,6 +56,8 @@ export type UnusedCellData = GridPosition & {
     used: false;
     /** Whether the position/cell is completely out-of-bounds */
     outOfBounds?: boolean;
+    /** If present, the penciled in letter that the user input */
+    pencil?: string;
 };
 /**
  * The data stored/returned for a specific cell/position in the crossword.

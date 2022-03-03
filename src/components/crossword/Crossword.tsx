@@ -18,6 +18,8 @@ type Props = {
 type Handle = {
   moveTo: (row: number, col: number) => void,
   guessWord: (guess: string) => void,
+  pencilLetter: (letter: string) => void,
+  eraseLetter: () => void,
   reset: () => void,
 }
 
@@ -135,6 +137,18 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
 
       setGridData(gridDataClone);
     },
+    pencilLetter: (letter: string) => {
+      const gridDataClone = cloneDeep(gridData);
+      let { row, col } = focusedCell;
+      gridDataClone[row][col].pencil = letter;
+      setGridData(gridDataClone);
+    },
+    eraseLetter: () => {
+      const gridDataClone = cloneDeep(gridData);
+      let { row, col } = focusedCell;
+      delete gridDataClone[row][col].pencil;
+      setGridData(gridDataClone);
+    },
     reset: () => {
       setGridData(createGridData(crossword));
     },
@@ -159,9 +173,10 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
 
   const numberColor = darkMode ? 'white' : 'rgba(0, 0, 0, 0.25)';
   const textColor = darkMode ? 'white' : 'black';
-  const guessTextColor = darkMode ? 'rgba(0, 0, 255, 0.6)' : 'rgba(0, 0, 255, 0.6)';
-  const selectedCellColor = darkMode ? '#2288cc' : '#FFFF00';
-  const selectedWordColor = darkMode ? 'rgb(150, 60, 150)' : 'rgb(255, 255, 204)';
+  const guessTextColor = darkMode ? '#f1c40f' : 'rgba(0, 0, 255, 0.6)';
+  const pencilColor = darkMode ? 'rgba(170, 170, 170)' : 'rgba(107, 114, 128, 0.5)';
+  const selectedCellColor = darkMode ? 'rgb(66, 99, 148)' : '#FFFF00';
+  const selectedWordColor = darkMode ? 'rgb(54, 45, 103)' : 'rgb(255, 255, 204)';
 
   return (
     <svg viewBox={`0 0 ${svgSize} ${svgSize}`} width='100%' height='100%'>
@@ -170,7 +185,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
         if (!cell.used) return null;
         const key = `${cell.row}_${cell.col}`;
 
-        let color = darkMode ? 'rgb(148, 163, 184)' : 'white';
+        let color = darkMode ? 'rgb(87, 88, 96)' : 'white';
         if (isCellSelected(cell)) {
           color = selectedCellColor;
         } else if (cell[focusedDirection] === focusedCell[focusedDirection]) {
@@ -178,6 +193,10 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
         }
 
         const guessedLetter = getGuessedLetter(cell);
+        let textFill = textColor;
+        if (guessedLetter) textFill = guessTextColor;
+        if (!guessedLetter && !cell.guess && cell.pencil) textFill = pencilColor;
+        const letter = guessedLetter || cell.guess || cell.pencil;
 
         return (
           <g key={key} onClick={() => onClick(cell)}>
@@ -199,14 +218,14 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
                 style={{ fontSize: '50%', fill: numberColor, userSelect: 'none' }}
               >{cell.number}</text>
             )}
-            {(guessedLetter || cell.guess) && (
+            {letter && (
               <text
                 x={(cell.col + 0.5) * squareSize + margin}
                 y={(cell.row + 0.5) * squareSize + margin}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                style={{ fill: guessedLetter ? guessTextColor : textColor, userSelect: 'none', fontSize: '25px' }}
-              >{guessedLetter || cell.guess}</text>
+                style={{ fill: textFill, userSelect: 'none', fontSize: '25px' }}
+              >{letter}</text>
             )}
           </g>
         );
