@@ -5,13 +5,13 @@ import { useWindowHeight } from '@react-hook/window-size/throttled'
 
 type Props = {
   value?: string;
-  knownValue?: string;
+  mode?: 'input' | 'known' | 'pencil';
   status?: CharStatus;
   size?: 'sm' | 'lg';
   isFocused?: boolean;
 }
 
-export const Cell = ({ value, knownValue, status, size = 'lg', isFocused = false }: Props) => {
+export const Cell = ({ value, status, mode = 'input', size = 'lg', isFocused = false }: Props) => {
   const isMobile = useMediaBreakpoints('md', 'down');
   const height = useWindowHeight();
 
@@ -19,7 +19,8 @@ export const Cell = ({ value, knownValue, status, size = 'lg', isFocused = false
     'border-solid border-2 flex items-center justify-center mx-0.5 font-bold rounded dark:text-white',
     {
       'bg-white border-slate-200 dark:bg-slate-900 dark:border-slate-600': !status,
-      'bg-white border-slate-200 text-green-500 text-opacity-50 dark:text-green-500': knownValue && !value,
+      'bg-white border-slate-200 text-green-500 text-opacity-50 dark:text-green-500': mode === 'known' && !status,
+      'bg-white border-slate-200 text-slate-400/50 text-opacity-50 dark:text-slate-400/50': mode === 'pencil' && !status,
       'bg-slate-400 dark:bg-slate-700 text-white border-slate-400 dark:border-slate-700': status === 'absent',
       'bg-green-500 text-white border-green-500': status === 'correct',
       'bg-yellow-500 dark:bg-yellow-700 text-white border-yellow-500 dark:border-yellow-700': status === 'present',
@@ -33,7 +34,7 @@ export const Cell = ({ value, knownValue, status, size = 'lg', isFocused = false
 
   return (
     <>
-      <div className={classes}>{value || knownValue}</div>
+      <div className={classes}>{value}</div>
     </>
   )
 }

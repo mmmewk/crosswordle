@@ -18,7 +18,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ToastContainer hideProgressBar={true} />
+        <ToastContainer hideProgressBar={true} limit={3} />
         <Suspense fallback={
           <div className='w-screen h-screen flex justify-center items-center'>
             <Spinner color="indigo-600" size={30} />
