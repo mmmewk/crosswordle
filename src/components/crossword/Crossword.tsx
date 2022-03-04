@@ -9,6 +9,8 @@ import { crosswordIndex, crossword, getInitialClue } from "../../lib/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setKnownLetters, setPenciledLetters } from "../../redux/slices/crosswordSlice";
+import { default as GraphemeSplitter } from 'grapheme-splitter'
+
 
 type Props = {
   guess?: string;
@@ -25,6 +27,15 @@ type Handle = {
 }
 
 const { initialClue: initialWord, initialDirection } = getInitialClue(crossword);
+
+//Unicode support
+export const unicodeSplit = (word: string) => {
+  return new GraphemeSplitter().splitGraphemes(word)
+}
+
+export const unicodeLength = (word: string) => {
+  return unicodeSplit(word).length
+}
 
 export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, guess }, ref) => {
   const dispatch = useDispatch();
@@ -140,7 +151,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
       const gridDataClone = cloneDeep(gridData);
 
       let { row, col, answer } = focusedWord;
-      Array.from(guess).forEach((letter, index) => {
+      unicodeSplit(guess).forEach((letter, index) => {
         const newRow = row + (focusedDirection === 'down' ? index : 0);
         const newCol = col + (focusedDirection === 'across' ? index : 0);
         const cellClone = gridDataClone[newRow][newCol];
@@ -181,7 +192,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
     if (!focusedNumber || cell[focusedDirection] !== focusedNumber) return;
     const focusedWord = crossword[focusedDirection][focusedNumber];
     const letterIndex = cell.row - focusedWord.row || cell.col - focusedWord.col;
-    return guess[letterIndex];
+    return unicodeSplit(guess)[letterIndex];
   };
 
   const numberColor = darkMode ? 'white' : 'rgba(0, 0, 0, 0.25)';

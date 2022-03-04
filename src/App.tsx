@@ -7,7 +7,7 @@ import { Grid } from './components/grid/Grid';
 import { Keyboard } from './components/keyboard/Keyboard';
 import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
-import { useLazyLoadedValidWords } from './lib/words';
+import { useLazyLoadedValidWords, unicodeLength } from './lib/words';
 import './App.scss';
 import { getInitialClue, getTotalGuesses } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
@@ -23,10 +23,11 @@ import { SettingsModal } from './components/modals/SettingsModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 import { setPencilMode } from './redux/slices/settingsSlice';
+import { default as GraphemeSplitter } from 'grapheme-splitter'
+
 
 smoothscroll.polyfill();
 const { initialClue, initialDirection } = getInitialClue(crosswordData);
-if (window.location.origin === 'http://www.crosswordle.mekoppe.com') window.location.href = 'https://crosswordle.mekoppe.com';
 
 function App() {
   const crosswordRef = useRef<ElementRef<typeof Crossword>>(null);
@@ -87,10 +88,10 @@ function App() {
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
 
-    if (currentGuess.length < currentWord.length && guessesForWord.length < 6) {
+    if (unicodeLength(currentGuess) < currentWord.length && guessesForWord.length < 6) {
       const newGuess = `${currentGuess}${value}`;
       setCurrentGuess(newGuess);
-      moveToIndex(newGuess.length);
+      moveToIndex(unicodeLength(newGuess));
     }
   }
 
@@ -103,7 +104,7 @@ function App() {
 
     const newGuess = currentGuess.slice(0, -1);
     setCurrentGuess(newGuess);
-    moveToIndex(newGuess.length);  
+    moveToIndex(unicodeLength(newGuess));  
   }
 
   // Callbacks to keep move history in sync with guesses
@@ -115,7 +116,10 @@ function App() {
       return cellColors;
     }, {} as CellColors)
 
-    guess.split('').forEach((letter, index) => {
+  // Unicode GraphemeSplitter
+  const splitter = new GraphemeSplitter()
+  splitter.splitGraphemes(guess).forEach((letter, index) => {
+
       const newRow = row + (focusedDirection === 'across' ? 0 : index);
       const newCol = col + (focusedDirection === 'across' ? index : 0);
 
@@ -197,7 +201,7 @@ function App() {
   };
 
   const onEnter = async () => {
-    if (currentGuess.length !== currentWord.length) return;
+    if (unicodeLength(currentGuess) !== currentWord.length) return;
     const allowedWords = validWords || await loadValidWords();
 
     const wordAllowed = allowedWords.includes(currentGuess.toLowerCase());
@@ -252,8 +256,7 @@ function App() {
     <div className='flex flex-col min-h-screen'>
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4">
         <div className='grow'>
-          <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">Crosswordle {crosswordIndex + 1}</h1>
-          <p className="text-sm text-slate-400">By {crosswordData.author || 'Matthew Koppe'}</p>
+          <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">சொற்புதிர் {crosswordIndex + 1}</h1>
         </div>
         <PresentationChartBarIcon
           className="h-6 w-6 ml-3 mr-3 cursor-pointer dark:stroke-white"

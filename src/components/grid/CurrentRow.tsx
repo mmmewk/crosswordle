@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { Cell } from './Cell'
+import GraphemeSplitter from 'grapheme-splitter'
 
 type Props = {
   guess: string;
@@ -13,7 +14,8 @@ export const CurrentRow : React.FC<Props> = ({ guess, solution, focusedIndex }) 
 
   if (solution.length - guess.length < 0) return null;
 
-  const splitGuess = guess.split('');
+  const splitter = new GraphemeSplitter()
+  const splitGuess = splitter.splitGraphemes(guess)
   const emptyCells = Array.from(Array(solution.length - splitGuess.length));
   const guessLength = splitGuess.length;
 

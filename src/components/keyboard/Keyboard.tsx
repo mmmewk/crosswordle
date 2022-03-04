@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { KeyValue } from '../../lib/keyboard'
 import { CharStatus, getStatuses } from '../../lib/statuses'
 import { Key } from './Key'
-import { BackspaceIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
-import Switch from "react-switch";
+import { BackspaceIcon } from '@heroicons/react/outline';
 import { RootState } from '../../redux/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { setAdvancedKeyboard } from '../../redux/slices/settingsSlice';
-import { HelpModal } from '../modals/HelpModal';
+import { useSelector } from 'react-redux';
 
 type Props = {
   solution: string;
@@ -22,10 +19,8 @@ type Props = {
 }
 
 export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter, guesses, crossedGuesses, index, crossedIndex }: Props) => {
-  const dispatch = useDispatch();
   const advancedKeyboard = useSelector((state: RootState) => state.settings.advancedKeyboard);
   const knownLetters = useSelector((state: RootState) => state.crossword.knownLetters);
-  const [helpModalOpen, setHelpModalOpen] = useState(false);
   const charStatuses = getStatuses(solution, guesses);
   let crossedCharStatus : { [key: string]: CharStatus | undefined } = {};
 
@@ -80,54 +75,63 @@ export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter,
   }, [onEnter, onDelete, onChar])
 
   return (
-    <div className='mt-auto md:mt-none mb-3'>
+      <div className='mt-auto md:mt-none mb-3'>
       <div className="flex justify-center mb-1">
-        <Key value="Q" onClick={onClick} status={charStatuses['Q']} crossedStatus={crossedCharStatus['Q']} />
-        <Key value="W" onClick={onClick} status={charStatuses['W']} crossedStatus={crossedCharStatus['W']} />
-        <Key value="E" onClick={onClick} status={charStatuses['E']} crossedStatus={crossedCharStatus['E']} />
-        <Key value="R" onClick={onClick} status={charStatuses['R']} crossedStatus={crossedCharStatus['R']} />
-        <Key value="T" onClick={onClick} status={charStatuses['T']} crossedStatus={crossedCharStatus['T']} />
-        <Key value="Y" onClick={onClick} status={charStatuses['Y']} crossedStatus={crossedCharStatus['Y']} />
-        <Key value="U" onClick={onClick} status={charStatuses['U']} crossedStatus={crossedCharStatus['U']} />
-        <Key value="I" onClick={onClick} status={charStatuses['I']} crossedStatus={crossedCharStatus['I']} />
-        <Key value="O" onClick={onClick} status={charStatuses['O']} crossedStatus={crossedCharStatus['O']} />
-        <Key value="P" onClick={onClick} status={charStatuses['P']} crossedStatus={crossedCharStatus['P']} />
+        <Key value="்" onClick={onClick} status={charStatuses['்']} crossedStatus={crossedCharStatus['்']} />
+        <Key value="ா" onClick={onClick} status={charStatuses['ா']} crossedStatus={crossedCharStatus['ா']} />
+        <Key value="ி" onClick={onClick} status={charStatuses['ி']} crossedStatus={crossedCharStatus['ி']} />
+        <Key value="ீ" onClick={onClick} status={charStatuses['ீ']} crossedStatus={crossedCharStatus['ீ']} />
+        <Key value="ு" onClick={onClick} status={charStatuses['ு']} crossedStatus={crossedCharStatus['ு']} />
+        <Key value="ூ" onClick={onClick} status={charStatuses['ூ']} crossedStatus={crossedCharStatus['ூ']} /> 
+        <Key value="ெ" onClick={onClick} status={charStatuses['ெ']} crossedStatus={crossedCharStatus['ெ']} />
+        <Key value="ே" onClick={onClick} status={charStatuses['ே']} crossedStatus={crossedCharStatus['ே']} />
+        <Key value="ை" onClick={onClick} status={charStatuses['ை']} crossedStatus={crossedCharStatus['ை']} />
+        <Key value="ொ" onClick={onClick} status={charStatuses['ொ']} crossedStatus={crossedCharStatus['ொ']} />
+        <Key value="ோ" onClick={onClick} status={charStatuses['ோ']} crossedStatus={crossedCharStatus['ோ']} />
+        <Key value="ௌ" onClick={onClick} status={charStatuses['ௌ']} crossedStatus={crossedCharStatus['ௌ']} />   
+        </div>
+      <div className="flex justify-center mb-1">
+      <Key value="அ" onClick={onClick} status={charStatuses['அ']} crossedStatus={crossedCharStatus['அ']} />
+        <Key value="ஆ" onClick={onClick} status={charStatuses['ஆ']} crossedStatus={crossedCharStatus['ஆ']} />
+        <Key value="இ" onClick={onClick} status={charStatuses['இ']} crossedStatus={crossedCharStatus['இ']} />
+        <Key value="ஈ" onClick={onClick} status={charStatuses['ஈ']} crossedStatus={crossedCharStatus['ஈ']} />
+        <Key value="உ" onClick={onClick} status={charStatuses['உ']} crossedStatus={crossedCharStatus['உ']} />
+        <Key value="ஊ" onClick={onClick} status={charStatuses['ஊ']} crossedStatus={crossedCharStatus['ஊ']} />
+        <Key value="எ" onClick={onClick} status={charStatuses['எ']} crossedStatus={crossedCharStatus['எ']} />
+        <Key value="ஏ" onClick={onClick} status={charStatuses['ஏ']} crossedStatus={crossedCharStatus['ஏ']} />
+        <Key value="ஐ" onClick={onClick} status={charStatuses['ஐ']} crossedStatus={crossedCharStatus['ஐ']} />
+        <Key value="ஒ" onClick={onClick} status={charStatuses['ஒ']} crossedStatus={crossedCharStatus['ஒ']} />
+        <Key value="ஓ" onClick={onClick} status={charStatuses['ஓ']} crossedStatus={crossedCharStatus['ஓ']} />
+        <Key value="ஔ" onClick={onClick} status={charStatuses['ஔ']} crossedStatus={crossedCharStatus['ஔ']} />
       </div>
       <div className="flex justify-center mb-1">
-        <Key value="A" onClick={onClick} status={charStatuses['A']} crossedStatus={crossedCharStatus['A']} />
-        <Key value="S" onClick={onClick} status={charStatuses['S']} crossedStatus={crossedCharStatus['S']} />
-        <Key value="D" onClick={onClick} status={charStatuses['D']} crossedStatus={crossedCharStatus['D']} />
-        <Key value="F" onClick={onClick} status={charStatuses['F']} crossedStatus={crossedCharStatus['F']} />
-        <Key value="G" onClick={onClick} status={charStatuses['G']} crossedStatus={crossedCharStatus['G']} />
-        <Key value="H" onClick={onClick} status={charStatuses['H']} crossedStatus={crossedCharStatus['H']} />
-        <Key value="J" onClick={onClick} status={charStatuses['J']} crossedStatus={crossedCharStatus['J']} />
-        <Key value="K" onClick={onClick} status={charStatuses['K']} crossedStatus={crossedCharStatus['K']} />
-        <Key value="L" onClick={onClick} status={charStatuses['L']} crossedStatus={crossedCharStatus['L']} />
-      </div>
+        <Key value="க" onClick={onClick} status={charStatuses['க']} crossedStatus={crossedCharStatus['க']} />
+        <Key value="ச" onClick={onClick} status={charStatuses['ச']} crossedStatus={crossedCharStatus['ச']} />
+        <Key value="ட" onClick={onClick} status={charStatuses['ட']} crossedStatus={crossedCharStatus['ட']} />
+        <Key value="த" onClick={onClick} status={charStatuses['த']} crossedStatus={crossedCharStatus['த']} />
+        <Key value="ப" onClick={onClick} status={charStatuses['ப']} crossedStatus={crossedCharStatus['ப']} />
+        <Key value="ற" onClick={onClick} status={charStatuses['ற']} crossedStatus={crossedCharStatus['ற']} />
+        <Key value="ங" onClick={onClick} status={charStatuses['ங']} crossedStatus={crossedCharStatus['ங']} />
+        <Key value="ஞ" onClick={onClick} status={charStatuses['ஞ']} crossedStatus={crossedCharStatus['ஞ']} />
+        <Key value="ண" onClick={onClick} status={charStatuses['ண']} crossedStatus={crossedCharStatus['ண']} />
+        <Key value="ந" onClick={onClick} status={charStatuses['ந']} crossedStatus={crossedCharStatus['ந']} />
+        <Key value="ம" onClick={onClick} status={charStatuses['ம']} crossedStatus={crossedCharStatus['ம']} />
+        <Key value="ன" onClick={onClick} status={charStatuses['ன']} crossedStatus={crossedCharStatus['ன']} />
+        </div>
       <div className="flex justify-center">
-        <Key size='lg' value="ENTER" onClick={onClick}>
+      <Key size='lg' value="ENTER" onClick={onClick}>
           Enter
         </Key>
-        <Key value="Z" onClick={onClick} status={charStatuses['Z']} crossedStatus={crossedCharStatus['Z']} />
-        <Key value="X" onClick={onClick} status={charStatuses['X']} crossedStatus={crossedCharStatus['X']} />
-        <Key value="C" onClick={onClick} status={charStatuses['C']} crossedStatus={crossedCharStatus['C']} />
-        <Key value="V" onClick={onClick} status={charStatuses['V']} crossedStatus={crossedCharStatus['V']} />
-        <Key value="B" onClick={onClick} status={charStatuses['B']} crossedStatus={crossedCharStatus['B']} />
-        <Key value="N" onClick={onClick} status={charStatuses['N']} crossedStatus={crossedCharStatus['N']} />
-        <Key value="M" onClick={onClick} status={charStatuses['M']} crossedStatus={crossedCharStatus['M']} />
+        <Key value="ய" onClick={onClick} status={charStatuses['ய']} crossedStatus={crossedCharStatus['ய']} />
+        <Key value="ர" onClick={onClick} status={charStatuses['ர']} crossedStatus={crossedCharStatus['ர']} />
+        <Key value="ல" onClick={onClick} status={charStatuses['ல']} crossedStatus={crossedCharStatus['ல']} />
+        <Key value="வ" onClick={onClick} status={charStatuses['வ']} crossedStatus={crossedCharStatus['வ']} />
+        <Key value="ழ" onClick={onClick} status={charStatuses['ழ']} crossedStatus={crossedCharStatus['ழ']} />
+        <Key value="ள" onClick={onClick} status={charStatuses['ள']} crossedStatus={crossedCharStatus['ள']} />
         <Key size='lg' value="DELETE" onClick={onClick}>
           <BackspaceIcon width={25} height={25} />
         </Key>
-      </div>
-      <div className='mt-3 flex items-center'>
-        <Switch checked={advancedKeyboard} onChange={(enabled) => dispatch(setAdvancedKeyboard(enabled))} />
-        <span className='ml-2 dark:text-white'>Advanced Keyboard</span>
-        <QuestionMarkCircleIcon
-          className="h-5 w-5 mr-3 cursor-pointer dark:stroke-white ml-1"
-          onClick={() => setHelpModalOpen(true)}
-        />
-        <HelpModal isOpen={helpModalOpen} handleClose={() => setHelpModalOpen(false)} onlyKeyboard={true} />
-      </div>
+        </div>
     </div>
   )
 }
