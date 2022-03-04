@@ -44,7 +44,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
   const [focusedCell, setFocusedCell, focusedCellRef] = useRefState<UsedCellData>(gridData[initialWord.row][initialWord.col] as UsedCellData);
   const [focusedDirection, setFocusedDirection, focusedDirectionRef] = useRefState<Direction>(initialDirection);
 
-  const svgSize = 240;
+  const svgSize = 500;
   const margin = 20;
   const crosswordSize = svgSize - 2 * margin;
   const squareSize = crosswordSize / gridData.length;
@@ -239,7 +239,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
                 y={cell.row * squareSize + numberOffset + margin}
                 textAnchor="start"
                 dominantBaseline="hanging"
-                style={{ fontSize: '50%', fill: numberColor, userSelect: 'none' }}
+                style={{ fontSize: '80%', fill: numberColor, userSelect: 'none' }}
               >{cell.number}</text>
             )}
             {letter && (
@@ -248,7 +248,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
                 y={(cell.row + 0.5) * squareSize + margin}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                style={{ fill: textFill, userSelect: 'none', fontSize: '25px' }}
+                style={{ fill: textFill, userSelect: 'none', fontSize: '40px' }}
               >{letter}</text>
             )}
           </g>

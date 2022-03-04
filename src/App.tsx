@@ -88,7 +88,8 @@ function App() {
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
 
-    if (unicodeLength(currentGuess) < currentWord.length && guessesForWord.length < 6) {
+    if (unicodeLength(currentGuess) <= currentWord.length && guessesForWord.length < 6) {
+
       const newGuess = `${currentGuess}${value}`;
       setCurrentGuess(newGuess);
       moveToIndex(unicodeLength(newGuess));
