@@ -244,7 +244,6 @@ function App() {
   const enablePencilMode = () => {
     const enabled = !pencilMode;
     dispatch(setPencilMode(enabled));
-    toast.info(`Pencil mode ${enabled ? 'enabled' : 'disabled'}`, { position: 'bottom-right' });
     setCurrentGuess('');
   };
 
