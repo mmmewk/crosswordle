@@ -32,7 +32,7 @@ const crosswords: CrosswordInput[] = [
     },
     down: {
       '1': {
-        answer: 'ADS',
+        answer: 'அதப',
         row: 0,
         col: 0,
       },

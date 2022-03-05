@@ -31,7 +31,7 @@ export const Key = ({
       'bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-white dark:bg-yellow-700':
         status === 'present',
       'bg-cross-slate': !status && crossedStatus === 'absent',
-      'bg-cross-yellow': status === 'present' && crossedStatus === 'absent',
+      'bg-cross-main': status === 'present' && crossedStatus === 'absent',
       'bg-cross-green': status === 'correct' && crossedStatus === 'absent',
     }
   )

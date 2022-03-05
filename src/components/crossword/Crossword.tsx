@@ -45,11 +45,11 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
   const [focusedDirection, setFocusedDirection, focusedDirectionRef] = useRefState<Direction>(initialDirection);
 
   const svgSize = 500;
-  const margin = 20;
+  const margin = 10;
   const crosswordSize = svgSize - 2 * margin;
   const squareSize = crosswordSize / gridData.length;
-  const borderSize = 0.125;
-  const numberOffset = 0.5;
+  const borderSize = 0.2;
+  const numberOffset = 1;
 
   const selectCell = useCallback((cell: UsedCellData, targetDirection: Direction) => {
     const actualDirection = cell[targetDirection] ? targetDirection : otherDirection(targetDirection);
@@ -197,10 +197,10 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
 
   const numberColor = darkMode ? 'white' : 'rgba(0, 0, 0, 0.25)';
   const textColor = darkMode ? 'white' : 'black';
-  const guessTextColor = darkMode ? '#f1c40f' : 'rgba(0, 0, 255, 0.6)';
+  const guessTextColor = darkMode ? '#f1c40f' : 'black';
   const pencilColor = darkMode ? 'rgba(170, 170, 170)' : 'rgba(107, 114, 128, 0.5)';
-  const selectedCellColor = darkMode ? 'rgb(66, 99, 148)' : '#FFFF00';
-  const selectedWordColor = darkMode ? 'rgb(54, 45, 103)' : 'rgb(255, 255, 204)';
+  const selectedCellColor = darkMode ? 'rgb(66, 99, 148)' : 'rgb(255, 218, 1)';
+  const selectedWordColor = darkMode ? 'rgb(54, 45, 103)' : 'rgb(167, 216, 255)';
 
   return (
     <svg viewBox={`0 0 ${svgSize} ${svgSize}`} width='100%' height='100%'>
@@ -239,7 +239,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
                 y={cell.row * squareSize + numberOffset + margin}
                 textAnchor="start"
                 dominantBaseline="hanging"
-                style={{ fontSize: '80%', fill: numberColor, userSelect: 'none' }}
+                style={{ fontSize: '100%', fill: numberColor, userSelect: 'none' }}
               >{cell.number}</text>
             )}
             {letter && (
