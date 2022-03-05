@@ -15,7 +15,7 @@ export function getPuzzleOfTheDay() {
   const queryIndex = Number(queryString.parse(window.location.search)?.index as string);
 
   // January 20, 2022 Game Epoch
-  const epochMs = +new Date('2022-03-04T00:00:00');
+  const epochMs = +new Date('2022-03-05T00:00:00');
   const now = Date.now();
   const msInDay = 86400000
   let index = Math.floor((now - epochMs) / msInDay);
