@@ -5,7 +5,7 @@ const crosswords: CrosswordInput[] = [
   {
     across: {
       '1': {
-        answer: 'அகலப',
+        answer: 'அகரம்',
         row: 0,
         col: 0,
       },
@@ -32,7 +32,7 @@ const crosswords: CrosswordInput[] = [
     },
     down: {
       '1': {
-        answer: 'அனப',
+        answer: 'அன்பு',
         row: 0,
         col: 0,
       },

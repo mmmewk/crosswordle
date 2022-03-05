@@ -14,15 +14,16 @@ export const CurrentRow : React.FC<Props> = ({ guess, solution, focusedIndex }) 
 
   const splitter = new GraphemeSplitter()
   const splitGuess = splitter.splitGraphemes(guess)
+  const splitSolution = splitter.splitGraphemes(solution)
 
-  const emptyCells = Array.from(Array(solution.length - splitGuess.length));
+  const emptyCells = Array.from(Array(splitSolution.length - splitGuess.length));
   const guessLength = splitGuess.length;
 
   const getLetter = (index: number) => (
     splitGuess[index] || knownLetters[index] || penciledLetters[index]
   );
 
-  if (solution.length - splitGuess.length < 0) return null;
+  if (splitSolution.length - splitGuess.length < 0) return null;
 
   const getMode = (index: number) => {
     if (splitGuess[index]) return 'input';
