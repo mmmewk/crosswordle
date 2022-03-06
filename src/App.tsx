@@ -48,6 +48,7 @@ function App() {
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
+  const [isShifted, setIsShifted] = useState(false) 
   const [focusedWordData, setFocusedWordData] = useState<WordInput>(initialClue);
   const [focusedDirection, setFocusedDirection] = useState<Direction>(initialDirection);
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
@@ -106,6 +107,10 @@ function App() {
     const newGuess = currentGuess.slice(0, -1);
     setCurrentGuess(newGuess);
     moveToIndex(unicodeLength(newGuess));  
+  }
+
+  const onShift = () => {
+    setIsShifted(!isShifted)
   }
 
   // Callbacks to keep move history in sync with guesses
@@ -315,9 +320,11 @@ function App() {
               onChar={onChar}
               onDelete={onDelete}
               onEnter={onEnter}
+              onShift={onShift}
               solution={currentWord}
               crossedSolution={crossedWord}
               guesses={guesses[focusedDirection][focusedNumber] || []}
+              isShifted={isShifted}
               crossedGuesses={crossedNumber ? guesses[otherDirection(focusedDirection)][crossedNumber] : []}
               index={focusedIndex}
               crossedIndex={crossedFocusedIndex}

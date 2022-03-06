@@ -12,13 +12,17 @@ type Props = {
   onChar: (value: string) => void;
   onDelete: () => void;
   onEnter: () => void;
+  onShift: () => void
   guesses: string[];
   crossedGuesses: string[];
   index: number;
   crossedIndex?: number;
+  isShifted: boolean
 }
 
-export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter, guesses, crossedGuesses, index, crossedIndex }: Props) => {
+export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter, onShift,
+  guesses, crossedGuesses, index, crossedIndex, isShifted,
+}: Props) => {
   const advancedKeyboard = useSelector((state: RootState) => state.settings.advancedKeyboard);
   const knownLetters = useSelector((state: RootState) => state.crossword.knownLetters);
   const charStatuses = getStatuses(solution, guesses);
@@ -48,10 +52,13 @@ export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter,
   const onClick = (value: KeyValue) => {
     if (value === 'ENTER') {
       onEnter()
+    } else if (value === 'SHIFT') {
+      onShift()
     } else if (value === 'DELETE') {
       onDelete()
     } else {
       onChar(value)
+      if (isShifted) onShift()
     }
   }
 
@@ -61,9 +68,12 @@ export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter,
         onEnter()
       } else if (e.code === 'Backspace') {
         onDelete()
+      } else if (e.key === 'Shift') {
+        onShift()
       } else {
         const key = e.key.toUpperCase()
-        if (key.length === 1 && key >= 'A' && key <= 'Z') {
+        if (key.length === 1 && key >= 'ஃ' && key <= 'வ' && 
+        !(key >= 'ா' && key <= '்') ) {
           onChar(key)
         }
       }
@@ -74,7 +84,32 @@ export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter,
     }
   }, [onEnter, onDelete, onChar])
 
-  return (
+  if (isShifted) {
+    return (
+<div>
+      <div className='mt-auto md:mt-none mb-3'>
+      <div className="flex justify-center mb-1">
+      <Key value="்" onClick={onClick} status={charStatuses['்']} crossedStatus={crossedCharStatus['்']} />
+        <Key value="ா" onClick={onClick} status={charStatuses['ா']} crossedStatus={crossedCharStatus['ா']} />
+        <Key value="ி" onClick={onClick} status={charStatuses['ி']} crossedStatus={crossedCharStatus['ி']} />
+        <Key value="ீ" onClick={onClick} status={charStatuses['ீ']} crossedStatus={crossedCharStatus['ீ']} />
+        <Key value="ு" onClick={onClick} status={charStatuses['ு']} crossedStatus={crossedCharStatus['ு']} />
+        <Key value="ூ" onClick={onClick} status={charStatuses['ூ']} crossedStatus={crossedCharStatus['ூ']} /> 
+      </div>
+        <div className="flex justify-center mb-1">
+        <Key value="ெ" onClick={onClick} status={charStatuses['ெ']} crossedStatus={crossedCharStatus['ெ']} />
+        <Key value="ே" onClick={onClick} status={charStatuses['ே']} crossedStatus={crossedCharStatus['ே']} />
+        <Key value="ை" onClick={onClick} status={charStatuses['ை']} crossedStatus={crossedCharStatus['ை']} />
+        <Key value="ொ" onClick={onClick} status={charStatuses['ொ']} crossedStatus={crossedCharStatus['ொ']} />
+        <Key value="ோ" onClick={onClick} status={charStatuses['ோ']} crossedStatus={crossedCharStatus['ோ']} />
+        <Key value="ௌ" onClick={onClick} status={charStatuses['ௌ']} crossedStatus={crossedCharStatus['ௌ']} />   
+        </div>
+        </div>
+      </div>
+
+    )
+  } else {
+    return (
       <div className='mt-auto md:mt-none mb-3'>
       <div className="flex justify-center mb-1">
       <Key value="அ" onClick={onClick} status={charStatuses['அ']} crossedStatus={crossedCharStatus['அ']} />
@@ -119,25 +154,14 @@ export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter,
         <Key size='lg' value="ENTER" onClick={onClick}>
         ⏎
         </Key>
-        <Key value="்" onClick={onClick} status={charStatuses['்']} crossedStatus={crossedCharStatus['்']} />
-        <Key value="ா" onClick={onClick} status={charStatuses['ா']} crossedStatus={crossedCharStatus['ா']} />
-        <Key value="ி" onClick={onClick} status={charStatuses['ி']} crossedStatus={crossedCharStatus['ி']} />
-        <Key value="ீ" onClick={onClick} status={charStatuses['ீ']} crossedStatus={crossedCharStatus['ீ']} />
-        <Key value="ு" onClick={onClick} status={charStatuses['ு']} crossedStatus={crossedCharStatus['ு']} />
-        <Key value="ூ" onClick={onClick} status={charStatuses['ூ']} crossedStatus={crossedCharStatus['ூ']} /> 
-        </div>
-      <div className="flex justify-center mb-1">
-        <Key value="ெ" onClick={onClick} status={charStatuses['ெ']} crossedStatus={crossedCharStatus['ெ']} />
-        <Key value="ே" onClick={onClick} status={charStatuses['ே']} crossedStatus={crossedCharStatus['ே']} />
-        <Key value="ை" onClick={onClick} status={charStatuses['ை']} crossedStatus={crossedCharStatus['ை']} />
-        <Key value="ொ" onClick={onClick} status={charStatuses['ொ']} crossedStatus={crossedCharStatus['ொ']} />
-        <Key value="ோ" onClick={onClick} status={charStatuses['ோ']} crossedStatus={crossedCharStatus['ோ']} />
-        <Key value="ௌ" onClick={onClick} status={charStatuses['ௌ']} crossedStatus={crossedCharStatus['ௌ']} />   
-
         <Key size='lg' value="DELETE" onClick={onClick}>
           <BackspaceIcon width={25} height={25} />
         </Key>
-        </div>
+        <Key size='lg' value="SHIFT" onClick={onClick}>
+            ⇧
+          </Key>
+           </div>
     </div>
-  )
+    )
+  }
 }
