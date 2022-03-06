@@ -88,11 +88,17 @@ function App() {
     }
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
-
     if (unicodeLength(currentGuess) <= currentWord.length && guessesForWord.length < 6) {
-
       const newGuess = `${currentGuess}${value}`;
-      setCurrentGuess(newGuess);
+        //மெய்யெழுத்து remove புள்ளி
+        if (
+          value.length < 2 &&
+          value.search(RegExp('([ா-ௌ]|)')) === 0 &&
+          currentGuess.substr(-1) === '்'
+        ) {
+          setCurrentGuess(`${currentGuess.slice(0, -1)}${value}`)
+        } //மெய்யெழுத்து remove புள்ளி
+      else setCurrentGuess(newGuess);
       moveToIndex(unicodeLength(newGuess));
     }
   }
@@ -325,6 +331,7 @@ function App() {
               crossedSolution={crossedWord}
               guesses={guesses[focusedDirection][focusedNumber] || []}
               isShifted={isShifted}
+              uyirmei={currentGuess}
               crossedGuesses={crossedNumber ? guesses[otherDirection(focusedDirection)][crossedNumber] : []}
               index={focusedIndex}
               crossedIndex={crossedFocusedIndex}
