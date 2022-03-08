@@ -156,7 +156,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
         const newCol = col + (focusedDirection === 'across' ? index : 0);
         const cellClone = gridDataClone[newRow][newCol];
         if (!cellClone.used) return;
-        if (letter === answer[index]) cellClone.guess = letter;
+        if (letter === unicodeSplit(answer)[index]) cellClone.guess = letter;
       });
 
       setGridData(gridDataClone);
