@@ -51,8 +51,8 @@ export const generateInitialGuessState = (data: CrosswordInput) => {
   }
 };
 
-export const crosswordSlice = createSlice({
-  name: 'crossword',
+export const wordleSlice = createSlice({
+  name: 'wordle',
   initialState,
   reducers: {
     addGuess: (state, action: PayloadAction<{ index: number, direction: Direction, number: string, guess: string }>) => {
@@ -84,6 +84,6 @@ export const crosswordSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addGuess, pushShareHistory, setGameWon, setLostCell } = crosswordSlice.actions;
+export const { addGuess, pushShareHistory, setGameWon, setLostCell } = wordleSlice.actions;
 
-export default crosswordSlice.reducer;
+export default wordleSlice.reducer;

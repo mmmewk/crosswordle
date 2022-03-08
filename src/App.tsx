@@ -23,6 +23,9 @@ import { SettingsModal } from './components/modals/SettingsModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 import { setPencilMode } from './redux/slices/settingsSlice';
+import { setOpenModal } from './redux/slices/navigationSlice';
+import { useStats } from './redux/hooks/useStats';
+import { updateStreakWithLoss, updateStreakWithWin } from './redux/slices/statsSlice';
 
 smoothscroll.polyfill();
 const { initialClue, initialDirection } = getInitialClue(crosswordData);
@@ -43,10 +46,6 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(initialClue.answer);
   const [crossedWord, setCrossedWord] = useState<string | undefined>();
-  const [isShareModalOpen, setIsShareModalOpen] = useState(isGameWon);
-  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
-  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
-  const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [focusedWordData, setFocusedWordData] = useState<WordInput>(initialClue);
   const [focusedDirection, setFocusedDirection] = useState<Direction>(initialDirection);
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
@@ -56,6 +55,17 @@ function App() {
   const [validWords, loadValidWords] = useLazyLoadedValidWords();
   const dispatch = useDispatch();
   const { darkMode, pencilMode } = useSelector((state: RootState) => state.settings);
+  const { totalGames } = useStats();
+
+  // Open help modal if they have never completed a game
+  useEffect(() => {
+    if (totalGames === 0) dispatch(setOpenModal('help'));
+  }, [totalGames, dispatch]);
+
+  // Open share modal if they have already finished this game
+  useEffect(() => {
+    if (isGameWon || lostCell) dispatch(setOpenModal('share'));
+  }, [isGameWon, lostCell, dispatch]);
 
   useEffect(() => {
     if (darkMode) {
@@ -176,7 +186,6 @@ function App() {
           gameLost = true;
           lose(cell);
           updateShareHistoryWithLoss(cell);
-          setIsShareModalOpen(true);
           return false;
         }
         return cell.guess === cell.answer;
@@ -187,12 +196,13 @@ function App() {
 
     if (gameLost) {
       trackGameEnd(crosswordIndex, 'game_lost', totalGuesses);
+      dispatch(updateStreakWithLoss(crosswordIndex));
     }
 
     if (crosswordCorrect) {
       trackGameEnd(crosswordIndex, 'game_won', totalGuesses);
+      dispatch(updateStreakWithWin(crosswordIndex));
       win();
-      setIsShareModalOpen(true);
     }
   };
 
@@ -254,43 +264,28 @@ function App() {
           <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">Crosswordle {crosswordIndex + 1}</h1>
           <p className="text-sm text-slate-400">By {crosswordData.author || 'Matthew Koppe'}</p>
         </div>
-        <PresentationChartBarIcon
-          className="h-6 w-6 ml-3 mr-3 cursor-pointer dark:stroke-white"
-          onClick={() => setIsShareModalOpen(true)}
-        />
         <PencilIcon
-          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 ml-3 mr-3 cursor-pointer dark:stroke-white"
           fill={pencilMode ? 'rgb(250, 200, 23)' : darkMode ? 'transparent' : 'white'}
           onClick={enablePencilMode}
         />
-        <ShareModal
-          isOpen={isShareModalOpen}
-          openSubmitModal={() => {
-            setIsShareModalOpen(false);
-            setIsSubmitModalOpen(true);
-          }}
-          handleClose={() => setIsShareModalOpen(false)}
+        <PresentationChartBarIcon
+          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
+          onClick={() => dispatch(setOpenModal('share'))}
         />
         <QuestionMarkCircleIcon
           className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
-          onClick={() => setIsHelpModalOpen(true)}
-        />
-        <HelpModal
-          isOpen={isHelpModalOpen}
-          handleClose={() => setIsHelpModalOpen(false)}
+          onClick={() => dispatch(setOpenModal('help'))}
         />
         <CogIcon
           className="h-6 w-6 cursor-pointer dark:stroke-white"
-          onClick={() => setIsSettingsModalOpen(true)}
+          onClick={() => dispatch(setOpenModal('settings'))}
         />
-        <SettingsModal
-          isOpen={isSettingsModalOpen}
-          handleClose={() => setIsSettingsModalOpen(false)}
-        />
-        <SubmitModal
-          isOpen={isSubmitModalOpen}
-          handleClose={() => setIsSubmitModalOpen(false)}
-        />
+        <ShareModal />
+        <HelpModal />
+        <HelpModal onlyKeyboard={true} />
+        <SettingsModal />
+        <SubmitModal />
       </div>
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
         <div className='w-full flex md:items-center justify-center p-2 px-20 md:p-6 md:w-1/2' >

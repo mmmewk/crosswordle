@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { KeyValue } from '../../lib/keyboard'
 import { CharStatus, getStatuses } from '../../lib/statuses'
 import { Key } from './Key'
-import { BackspaceIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
-import Switch from "react-switch";
+import { BackspaceIcon } from '@heroicons/react/outline';
 import { RootState } from '../../redux/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { setAdvancedKeyboard } from '../../redux/slices/settingsSlice';
-import { HelpModal } from '../modals/HelpModal';
+import { useSelector } from 'react-redux';
 
 type Props = {
   solution: string;
@@ -22,10 +19,8 @@ type Props = {
 }
 
 export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter, guesses, crossedGuesses, index, crossedIndex }: Props) => {
-  const dispatch = useDispatch();
   const advancedKeyboard = useSelector((state: RootState) => state.settings.advancedKeyboard);
   const knownLetters = useSelector((state: RootState) => state.crossword.knownLetters);
-  const [helpModalOpen, setHelpModalOpen] = useState(false);
   const charStatuses = getStatuses(solution, guesses);
   let crossedCharStatus : { [key: string]: CharStatus | undefined } = {};
 
@@ -118,15 +113,6 @@ export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter,
         <Key size='lg' value="DELETE" onClick={onClick}>
           <BackspaceIcon width={25} height={25} />
         </Key>
-      </div>
-      <div className='mt-3 flex items-center'>
-        <Switch checked={advancedKeyboard} onChange={(enabled) => dispatch(setAdvancedKeyboard(enabled))} />
-        <span className='ml-2 dark:text-white'>Advanced Keyboard</span>
-        <QuestionMarkCircleIcon
-          className="h-5 w-5 mr-3 cursor-pointer dark:stroke-white ml-1"
-          onClick={() => setHelpModalOpen(true)}
-        />
-        <HelpModal isOpen={helpModalOpen} handleClose={() => setHelpModalOpen(false)} onlyKeyboard={true} />
       </div>
     </div>
   )

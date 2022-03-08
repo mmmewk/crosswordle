@@ -13,7 +13,7 @@ const initialState: SettingsState = {
 }
 
 export const settingsSlice = createSlice({
-  name: 'crossword',
+  name: 'settings',
   initialState,
   reducers: {
     setDarkMode: (state, action: PayloadAction<boolean>) => {
