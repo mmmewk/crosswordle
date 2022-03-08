@@ -213,7 +213,7 @@ function App() {
   };
 
   const onEnter = async () => {
-    if (unicodeLength(currentGuess) !== currentWord.length) return;
+    if (unicodeLength(currentGuess) !== unicodeLength(currentWord)) return;
     const allowedWords = validWords || await loadValidWords();
 
     const wordAllowed = allowedWords.includes(currentGuess.toLowerCase());
@@ -226,7 +226,7 @@ function App() {
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
 
-    if (currentGuess.length === currentWord.length && guessesForWord.length < 6 && !guessesForWord.includes(currentGuess)) {
+    if (unicodeLength(currentGuess) === unicodeLength(currentWord) && guessesForWord.length < 6 && !guessesForWord.includes(currentGuess)) {
       addGuess(currentGuess)
       setCurrentGuess('');
     }
