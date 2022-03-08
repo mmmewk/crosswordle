@@ -13,7 +13,7 @@ export const useStats = () => {
       if (gameWins[Number(index)] || lostCells[Number(index)]) totalGuesses += shareHistories[Number(index)].length;
     });
     return totalGuesses / totalGamesWon;
-  }, [shareHistories, gameWins, totalGamesWon]);
+  }, [shareHistories, gameWins, lostCells, totalGamesWon]);
 
   return {
     streak,
