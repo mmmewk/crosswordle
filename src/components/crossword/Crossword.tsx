@@ -188,8 +188,8 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
   const textColor = darkMode ? 'white' : 'black';
   const guessTextColor = darkMode ? '#f1c40f' : 'rgba(0, 0, 255, 0.6)';
   const pencilColor = darkMode ? 'rgba(170, 170, 170)' : 'rgba(107, 114, 128, 0.5)';
-  const selectedCellColor = darkMode ? 'rgb(66, 99, 148)' : '#FFFF00';
-  const selectedWordColor = darkMode ? 'rgb(54, 45, 103)' : 'rgb(255, 255, 204)';
+  const selectedCellColor = darkMode ? 'rgb(66, 99, 148)' : '#ffda00';
+  const selectedWordColor = darkMode ? 'rgb(54, 45, 103)' : '#a7d8ff';
 
   return (
     <svg viewBox={`0 0 ${svgSize} ${svgSize}`} width='100%' height='100%'>
