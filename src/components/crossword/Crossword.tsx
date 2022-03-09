@@ -9,6 +9,8 @@ import { crosswordIndex, crossword, getInitialClue } from "../../lib/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setKnownLetters, setPenciledLetters } from "../../redux/slices/crosswordSlice";
+import { default as GraphemeSplitter } from 'grapheme-splitter'
+
 
 type Props = {
   guess?: string;
@@ -26,6 +28,15 @@ type Handle = {
 
 const { initialClue: initialWord, initialDirection } = getInitialClue(crossword);
 
+//Unicode support
+export const unicodeSplit = (word: string) => {
+  return new GraphemeSplitter().splitGraphemes(word)
+}
+
+export const unicodeLength = (word: string) => {
+  return unicodeSplit(word).length
+}
+
 export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, guess }, ref) => {
   const dispatch = useDispatch();
   const darkMode = useSelector((state: RootState) => state.settings.darkMode);
@@ -33,12 +44,12 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
   const [focusedCell, setFocusedCell, focusedCellRef] = useRefState<UsedCellData>(gridData[initialWord.row][initialWord.col] as UsedCellData);
   const [focusedDirection, setFocusedDirection, focusedDirectionRef] = useRefState<Direction>(initialDirection);
 
-  const svgSize = 240;
-  const margin = 20;
+  const svgSize = 500;
+  const margin = 10;
   const crosswordSize = svgSize - 2 * margin;
   const squareSize = crosswordSize / gridData.length;
-  const borderSize = 0.125;
-  const numberOffset = 0.5;
+  const borderSize = 0.2;
+  const numberOffset = 1;
 
   const selectCell = useCallback((cell: UsedCellData, targetDirection: Direction) => {
     const actualDirection = cell[targetDirection] ? targetDirection : otherDirection(targetDirection);
@@ -140,12 +151,12 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
       const gridDataClone = cloneDeep(gridData);
 
       let { row, col, answer } = focusedWord;
-      Array.from(guess).forEach((letter, index) => {
+      unicodeSplit(guess).forEach((letter, index) => {
         const newRow = row + (focusedDirection === 'down' ? index : 0);
         const newCol = col + (focusedDirection === 'across' ? index : 0);
         const cellClone = gridDataClone[newRow][newCol];
         if (!cellClone.used) return;
-        if (letter === answer[index]) cellClone.guess = letter;
+        if (letter === unicodeSplit(answer)[index]) cellClone.guess = letter;
       });
 
       setGridData(gridDataClone);
@@ -181,15 +192,15 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
     if (!focusedNumber || cell[focusedDirection] !== focusedNumber) return;
     const focusedWord = crossword[focusedDirection][focusedNumber];
     const letterIndex = cell.row - focusedWord.row || cell.col - focusedWord.col;
-    return guess[letterIndex];
+    return unicodeSplit(guess)[letterIndex];
   };
 
   const numberColor = darkMode ? 'white' : 'rgba(0, 0, 0, 0.25)';
   const textColor = darkMode ? 'white' : 'black';
-  const guessTextColor = darkMode ? '#f1c40f' : 'rgba(0, 0, 255, 0.6)';
+  const guessTextColor = darkMode ? '#f1c40f' : 'black';
   const pencilColor = darkMode ? 'rgba(170, 170, 170)' : 'rgba(107, 114, 128, 0.5)';
-  const selectedCellColor = darkMode ? 'rgb(66, 99, 148)' : '#ffda00';
-  const selectedWordColor = darkMode ? 'rgb(54, 45, 103)' : '#a7d8ff';
+  const selectedCellColor = darkMode ? 'rgb(66, 99, 148)' : 'rgb(255, 218, 1)';
+  const selectedWordColor = darkMode ? 'rgb(54, 45, 103)' : 'rgb(167, 216, 255)';
 
   return (
     <svg viewBox={`0 0 ${svgSize} ${svgSize}`} width='100%' height='100%'>
@@ -228,7 +239,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
                 y={cell.row * squareSize + numberOffset + margin}
                 textAnchor="start"
                 dominantBaseline="hanging"
-                style={{ fontSize: '50%', fill: numberColor, userSelect: 'none' }}
+                style={{ fontSize: '100%', fill: numberColor, userSelect: 'none' }}
               >{cell.number}</text>
             )}
             {letter && (
@@ -237,7 +248,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ onMoved, onChange, g
                 y={(cell.row + 0.5) * squareSize + margin}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                style={{ fill: textFill, userSelect: 'none', fontSize: '25px' }}
+                style={{ fill: textFill, userSelect: 'none', fontSize: '40px' }}
               >{letter}</text>
             )}
           </g>

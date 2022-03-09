@@ -1,6 +1,7 @@
 {
-  "name": "crosswordle",
-  "version": "0.1.0",
+  "name": "sorputhir",
+  "version": "1.0.0",
+  "homepage": "https://omtamil.com/beta/sorputhir",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.4.2",
@@ -19,6 +20,7 @@
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@types/smoothscroll-polyfill": "^0.3.1",
+    "grapheme-splitter": "^1.0.4",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
     "file-saver": "^2.0.5",
@@ -45,9 +47,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prestage": "react-scripts build",
-    "stage": "aws s3 sync ./build s3://www.stage.mekoppe.com --delete",
-    "predeploy": "react-scripts build",
-    "deploy": "aws s3 sync ./build s3://www.crosswordle.mekoppe.com --delete"
+    "predeploy": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [

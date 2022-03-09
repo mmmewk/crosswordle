@@ -7,7 +7,7 @@ import { Grid } from './components/grid/Grid';
 import { Keyboard } from './components/keyboard/Keyboard';
 import { HelpModal } from './components/modals/HelpModal';
 import { ShareModal } from './components/modals/ShareModal';
-import { useLazyLoadedValidWords } from './lib/words';
+import { useLazyLoadedValidWords, unicodeLength } from './lib/words';
 import './App.scss';
 import { getInitialClue, getTotalGuesses } from './lib/utils';
 import { crosswordIndex, crossword as crosswordData } from './lib/utils';
@@ -26,10 +26,11 @@ import { setPencilMode } from './redux/slices/settingsSlice';
 import { setOpenModal } from './redux/slices/navigationSlice';
 import { useStats } from './redux/hooks/useStats';
 import { updateStreakWithLoss, updateStreakWithWin } from './redux/slices/statsSlice';
+import { default as GraphemeSplitter } from 'grapheme-splitter'
+
 
 smoothscroll.polyfill();
 const { initialClue, initialDirection } = getInitialClue(crosswordData);
-if (window.location.origin === 'http://www.crosswordle.mekoppe.com') window.location.href = 'https://crosswordle.mekoppe.com';
 
 function App() {
   const crosswordRef = useRef<ElementRef<typeof Crossword>>(null);
@@ -46,6 +47,11 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(initialClue.answer);
   const [crossedWord, setCrossedWord] = useState<string | undefined>();
+  const [isShareModalOpen, setIsShareModalOpen] = useState(isGameWon);
+  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
+  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
+  const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
+  const [isShifted, setIsShifted] = useState(false) 
   const [focusedWordData, setFocusedWordData] = useState<WordInput>(initialClue);
   const [focusedDirection, setFocusedDirection] = useState<Direction>(initialDirection);
   const [focusedNumber, setFocusedNumber] = useState<string>('1');
@@ -96,11 +102,18 @@ function App() {
     }
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
-
-    if (currentGuess.length < currentWord.length && guessesForWord.length < 6) {
+    if (unicodeLength(currentGuess) <= currentWord.length && guessesForWord.length < 6) {
       const newGuess = `${currentGuess}${value}`;
-      setCurrentGuess(newGuess);
-      moveToIndex(newGuess.length);
+        //மெய்யெழுத்து remove புள்ளி
+        if (
+          value.length < 2 &&
+          value.search(RegExp('([ா-ௌ]|)')) === 0 &&
+          currentGuess.substr(-1) === '்'
+        ) {
+          setCurrentGuess(`${currentGuess.slice(0, -1)}${value}`)
+        } //மெய்யெழுத்து remove புள்ளி
+      else setCurrentGuess(newGuess);
+      moveToIndex(unicodeLength(newGuess));
     }
   }
 
@@ -113,7 +126,11 @@ function App() {
 
     const newGuess = currentGuess.slice(0, -1);
     setCurrentGuess(newGuess);
-    moveToIndex(newGuess.length);  
+    moveToIndex(unicodeLength(newGuess));  
+  }
+
+  const onShift = () => {
+    setIsShifted(!isShifted)
   }
 
   // Callbacks to keep move history in sync with guesses
@@ -125,7 +142,10 @@ function App() {
       return cellColors;
     }, {} as CellColors)
 
-    guess.split('').forEach((letter, index) => {
+  // Unicode GraphemeSplitter
+  const splitter = new GraphemeSplitter()
+  splitter.splitGraphemes(guess).forEach((letter, index) => {
+
       const newRow = row + (focusedDirection === 'across' ? 0 : index);
       const newCol = col + (focusedDirection === 'across' ? index : 0);
 
@@ -207,7 +227,7 @@ function App() {
   };
 
   const onEnter = async () => {
-    if (currentGuess.length !== currentWord.length) return;
+    if (unicodeLength(currentGuess) !== unicodeLength(currentWord)) return;
     const allowedWords = validWords || await loadValidWords();
 
     const wordAllowed = allowedWords.includes(currentGuess.toLowerCase());
@@ -220,7 +240,7 @@ function App() {
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
 
-    if (currentGuess.length === currentWord.length && guessesForWord.length < 6 && !guessesForWord.includes(currentGuess)) {
+    if (unicodeLength(currentGuess) === unicodeLength(currentWord) && guessesForWord.length < 6 && !guessesForWord.includes(currentGuess)) {
       addGuess(currentGuess)
       setCurrentGuess('');
     }
@@ -261,8 +281,7 @@ function App() {
     <div className='flex flex-col min-h-screen'>
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4">
         <div className='grow'>
-          <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">Crosswordle {crosswordIndex + 1}</h1>
-          <p className="text-sm text-slate-400">By {crosswordData.author || 'Matthew Koppe'}</p>
+          <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">சொற்புதிர் {crosswordIndex + 1}</h1>
         </div>
         <PencilIcon
           className="h-6 w-6 ml-3 mr-3 cursor-pointer dark:stroke-white"
@@ -305,9 +324,12 @@ function App() {
               onChar={onChar}
               onDelete={onDelete}
               onEnter={onEnter}
+              onShift={onShift}
               solution={currentWord}
               crossedSolution={crossedWord}
               guesses={guesses[focusedDirection][focusedNumber] || []}
+              isShifted={isShifted}
+              uyirmei={currentGuess}
               crossedGuesses={crossedNumber ? guesses[otherDirection(focusedDirection)][crossedNumber] : []}
               index={focusedIndex}
               crossedIndex={crossedFocusedIndex}
