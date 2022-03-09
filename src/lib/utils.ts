@@ -4,6 +4,7 @@ import padStart from 'lodash/padStart';
 import { CrosswordInput, Direction, GridData, WordInput } from '../types';
 import { Guesses } from '../redux/slices/wordleSlice';
 import get from 'lodash/get';
+import { addDays } from 'date-fns';
 
 export function notEmpty<TValue>(
   value: TValue | null | undefined,
@@ -11,13 +12,22 @@ export function notEmpty<TValue>(
   return value !== null && value !== undefined;
 }
 
-export function getTodaysPuzzleIndex() {
-  const epochMs = +new Date('2022-01-20T00:00:00');
-  const now = Date.now();
+const puzzleStartDate = new Date('2022-01-20T00:00:00');
+
+export function getPuzzleIndexForDate(date: Date) {
+  const epochMs = +puzzleStartDate;
   const msInDay = 86400000
-  let index = Math.floor((now - epochMs) / msInDay);
-  index = Math.min(index, crosswords.length - 1);
-  return index;
+  return Math.floor((+date - epochMs) / msInDay);
+}
+
+export function dateFromPuzzleIndex(index: number) {
+  return addDays(puzzleStartDate, index);
+}
+
+export function getTodaysPuzzleIndex() {
+  const index = getPuzzleIndexForDate(new Date());
+  // Ensure we don't navigate to a puzzle that doesn't exist
+  return Math.min(index, crosswords.length - 1);
 }
 
 export function getPuzzleOfTheDay() {

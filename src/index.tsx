@@ -8,6 +8,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 import { ToastContainer } from 'react-toastify';
 import Spinner from './components/shared/spinner';
+import * as smoothscroll from 'smoothscroll-polyfill';
+
+smoothscroll.polyfill();
 
 // Lazy load app to improve LCP time
 // Loading app involves loading word list and crossword database which takes a long time
@@ -18,7 +21,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ToastContainer hideProgressBar={true} limit={3} />
+        <ToastContainer hideProgressBar={true} limit={1} />
         <Suspense fallback={
           <div className='w-screen h-screen flex justify-center items-center'>
             <Spinner color="indigo-600" size={30} />
