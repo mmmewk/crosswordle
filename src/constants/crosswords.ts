@@ -3550,6 +3550,373 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
+  // 63
+  {
+    across: {
+        '1': {
+            answer: 'GALE',
+            row: 0,
+            col: 1
+        },
+        '5': {
+            answer: 'ALLOY',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            answer: 'AIDE',
+            row: 2,
+            col: 1
+        },
+        '7': {
+            answer: 'URGED',
+            row: 3,
+            col: 0
+        },
+        '8': {
+            answer: 'PENS',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'GLARE',
+            row: 0,
+            col: 1
+        },
+        '2': {
+            answer: 'ALIGN',
+            row: 0,
+            col: 2
+        },
+        '3': {
+            answer: 'LODES',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            answer: 'EYED',
+            row: 0,
+            col: 4
+        },
+        '7': {
+            answer: 'UP',
+            row: 3,
+            col: 0
+        }
+    }
+  },
+  // 64
+  {
+    across: {
+        '1': {
+            answer: 'BOSK',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            answer: 'EXTRA',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            answer: 'AIL',
+            row: 2,
+            col: 2
+        },
+        '8': {
+            answer: 'CELLS',
+            row: 3,
+            col: 0
+        },
+        '10': {
+            answer: 'HELLO',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'BENCH',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'OX',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'STALL',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'KRILL',
+            row: 0,
+            col: 3
+        },
+        '6': {
+            answer: 'ALSO',
+            row: 1,
+            col: 4
+        },
+        '9': {
+            answer: 'EE',
+            row: 3,
+            col: 1
+        }
+    }
+  },
+  // 65
+  {
+    across: {
+        '1': {
+            answer: 'ARISE',
+            row: 0,
+            col: 0
+        },
+        '6': {
+            answer: 'SOFAS',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            answer: 'IS',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'UP',
+            row: 2,
+            col: 3
+        },
+        '9': {
+            answer: 'DEITY',
+            row: 3,
+            col: 0
+        },
+        '11': {
+            answer: 'ME',
+            row: 4,
+            col: 2
+        }
+    },
+    down: {
+        '1': {
+            answer: 'ASIDE',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'ROSE',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'IF',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'SAUTE',
+            row: 0,
+            col: 3
+        },
+        '5': {
+            answer: 'ESPY',
+            row: 0,
+            col: 4
+        },
+        '10': {
+            answer: 'IM',
+            row: 3,
+            col: 2
+        }
+    }
+  },
+  // 66
+  {
+    across: {
+        '1': {
+            answer: 'THROW',
+            row: 0,
+            col: 0
+        },
+        '6': {
+            answer: 'WEAVE',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            answer: 'INDIE',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'INK',
+            row: 3,
+            col: 2
+        },
+        '9': {
+            answer: 'TRIES',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'TWIST',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'HEN',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'RADII',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'OVINE',
+            row: 0,
+            col: 3
+        },
+        '5': {
+            answer: 'WEEKS',
+            row: 0,
+            col: 4
+        }
+    }
+  },
+  // 67
+  {
+    across: {
+        '1': {
+            answer: 'TWIST',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            answer: 'SHE',
+            row: 1,
+            col: 2
+        },
+        '6': {
+            answer: 'IM',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'ON',
+            row: 2,
+            col: 3
+        },
+        '9': {
+            answer: 'BOGUS',
+            row: 3,
+            col: 0
+        },
+        '11': {
+            answer: 'EMOTE',
+            row: 4,
+            col: 0
+        }
+    },
+    down: {
+        '1': {
+            answer: 'TRIBE',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'IS',
+            row: 0,
+            col: 2
+        },
+        '3': {
+            answer: 'SHOUT',
+            row: 0,
+            col: 3
+        },
+        '4': {
+            answer: 'TENSE',
+            row: 0,
+            col: 4
+        },
+        '7': {
+            answer: 'MOM',
+            row: 2,
+            col: 1
+        },
+        '10': {
+            answer: 'GO',
+            row: 3,
+            col: 2
+        }
+    }
+  },
+  // 68
+  {
+    across: {
+        '1': {
+            answer: 'SPORK',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            answer: 'CUP',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            answer: 'AMEND',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'LANE',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            answer: 'TO',
+            row: 4,
+            col: 3
+        }
+    },
+    down: {
+        '1': {
+            answer: 'SCALD',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'PUMA',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'OPEN',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'KID',
+            row: 0,
+            col: 4
+        },
+        '7': {
+            answer: 'NET',
+            row: 2,
+            col: 3
+        }
+    }
+  },
 ];
 
 export default crosswords;
