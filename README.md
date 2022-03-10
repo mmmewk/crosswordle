@@ -1,5 +1,7 @@
 # Crosswordle
 
+[![Health](https://6zlii5pcik.execute-api.us-west-2.amazonaws.com/healthcheck?url=https://crosswordle.mekoppe.com&type=health&success=ok&failure=down)](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/BuildHealthCheck?tab=configuration)
+
 Crossword + Wordle
 
 Play the game [here](https://crosswordle.mekoppe.com)
@@ -32,7 +34,7 @@ Contributions are strongly encouraged! Just submit a PR and I will take the time
 Heres the next features that I'm thinking of working on. Feel free to submit a PR for any of these!
 
 - [x] Add streaks and statistics (to the share modal? Or have another modal for statistics?)
-- [ ] Add archive (Allow users to play any puzzles in the past, and see how well they did on each one, allow filtering by author)
+- [x] Add archive (Allow users to play any puzzles in the past, and see how well they did on each one, allow filtering by author)
 - [x] Add pencil feature where users can write letters in the corners of the crossword squares (where users can write directly in the crossword shows as gray shadow text in the wordle)
 - [ ] Update partially grayed keys to include all edge cases (Given solution "bends" and guess "seedy" mark all e's except the 2nd index as partially gray)
 - [ ] Add timed mode for those who care about speed rather than # of guesses 
