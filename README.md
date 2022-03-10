@@ -44,5 +44,5 @@ Heres the next features that I'm thinking of working on. Feel free to submit a P
 These are cool features that probably won't happen, or would happen in the very distant future
 
 - [ ] Support a language dropdown, different set of puzzles per language. We need a puzzle master and/or generator for each language to keep daily puzzles coming at high quality
-- [ ] Add dictionary feature to make it easy to look up words and expand your vocabulary
+- [ ] Add dictionary feature to make it easy to look up words and expand your vocabulary, especially if we get multi language
 - [ ] Support different size crosswordles
