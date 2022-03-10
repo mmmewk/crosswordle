@@ -1,6 +1,7 @@
-# Crosswordle
-
+![build](https://github.com/github/docs/actions/workflows/deploy.yml/badge.svg)
 [![Health](https://6zlii5pcik.execute-api.us-west-2.amazonaws.com/healthcheck?url=https://crosswordle.mekoppe.com&type=health&success=ok&failure=down)](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/BuildHealthCheck?tab=configuration)
+
+# Crosswordle
 
 Crossword + Wordle
 
