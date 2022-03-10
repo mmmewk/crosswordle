@@ -10,13 +10,13 @@ import { GridData } from '../../types';
 import { createGridData } from '../../lib/crossword-utils';
 import { trackShare } from '../../lib/analytics';
 import { toast } from 'react-toastify';
-import { crosswordIndex, crossword } from '../../lib/utils';
 import { useGameState } from '../../redux/hooks/useGameState';
 import { Modal } from './Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { setOpenModal } from '../../redux/slices/navigationSlice';
 import { Stats } from './Stats';
+import crosswords from '../../constants/crosswords';
 
 const GIF_DELAY = 250;
 const GIF_WIDTH = 200;
@@ -29,6 +29,7 @@ const createGifEncoder = (filename: string, onFinish?: () => void) => {
     workers: 2,
     quality: 1,
     repeat: 0,
+    workerScript: '/gif.worker.js'
   })
   
   gifEncoder.on('finished', function(blob) {
@@ -39,7 +40,12 @@ const createGifEncoder = (filename: string, onFinish?: () => void) => {
   return gifEncoder;
 };
 
-export const ShareModal : React.FC = () => {
+type Props = {
+  crosswordIndex: number;
+}
+
+export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
+  const crossword = crosswords[crosswordIndex];
   const { guesses, shareHistory, isGameWon, lostCell } = useGameState(crosswordIndex);
   const isGameLost = Boolean(lostCell);
   const [timeTillNext, setTimeTillNext] = useState(timeTillTomorrow);
@@ -88,7 +94,7 @@ export const ShareModal : React.FC = () => {
     gifEncoder.render();
     // Create a fresh encoder for next share
     setGifEncoder(createGifEncoder(`Crosswordle-${crosswordIndex + 1}.gif`, () => setCreatingGif(false)));
-  }, [gifEncoder, setGifEncoder]);
+  }, [gifEncoder, setGifEncoder, crosswordIndex]);
 
   const share = useCallback(async () => {
     trackShare(crosswordIndex, isGameWon, isGameLost, totalGuesses);
@@ -118,7 +124,7 @@ export const ShareModal : React.FC = () => {
       success: 'Replay GIF downloaded and shareable link copied to clipboard',
       error: 'Something went wrong...'
     });
-  }, [svgRef, addSvgFrame, renderGif, shareHistory, isGameWon, isGameLost, totalGuesses]);
+  }, [svgRef, addSvgFrame, renderGif, shareHistory, isGameWon, isGameLost, totalGuesses, crosswordIndex]);
 
   let title = `Crosswordle ${crosswordIndex + 1}`;
   if (isGameWon) title = 'You Won!';
@@ -148,6 +154,8 @@ export const ShareModal : React.FC = () => {
     }
   };
 
+  const gifTitle = `Crosswordle ${crosswordIndex + 1} - ${totalGuesses} Guesses`;
+
   return (
     <Modal name='share' title={title} titleIcon={renderTitleIcon()}>
       <div>
@@ -166,7 +174,7 @@ export const ShareModal : React.FC = () => {
         {!isGameWon && !isGameLost && totalGuesses > 0 && <p>You have made {totalGuesses} guesses!</p>}
         <Stats />
         <div className="flex justify-center items-end w-full overflow-y-hidden" style={{ height: SVG_WIDTH }}>
-          {gridData && <MiniCrossword gridData={gridData} ref={svgRef} cellColors={cellColors} totalGuesses={totalGuesses} />}
+          {gridData && <MiniCrossword title={gifTitle} gridData={gridData} ref={svgRef} cellColors={cellColors} />}
         </div>
         <div className="mt-5 sm:mt-6">
           <div className='flex justify-center items-center text-center'>

@@ -1,7 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://crosswordle.mekoppe.com</loc>
-    <lastmod>2022-01-31</lastmod>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://crosswordle.mekoppe.com/</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/1</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/2</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/3</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/4</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/5</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/6</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/7</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/8</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/9</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/10</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/11</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/12</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/13</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/14</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/15</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/16</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/17</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/18</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/19</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/20</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/21</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/22</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/23</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/24</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/25</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/26</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/27</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/28</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/29</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/30</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/31</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/32</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/33</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/34</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/35</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/36</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/37</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/38</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/39</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/40</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/41</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/42</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/43</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/44</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/45</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/46</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/47</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/48</loc> </url>
+<url> <loc>https://crosswordle.mekoppe.com/puzzles/49</loc> </url>
 </urlset>
