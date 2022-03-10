@@ -29,6 +29,7 @@ const createGifEncoder = (filename: string, onFinish?: () => void) => {
     workers: 2,
     quality: 1,
     repeat: 0,
+    workerScript: '/gif.worker.js'
   })
   
   gifEncoder.on('finished', function(blob) {
