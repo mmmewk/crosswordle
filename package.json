@@ -48,9 +48,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prestage": "react-scripts build",
-    "stage": "aws s3 sync ./build s3://www.stage.mekoppe.com --delete",
+    "stage": "aws s3 sync ./build s3://www.stage.mekoppe.com --delete && aws cloudfront create-invalidation --distribution-id EDHM4TPIWINZP --paths '/*'",
     "predeploy": "react-scripts build",
-    "deploy": "aws s3 sync ./build s3://www.crosswordle.mekoppe.com --delete"
+    "deploy": "aws s3 sync ./build s3://www.crosswordle.mekoppe.com --delete && aws cloudfront create-invalidation --distribution-id E3SVIAVWVTLC2J --paths '/*'"
   },
   "eslintConfig": {
     "extends": [

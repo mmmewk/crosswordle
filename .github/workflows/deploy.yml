@@ -31,4 +31,5 @@ jobs:
           aws-region: us-west-2
       - name: Deploy
         run: |
-          aws s3 sync ./build s3://www.crosswordle.mekoppe.com --delete
+          aws s3 sync ./build s3://www.crosswordle.mekoppe.com --delete;
+          aws cloudfront create-invalidation --distribution-id E3SVIAVWVTLC2J --paths '/*';
