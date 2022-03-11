@@ -9,29 +9,29 @@ const crosswords: CrosswordInput[] = [
         row: 0,
         col: 0,
       },
-      '2': {
+      '4': {
         answer: 'அறிவியல்',
         row: 2,
         col: 0,
       },
-      '3': {
+      '5': {
         answer: 'மாம்பழம்',
         row: 4,
         col: 0,
       },
     },
     down: {
-      '4': {
+      '2': {
         answer: 'கல்வி',
-        row: 2,
-        col: 0,
-      },
-      '5': {
-        answer: 'அம்மா',
         row: 0,
         col: 2,
       },
-      '6': {
+      '4': {
+        answer: 'அம்மா',
+        row: 2,
+        col: 0,
+      },
+      '3': {
         answer: 'கல்லம்',
         row: 1,
         col: 4,
