@@ -87,7 +87,7 @@ export const HelpModal : React.FC<Props> = ({ onlyKeyboard = false }) => {
             <Cell value="S" mode="pencil" />
           </div>
           <p className="text-sm text-gray-500">
-            The you have noted that the letter S is probably in this spot.
+            You have marked that the letter S is probably in this spot.
           </p>
           <br />
           <h4>Keyboard</h4>
