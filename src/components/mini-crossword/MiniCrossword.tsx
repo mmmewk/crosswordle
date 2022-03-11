@@ -65,6 +65,16 @@ export const MiniCrossword = React.forwardRef<SVGSVGElement, Props>(({ title, gr
                 style={{ fill: 'rgba(0, 0, 0)', userSelect: 'none', fontSize: '25px' }}
               >{cell.guess}</text>
             )}
+            {cell.circle && (
+              <circle
+                cx={(cell.col + 0.5) * squareSize + margin}
+                cy={(cell.row + 0.5) * squareSize + margin + headerSize}
+                r={squareSize / 2}
+                fill='transparent'
+                stroke='rgba(0,0,0,0.5)'
+                strokeWidth={0.5}
+              />
+            )}
           </g>
         );
       })}

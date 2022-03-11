@@ -12,7 +12,7 @@ const Archive : React.FC = () => {
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 sticky top-0 bg-white">
         <div className='grow flex flex-row justify-between'>
           <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">Puzzle Archive</h1>
-          <p onClick={() => navigate('/')} className=" text-l md:text-xl cursor-pointer text-orange-400">Daily puzzle <ChevronRightIcon className='inline w-4' /></p>
+          <p onClick={() => navigate('/')} className=" text-l md:text-xl cursor-pointer text-indigo-600">Daily puzzle <ChevronRightIcon className='inline w-4' /></p>
         </div>
       </div>
       <div className='w-screen text-center'>

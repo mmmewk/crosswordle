@@ -103,5 +103,14 @@ export function createGridData(data: CrosswordInput) {
     });
   });
 
+  if (data.circles) {
+    data.circles.forEach(([row, col]) => {
+      const cellData = gridData[row][col];
+      if (!cellData.used) return;
+
+      cellData.circle = true;
+    });
+  }
+
   return gridData;
 }
