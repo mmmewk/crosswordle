@@ -24,6 +24,14 @@ export const SettingsModal : React.FC = () => {
           onClick={() => dispatch(setOpenModal('helpKeyboardOnly'))}
         />
       </div>
+      <div className='w-100 px-4 pt-4 flex justify-between'>
+        <p>Feedback</p>
+        <a href='mailto:matthew.crosswordle@gmail.com' target='_blank' rel="noreferrer" className='text-indigo-500'>Email</a>
+      </div>
+      <div className='w-100 px-4 mt-2 pb-4 flex justify-between'>
+        <p>Report Bugs</p>
+        <a href='https://github.com/mmmewk/crosswordle/issues' target='_blank' rel="noreferrer" className='text-indigo-500'>Github</a>
+      </div>
     </Modal>
   )
 }
