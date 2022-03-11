@@ -25,6 +25,7 @@ export type WordInput = {
  */
 export type CrosswordInput = Record<Direction, Record<string, WordInput>> & {
   author?: string;
+  circles?: [number, number][];
 };
 
 /**
@@ -45,6 +46,8 @@ export type UsedCellData = GridPosition & {
     down?: string;
     /** If present, the penciled in letter that the user input */
     pencil?: string;
+    /** If the cell should be circled */
+    circle?: boolean;
 };
 
 /**
