@@ -27,6 +27,7 @@ import { updateStreakWithLoss, updateStreakWithWin } from '../redux/slices/stats
 import crosswords from '../constants/crosswords';
 import { crosswordIndex as defaultIndex } from '../lib/utils';
 import { useNavigate, useParams } from 'react-router-dom';
+import NotFound from './NotFound';
 
 type crosswordleParams = {
   crosswordNumber?: string;
@@ -267,6 +268,9 @@ const Crosswordle : React.FC = () => {
     dispatch(setPencilMode(enabled));
     setCurrentGuess('');
   };
+
+  // Prevent user from accessing puzzles that haven't yet been released
+  if (defaultIndex < crosswordIndex) return <NotFound />
 
   return (
     <div className='flex flex-col min-h-screen'>
