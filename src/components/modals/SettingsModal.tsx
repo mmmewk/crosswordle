@@ -14,11 +14,11 @@ export const SettingsModal : React.FC = () => {
 
   return (
     <Modal name='settings' title='அமைப்புகள்'>
-      <div className='w-100 p-4 flex items-center'>
+      <div className='w-100 p-4 flex items-center dark:text-gray-300'>
         <Switch className='mr-2' checked={darkMode} onChange={(enabled) => dispatch(setDarkMode(enabled))} />
         <span>கருமை நிலை</span>
       </div>
-      <div className='w-100 p-4 flex items-center'>
+      <div className='w-100 p-4 flex items-center dark:text-gray-300'>
         <Switch className='mr-2' checked={advancedKeyboard} onChange={(enabled) => dispatch(setAdvancedKeyboard(enabled))} />
         <span>மேம்பட்ட விசைப்பலகை</span>
         <QuestionMarkCircleIcon
