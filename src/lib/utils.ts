@@ -11,8 +11,8 @@ export function notEmpty<TValue>(
 ): value is TValue {
   return value !== null && value !== undefined;
 }
-// March 11, 2022 Game Epoch
-const puzzleStartDate = new Date('2022-03-11T00:00:00');
+// March 12, 2022 Game Epoch
+const puzzleStartDate = new Date('2022-03-12T00:00:00');
 
 export function getPuzzleIndexForDate(date: Date) {
   const epochMs = +puzzleStartDate;

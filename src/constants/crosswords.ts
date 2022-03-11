@@ -5,57 +5,37 @@ const crosswords: CrosswordInput[] = [
   {
     across: {
       '1': {
-        answer: 'ABCS',
-        row: 0,
-        col: 0,
-      },
-      '5': {
-        answer: 'DRAW',
-        row: 1,
-        col: 0,
-      },
-      '6': {
-        answer: 'SONIA',
-        row: 2,
-        col: 0,
-      },
-      '8': {
-        answer: 'KING',
-        row: 3,
-        col: 1,
-      },
-      '9': {
-        answer: 'EDGE',
-        row: 4,
-        col: 1,
-      }
-    },
-    down: {
-      '1': {
-        answer: 'ADS',
+        answer: 'உலகம்',
         row: 0,
         col: 0,
       },
       '2': {
-        answer: 'BROKE',
-        row: 0,
-        col: 1,
+        answer: 'அறிவியல்',
+        row: 2,
+        col: 0,
       },
       '3': {
-        answer: 'CANID',
+        answer: 'மாம்பழம்',
+        row: 4,
+        col: 0,
+      },
+    },
+    down: {
+      '4': {
+        answer: 'கல்வி',
+        row: 2,
+        col: 0,
+      },
+      '5': {
+        answer: 'அம்மா',
         row: 0,
         col: 2,
       },
-      '4': {
-        answer: 'SWING',
-        row: 0,
-        col: 3,
-      },
-      '7': {
-        answer: 'AGE',
-        row: 2,
+      '6': {
+        answer: 'கல்லம்',
+        row: 1,
         col: 4,
-      }
+      },
     },
   },
   // 2

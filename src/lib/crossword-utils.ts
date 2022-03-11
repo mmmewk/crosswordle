@@ -4,6 +4,7 @@ import type {
   GridData,
   UsedCellData,
 } from '../types';
+import { unicodeLength } from './words';
 
 type RowOrCol = 'row' | 'col';
 
@@ -37,7 +38,8 @@ export function calculateExtents(data: CrosswordInput, direction: Direction) {
   let orthogonalMax = 0;
 
   Object.entries(data[direction]).forEach(([, info]) => {
-    const primary = info[dir.primary] + info.answer.length - 1;
+    const primary = info[dir.primary] + unicodeLength(info.answer) - 1;
+
     if (primary > primaryMax) {
       primaryMax = primary;
     }
@@ -85,7 +87,9 @@ export function createGridData(data: CrosswordInput) {
   bothDirections.forEach((direction) => {
     Object.entries(data[direction]).forEach(([number, info]) => {
       const { row: rowStart, col: colStart, answer } = info;
-      for (let i = 0; i < answer.length; i++) {
+      
+        for (let i = 0; i < unicodeLength(answer); i++) {
+
         const row = rowStart + (direction === 'down' ? i : 0);
         const col = colStart + (direction === 'across' ? i : 0);
         const cellData = gridData[row][col] as UsedCellData;

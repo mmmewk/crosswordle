@@ -198,7 +198,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMo
 
   const numberColor = darkMode ? 'white' : 'rgba(0, 0, 0, 0.25)';
   const textColor = darkMode ? 'white' : 'black';
-  const guessTextColor = darkMode ? '#f1c40f' : 'black';
+  const guessTextColor = darkMode ? '#f1c40f' : 'rgba(0, 0, 255, 0.6)';
   const pencilColor = darkMode ? 'rgba(170, 170, 170)' : 'rgba(107, 114, 128, 0.5)';
   const selectedCellColor = darkMode ? 'rgb(66, 99, 148)' : '#ffda00';
   const selectedWordColor = darkMode ? 'rgb(54, 45, 103)' : '#a7d8ff';
