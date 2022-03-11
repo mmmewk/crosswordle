@@ -126,7 +126,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
     });
   }, [svgRef, addSvgFrame, renderGif, shareHistory, isGameWon, isGameLost, totalGuesses, crosswordIndex]);
 
-  let title = `Crosswordle ${crosswordIndex + 1}`;
+  let title = `சொற்புதிர் ${crosswordIndex + 1}`;
   if (isGameWon) title = 'You Won!';
   if (isGameLost) title = 'You Lost!';
 
@@ -154,7 +154,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
     }
   };
 
-  const gifTitle = `Crosswordle ${crosswordIndex + 1} - ${totalGuesses} Guesses`;
+  const gifTitle = `சொற்புதிர் ${crosswordIndex + 1} - ${totalGuesses} Guesses`;
 
   return (
     <Modal name='share' title={title} titleIcon={renderTitleIcon()}>
@@ -179,7 +179,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
         <div className="mt-5 sm:mt-6">
           <div className='flex justify-center items-center text-center'>
             <div className='w-1/2 border-r-slate-300 border-r-[1px] mr-2 flex-col justify-center items-center text-center'>
-              <p>Next Crosswordle</p>
+              <p>அடுத்த புதிர்</p>
               <p className='text-xl'>{timeTillNext}</p>
             </div>
             <div className='w-1/2 ml-2 flex justify-center items-center text-center'>
@@ -191,7 +191,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
               >
                 {creatingGif ? 'Creating GIF' : (
                   <>
-                    <span className="mr-2">Share</span>
+                    <span className="mr-2">பகிர்</span>
                     <ShareIcon width={20} height={20}/>
                   </>
                 )}

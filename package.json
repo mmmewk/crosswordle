@@ -1,6 +1,7 @@
 {
-  "name": "crosswordle",
-  "version": "0.1.0",
+  "name": "sorputhir",
+  "version": "1.0.0",
+  "homepage": "https://omtamil.com/beta/sorputhir",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.4.2",
@@ -19,6 +20,7 @@
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@types/smoothscroll-polyfill": "^0.3.1",
+    "grapheme-splitter": "^1.0.4",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
     "file-saver": "^2.0.5",
@@ -30,7 +32,6 @@
     "react-is": "16.8.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
-    "react-router-sitemap": "^1.2.0",
     "react-scripts": "5.0.0",
     "react-switch": "^6.0.0",
     "react-toastify": "^8.1.1",
@@ -44,13 +45,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "sitemap": "node ./sitemap-builder.mjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prestage": "react-scripts build",
-    "stage": "aws s3 sync ./build s3://www.stage.mekoppe.com --delete",
-    "predeploy": "react-scripts build",
-    "deploy": "aws s3 sync ./build s3://www.crosswordle.mekoppe.com --delete"
+    "predeploy": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [

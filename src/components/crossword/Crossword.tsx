@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setKnownLetters, setPenciledLetters } from "../../redux/slices/crosswordSlice";
 import crosswords from "../../constants/crosswords";
+import { default as GraphemeSplitter } from 'grapheme-splitter'
 
 type Props = {
   crosswordIndex: number;
@@ -24,6 +25,15 @@ type Handle = {
   pencilLetter: (letter: string) => void,
   eraseLetter: () => void,
   reset: () => void,
+}
+
+//Unicode support
+export const unicodeSplit = (word: string) => {
+  return new GraphemeSplitter().splitGraphemes(word)
+}
+
+export const unicodeLength = (word: string) => {
+  return unicodeSplit(word).length
 }
 
 export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMoved, onChange, guess }, ref) => {
@@ -142,12 +152,12 @@ export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMo
       const gridDataClone = cloneDeep(gridData);
 
       let { row, col, answer } = focusedWord;
-      Array.from(guess).forEach((letter, index) => {
+      unicodeSplit(guess).forEach((letter, index) => {
         const newRow = row + (focusedDirection === 'down' ? index : 0);
         const newCol = col + (focusedDirection === 'across' ? index : 0);
         const cellClone = gridDataClone[newRow][newCol];
         if (!cellClone.used) return;
-        if (letter === answer[index]) cellClone.guess = letter;
+        if (letter === unicodeSplit(answer)[index]) cellClone.guess = letter;
       });
 
       setGridData(gridDataClone);
@@ -183,12 +193,12 @@ export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMo
     if (!focusedNumber || cell[focusedDirection] !== focusedNumber) return;
     const focusedWord = crosswordData[focusedDirection][focusedNumber];
     const letterIndex = cell.row - focusedWord.row || cell.col - focusedWord.col;
-    return guess[letterIndex];
+    return unicodeSplit(guess)[letterIndex];
   };
 
   const numberColor = darkMode ? 'white' : 'rgba(0, 0, 0, 0.25)';
   const textColor = darkMode ? 'white' : 'black';
-  const guessTextColor = darkMode ? '#f1c40f' : 'rgba(0, 0, 255, 0.6)';
+  const guessTextColor = darkMode ? '#f1c40f' : 'black';
   const pencilColor = darkMode ? 'rgba(170, 170, 170)' : 'rgba(107, 114, 128, 0.5)';
   const selectedCellColor = darkMode ? 'rgb(66, 99, 148)' : '#ffda00';
   const selectedWordColor = darkMode ? 'rgb(54, 45, 103)' : '#a7d8ff';

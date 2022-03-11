@@ -6,7 +6,7 @@ import { Grid } from './grid/Grid';
 import { Keyboard } from './keyboard/Keyboard';
 import { HelpModal } from './modals/HelpModal';
 import { ShareModal } from './modals/ShareModal';
-import { useLazyLoadedValidWords } from '../lib/words';
+import { useLazyLoadedValidWords, unicodeLength } from '../lib/words';
 import '../App.scss';
 import { getInitialClue, getTotalGuesses } from '../lib/utils';
 import { CellColors } from './mini-crossword/MiniCrossword';
@@ -27,6 +27,8 @@ import { updateStreakWithLoss, updateStreakWithWin } from '../redux/slices/stats
 import crosswords from '../constants/crosswords';
 import { crosswordIndex as defaultIndex } from '../lib/utils';
 import { useNavigate, useParams } from 'react-router-dom';
+import { default as GraphemeSplitter } from 'grapheme-splitter'
+
 
 type crosswordleParams = {
   crosswordNumber?: string;
@@ -60,6 +62,7 @@ const Crosswordle : React.FC = () => {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [crossedFocusedIndex, setCrossedFocusedIndex] = useState<number | undefined>(undefined);
   const [validWords, loadValidWords] = useLazyLoadedValidWords();
+  const [isShifted, setIsShifted] = useState(false) 
   const dispatch = useDispatch();
   const { darkMode, pencilMode } = useSelector((state: RootState) => state.settings);
   const { totalGames } = useStats();
@@ -107,11 +110,18 @@ const Crosswordle : React.FC = () => {
     }
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
-
-    if (currentGuess.length < currentWord.length && guessesForWord.length < 6) {
+    if (unicodeLength(currentGuess) <= currentWord.length && guessesForWord.length < 6) {
       const newGuess = `${currentGuess}${value}`;
-      setCurrentGuess(newGuess);
-      moveToIndex(newGuess.length);
+        //மெய்யெழுத்து remove புள்ளி
+        if (
+          value.length < 2 &&
+          value.search(RegExp('([ா-ௌ]|)')) === 0 &&
+          currentGuess.substr(-1) === '்'
+        ) {
+          setCurrentGuess(`${currentGuess.slice(0, -1)}${value}`)
+        } //மெய்யெழுத்து remove புள்ளி
+      else setCurrentGuess(newGuess);
+      moveToIndex(unicodeLength(newGuess));
     }
   }
 
@@ -124,7 +134,11 @@ const Crosswordle : React.FC = () => {
 
     const newGuess = currentGuess.slice(0, -1);
     setCurrentGuess(newGuess);
-    moveToIndex(newGuess.length);  
+    moveToIndex(unicodeLength(newGuess));  
+  }
+
+  const onShift = () => {
+    setIsShifted(!isShifted)
   }
 
   // Callbacks to keep move history in sync with guesses
@@ -136,7 +150,11 @@ const Crosswordle : React.FC = () => {
       return cellColors;
     }, {} as CellColors)
 
-    guess.split('').forEach((letter, index) => {
+
+      // Unicode GraphemeSplitter
+  const splitter = new GraphemeSplitter()
+  splitter.splitGraphemes(guess).forEach((letter, index) => {
+
       const newRow = row + (focusedDirection === 'across' ? 0 : index);
       const newCol = col + (focusedDirection === 'across' ? index : 0);
 
@@ -218,8 +236,9 @@ const Crosswordle : React.FC = () => {
   };
 
   const onEnter = async () => {
-    if (currentGuess.length !== currentWord.length) return;
+    if (unicodeLength(currentGuess) !== unicodeLength(currentWord)) return;
     const allowedWords = validWords || await loadValidWords();
+
 
     const wordAllowed = allowedWords.includes(currentGuess.toLowerCase());
 
@@ -231,7 +250,7 @@ const Crosswordle : React.FC = () => {
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
 
-    if (currentGuess.length === currentWord.length && guessesForWord.length < 6 && !guessesForWord.includes(currentGuess)) {
+    if (unicodeLength(currentGuess) === unicodeLength(currentWord) && guessesForWord.length < 6 && !guessesForWord.includes(currentGuess)) {
       addGuess(currentGuess)
       setCurrentGuess('');
     }
@@ -272,8 +291,7 @@ const Crosswordle : React.FC = () => {
     <div className='flex flex-col min-h-screen'>
       <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4">
         <div className='grow'>
-          <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">Crosswordle {crosswordIndex + 1}</h1>
-          <p className="text-sm text-slate-400">By {crosswordData.author || 'Matthew Koppe'}</p>
+          <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">சொற்புதிர் {crosswordIndex + 1}</h1>
         </div>
         <PencilIcon
           className="h-6 w-6 ml-3 mr-3 cursor-pointer dark:stroke-white"
@@ -320,8 +338,11 @@ const Crosswordle : React.FC = () => {
               onChar={onChar}
               onDelete={onDelete}
               onEnter={onEnter}
+              onShift={onShift}
               solution={currentWord}
               crossedSolution={crossedWord}
+              isShifted={isShifted}
+              uyirmei={currentGuess}
               guesses={guesses[focusedDirection][focusedNumber] || []}
               crossedGuesses={guesses[otherDirection(focusedDirection)][crossedNumber || 0] || []}
               index={focusedIndex}

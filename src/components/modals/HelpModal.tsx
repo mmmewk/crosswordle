@@ -96,19 +96,19 @@ export const HelpModal : React.FC<Props> = ({ onlyKeyboard = false }) => {
       <p className='text-sm text-gray-500'>The virtual keyboard will update to reflect given information on the selected word.</p>
       <div className="flex mb-1 mt-4 items-center">
         <div className='grow mr-2'>
-          <Key value="X"/>
+          <Key value="அ"/>
         </div>
         <p className="text-sm text-gray-500 text-left">The letter X might appear in the selected word.</p>
       </div>
       <div className="flex mb-1 mt-4 items-center">
         <div className='grow mr-2'>
-          <Key value="Y" status='present'/>
+          <Key value="ஆ" status='present'/>
         </div>
         <p className="text-sm text-gray-500 text-left">The letter Y appears in the selected word but is in the wrong position.</p>
       </div>
       <div className="flex mb-1 mt-4 items-center">
         <div className='grow mr-2'>
-          <Key value="Z" status='correct'/>
+          <Key value="இ" status='correct'/>
         </div>
         <p className="text-sm text-gray-500 text-left">
           The letter Z appears in the selected word and was previously guessed in the correct position.
@@ -120,19 +120,19 @@ export const HelpModal : React.FC<Props> = ({ onlyKeyboard = false }) => {
       <p className="text-sm text-gray-500">With the advanced keyboard enabled you will additionally see these keys</p>
       <div className="flex mb-1 mt-4 items-center">
         <div className='grow mr-2'>
-          <Key value="X" crossedStatus='absent'/>
+          <Key value="உ" crossedStatus='absent'/>
         </div>
         <p className="text-sm text-gray-500 text-left">The letter X might appear in the selected word but is not the selected letter.</p>
       </div>
       <div className="flex mb-1 mt-4 items-center">
         <div className='grow mr-2'>
-          <Key value="Y" status='present' crossedStatus='absent'/>
+          <Key value="ஊ" status='present' crossedStatus='absent'/>
         </div>
         <p className="text-sm text-gray-500 text-left">The letter Y appears in the selected word but is not the selected letter.</p>
       </div>
       <div className="flex mb-1 mt-4 items-center">
         <div className='grow mr-2'>
-          <Key value="Z" status='correct' crossedStatus='absent'/>
+          <Key value="எ" status='correct' crossedStatus='absent'/>
         </div>
         <p className="text-sm text-gray-500 text-left">
           The letter Z appears in the selected word and was previously guessed in the correct position.

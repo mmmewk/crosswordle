@@ -11,7 +11,7 @@ Array.from(Array(maxIndex).keys()).forEach((_, index) => {
   paths.push('/puzzles/' + (index + 1));
 });
 
-const hostname = 'https://crosswordle.mekoppe.com';
+const hostname = 'https://omtamil.com/sorputhir';
 
 const sitemap = buildSitemap(hostname, paths).toXML();
 

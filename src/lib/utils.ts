@@ -11,8 +11,8 @@ export function notEmpty<TValue>(
 ): value is TValue {
   return value !== null && value !== undefined;
 }
-
-const puzzleStartDate = new Date('2022-01-20T00:00:00');
+// March 11, 2022 Game Epoch
+const puzzleStartDate = new Date('2022-03-11T00:00:00');
 
 export function getPuzzleIndexForDate(date: Date) {
   const epochMs = +puzzleStartDate;
@@ -34,7 +34,6 @@ export function getPuzzleOfTheDay() {
   let index = getTodaysPuzzleIndex();
   const queryIndex = Number(queryString.parse(window.location.search)?.index as string);
 
-  // January 20, 2022 Game Epoch
   if (queryIndex >= 0) index = Math.min(index, queryIndex);
 
   return {

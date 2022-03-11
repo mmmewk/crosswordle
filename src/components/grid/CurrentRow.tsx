@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { Cell } from './Cell'
+import GraphemeSplitter from 'grapheme-splitter'
 
 type Props = {
   guess: string;
@@ -11,10 +12,13 @@ type Props = {
 export const CurrentRow : React.FC<Props> = ({ guess, solution, focusedIndex }) => {
   const { knownLetters, penciledLetters } = useSelector((state: RootState) => state.crossword);
 
-  if (solution.length - guess.length < 0) return null;
+  const splitter = new GraphemeSplitter()
+  const splitGuess = splitter.splitGraphemes(guess)
+  const splitSolution = splitter.splitGraphemes(solution)
 
-  const splitGuess = guess.split('');
-  const emptyCells = Array.from(Array(solution.length - splitGuess.length));
+  if (splitSolution.length - splitGuess.length < 0) return null;
+
+  const emptyCells = Array.from(Array(splitSolution.length - splitGuess.length));
   const guessLength = splitGuess.length;
 
   const getLetter = (index: number) => (

@@ -91,3 +91,13 @@ $slate-400: rgba(148, 163, 184);
 html.dark {
   background-color: rgb(15, 23, 42);
 }
+
+div {
+  font-family: 'KURALI', 'Noto Sans', sans-serif;
+  src: local('KURALI'), url(./fonts/KURALI.TTF) format('truetype');
+}
+
+@font-face {
+  font-family: 'KURALI';
+  src: local('KURALI'), url(./fonts/KURALI.TTF) format('truetype');
+}
