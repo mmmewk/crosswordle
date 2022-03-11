@@ -1,11 +1,30 @@
 import { ChevronRightIcon } from '@heroicons/react/outline';
+import { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { crosswordIndex } from '../../lib/utils';
+import Spinner from '../shared/spinner';
 import ArchiveElement from './ArchiveElement';
+
+const PER_PAGE = 7;
 
 const Archive : React.FC = () => {
   const navigate = useNavigate();
-  const indicies = Array.from(Array(crosswordIndex + 1).keys()).reverse();
+  const [bottomIndex, setBottomIndex] = useState(crosswordIndex - PER_PAGE);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+  const loadMore = useCallback(() => {
+    setIsLoadingMore(true);
+
+    // Simulate loading from an actual api
+    setTimeout(() => {
+      setBottomIndex(Math.max(bottomIndex - PER_PAGE, 0));
+      setIsLoadingMore(false);
+    }, 1000 * Math.random());
+  }, [bottomIndex]);
+
+  const indicies = useMemo(() => {
+    return Array.from(Array(crosswordIndex + 1).keys()).filter(index => index >= bottomIndex).reverse();
+  }, [bottomIndex]);
 
   return (
     <div className='flex flex-col min-h-screen'>
@@ -16,9 +35,14 @@ const Archive : React.FC = () => {
         </div>
       </div>
       <div className='w-screen text-center'>
-        <div className='flex flex-wrap justify-around w-full'>
+        <div className='flex flex-wrap justify-center w-full mx-auto'>
           {indicies.map((index) => <ArchiveElement index={index} key={index.toString()} />)}
         </div>
+        {bottomIndex > 0 && (
+          <button onClick={loadMore} className="rounded bg-indigo-600 text-white p-3 my-5 flex mx-auto">
+            {isLoadingMore ? <span className='ml-3'><Spinner size={15} /></span> : 'Load More'}
+          </button>
+        )}
       </div>
     </div>
   )
