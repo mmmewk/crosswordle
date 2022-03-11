@@ -2976,6 +2976,67 @@ const crosswords: CrosswordInput[] = [
   },
   // 53
   {
+    across: {
+      '1': {
+          answer: 'OWE',
+          row: 0,
+          col: 1
+      },
+      '4': {
+          answer: 'CROSS',
+          row: 1,
+          col: 0
+      },
+      '6': {
+          answer: 'HARSH',
+          row: 2,
+          col: 0
+      },
+      '7': {
+          answer: 'DAY',
+          row: 3,
+          col: 2
+      },
+      '8': {
+          answer: 'BUSY',
+          row: 4,
+          col: 0
+      }
+    },
+    down: {
+      '1': {
+          answer: 'ORA',
+          row: 0,
+          col: 1
+      },
+      '2': {
+          answer: 'WORDS',
+          row: 0,
+          col: 2
+      },
+      '3': {
+          answer: 'ESSAY',
+          row: 0,
+          col: 3
+      },
+      '4': {
+          answer: 'CHUB',
+          row: 1,
+          col: 0
+      },
+      '5': {
+          answer: 'SHY',
+          row: 1,
+          col: 4
+      }
+    },
+    circles: [
+      [1, 0], [1, 1], [1, 2], [1, 3], [1, 4],
+      [0, 2], [1, 2], [2, 2], [3, 2], [4, 2]
+    ],
+  },
+  // 54
+  {
     author: 'Chad Jepperson',
     across: {
         '1': {
@@ -3027,64 +3088,6 @@ const crosswords: CrosswordInput[] = [
         },
         '7': {
             answer: 'END',
-            row: 2,
-            col: 4
-        }
-    }
-  },
-  // 54
-  {
-    author: 'Chad Jepperson',
-    across: {
-        '1': {
-            answer: 'ADS',
-            row: 0,
-            col: 0
-        },
-        '4': {
-            answer: 'RIPS',
-            row: 1,
-            col: 0
-        },
-        '6': {
-            answer: 'MEETS',
-            row: 2,
-            col: 0
-        },
-        '8': {
-            answer: 'TEAK',
-            row: 3,
-            col: 1
-        },
-        '9': {
-            answer: 'DRY',
-            row: 4,
-            col: 2
-        }
-    },
-    down: {
-        '1': {
-            answer: 'ARM',
-            row: 0,
-            col: 0
-        },
-        '2': {
-            answer: 'DIET',
-            row: 0,
-            col: 1
-        },
-        '3': {
-            answer: 'SPEED',
-            row: 0,
-            col: 2
-        },
-        '5': {
-            answer: 'STAR',
-            row: 1,
-            col: 3
-        },
-        '7': {
-            answer: 'SKY',
             row: 2,
             col: 4
         }
@@ -3149,6 +3152,64 @@ const crosswords: CrosswordInput[] = [
   },
   // 56
   {
+    author: 'Chad Jepperson',
+    across: {
+        '1': {
+            answer: 'ADS',
+            row: 0,
+            col: 0
+        },
+        '4': {
+            answer: 'RIPS',
+            row: 1,
+            col: 0
+        },
+        '6': {
+            answer: 'MEETS',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'TEAK',
+            row: 3,
+            col: 1
+        },
+        '9': {
+            answer: 'DRY',
+            row: 4,
+            col: 2
+        }
+    },
+    down: {
+        '1': {
+            answer: 'ARM',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'DIET',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'SPEED',
+            row: 0,
+            col: 2
+        },
+        '5': {
+            answer: 'STAR',
+            row: 1,
+            col: 3
+        },
+        '7': {
+            answer: 'SKY',
+            row: 2,
+            col: 4
+        }
+    }
+  },
+  // 57
+  {
     across: {
         '1': {
             answer: 'STEMS',
@@ -3204,7 +3265,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 57
+  // 58
   {
     author: 'Chad Jepperson',
     across: {
@@ -3262,7 +3323,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 58
+  // 59
   {
     across: {
         '3': {
@@ -3314,7 +3375,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 59
+  // 60
   {
     author: 'Chad Jepperson',
     across: {
@@ -3372,7 +3433,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 60
+  // 61
   {
     across: {
       '1': {
@@ -3434,7 +3495,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 61
+  // 62
   {
     author: 'Chad Jepperson',
     across: {
@@ -3488,64 +3549,6 @@ const crosswords: CrosswordInput[] = [
         '7': {
             answer: 'NET',
             row: 2,
-            col: 4
-        }
-    }
-  },
-  // 62
-  {
-    author: 'Chad Jepperson',
-    across: {
-        '1': {
-            answer: 'LUST',
-            row: 0,
-            col: 0
-        },
-        '5': {
-            answer: 'ASHEN',
-            row: 1,
-            col: 0
-        },
-        '7': {
-            answer: 'RHONE',
-            row: 2,
-            col: 0
-        },
-        '8': {
-            answer: 'DELTA',
-            row: 3,
-            col: 0
-        },
-        '9': {
-            answer: 'REST',
-            row: 4,
-            col: 1
-        }
-    },
-    down: {
-        '1': {
-            answer: 'LARD',
-            row: 0,
-            col: 0
-        },
-        '2': {
-            answer: 'USHER',
-            row: 0,
-            col: 1
-        },
-        '3': {
-            answer: 'SHOLE',
-            row: 0,
-            col: 2
-        },
-        '4': {
-            answer: 'TENTS',
-            row: 0,
-            col: 3
-        },
-        '6': {
-            answer: 'NEAT',
-            row: 1,
             col: 4
         }
     }
@@ -3671,6 +3674,64 @@ const crosswords: CrosswordInput[] = [
   },
   // 65
   {
+    author: 'Chad Jepperson',
+    across: {
+        '1': {
+            answer: 'LUST',
+            row: 0,
+            col: 0
+        },
+        '5': {
+            answer: 'ASHEN',
+            row: 1,
+            col: 0
+        },
+        '7': {
+            answer: 'RHONE',
+            row: 2,
+            col: 0
+        },
+        '8': {
+            answer: 'DELTA',
+            row: 3,
+            col: 0
+        },
+        '9': {
+            answer: 'REST',
+            row: 4,
+            col: 1
+        }
+    },
+    down: {
+        '1': {
+            answer: 'LARD',
+            row: 0,
+            col: 0
+        },
+        '2': {
+            answer: 'USHER',
+            row: 0,
+            col: 1
+        },
+        '3': {
+            answer: 'SHOLE',
+            row: 0,
+            col: 2
+        },
+        '4': {
+            answer: 'TENTS',
+            row: 0,
+            col: 3
+        },
+        '6': {
+            answer: 'NEAT',
+            row: 1,
+            col: 4
+        }
+    }
+  },
+  // 66
+  {
     across: {
         '1': {
             answer: 'ARISE',
@@ -3736,7 +3797,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 66
+  // 67
   {
     across: {
         '1': {
@@ -3793,7 +3854,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 67
+  // 68
   {
     across: {
         '1': {
@@ -3860,7 +3921,7 @@ const crosswords: CrosswordInput[] = [
         }
     }
   },
-  // 68
+  // 69
   {
     across: {
         '1': {

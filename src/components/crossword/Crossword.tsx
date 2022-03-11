@@ -236,11 +236,21 @@ export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMo
             {letter && (
               <text
                 x={(cell.col + 0.5) * squareSize + margin}
-                y={(cell.row + 0.5) * squareSize + margin}
+                y={(cell.row + 0.5) * squareSize + margin + 3}
                 textAnchor="middle"
                 dominantBaseline="middle"
                 style={{ fill: textFill, userSelect: 'none', fontSize: '25px' }}
               >{letter}</text>
+            )}
+            {cell.circle && (
+              <circle
+                cx={(cell.col + 0.5) * squareSize + margin}
+                cy={(cell.row + 0.5) * squareSize + margin}
+                r={squareSize / 2}
+                fill='transparent'
+                stroke='rgba(0,0,0,0.5)'
+                strokeWidth={0.5}
+              />
             )}
           </g>
         );
