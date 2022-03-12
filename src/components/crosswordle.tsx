@@ -110,7 +110,7 @@ const Crosswordle : React.FC = () => {
     }
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
-    if (unicodeLength(currentGuess) <= currentWord.length && guessesForWord.length < 6) {
+    if (unicodeLength(currentGuess) <= unicodeLength(currentWord) && guessesForWord.length < 6) {
       const newGuess = `${currentGuess}${value}`;
         //மெய்யெழுத்து remove புள்ளி
         if (

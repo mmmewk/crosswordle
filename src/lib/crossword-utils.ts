@@ -4,7 +4,7 @@ import type {
   GridData,
   UsedCellData,
 } from '../types';
-import { unicodeLength } from './words';
+import { unicodeLength, unicodeSplit } from './words';
 
 type RowOrCol = 'row' | 'col';
 
@@ -93,9 +93,10 @@ export function createGridData(data: CrosswordInput) {
         const row = rowStart + (direction === 'down' ? i : 0);
         const col = colStart + (direction === 'across' ? i : 0);
         const cellData = gridData[row][col] as UsedCellData;
+        const splitAnswer = unicodeSplit(answer);
   
         cellData.used = true;
-        cellData.answer = answer[i];
+        cellData.answer = splitAnswer[i];
         cellData[direction] = number;
   
         if (i === 0) cellData.number = number;

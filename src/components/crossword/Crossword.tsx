@@ -114,7 +114,7 @@ export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMo
     const knownLetters : (string | undefined)[] = [];
     const penciledLetters : (string | undefined)[] = [];
 
-    Array.from(focusedClue.answer).forEach((_, index) => {
+    unicodeSplit(focusedClue.answer).forEach((_, index) => {
       let letterRow = focusedClue.row + (focusedDirection === 'across' ? 0 : index);
       let letterCol = focusedClue.col + (focusedDirection === 'across' ? index : 0);
       const cell = gridData[letterRow][letterCol];
