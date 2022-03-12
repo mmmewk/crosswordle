@@ -11,7 +11,7 @@ import '../App.scss';
 import { getInitialClue, getTotalGuesses } from '../lib/utils';
 import { CellColors } from './mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from '../constants/colors';
-import { Crossword } from './crossword/Crossword';
+import { Crossword, unicodeSplit } from './crossword/Crossword';
 import { CellData, Direction, GridData, UsedCellData, WordInput } from '../types';
 import { trackGameEnd, trackGuess } from '../lib/analytics';
 import { useGameState } from '../redux/hooks/useGameState';
@@ -27,7 +27,6 @@ import { updateStreakWithLoss, updateStreakWithWin } from '../redux/slices/stats
 import crosswords from '../constants/crosswords';
 import { crosswordIndex as defaultIndex } from '../lib/utils';
 import { useNavigate, useParams } from 'react-router-dom';
-import { default as GraphemeSplitter } from 'grapheme-splitter'
 import NotFound from './NotFound';
 
 type crosswordleParams = {
@@ -150,19 +149,18 @@ const Crosswordle : React.FC = () => {
       return cellColors;
     }, {} as CellColors)
 
-
-      // Unicode GraphemeSplitter
-  const splitter = new GraphemeSplitter()
-  splitter.splitGraphemes(guess).forEach((letter, index) => {
+    const splitGuess = unicodeSplit(guess);
+    const splitAnswer = unicodeSplit(answer);
+    splitGuess.forEach((letter, index) => {
 
       const newRow = row + (focusedDirection === 'across' ? 0 : index);
       const newCol = col + (focusedDirection === 'across' ? index : 0);
 
       if (newCellColors[`${newRow}_${newCol}`] === WORDLE_CORRECT_COLOR) return;
 
-      if (letter === answer[index]) {
+      if (letter === splitAnswer[index]) {
         newCellColors[`${newRow}_${newCol}`] = WORDLE_CORRECT_COLOR;
-      } else if (answer.includes(letter)) {
+      } else if (splitAnswer.includes(letter)) {
         newCellColors[`${newRow}_${newCol}`] = WORDLE_MISPLACED_COLOR;
       } else {
         newCellColors[`${newRow}_${newCol}`] = WORDLE_WRONG_COLOR;
