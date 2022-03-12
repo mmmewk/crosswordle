@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface NavigationState {
-  openModal?: 'about' | 'help' | 'helpKeyboardOnly' | 'settings' | 'share' | 'submit' | 'stats',
+  openModal?: 'about' | 'help' | 'helpKeyboardOnly' | 'settings' | 'share' | 'submit' | 'stats' | 'filters',
   firstRender: boolean;
 };
 
