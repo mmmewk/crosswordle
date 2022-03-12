@@ -14,6 +14,7 @@ import { setOpenModal } from '../../redux/slices/navigationSlice';
 const Archive : React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const crosswordIndicies = Array.from(Array(crosswordIndex + 1).keys());
   const { gameWins, lostCells, shareHistories } = useSelector((state: RootState) => state.wordle);
   const [filters, setFilters] = useState<{
     author?: string,
@@ -27,15 +28,15 @@ const Archive : React.FC = () => {
   ] as const;
 
   const authorsOptions = useMemo(() => {
-    return uniq(crosswords.map((crossword) => crossword.author || 'Matthew Koppe')).map((author) => ({
+    return uniq(crosswordIndicies.map((index) => crosswords[index].author || 'Matthew Koppe')).map((author) => ({
       label: author, value: author,
     }))
-  }, []);
+  }, [crosswordIndicies]);
 
   const indicies = useMemo(() => {
     const completedGames = { ...gameWins, ...lostCells };
 
-    return Array.from(Array(crosswordIndex + 1).keys()).filter((index) => {
+    return crosswordIndicies.filter((index) => {
       if (filters.author && (crosswords[index].author || 'Matthew Koppe') !== filters.author) return false;
       if (filters.gameState === 'notStarted' && shareHistories[index]?.length > 0) return false;
       if (filters.gameState === 'inProgress' && (!shareHistories[index]?.length || completedGames[index])) return false;
@@ -43,7 +44,7 @@ const Archive : React.FC = () => {
 
       return true;
     }).reverse();
-  }, [filters, gameWins, lostCells, shareHistories]);
+  }, [filters, crosswordIndicies, gameWins, lostCells, shareHistories]);
 
   return (
     <div className='flex flex-col min-h-screen'>
@@ -78,6 +79,7 @@ const Archive : React.FC = () => {
                 placeholder='Filter by author'
                 isClearable
                 className='w-30 mr-4 my-5'
+                maxMenuHeight={200}
               />
               <Select
                 options={gameStateOptions}
@@ -85,8 +87,9 @@ const Archive : React.FC = () => {
                 placeholder='Filter by game state'
                 isClearable
                 className='w-30 mr-4 my-5'
+                maxMenuHeight={200}
               />
-              <div className='mb-60' />
+              <div className='mb-40' />
             </Modal>
             <p onClick={() => navigate('/')} className=" text-l md:text-xl cursor-pointer text-indigo-600">
               Daily puzzle <ChevronRightIcon className='inline w-4' />
