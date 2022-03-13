@@ -88,17 +88,19 @@ function App() {
     }
 
     const guessesForWord = guesses[focusedDirection][focusedNumber];
-    if (unicodeLength(currentGuess) <= currentWord.length && guessesForWord.length < 6) {
-      const newGuess = `${currentGuess}${value}`;
-        //மெய்யெழுத்து remove புள்ளி
-        if (
-          value.length < 2 &&
-          value.search(RegExp('([ா-ௌ]|)')) === 0 &&
-          currentGuess.substr(-1) === '்'
-        ) {
-          setCurrentGuess(`${currentGuess.slice(0, -1)}${value}`)
-        } //மெய்யெழுத்து remove புள்ளி
-      else setCurrentGuess(newGuess);
+
+    let newGuess = `${currentGuess}${value}`;
+    //மெய்யெழுத்து remove புள்ளி
+    if (
+      value.length < 2 &&
+      value.search(RegExp('([ா-ௌ]|)')) === 0 &&
+      currentGuess.substr(-1) === '்'
+    ) {
+      newGuess = `${currentGuess.slice(0, -1)}${value}`;
+    } //மெய்யெழுத்து remove புள்ளி
+
+    if (unicodeLength(newGuess) <= unicodeLength(currentWord) && guessesForWord.length < 6) {        
+      setCurrentGuess(newGuess);
       moveToIndex(unicodeLength(newGuess));
     }
   }
