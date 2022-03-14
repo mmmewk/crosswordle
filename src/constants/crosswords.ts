@@ -3205,6 +3205,74 @@ const crosswords: CrosswordInput[] = [
   },
   // 57
   {
+    author: 'Madeleine Cheyette',
+    across: {
+      '1': {
+        answer: 'PRANK',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'AVIAN',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'SO',
+        row: 2,
+        col: 3
+      },
+      '8': {
+        answer: 'TO',
+        row: 3,
+        col: 0
+      },
+      '10': {
+        answer: 'AT',
+        row: 3,
+        col: 3
+      },
+      '11': {
+        answer: 'AXELS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'PASTA',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'RV',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'AI',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'NASAL',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'KNOTS',
+        row: 0,
+        col: 4
+      },
+      '9': {
+        answer: 'OX',
+        row: 3,
+        col: 1
+      }
+    }
+  },
+  // 58
+  {
     author: 'Chad Jepperson',
     across: {
       '1': {
@@ -3261,7 +3329,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 58
+  // 59
   {
     across: {
       '1': {
@@ -3318,7 +3386,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 59
+  // 60
   {
     author: 'Chad Jepperson',
     across: {
@@ -3376,7 +3444,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 60
+  // 61
   {
     across: {
       '3': {
@@ -3428,7 +3496,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 61
+  // 62
   {
     author: 'Chad Jepperson',
     across: {
@@ -3486,7 +3554,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 62
+  // 63
   {
     across: {
       '1': {
@@ -3548,7 +3616,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 63
+  // 64
   {
     author: 'Chad Jepperson',
     across: {
@@ -3606,7 +3674,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 64
+  // 65
   {
     across: {
       '1': {
@@ -3663,7 +3731,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 65
+  // 66
   {
     across: {
       '1': {
@@ -3725,7 +3793,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 66
+  // 67
   {
     author: 'Chad Jepperson',
     across: {
@@ -3783,7 +3851,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 67
+  // 68
   {
     across: {
       '1': {
@@ -3850,7 +3918,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 68
+  // 69
   {
     across: {
       '1': {
@@ -3907,7 +3975,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 69
+  // 70
   {
     across: {
       '1': {
@@ -3974,7 +4042,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 70
+  // 71
   {
     across: {
       '1': {
