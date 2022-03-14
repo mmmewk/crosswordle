@@ -48,7 +48,7 @@ const Archive : React.FC = () => {
 
   return (
     <div className='flex flex-col min-h-screen'>
-      <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 sticky top-0 bg-white">
+      <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4 sticky top-0 bg-white dark:bg-slate-900">
         <div className='grow flex flex-row justify-between items-center'>
           <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">Puzzle Archive</h1>
           <div className='flex'>
@@ -91,7 +91,7 @@ const Archive : React.FC = () => {
               />
               <div className='mb-40' />
             </Modal>
-            <p onClick={() => navigate('/')} className=" text-l md:text-xl cursor-pointer text-indigo-600">
+            <p onClick={() => navigate('/')} className=" text-l md:text-xl cursor-pointer text-indigo-600 dark:text-white">
               Daily puzzle <ChevronRightIcon className='inline w-4' />
             </p>
           </div>
