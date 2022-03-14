@@ -2,6 +2,32 @@ import { endOfToday, endOfYesterday } from "date-fns";
 import { getTodaysPuzzleIndex } from "../lib/utils";
 import { RootState } from "./store";
 
+const initialState : Partial<RootState> = {
+  crossword: {
+    gridDatas: {},
+    knownLetters: [],
+    penciledLetters: [],
+  },
+  wordle: {
+    guesses: {},
+    shareHistories: {},
+    gameWins: {},
+    lostCells: {},
+    times: {},
+  },
+  settings: {
+    darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
+    pencilMode: false,
+    advancedKeyboard: false,
+    showTimer: false,
+  },
+  stats: {
+    streak: 0,
+    maxStreak: 0,
+    lastDailyWin: undefined,
+  },
+};
+
 export const migrations : any = {
   0: (state: RootState) => {
     return {
@@ -22,6 +48,28 @@ export const migrations : any = {
       }
     }
   },
+  // Enusre that state is initialized for everyone
+  2: (state: RootState) => {
+    return {
+      ...state,
+      crossword: {
+        ...initialState.crossword,
+        ...state.crossword,
+      },
+      wordle: {
+        ...initialState.wordle,
+        ...state.wordle,
+      },
+      settings: {
+        ...initialState.settings,
+        ...state.settings,
+      },
+      stats: {
+        ...initialState.stats,
+        ...state.stats,
+      },
+    }
+  }
 }
 
 function backfillStreak(state: RootState) {
