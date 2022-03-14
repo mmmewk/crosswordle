@@ -13,6 +13,15 @@ export const migrations : any = {
       }
     }
   },
+  1: (state: RootState) => {
+    return {
+      ...state,
+      wordle: {
+        ...state.wordle,
+        times: {},
+      }
+    }
+  },
 }
 
 function backfillStreak(state: RootState) {

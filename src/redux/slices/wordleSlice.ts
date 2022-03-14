@@ -9,26 +9,27 @@ export type Guesses = {
   };
 };
 
-export type GameState = {
-  guesses: Guesses;
-  shareHistory: CellColors[];
-  isGameWon: boolean;
-  lostCell: UsedCellData | null;
-}
-
 export interface WordleSlice {
+  // All guesses made in a puzzle
   guesses: {
     [index: number]: Guesses;
   },
+  // A historical record of your guess order to use in sharing
   shareHistories: {
     [index: number]: CellColors[];
   },
+  // Whether a crosswordle game has been won or not
   gameWins: {
     [index: number]: boolean;
   },
+  // The cell that can no longer be guessed, if game was lost
   lostCells: {
     [index: number]: UsedCellData;
   },
+  // The time it took to solve each puzzle
+  times: {
+    [index: number]: number;
+  }
 };
 
 const initialState: WordleSlice = {
@@ -36,6 +37,7 @@ const initialState: WordleSlice = {
   shareHistories: {},
   gameWins: {},
   lostCells: {},
+  times: {},
 }
 
 export const generateInitialGuessState = (data: CrosswordInput) => {
@@ -80,10 +82,22 @@ export const wordleSlice = createSlice({
       delete state.gameWins[index];
       delete state.lostCells[index];
     },
+    startTimer: (state, action: PayloadAction<{ index: number }>) => {
+      const { index } = action.payload
+      state.times[index] ||= 0;
+    },
+    incrementTimer: (state, action: PayloadAction<{ index: number }>) => {
+      const { index } = action.payload
+      // Don't increment timer if it hasn't been started
+      if (state.times[index] === undefined) return;
+      // Don't increment timer if game is over
+      if (state.gameWins[index] || state.lostCells[index]) return;
+      state.times[index] += 1;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addGuess, pushShareHistory, setGameWon, setLostCell } = wordleSlice.actions;
+export const { addGuess, pushShareHistory, setGameWon, setLostCell, startTimer, incrementTimer } = wordleSlice.actions;
 
 export default wordleSlice.reducer;

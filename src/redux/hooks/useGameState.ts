@@ -11,6 +11,7 @@ export const useGameState = (index: number) => {
   const shareHistory = useSelector((state: RootState) => state.wordle.shareHistories[index] || []);
   const isGameWon = useSelector((state: RootState) => state.wordle.gameWins[index] || false);
   const lostCell = useSelector((state: RootState) => state.wordle.lostCells[index] as UsedCellData | undefined);
+  const time = useSelector((state: RootState) => state.wordle.times[index] as number | undefined);
   const dispatch = useDispatch();
 
   const addGuess = useCallback((direction: Direction, number: string, guess: string) => {
@@ -29,5 +30,5 @@ export const useGameState = (index: number) => {
     dispatch(setLostCell({ index, lostCell }));
   }, [dispatch, index]);
 
-  return { guesses, addGuess, shareHistory, pushShareHistory, isGameWon, win, lostCell, lose };
+  return { guesses, addGuess, shareHistory, pushShareHistory, isGameWon, win, lostCell, lose, time };
 }

@@ -91,3 +91,10 @@ export function gameProgress(gridData: GridData) {
 export function dateString(date: Date) {
   return date.toISOString().split('T')[0]
 }
+
+export function formatTime(time?: number) {
+  if (!time) return '0:00'
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  return `${minutes}:${padStart(seconds.toString(), 2, '0')}`;
+}

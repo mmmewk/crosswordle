@@ -5,7 +5,7 @@ import { CheckIcon } from '@heroicons/react/outline';
 import { ShareIcon } from '@heroicons/react/outline';
 import { XIcon } from '@heroicons/react/outline';
 import { MiniCrossword, SVG_WIDTH, SVG_HEADER_SIZE } from '../mini-crossword/MiniCrossword';
-import { getTotalGuesses, sleep, timeTillTomorrow } from '../../lib/utils';
+import { formatTime, getTotalGuesses, sleep, timeTillTomorrow } from '../../lib/utils';
 import { GridData } from '../../types';
 import { createGridData } from '../../lib/crossword-utils';
 import { trackShare } from '../../lib/analytics';
@@ -46,7 +46,7 @@ type Props = {
 
 export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
   const crossword = crosswords[crosswordIndex];
-  const { guesses, shareHistory, isGameWon, lostCell } = useGameState(crosswordIndex);
+  const { guesses, shareHistory, isGameWon, lostCell, time } = useGameState(crosswordIndex);
   const isGameLost = Boolean(lostCell);
   const [timeTillNext, setTimeTillNext] = useState(timeTillTomorrow);
   const [creatingGif, setCreatingGif] = useState<boolean>(false);
@@ -57,6 +57,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
   const totalGuesses = getTotalGuesses(guesses);
   const dispatch = useDispatch();
   const openModal = useSelector((state: RootState) => state.navigation.openModal);
+  const { showTimer } = useSelector((state: RootState) => state.settings);
 
   const openSubmitModal = () => dispatch(setOpenModal('submit'));
 
@@ -155,13 +156,14 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
   };
 
   const gifTitle = `Crosswordle ${crosswordIndex + 1} - ${totalGuesses} Guesses`;
+  let timeText = (showTimer) ? `${formatTime(time)} with ` : '';
 
   return (
     <Modal name='share' title={title} titleIcon={renderTitleIcon()}>
       <div>
         {isGameWon && (
           <>
-            <p>You solved the crosswordle in {totalGuesses} guesses!</p>
+            <p>You solved the crosswordle in {timeText}{totalGuesses} guesses!</p>
             <p className="text-sm text-gray-500">Great job.</p>
           </>
         )}
