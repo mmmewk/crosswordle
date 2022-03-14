@@ -4,7 +4,8 @@ import padStart from 'lodash/padStart';
 import { CrosswordInput, Direction, GridData, WordInput } from '../types';
 import { Guesses } from '../redux/slices/wordleSlice';
 import get from 'lodash/get';
-import { addDays } from 'date-fns';
+import addDays from 'date-fns/addDays';
+import differenceInDays from 'date-fns/differenceInDays';
 
 export function notEmpty<TValue>(
   value: TValue | null | undefined,
@@ -15,9 +16,7 @@ export function notEmpty<TValue>(
 const puzzleStartDate = new Date('2022-01-20T00:00:00');
 
 export function getPuzzleIndexForDate(date: Date) {
-  const epochMs = +puzzleStartDate;
-  const msInDay = 86400000
-  return Math.floor((+date - epochMs) / msInDay);
+  return differenceInDays(date, puzzleStartDate);
 }
 
 export function dateFromPuzzleIndex(index: number) {
@@ -33,8 +32,6 @@ export function getTodaysPuzzleIndex() {
 export function getPuzzleOfTheDay() {
   let index = getTodaysPuzzleIndex();
   const queryIndex = Number(queryString.parse(window.location.search)?.index as string);
-
-  // January 20, 2022 Game Epoch
   if (queryIndex >= 0) index = Math.min(index, queryIndex);
 
   return {
