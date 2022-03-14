@@ -1,4 +1,4 @@
-import { QuestionMarkCircleIcon, PresentationChartBarIcon, CogIcon, PencilIcon, ArchiveIcon } from '@heroicons/react/outline';
+import { QuestionMarkCircleIcon, PresentationChartBarIcon, CogIcon, PencilIcon, ArchiveIcon, MenuIcon } from '@heroicons/react/outline';
 import { ElementRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,7 +8,7 @@ import { HelpModal } from './modals/HelpModal';
 import { ShareModal } from './modals/ShareModal';
 import { useLazyLoadedValidWords } from '../lib/words';
 import '../App.scss';
-import { getInitialClue, getTotalGuesses } from '../lib/utils';
+import { formatTime, getInitialClue, getTotalGuesses } from '../lib/utils';
 import { CellColors } from './mini-crossword/MiniCrossword';
 import { WORDLE_CORRECT_COLOR, WORDLE_LOSE_COLOR, WORDLE_MISPLACED_COLOR, WORDLE_WRONG_COLOR } from '../constants/colors';
 import { Crossword } from './crossword/Crossword';
@@ -28,6 +28,10 @@ import crosswords from '../constants/crosswords';
 import { crosswordIndex as defaultIndex } from '../lib/utils';
 import { useNavigate, useParams } from 'react-router-dom';
 import NotFound from './NotFound';
+import { TimerHelpModal } from './modals/TimerHelpModal';
+import { incrementTimer, startTimer } from '../redux/slices/wordleSlice';
+import { useInterval } from '../lib/useInterval';
+import cn from 'classnames';
 
 type crosswordleParams = {
   crosswordNumber?: string;
@@ -50,6 +54,7 @@ const Crosswordle : React.FC = () => {
     pushShareHistory,
     win,
     lose,
+    time,
   } = useGameState(crosswordIndex);
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentWord, setCurrentWord] = useState(initialClue.answer);
@@ -61,8 +66,9 @@ const Crosswordle : React.FC = () => {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [crossedFocusedIndex, setCrossedFocusedIndex] = useState<number | undefined>(undefined);
   const [validWords, loadValidWords] = useLazyLoadedValidWords();
+  const [showMenu, setShowMenu] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const { darkMode, pencilMode } = useSelector((state: RootState) => state.settings);
+  const { darkMode, pencilMode, showTimer } = useSelector((state: RootState) => state.settings);
   const { totalGames } = useStats();
 
   // Open help modal if they have never completed a game
@@ -163,6 +169,7 @@ const Crosswordle : React.FC = () => {
   }, [shareHistory, pushShareHistory])
 
   const addGuess = (guess: string) => {
+    if (shareHistory.length === 0) dispatch(startTimer({ index: crosswordIndex }));
     trackGuess(crosswordIndex, guess);
     addGuessToState(focusedDirection, focusedNumber, guess);
 
@@ -269,42 +276,92 @@ const Crosswordle : React.FC = () => {
     setCurrentGuess('');
   };
 
+  useInterval(() => {
+    if (time !== undefined && !isGameWon && !lostCell) {
+      dispatch(incrementTimer({ index: crosswordIndex }));
+    }
+  }, 1000);
+
   // Prevent user from accessing puzzles that haven't yet been released
   if (defaultIndex < crosswordIndex) return <NotFound />
 
   return (
     <div className='flex flex-col min-h-screen'>
-      <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-4">
+      <div className="flex w-screen mx-auto items-center border-b-slate-400 border-b-[1px] p-3 md:p-4">
         <div className='grow'>
-          <h1 className="text-l md:text-xl font-bold whitespace-nowrap dark:text-white">Crosswordle {crosswordIndex + 1}</h1>
+          <h1 className="text-md md:text-xl font-bold whitespace-nowrap dark:text-white">Crosswordle {crosswordIndex + 1}</h1>
           <p className="text-sm text-slate-400">By {crosswordData.author || 'Matthew Koppe'}</p>
         </div>
+        {showTimer && <p className="text-sm text-slate-400">{formatTime(time)}</p>}
         <PencilIcon
           className="h-6 w-6 ml-3 mr-3 cursor-pointer dark:stroke-white"
           fill={pencilMode ? 'rgb(250, 200, 23)' : darkMode ? 'transparent' : 'white'}
           onClick={enablePencilMode}
         />
+        <MenuIcon
+          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white md:hidden"
+          onClick={() => setShowMenu(!showMenu)}
+        />
         <PresentationChartBarIcon
-          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white hidden md:inline"
           onClick={() => dispatch(setOpenModal('share'))}
         />
         <ArchiveIcon
-          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white hidden md:inline"
           onClick={() => navigate('/puzzles')}
         />
         <QuestionMarkCircleIcon
-          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white hidden md:inline"
           onClick={() => dispatch(setOpenModal('help'))}
         />
         <CogIcon
-          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 cursor-pointer dark:stroke-white hidden md:inline"
           onClick={() => dispatch(setOpenModal('settings'))}
         />
+        <div className={cn('menu md:hidden', { 'hidden': !showMenu })}>
+          <div
+            className="mb-2 mx-2 cursor-pointer flex items-center"
+            onClick={() => {
+              dispatch(setOpenModal('share'))
+              setShowMenu(false);
+            }}
+          >
+            <PresentationChartBarIcon className='h-4 w-4 mr-2'/>Share
+          </div>
+          <div
+            className="mb-2 mx-2 cursor-pointer flex items-center"
+            onClick={() => {
+              navigate('/puzzles')
+              setShowMenu(false);
+            }}
+          >
+            <ArchiveIcon className='h-4 w-4 mr-2'/>Puzzle Archive
+          </div>
+          <div
+            className="mb-2 mx-2 cursor-pointer flex items-center"
+            onClick={() => {
+              dispatch(setOpenModal('help'))
+              setShowMenu(false);
+            }}
+          >
+            <QuestionMarkCircleIcon className='h-4 w-4 mr-2'/>How to Play
+          </div>
+          <div
+            className="mb-2 mx-2 cursor-pointer flex items-center"
+            onClick={() => {
+              dispatch(setOpenModal('settings'))
+              setShowMenu(false);
+            }}
+          >
+            <CogIcon className='h-4 w-4 mr-2'/>Settings
+          </div>
+        </div>
         <ShareModal crosswordIndex={crosswordIndex} />
         <HelpModal />
         <HelpModal onlyKeyboard={true} />
         <SettingsModal />
         <SubmitModal />
+        <TimerHelpModal />
       </div>
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
         <div className='w-full flex md:items-center justify-center p-2 px-20 md:p-6 md:w-1/2' >
