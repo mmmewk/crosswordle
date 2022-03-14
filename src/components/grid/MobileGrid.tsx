@@ -17,7 +17,7 @@ export const MobileGrid = ({ solution, guesses, currentGuess, focusedIndex }: Pr
 
   return (
     <div className="pb-3">
-      <div className='flex my-3 w-full'>
+      <div className='flex my-2 w-full'>
         <div className='w-1/2'>
           {firstHalf.map((guess, i) => (
             <CompletedRow key={i} guess={guess} solution={solution} size='sm' />

@@ -1,7 +1,7 @@
 import get from "lodash/get";
 import cloneDeep from 'lodash/cloneDeep';
 import React, { useCallback, useEffect, useImperativeHandle, useMemo } from "react";
-import { useRefState } from "../../lib/hooks";
+import { useMediaBreakpoints, useRefState } from "../../lib/hooks";
 import { GridData, CellData, Direction, UsedCellData, WordInput } from "../../types"
 import { createGridData, otherDirection } from "../../lib/crossword-utils";
 import { useGridData } from "../../redux/hooks/useGridData";
@@ -34,9 +34,10 @@ export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMo
   const [gridData, setGridData] = useGridData(crosswordIndex);
   const [focusedCell, setFocusedCell, focusedCellRef] = useRefState<UsedCellData>(gridData[initialWord.row][initialWord.col] as UsedCellData);
   const [focusedDirection, setFocusedDirection, focusedDirectionRef] = useRefState<Direction>(initialDirection);
+  const isMobile = useMediaBreakpoints('sm', 'down');
 
   const svgSize = 240;
-  const margin = 20;
+  const margin = isMobile ? 10 : 20;
   const crosswordSize = svgSize - 2 * margin;
   const squareSize = crosswordSize / gridData.length;
   const borderSize = 0.125;

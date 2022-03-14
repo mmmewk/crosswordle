@@ -26,7 +26,7 @@ export const Cell = ({ value, status, mode = 'input', size = 'lg', isFocused = f
       'bg-yellow-500 dark:bg-yellow-700 text-white border-yellow-500 dark:border-yellow-700': status === 'present',
       'w-14 h-14 text-lg': size === 'lg',
       'w-5 h-5 text-sm': size === 'sm',
-      'w-12 h-12 text-lg': size === 'lg' && isMobile,
+      'w-10 h-10 text-lg': size === 'lg' && isMobile,
       'border-yellow-300': isFocused,
       'short-tolerant': !isMobile && height > 600,
     }

@@ -364,7 +364,7 @@ const Crosswordle : React.FC = () => {
         <TimerHelpModal />
       </div>
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
-        <div className='w-full flex md:items-center justify-center p-2 px-20 md:p-6 md:w-1/2' >
+        <div className='w-full flex md:items-center justify-center px-20 md:p-6 md:w-1/2' >
           <div className='max-w-[300px] md:max-w-[500px] w-full h-full justify-center max-width-static-mobile'>
             <Crossword crosswordIndex={crosswordIndex} onMoved={onMoved} onChange={onGridDataChange} ref={crosswordRef} guess={currentGuess} />
           </div>
