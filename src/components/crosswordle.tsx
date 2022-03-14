@@ -320,40 +320,40 @@ const Crosswordle : React.FC = () => {
         />
         <div className={cn('menu md:hidden', { 'hidden': !showMenu })}>
           <div
-            className="mb-2 mx-2 cursor-pointer"
+            className="mb-2 mx-2 cursor-pointer flex items-center"
             onClick={() => {
               dispatch(setOpenModal('share'))
               setShowMenu(false);
             }}
           >
-            Share
+            <PresentationChartBarIcon className='h-4 w-4 mr-2'/>Share
           </div>
           <div
-            className="mb-2 mx-2 cursor-pointer"
+            className="mb-2 mx-2 cursor-pointer flex items-center"
             onClick={() => {
               navigate('/puzzles')
               setShowMenu(false);
             }}
           >
-            Puzzle Archive
+            <ArchiveIcon className='h-4 w-4 mr-2'/>Puzzle Archive
           </div>
           <div
-            className="mb-2 mx-2 cursor-pointer"
+            className="mb-2 mx-2 cursor-pointer flex items-center"
             onClick={() => {
               dispatch(setOpenModal('help'))
               setShowMenu(false);
             }}
           >
-            How to Play
+            <QuestionMarkCircleIcon className='h-4 w-4 mr-2'/>How to Play
           </div>
           <div
-            className="mb-2 mx-2 cursor-pointer"
+            className="mb-2 mx-2 cursor-pointer flex items-center"
             onClick={() => {
               dispatch(setOpenModal('settings'))
               setShowMenu(false);
             }}
           >
-            Settings
+            <CogIcon className='h-4 w-4 mr-2'/>Settings
           </div>
         </div>
         <ShareModal crosswordIndex={crosswordIndex} />

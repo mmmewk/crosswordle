@@ -156,7 +156,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
   };
 
   const gifTitle = `Crosswordle ${crosswordIndex + 1} - ${totalGuesses} Guesses`;
-  let timeText = (showTimer) ? `${formatTime(time)} with ` : '';
+  let timeText = (showTimer && time) ? `${formatTime(time)} with ` : '';
 
   return (
     <Modal name='share' title={title} titleIcon={renderTitleIcon()}>
