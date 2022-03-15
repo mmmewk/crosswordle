@@ -5,6 +5,7 @@ export interface SettingsState {
   advancedKeyboard: boolean,
   pencilMode: boolean,
   showTimer: boolean,
+  highContrastMode: boolean,
 };
 
 const initialState: SettingsState = {
@@ -12,6 +13,7 @@ const initialState: SettingsState = {
   pencilMode: false,
   advancedKeyboard: false,
   showTimer: false,
+  highContrastMode: false,
 }
 
 export const settingsSlice = createSlice({
@@ -30,10 +32,19 @@ export const settingsSlice = createSlice({
     setShowTimer: (state, action: PayloadAction<boolean>) => {
       state.showTimer = action.payload;
     },
+    setHighContrastMode: (state, action: PayloadAction<boolean>) => {
+      state.highContrastMode = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setDarkMode, setAdvancedKeyboard, setPencilMode, setShowTimer } = settingsSlice.actions;
+export const {
+  setDarkMode,
+  setAdvancedKeyboard,
+  setPencilMode,
+  setShowTimer,
+  setHighContrastMode
+} = settingsSlice.actions;
 
 export default settingsSlice.reducer;

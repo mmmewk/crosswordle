@@ -22,7 +22,7 @@ const persistConfig = {
   key: 'root',
   storage: storage('crosswordleDB'),
   blacklist: ['navigation'],
-  version: 2,
+  version: 3,
   migrate: createMigrate(migrations, { debug: process.env.NODE_ENV !== 'production' }),
 };
 

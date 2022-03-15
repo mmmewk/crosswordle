@@ -20,6 +20,7 @@ const initialState : Partial<RootState> = {
     pencilMode: false,
     advancedKeyboard: false,
     showTimer: false,
+    highContrastMode: false,
   },
   stats: {
     streak: 0,
@@ -68,6 +69,15 @@ export const migrations : any = {
         ...initialState.stats,
         ...state.stats,
       },
+    }
+  },
+  3: (state: RootState) => {
+    return {
+      ...state,
+      settings: {
+        ...state.settings,
+        highContrastMode: false,
+      }
     }
   }
 }
