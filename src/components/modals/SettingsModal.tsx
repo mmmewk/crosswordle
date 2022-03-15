@@ -20,7 +20,7 @@ export const SettingsModal : React.FC = () => {
         <Switch className='mr-2' checked={advancedKeyboard} onChange={(enabled) => dispatch(setAdvancedKeyboard(enabled))} />
         <span>Advanced Keyboard</span>
         <QuestionMarkCircleIcon
-          className="h-5 w-5 mr-3 cursor-pointer dark:stroke-white ml-1"
+          className="h-5 w-5 mr-3 cursor-pointer ml-1"
           onClick={() => dispatch(setOpenModal('helpKeyboardOnly'))}
         />
       </div>
@@ -28,7 +28,7 @@ export const SettingsModal : React.FC = () => {
         <Switch className='mr-2' checked={showTimer} onChange={(enabled) => dispatch(setShowTimer(enabled))} />
         <span>Show Timer</span>
         <QuestionMarkCircleIcon
-          className="h-5 w-5 mr-3 cursor-pointer dark:stroke-white ml-1"
+          className="h-5 w-5 mr-3 cursor-pointer ml-1"
           onClick={() => dispatch(setOpenModal('timerHelp'))}
         />
       </div>
