@@ -3,18 +3,23 @@
 
 const grid = document.querySelector('[aria-label="grid"]');
 const gridData = [[],[],[],[],[]];
+const circles = [];
 Array.from(grid.childNodes).forEach((node) => {
     const cellElement = node.children[0];
     const [row, col] = cellElement.getAttribute('aria-label').replace('cell', '').split('x').map(Number);
     const number = cellElement.children[0]?.textContent;
     const letter = cellElement.children[1]?.textContent;
+    const circled = cellElement.children[1]?.children?.length === 2;
     gridData[row][col] = { row, col, number, letter };
+    if (circled) circles.push([row, col]);
 });
 
 const crosswordData = {
   across: {},
   down: {},
 };
+
+if (circles.length > 0) crosswordData.circles = circles;
 
 gridData.forEach((row) => {
   row.forEach((cell) => {
@@ -59,4 +64,6 @@ function addAcross (cell, crosswordData) {
 
 copy(crosswordData);
 
+// Regex replace: " => '
 // Regex replace: "([a-z]*)": => $1:
+// Regex replace: \[\n\s*(\d),\n\s*(\d)\n\s*\](,?) => [$1, $2]$3

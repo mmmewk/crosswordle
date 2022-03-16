@@ -3491,6 +3491,70 @@ const crosswords: CrosswordInput[] = [
   // 62
   {
     across: {
+      '1': {
+        answer: 'DUALS',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'ENSUE',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'STARE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'KINK',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'LAST',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'DESK',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'UNTIL',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ASANA',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'LURKS',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'SEE',
+        row: 0,
+        col: 4
+      }
+    },
+    circles: [
+      [1, 1],
+      [2, 0],
+      [2, 2],
+      [2, 4],
+      [3, 3]
+    ]
+  },
+  // 63
+  {
+    across: {
       '3': {
         answer: 'TACO',
         row: 1,
@@ -3540,486 +3604,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 63
-  {
-    author: 'Chad Jepperson',
-    across: {
-      '1': {
-        answer: 'APT',
-        row: 0,
-        col: 0
-      },
-      '4': {
-        answer: 'SLING',
-        row: 1,
-        col: 0
-      },
-      '7': {
-        answer: 'PETAL',
-        row: 2,
-        col: 0
-      },
-      '8': {
-        answer: 'SALVE',
-        row: 3,
-        col: 0
-      },
-      '9': {
-        answer: 'EYE',
-        row: 4,
-        col: 2
-      }
-    },
-    down: {
-      '1': {
-        answer: 'ASPS',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'PLEA',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'TITLE',
-        row: 0,
-        col: 2
-      },
-      '5': {
-        answer: 'NAVY',
-        row: 1,
-        col: 3
-      },
-      '6': {
-        answer: 'GLEE',
-        row: 1,
-        col: 4
-      }
-    }
-  },
   // 64
-  {
-    across: {
-      '1': {
-        answer: 'BOBS',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'ONION',
-        row: 1,
-        col: 0
-      },
-      '7': {
-        answer: 'SUE',
-        row: 2,
-        col: 2
-      },
-      '8': {
-        answer: 'SMORE',
-        row: 3,
-        col: 0
-      },
-      '10': {
-        answer: 'TEN',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'BOAST',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'ON',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'BISON',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'SOUR',
-        row: 0,
-        col: 3
-      },
-      '6': {
-        answer: 'NEED',
-        row: 1,
-        col: 4
-      },
-      '9': {
-        answer: 'ME',
-        row: 3,
-        col: 1
-      }
-    }
-  },
-  // 65
-  {
-    author: 'Chad Jepperson',
-    across: {
-      '1': {
-        answer: 'APES',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'DORM',
-        row: 1,
-        col: 0
-      },
-      '6': {
-        answer: 'SWOON',
-        row: 2,
-        col: 0
-      },
-      '8': {
-        answer: 'EDGE',
-        row: 3,
-        col: 1
-      },
-      '9': {
-        answer: 'REST',
-        row: 4,
-        col: 1
-      }
-    },
-    down: {
-      '1': {
-        answer: 'ADS',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'POWER',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'ERODE',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'SMOGS',
-        row: 0,
-        col: 3
-      },
-      '7': {
-        answer: 'NET',
-        row: 2,
-        col: 4
-      }
-    }
-  },
-  // 66
-  {
-    across: {
-      '1': {
-        answer: 'GALE',
-        row: 0,
-        col: 1
-      },
-      '5': {
-        answer: 'ALLOY',
-        row: 1,
-        col: 0
-      },
-      '6': {
-        answer: 'AIDE',
-        row: 2,
-        col: 1
-      },
-      '7': {
-        answer: 'URGED',
-        row: 3,
-        col: 0
-      },
-      '8': {
-        answer: 'PENS',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'GLARE',
-        row: 0,
-        col: 1
-      },
-      '2': {
-        answer: 'ALIGN',
-        row: 0,
-        col: 2
-      },
-      '3': {
-        answer: 'LODES',
-        row: 0,
-        col: 3
-      },
-      '4': {
-        answer: 'EYED',
-        row: 0,
-        col: 4
-      },
-      '7': {
-        answer: 'UP',
-        row: 3,
-        col: 0
-      }
-    }
-  },
-  // 67
-  {
-    across: {
-      '1': {
-        answer: 'BOSK',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'EXTRA',
-        row: 1,
-        col: 0
-      },
-      '7': {
-        answer: 'AIL',
-        row: 2,
-        col: 2
-      },
-      '8': {
-        answer: 'CELLS',
-        row: 3,
-        col: 0
-      },
-      '10': {
-        answer: 'HELLO',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'BENCH',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'OX',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'STALL',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'KRILL',
-        row: 0,
-        col: 3
-      },
-      '6': {
-        answer: 'ALSO',
-        row: 1,
-        col: 4
-      },
-      '9': {
-        answer: 'EE',
-        row: 3,
-        col: 1
-      }
-    }
-  },
-  // 68
-  {
-    author: 'Chad Jepperson',
-    across: {
-      '1': {
-        answer: 'LUST',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'ASHEN',
-        row: 1,
-        col: 0
-      },
-      '7': {
-        answer: 'RHONE',
-        row: 2,
-        col: 0
-      },
-      '8': {
-        answer: 'DELTA',
-        row: 3,
-        col: 0
-      },
-      '9': {
-        answer: 'REST',
-        row: 4,
-        col: 1
-      }
-    },
-    down: {
-      '1': {
-        answer: 'LARD',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'USHER',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'SHOLE',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'TENTS',
-        row: 0,
-        col: 3
-      },
-      '6': {
-        answer: 'NEAT',
-        row: 1,
-        col: 4
-      }
-    }
-  },
-  // 69
-  {
-    across: {
-      '1': {
-        answer: 'ARISE',
-        row: 0,
-        col: 0
-      },
-      '6': {
-        answer: 'SOFAS',
-        row: 1,
-        col: 0
-      },
-      '7': {
-        answer: 'IS',
-        row: 2,
-        col: 0
-      },
-      '8': {
-        answer: 'UP',
-        row: 2,
-        col: 3
-      },
-      '9': {
-        answer: 'DEITY',
-        row: 3,
-        col: 0
-      },
-      '11': {
-        answer: 'ME',
-        row: 4,
-        col: 2
-      }
-    },
-    down: {
-      '1': {
-        answer: 'ASIDE',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'ROSE',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'IF',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'SAUTE',
-        row: 0,
-        col: 3
-      },
-      '5': {
-        answer: 'ESPY',
-        row: 0,
-        col: 4
-      },
-      '10': {
-        answer: 'IM',
-        row: 3,
-        col: 2
-      }
-    }
-  },
-  // 70
-  {
-    across: {
-      '1': {
-        answer: 'THROW',
-        row: 0,
-        col: 0
-      },
-      '6': {
-        answer: 'WEAVE',
-        row: 1,
-        col: 0
-      },
-      '7': {
-        answer: 'INDIE',
-        row: 2,
-        col: 0
-      },
-      '8': {
-        answer: 'INK',
-        row: 3,
-        col: 2
-      },
-      '9': {
-        answer: 'TRIES',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'TWIST',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'HEN',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'RADII',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'OVINE',
-        row: 0,
-        col: 3
-      },
-      '5': {
-        answer: 'WEEKS',
-        row: 0,
-        col: 4
-      }
-    }
-  },
-  // 71
   {
     across: {
       '1': {
@@ -4086,7 +3671,486 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 65
+  {
+    across: {
+      '1': {
+        answer: 'BOBS',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ONION',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'SUE',
+        row: 2,
+        col: 2
+      },
+      '8': {
+        answer: 'SMORE',
+        row: 3,
+        col: 0
+      },
+      '10': {
+        answer: 'TEN',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'BOAST',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ON',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'BISON',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'SOUR',
+        row: 0,
+        col: 3
+      },
+      '6': {
+        answer: 'NEED',
+        row: 1,
+        col: 4
+      },
+      '9': {
+        answer: 'ME',
+        row: 3,
+        col: 1
+      }
+    }
+  },
+  // 66
+  {
+    author: 'Chad Jepperson',
+    across: {
+      '1': {
+        answer: 'APES',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'DORM',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'SWOON',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'EDGE',
+        row: 3,
+        col: 1
+      },
+      '9': {
+        answer: 'REST',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ADS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'POWER',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ERODE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'SMOGS',
+        row: 0,
+        col: 3
+      },
+      '7': {
+        answer: 'NET',
+        row: 2,
+        col: 4
+      }
+    }
+  },
+  // 67
+  {
+    across: {
+      '1': {
+        answer: 'GALE',
+        row: 0,
+        col: 1
+      },
+      '5': {
+        answer: 'ALLOY',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'AIDE',
+        row: 2,
+        col: 1
+      },
+      '7': {
+        answer: 'URGED',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'PENS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'GLARE',
+        row: 0,
+        col: 1
+      },
+      '2': {
+        answer: 'ALIGN',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'LODES',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'EYED',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'UP',
+        row: 3,
+        col: 0
+      }
+    }
+  },
+  // 68
+  {
+    across: {
+      '1': {
+        answer: 'BOSK',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'EXTRA',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'AIL',
+        row: 2,
+        col: 2
+      },
+      '8': {
+        answer: 'CELLS',
+        row: 3,
+        col: 0
+      },
+      '10': {
+        answer: 'HELLO',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'BENCH',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'OX',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'STALL',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'KRILL',
+        row: 0,
+        col: 3
+      },
+      '6': {
+        answer: 'ALSO',
+        row: 1,
+        col: 4
+      },
+      '9': {
+        answer: 'EE',
+        row: 3,
+        col: 1
+      }
+    }
+  },
+  // 69
+  {
+    author: 'Chad Jepperson',
+    across: {
+      '1': {
+        answer: 'LUST',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ASHEN',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'RHONE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'DELTA',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'REST',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'LARD',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'USHER',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'SHOLE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'TENTS',
+        row: 0,
+        col: 3
+      },
+      '6': {
+        answer: 'NEAT',
+        row: 1,
+        col: 4
+      }
+    }
+  },
+  // 70
+  {
+    across: {
+      '1': {
+        answer: 'ARISE',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'SOFAS',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'IS',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'UP',
+        row: 2,
+        col: 3
+      },
+      '9': {
+        answer: 'DEITY',
+        row: 3,
+        col: 0
+      },
+      '11': {
+        answer: 'ME',
+        row: 4,
+        col: 2
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ASIDE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ROSE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'IF',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'SAUTE',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'ESPY',
+        row: 0,
+        col: 4
+      },
+      '10': {
+        answer: 'IM',
+        row: 3,
+        col: 2
+      }
+    }
+  },
+  // 71
+  {
+    across: {
+      '1': {
+        answer: 'THROW',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'WEAVE',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'INDIE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'INK',
+        row: 3,
+        col: 2
+      },
+      '9': {
+        answer: 'TRIES',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'TWIST',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'HEN',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'RADII',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'OVINE',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'WEEKS',
+        row: 0,
+        col: 4
+      }
+    }
+  },
   // 72
+  {
+    author: 'Chad Jepperson',
+    across: {
+      '1': {
+        answer: 'APT',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'SLING',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'PETAL',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'SALVE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'EYE',
+        row: 4,
+        col: 2
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ASPS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'PLEA',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'TITLE',
+        row: 0,
+        col: 2
+      },
+      '5': {
+        answer: 'NAVY',
+        row: 1,
+        col: 3
+      },
+      '6': {
+        answer: 'GLEE',
+        row: 1,
+        col: 4
+      }
+    }
+  },
+  // 73
   {
     across: {
       '1': {
@@ -4143,7 +4207,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 73
+  // 74
   {
     across: {
       '1': {

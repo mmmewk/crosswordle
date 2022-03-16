@@ -247,9 +247,9 @@ export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMo
               <circle
                 cx={(cell.col + 0.5) * squareSize + margin}
                 cy={(cell.row + 0.5) * squareSize + margin}
-                r={squareSize / 2}
+                r={squareSize / 2 - 1}
                 fill='transparent'
-                stroke='rgba(0,0,0,0.5)'
+                stroke={darkMode ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.5)'}
                 strokeWidth={0.5}
               />
             )}
