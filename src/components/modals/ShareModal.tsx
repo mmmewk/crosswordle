@@ -1,6 +1,6 @@
 import Gif from 'gif.js';
 import { saveAs } from 'file-saver';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '@heroicons/react/outline';
 import { ShareIcon } from '@heroicons/react/outline';
 import { XIcon } from '@heroicons/react/outline';
@@ -59,6 +59,8 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
   const openModal = useSelector((state: RootState) => state.navigation.openModal);
   const { showTimer } = useSelector((state: RootState) => state.settings);
 
+  let timeText = useMemo(() => (showTimer && time) ? `${formatTime(time)} with ` : '', [time, showTimer]);
+
   const openSubmitModal = () => dispatch(setOpenModal('submit'));
 
   // Update time till next crosswordle every second
@@ -115,7 +117,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
       }
       renderGif();
       let shareText = 'https://crosswordle.mekoppe.com';
-      if (isGameWon) shareText = `I solved the crosswordle in ${totalGuesses} Guesses!\n${shareText}`;
+      if (isGameWon) shareText = `I solved the crosswordle in ${timeText}${totalGuesses} Guesses!\n${shareText}`;
       navigator.clipboard.writeText(shareText);
       resolve('');
     });
@@ -125,7 +127,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
       success: 'Replay GIF downloaded and shareable link copied to clipboard',
       error: 'Something went wrong...'
     });
-  }, [svgRef, addSvgFrame, renderGif, shareHistory, isGameWon, isGameLost, totalGuesses, crosswordIndex]);
+  }, [svgRef, addSvgFrame, renderGif, shareHistory, isGameWon, isGameLost, totalGuesses, crosswordIndex, timeText]);
 
   let title = `Crosswordle ${crosswordIndex + 1}`;
   if (isGameWon) title = 'You Won!';
@@ -156,7 +158,6 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
   };
 
   const gifTitle = `Crosswordle ${crosswordIndex + 1} - ${totalGuesses} Guesses`;
-  let timeText = (showTimer && time) ? `${formatTime(time)} with ` : '';
 
   return (
     <Modal name='share' title={title} titleIcon={renderTitleIcon()}>
