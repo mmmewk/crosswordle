@@ -9,6 +9,7 @@ import { persistStore } from 'redux-persist';
 import { ToastContainer } from 'react-toastify';
 import Spinner from './components/shared/spinner';
 import * as smoothscroll from 'smoothscroll-polyfill';
+import ErrorBoundry from './components/errors/ErrorBoundry';
 
 smoothscroll.polyfill();
 
@@ -19,18 +20,20 @@ let persistor = persistStore(store);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ToastContainer hideProgressBar={true} limit={1} />
-        <Suspense fallback={
-          <div className='w-screen h-screen flex justify-center items-center'>
-            <Spinner color="indigo-600" size={30} />
-          </div>
-        }>
-          <App />
-        </Suspense>
-      </PersistGate>
-    </Provider>
+    <ErrorBoundry>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <ToastContainer hideProgressBar={true} limit={1} />
+          <Suspense fallback={
+            <div className='w-screen h-screen flex justify-center items-center'>
+              <Spinner color="indigo-600" size={30} />
+            </div>
+          }>
+            <App />
+          </Suspense>
+        </PersistGate>
+      </Provider>
+    </ErrorBoundry>
   </React.StrictMode>,
   document.getElementById('root')
 );
