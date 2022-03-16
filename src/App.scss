@@ -48,6 +48,10 @@ $slash-green: rgb(115, 168, 134);
 $slash-green-hover: rgb(94, 138, 110);
 $slash-yellow: rgb(167, 159, 126);
 $slash-yellow-hover: rgb(168, 147, 99);
+$slash-cyan: rgb(126, 166, 167);
+$slash-cyan-hover: rgb(99, 163, 168);
+$slash-orange: rgb(167, 151, 126);
+$slash-orange-hover: rgb(168, 140, 99);
 $slash-slate: rgba(148, 163, 184, 50%);
 $slate-400: rgba(148, 163, 184);
 
@@ -85,6 +89,22 @@ $slate-400: rgba(148, 163, 184);
 
   &:hover {
     @include bg-slash($slash-green-hover);
+  }
+}
+
+.bg-cross-cyan {
+  @include bg-slash($slash-cyan);
+
+  &:hover {
+    @include bg-slash($slash-cyan-hover);
+  }
+}
+
+.bg-cross-orange {
+  @include bg-slash($slash-orange);
+
+  &:hover {
+    @include bg-slash($slash-orange-hover);
   }
 }
 

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
-import { setAdvancedKeyboard, setDarkMode, setShowTimer } from '../../redux/slices/settingsSlice'
+import { setAdvancedKeyboard, setDarkMode, setShowTimer, setHighContrastMode } from '../../redux/slices/settingsSlice'
 import Switch from 'react-switch';
 import { Modal } from './Modal'
 import { QuestionMarkCircleIcon } from '@heroicons/react/outline';
@@ -8,13 +8,17 @@ import { setOpenModal } from '../../redux/slices/navigationSlice';
 
 export const SettingsModal : React.FC = () => {
   const dispatch = useDispatch();
-  const { darkMode, advancedKeyboard, showTimer } = useSelector((state: RootState) => state.settings);
+  const { darkMode, advancedKeyboard, showTimer, highContrastMode } = useSelector((state: RootState) => state.settings);
 
   return (
     <Modal name='settings' title='Settings'>
       <div className='w-100 p-4 flex items-center'>
         <Switch className='mr-2' checked={darkMode} onChange={(enabled) => dispatch(setDarkMode(enabled))} />
         <span>Dark Mode</span>
+      </div>
+      <div className='w-100 p-4 flex items-center'>
+        <Switch className='mr-2' checked={highContrastMode} onChange={(enabled) => dispatch(setHighContrastMode(enabled))} />
+        <span>High Contrast Mode</span>
       </div>
       <div className='w-100 p-4 flex items-center'>
         <Switch className='mr-2' checked={advancedKeyboard} onChange={(enabled) => dispatch(setAdvancedKeyboard(enabled))} />
