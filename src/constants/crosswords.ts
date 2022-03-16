@@ -3263,62 +3263,121 @@ const crosswords: CrosswordInput[] = [
   },
   // 58
   {
+    author: 'Madeleine Cheyette',
     across: {
       '1': {
-        answer: 'STEMS',
+        answer: 'SEA',
         row: 0,
         col: 0
       },
       '5': {
-        answer: 'SAT',
+        answer: 'PASTA',
         row: 1,
-        col: 2
-      },
-      '6': {
-        answer: 'SIR',
-        row: 2,
-        col: 2
+        col: 0
       },
       '7': {
-        answer: 'INANE',
+        answer: 'OTTER',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'TERSE',
         row: 3,
         col: 0
       },
       '9': {
-        answer: 'TOY',
+        answer: 'SNOT',
         row: 4,
         col: 0
       }
     },
     down: {
       '1': {
-        answer: 'SPLIT',
+        answer: 'SPOTS',
         row: 0,
         col: 0
       },
       '2': {
-        answer: 'ESSAY',
+        answer: 'EATEN',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ASTRO',
         row: 0,
         col: 2
       },
-      '3': {
-        answer: 'MAIN',
-        row: 0,
-        col: 3
-      },
       '4': {
-        answer: 'STREW',
+        answer: 'RARE',
         row: 0,
         col: 4
       },
-      '8': {
-        answer: 'NO',
-        row: 3,
-        col: 1
+      '6': {
+        answer: 'TEST',
+        row: 1,
+        col: 3
       }
     }
   },
   // 59
+  {
+    author: '@word.clamberer',
+    across: {
+      '1': {
+        answer: 'TYE',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'AURAE',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'SMELL',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'CEL',
+        row: 3,
+        col: 2
+      },
+      '9': {
+        answer: 'EAT',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'TASTE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'YUM',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ERECT',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'JELLY',
+        row: 0,
+        col: 4
+      },
+      '6': {
+        answer: 'ALE',
+        row: 1,
+        col: 3
+      }
+    }
+  },
+  // 60
   {
     author: 'Chad Jepperson',
     across: {
@@ -3376,7 +3435,60 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 60
+  // 61
+  {
+    author: 'Ryan Dixon',
+    across: {
+      '1': {
+        answer: 'PARTY',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ATE',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'FAR',
+        row: 3,
+        col: 2
+      },
+      '8': {
+        answer: 'COSTS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'PANIC',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'AT',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'REEFS',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'YEARS',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'AT',
+        row: 3,
+        col: 3
+      }
+    }
+  },
+  // 62
   {
     across: {
       '3': {
@@ -3428,7 +3540,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 61
+  // 63
   {
     author: 'Chad Jepperson',
     across: {
@@ -3486,7 +3598,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 62
+  // 64
   {
     across: {
       '1': {
@@ -3548,7 +3660,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 63
+  // 65
   {
     author: 'Chad Jepperson',
     across: {
@@ -3606,7 +3718,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 64
+  // 66
   {
     across: {
       '1': {
@@ -3663,7 +3775,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 65
+  // 67
   {
     across: {
       '1': {
@@ -3725,7 +3837,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 66
+  // 68
   {
     author: 'Chad Jepperson',
     across: {
@@ -3783,7 +3895,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 67
+  // 69
   {
     across: {
       '1': {
@@ -3850,7 +3962,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 68
+  // 70
   {
     across: {
       '1': {
@@ -3907,7 +4019,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 69
+  // 71
   {
     across: {
       '1': {
@@ -3974,7 +4086,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 70
+  // 72
   {
     across: {
       '1': {
@@ -4028,6 +4140,63 @@ const crosswords: CrosswordInput[] = [
         answer: 'NET',
         row: 2,
         col: 3
+      }
+    }
+  },
+  // 73
+  {
+    across: {
+      '1': {
+        answer: 'STEMS',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'SAT',
+        row: 1,
+        col: 2
+      },
+      '6': {
+        answer: 'SIR',
+        row: 2,
+        col: 2
+      },
+      '7': {
+        answer: 'INANE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'TOY',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SPLIT',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ESSAY',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'MAIN',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'STREW',
+        row: 0,
+        col: 4
+      },
+      '8': {
+        answer: 'NO',
+        row: 3,
+        col: 1
       }
     }
   },
