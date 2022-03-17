@@ -3554,6 +3554,64 @@ const crosswords: CrosswordInput[] = [
   },
   // 63
   {
+    author: 'PeppermintG',
+    across: {
+      '1': {
+        answer: 'PIANO',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'LOWER',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'ENEMA',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'AT',
+        row: 3,
+        col: 3
+      },
+      '9': {
+        answer: 'SENSE',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'PLEAS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ION',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'AWE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'NEMAS',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'ORATE',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  // 64
+  {
     across: {
       '3': {
         answer: 'TACO',
@@ -3604,7 +3662,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 64
+  // 65
   {
     across: {
       '1': {
@@ -3671,7 +3729,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 65
+  // 66
   {
     across: {
       '1': {
@@ -3733,7 +3791,45 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 66
+  // 67
+  {
+    author: 'PeppermintG',
+    across: {
+      '1': {
+        answer: 'OTTER',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'NASAL',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'EVENS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'OUNCE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'TASTE',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'ROLES',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  // 68
   {
     author: 'Chad Jepperson',
     across: {
@@ -3791,7 +3887,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 67
+  // 69
   {
     across: {
       '1': {
@@ -3848,7 +3944,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 68
+  // 70
   {
     across: {
       '1': {
@@ -3910,7 +4006,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 69
+  // 71
   {
     author: 'Chad Jepperson',
     across: {
@@ -3968,7 +4064,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 70
+  // 72
   {
     across: {
       '1': {
@@ -4035,7 +4131,60 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 71
+  // 73
+  {
+    author: 'PeppermintG',
+    across: {
+      '1': {
+        answer: 'SNORT',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'UNIFY',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'COOL',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'NUT',
+        row: 4,
+        col: 2
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SAUCE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ONION',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'TOY',
+        row: 0,
+        col: 4
+      },
+      '5': {
+        answer: 'NO',
+        row: 2,
+        col: 1
+      },
+      '6': {
+        answer: 'FLU',
+        row: 2,
+        col: 3
+      }
+    }
+  },
+  // 74
   {
     across: {
       '1': {
@@ -4092,7 +4241,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 72
+  // 75
   {
     author: 'Chad Jepperson',
     across: {
@@ -4150,7 +4299,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 73
+  // 76
   {
     across: {
       '1': {
@@ -4207,7 +4356,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 74
+  // 77
   {
     across: {
       '1': {
