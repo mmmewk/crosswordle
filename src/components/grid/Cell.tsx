@@ -19,7 +19,7 @@ export const Cell = ({ value, status, mode = 'input', size = 'lg', isFocused = f
   const highContrastMode = useSelector((state: RootState) => state.settings.highContrastMode);
 
   const classes = classnames(
-    'border-solid border-2 flex items-center justify-center mx-0.5 font-bold rounded dark:text-white',
+    'border-solid border-2 flex items-center justify-center mx-0.5 font-bold rounded dark:text-white select-none',
     {
       'bg-white border-slate-200 dark:bg-slate-900 dark:border-slate-600': !status,
       'bg-white border-slate-200 text-green-500 text-opacity-50 dark:text-green-500': mode === 'known' && !status && !highContrastMode,
