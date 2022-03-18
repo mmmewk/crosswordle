@@ -3605,7 +3605,7 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
-    author: 'PeppermintG',
+    author: 'Wils E.',
     across: {
       '1': {
         answer: 'SPITS',
