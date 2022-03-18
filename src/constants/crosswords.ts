@@ -1,7 +1,6 @@
 import { CrosswordInput } from '../types';
 
 const crosswords: CrosswordInput[] = [
-  // 1
   {
     across: {
       '1': {
@@ -58,7 +57,6 @@ const crosswords: CrosswordInput[] = [
       }
     },
   },
-  // 2
   {
     across: {
       '1': {
@@ -115,7 +113,6 @@ const crosswords: CrosswordInput[] = [
       },
     }
   },
-  // 3
   {
     across: {
       '1': {
@@ -172,7 +169,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 4
   {
     across: {
       '1': {
@@ -229,7 +225,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 5
   {
     across: {
       '1': {
@@ -286,7 +281,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 6
   {
     across: {
       '1': {
@@ -343,7 +337,6 @@ const crosswords: CrosswordInput[] = [
       },
     }
   },
-  // 7
   {
     across: {
       '1': {
@@ -390,7 +383,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 8
   {
     across: {
       '1': {
@@ -457,7 +449,6 @@ const crosswords: CrosswordInput[] = [
       }
     },
   },
-  // 9
   {
     across: {
       '1': {
@@ -576,7 +567,6 @@ const crosswords: CrosswordInput[] = [
       },
     }
   },
-  // 11
   {
     across: {
       '1': {
@@ -633,7 +623,6 @@ const crosswords: CrosswordInput[] = [
       },
     }
   },
-  // 12
   {
     across: {
       '1': {
@@ -670,7 +659,6 @@ const crosswords: CrosswordInput[] = [
       },
     }
   },
-  // 13
   {
     across: {
       '1': {
@@ -727,7 +715,6 @@ const crosswords: CrosswordInput[] = [
       },
     }
   },
-  // 14
   {
     across: {
       '1': {
@@ -784,7 +771,6 @@ const crosswords: CrosswordInput[] = [
       },
     }
   },
-  // 15
   {
     across: {
       '1': {
@@ -846,7 +832,6 @@ const crosswords: CrosswordInput[] = [
       },
     }
   },
-  // 16
   {
     across: {
       '1': {
@@ -898,7 +883,6 @@ const crosswords: CrosswordInput[] = [
       },
     }
   },
-  // 17
   {
     across: {
       '1': {
@@ -955,7 +939,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 18
   {
     across: {
       '1': {
@@ -1012,7 +995,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 19
   {
     across: {
       '1': {
@@ -1126,7 +1108,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 21
   {
     across: {
       '1': {
@@ -1193,7 +1174,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 22
   {
     across: {
       '1': {
@@ -1260,7 +1240,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 23
   {
     across: {
       '1': {
@@ -1327,7 +1306,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 24
   {
     across: {
       '1': {
@@ -1400,7 +1378,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 25
   {
     across: {
       '1': {
@@ -1467,7 +1444,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 26
   {
     across: {
       '1': {
@@ -1519,7 +1495,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 27
   {
     across: {
       '1': {
@@ -1576,7 +1551,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 28
   {
     across: {
       '3': {
@@ -1628,7 +1602,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 29
   {
     across: {
       '1': {
@@ -1742,7 +1715,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 31
   {
     across: {
       '1': {
@@ -1799,7 +1771,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 32
   {
     author: 'Laurel Peterson',
     across: {
@@ -1857,7 +1828,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 33
   {
     across: {
       '1': {
@@ -1909,7 +1879,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 34
   {
     across: {
       '1': {
@@ -1961,7 +1930,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 35
   {
     across: {
       '1': {
@@ -2023,7 +1991,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 36
   {
     across: {
       '1': {
@@ -2075,7 +2042,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 37
   {
     across: {
       '1': {
@@ -2132,7 +2098,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 38
   {
     across: {
       '1': {
@@ -2189,7 +2154,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 39
   {
     across: {
       '1': {
@@ -2288,7 +2252,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 41
   {
     across: {
       '2': {
@@ -2345,7 +2308,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 42
   {
     author: 'Tanishque',
     across: {
@@ -2408,7 +2370,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 43
   {
     author: 'Chad Jepperson',
     across: {
@@ -2466,7 +2427,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 44
   {
     author: '@word.clamberer',
     across: {
@@ -2519,7 +2479,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 45
   {
     author: 'Dhafin Rayhan',
     across: {
@@ -2577,7 +2536,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 46
   {
     across: {
       '1': {
@@ -2634,7 +2592,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 47
   {
     author: 'Chad Jepperson',
     across: {
@@ -2692,7 +2649,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 48
   {
     across: {
       '1': {
@@ -2744,7 +2700,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 49
   {
     across: {
       '1': {
@@ -2859,7 +2814,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 51
   {
     author: 'Chad Jepperson',
     across: {
@@ -2917,7 +2871,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 52
   {
     across: {
       '1': {
@@ -2974,7 +2927,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 53
   {
     across: {
       '1': {
@@ -3035,7 +2987,6 @@ const crosswords: CrosswordInput[] = [
       [0, 2], [1, 2], [2, 2], [3, 2], [4, 2]
     ],
   },
-  // 54
   {
     author: 'Chad Jepperson',
     across: {
@@ -3093,7 +3044,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 55
   {
     author: 'Madeleine Cheyette',
     across: {
@@ -3146,7 +3096,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 56
   {
     across: {
       '1': {
@@ -3203,7 +3152,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 57
   {
     author: 'Chad Jepperson',
     across: {
@@ -3261,7 +3209,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 58
   {
     author: 'Madeleine Cheyette',
     across: {
@@ -3319,7 +3266,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 59
   {
     author: '@word.clamberer',
     across: {
@@ -3435,7 +3381,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 61
   {
     author: 'Ryan Dixon',
     across: {
@@ -3488,7 +3433,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 62
   {
     across: {
       '1': {
@@ -3552,7 +3496,6 @@ const crosswords: CrosswordInput[] = [
       [3, 3]
     ]
   },
-  // 63
   {
     author: 'PeppermintG',
     across: {
@@ -3610,7 +3553,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 64
   {
     across: {
       '3': {
@@ -3662,174 +3604,58 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 65
-  {
-    across: {
-      '1': {
-        answer: 'TWIST',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'SHE',
-        row: 1,
-        col: 2
-      },
-      '6': {
-        answer: 'IM',
-        row: 2,
-        col: 0
-      },
-      '8': {
-        answer: 'ON',
-        row: 2,
-        col: 3
-      },
-      '9': {
-        answer: 'BOGUS',
-        row: 3,
-        col: 0
-      },
-      '11': {
-        answer: 'EMOTE',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'TRIBE',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'IS',
-        row: 0,
-        col: 2
-      },
-      '3': {
-        answer: 'SHOUT',
-        row: 0,
-        col: 3
-      },
-      '4': {
-        answer: 'TENSE',
-        row: 0,
-        col: 4
-      },
-      '7': {
-        answer: 'MOM',
-        row: 2,
-        col: 1
-      },
-      '10': {
-        answer: 'GO',
-        row: 3,
-        col: 2
-      }
-    }
-  },
-  // 66
-  {
-    across: {
-      '1': {
-        answer: 'BOBS',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'ONION',
-        row: 1,
-        col: 0
-      },
-      '7': {
-        answer: 'SUE',
-        row: 2,
-        col: 2
-      },
-      '8': {
-        answer: 'SMORE',
-        row: 3,
-        col: 0
-      },
-      '10': {
-        answer: 'TEN',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'BOAST',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'ON',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'BISON',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'SOUR',
-        row: 0,
-        col: 3
-      },
-      '6': {
-        answer: 'NEED',
-        row: 1,
-        col: 4
-      },
-      '9': {
-        answer: 'ME',
-        row: 3,
-        col: 1
-      }
-    }
-  },
-  // 67
   {
     author: 'PeppermintG',
     across: {
       '1': {
-        answer: 'OTTER',
+        answer: 'SPITS',
         row: 0,
         col: 0
       },
-      '4': {
-        answer: 'NASAL',
+      '6': {
+        answer: 'IONIC',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'LLAMA',
         row: 2,
         col: 0
       },
-      '5': {
-        answer: 'EVENS',
-        row: 4,
+      '8': {
+        answer: 'TOTEM',
+        row: 3,
         col: 0
       }
     },
     down: {
       '1': {
-        answer: 'OUNCE',
+        answer: 'SILT',
         row: 0,
         col: 0
       },
       '2': {
-        answer: 'TASTE',
+        answer: 'POLO',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'INATE',
         row: 0,
         col: 2
       },
-      '3': {
-        answer: 'ROLES',
+      '4': {
+        answer: 'TIME',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'SCAMS',
         row: 0,
         col: 4
       }
     }
   },
-  // 68
   {
     author: 'Chad Jepperson',
     across: {
@@ -3887,7 +3713,43 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 69
+  {
+    author: 'PeppermintG',
+    across: {
+      '1': {
+        answer: 'OTTER',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'NASAL',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'EVENS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'OUNCE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'TASTE',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'ROLES',
+        row: 0,
+        col: 4
+      }
+    }
+  },
   {
     across: {
       '1': {
@@ -3944,69 +3806,64 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 70
   {
+    author: 'PeppermintG',
     across: {
       '1': {
-        answer: 'BOSK',
+        answer: 'VALVE',
         row: 0,
         col: 0
       },
-      '5': {
-        answer: 'EXTRA',
+      '6': {
+        answer: 'IDEAS',
         row: 1,
         col: 0
       },
       '7': {
-        answer: 'AIL',
+        answer: 'ROANS',
         row: 2,
-        col: 2
-      },
-      '8': {
-        answer: 'CELLS',
-        row: 3,
         col: 0
       },
-      '10': {
-        answer: 'HELLO',
+      '8': {
+        answer: 'PEA',
+        row: 3,
+        col: 2
+      },
+      '9': {
+        answer: 'SASSY',
         row: 4,
         col: 0
       }
     },
     down: {
       '1': {
-        answer: 'BENCH',
+        answer: 'VIRUS',
         row: 0,
         col: 0
       },
       '2': {
-        answer: 'OX',
+        answer: 'ADO',
         row: 0,
         col: 1
       },
       '3': {
-        answer: 'STALL',
+        answer: 'LEAPS',
         row: 0,
         col: 2
       },
       '4': {
-        answer: 'KRILL',
+        answer: 'VANES',
         row: 0,
         col: 3
       },
-      '6': {
-        answer: 'ALSO',
-        row: 1,
+      '5': {
+        answer: 'ESSAY',
+        row: 0,
         col: 4
-      },
-      '9': {
-        answer: 'EE',
-        row: 3,
-        col: 1
       }
     }
   },
-  // 71
+  // 70
   {
     author: 'Chad Jepperson',
     across: {
@@ -4064,7 +3921,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 72
   {
     across: {
       '1': {
@@ -4131,7 +3987,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 73
   {
     author: 'PeppermintG',
     across: {
@@ -4184,7 +4039,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 74
   {
     across: {
       '1': {
@@ -4241,7 +4095,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 75
   {
     author: 'Chad Jepperson',
     across: {
@@ -4299,7 +4152,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 76
   {
     across: {
       '1': {
@@ -4356,7 +4208,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 77
   {
     across: {
       '1': {
@@ -4413,6 +4264,195 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  {
+    across: {
+      '1': {
+        answer: 'TWIST',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'SHE',
+        row: 1,
+        col: 2
+      },
+      '6': {
+        answer: 'IM',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'ON',
+        row: 2,
+        col: 3
+      },
+      '9': {
+        answer: 'BOGUS',
+        row: 3,
+        col: 0
+      },
+      '11': {
+        answer: 'EMOTE',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'TRIBE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'IS',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'SHOUT',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'TENSE',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'MOM',
+        row: 2,
+        col: 1
+      },
+      '10': {
+        answer: 'GO',
+        row: 3,
+        col: 2
+      }
+    }
+  },
+  {
+    across: {
+      '1': {
+        answer: 'BOBS',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ONION',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'SUE',
+        row: 2,
+        col: 2
+      },
+      '8': {
+        answer: 'SMORE',
+        row: 3,
+        col: 0
+      },
+      '10': {
+        answer: 'TEN',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'BOAST',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ON',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'BISON',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'SOUR',
+        row: 0,
+        col: 3
+      },
+      '6': {
+        answer: 'NEED',
+        row: 1,
+        col: 4
+      },
+      '9': {
+        answer: 'ME',
+        row: 3,
+        col: 1
+      }
+    }
+  },
+  {
+    across: {
+      '1': {
+        answer: 'BOSK',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'EXTRA',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'AIL',
+        row: 2,
+        col: 2
+      },
+      '8': {
+        answer: 'CELLS',
+        row: 3,
+        col: 0
+      },
+      '10': {
+        answer: 'HELLO',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'BENCH',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'OX',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'STALL',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'KRILL',
+        row: 0,
+        col: 3
+      },
+      '6': {
+        answer: 'ALSO',
+        row: 1,
+        col: 4
+      },
+      '9': {
+        answer: 'EE',
+        row: 3,
+        col: 1
+      }
+    }
+  },
+  // 80
 ];
 
 export default crosswords;
