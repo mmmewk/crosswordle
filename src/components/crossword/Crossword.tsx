@@ -24,6 +24,7 @@ type Handle = {
   pencilLetter: (letter: string) => void,
   eraseLetter: () => void,
   reset: () => void,
+  reveal: () => void,
 }
 
 export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMoved, onChange, guess }, ref) => {
@@ -167,6 +168,18 @@ export const Crossword = React.forwardRef<Handle, Props>(({ crosswordIndex, onMo
     },
     reset: () => {
       setGridData(createGridData(crosswordData));
+    },
+    reveal: () => {
+      const gridDataClone = cloneDeep(gridData);
+      gridData.forEach((cells, row) => {
+        cells.forEach((_, col) => {
+          const cellClone = gridDataClone[row][col];
+          if (!cellClone.used) return;
+
+          cellClone.guess = cellClone.answer;
+        });
+      });
+      setGridData(gridDataClone);
     },
     moveTo: (row, col) => {
       const cell = getCell(row, col);

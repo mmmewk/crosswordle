@@ -10,10 +10,10 @@ export const useStats = () => {
   const averageGuesses = useMemo(() => {
     let totalGuesses = 0;
     Object.keys(shareHistories).forEach((index: string) => {
-      if (gameWins[Number(index)] || lostCells[Number(index)]) totalGuesses += shareHistories[Number(index)].length;
+      if (gameWins[Number(index)]) totalGuesses += shareHistories[Number(index)].length;
     });
     return totalGuesses / totalGamesWon;
-  }, [shareHistories, gameWins, lostCells, totalGamesWon]);
+  }, [shareHistories, gameWins, totalGamesWon]);
 
   return {
     streak,

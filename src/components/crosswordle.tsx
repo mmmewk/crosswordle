@@ -187,6 +187,7 @@ const Crosswordle : React.FC = () => {
     } else if (cell.across) {
       return guesses.across[cell.across].length >= 6;
     } else if (cell.down) {
+      console.log(cell.down, guesses.down[cell.down].length);
       return guesses.down[cell.down].length >= 6;
     }
 
@@ -197,17 +198,17 @@ const Crosswordle : React.FC = () => {
     if (isGameWon || lostCell) return;
 
     let gameLost = false;
+    let crosswordCorrect = true;
 
-    const crosswordCorrect = gridData.every((row) => {
-      return row.every((cell) => {
-        if (!cell.used) return true;
+    gridData.forEach((row) => {
+      return row.forEach((cell) => {
+        if (!cell.used) return;
         if (isCellLost(cell)) {
           gameLost = true;
           lose(cell);
           updateShareHistoryWithLoss(cell);
-          return false;
         }
-        return cell.guess === cell.answer;
+        if (crosswordCorrect) crosswordCorrect = cell.guess === cell.answer;
       });
     });
 
@@ -216,6 +217,7 @@ const Crosswordle : React.FC = () => {
     if (gameLost) {
       trackGameEnd(crosswordIndex, 'game_lost', totalGuesses);
       dispatch(updateStreakWithLoss(crosswordIndex));
+      crosswordRef?.current?.reveal();
     }
 
     if (crosswordCorrect) {
