@@ -187,7 +187,6 @@ const Crosswordle : React.FC = () => {
     } else if (cell.across) {
       return guesses.across[cell.across].length >= 6;
     } else if (cell.down) {
-      console.log(cell.down, guesses.down[cell.down].length);
       return guesses.down[cell.down].length >= 6;
     }
 
