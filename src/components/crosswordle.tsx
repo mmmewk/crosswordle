@@ -32,6 +32,7 @@ import { TimerHelpModal } from './modals/TimerHelpModal';
 import { incrementTimer, startTimer } from '../redux/slices/wordleSlice';
 import { useInterval } from '../lib/useInterval';
 import cn from 'classnames';
+import { useWindowListener } from '../lib/useWindowListener';
 
 type crosswordleParams = {
   crosswordNumber?: string;
@@ -96,6 +97,10 @@ const Crosswordle : React.FC = () => {
   useEffect(() => {
     loadValidWords();
   }, [loadValidWords]);
+
+  useWindowListener('keyup', (e: KeyboardEvent) => {
+    if (e.key === 'Shift') togglePencilMode();
+  });
 
   // After keyboard input move to the next square where you can type
   const moveToIndex = useCallback((index: number) => {
@@ -271,7 +276,7 @@ const Crosswordle : React.FC = () => {
     setCurrentGuess('');
   }, [focusedDirection, focusedNumber]);
   
-  const enablePencilMode = () => {
+  const togglePencilMode = () => {
     const enabled = !pencilMode;
     dispatch(setPencilMode(enabled));
     setCurrentGuess('');
@@ -297,7 +302,7 @@ const Crosswordle : React.FC = () => {
         <PencilIcon
           className="h-6 w-6 ml-3 mr-3 cursor-pointer dark:stroke-white"
           fill={pencilMode ? 'rgb(250, 200, 23)' : darkMode ? 'transparent' : 'white'}
-          onClick={enablePencilMode}
+          onClick={togglePencilMode}
         />
         <MenuIcon
           className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white md:hidden"

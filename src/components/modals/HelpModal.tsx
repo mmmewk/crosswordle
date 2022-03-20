@@ -76,7 +76,8 @@ export const HelpModal : React.FC<Props> = ({ onlyKeyboard = false }) => {
           <br />
           <p className="text-sm text-gray-500">
             If you would like to make a note on the crossword that you know what a letter goes in a specific location,
-            enable pencil mode. Just click the <PencilIcon width={15} height={15} className='inline'/> icon to toggle pencil mode.
+            enable pencil mode. Just click the <PencilIcon width={15} height={15} className='inline'/> icon or press shift
+            to toggle pencil mode.
           </p>
 
           <div className="flex justify-center mb-1 mt-4">

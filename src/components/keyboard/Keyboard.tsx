@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
 import { KeyValue } from '../../lib/keyboard'
 import { CharStatus, getStatuses } from '../../lib/statuses'
 import { Key } from './Key'
 import { BackspaceIcon } from '@heroicons/react/outline';
 import { RootState } from '../../redux/store';
 import { useSelector } from 'react-redux';
+import { useWindowListener } from '../../lib/useWindowListener';
 
 type Props = {
   solution: string;
@@ -55,24 +55,18 @@ export const Keyboard = ({ solution, crossedSolution, onChar, onDelete, onEnter,
     }
   }
 
-  useEffect(() => {
-    const listener = (e: KeyboardEvent) => {
-      if (e.code === 'Enter') {
-        onEnter()
-      } else if (e.code === 'Backspace') {
-        onDelete()
-      } else {
-        const key = e.key.toUpperCase()
-        if (key.length === 1 && key >= 'A' && key <= 'Z') {
-          onChar(key)
-        }
+  useWindowListener('keyup', (e: KeyboardEvent) => {
+    if (e.code === 'Enter') {
+      onEnter()
+    } else if (e.code === 'Backspace') {
+      onDelete()
+    } else {
+      const key = e.key.toUpperCase()
+      if (key.length === 1 && key >= 'A' && key <= 'Z') {
+        onChar(key)
       }
     }
-    window.addEventListener('keyup', listener)
-    return () => {
-      window.removeEventListener('keyup', listener)
-    }
-  }, [onEnter, onDelete, onChar])
+  });
 
   return (
     <div className='mt-auto md:mt-none mb-3'>
