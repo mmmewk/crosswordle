@@ -33,3 +33,12 @@ jobs:
         run: |
           aws s3 sync ./build s3://www.crosswordle.mekoppe.com --delete;
           aws cloudfront create-invalidation --distribution-id E3SVIAVWVTLC2J --paths '/*';
+          - uses: actions/checkout@v2
+      - name: Create Sentry release
+        uses: getsentry/action-release@v1
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: crosswordle
+          SENTRY_PROJECT: crosswordle
+        with:
+          environment: production
