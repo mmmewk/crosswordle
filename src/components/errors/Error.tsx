@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { trackEvent } from '../../lib/analytics';
+import * as Sentry from '@sentry/react';
 
 interface Props {
   error?: any;
@@ -11,8 +11,8 @@ const Error: React.FC<Props> = ({ error }) => {
   const githubHref = `https://github.com/mmmewk/crosswordle/issues/new?title=${errorTitle}`;
 
   useEffect(() => {
-    trackEvent('app_crash');
-  }, []);
+    Sentry.showReportDialog({ eventId: error.eventId });  
+  }, [error.eventId]);
 
   return (
     <div className="flex flex-col justify-center items-center w-screen h-screen">
