@@ -3556,10 +3556,10 @@ const crosswords: CrosswordInput[] = [
   {
     author: 'Angela Sin',
     across: {
-      '2': {
-        answer: 'SIP',
+      '1': {
+        answer: 'BASIL',
         row: 0,
-        col: 2
+        col: 0
       },
       '4': {
         answer: 'IRONY',
@@ -3589,7 +3589,7 @@ const crosswords: CrosswordInput[] = [
         col: 2
       },
       '3': {
-        answer: 'PAY',
+        answer: 'LAY',
         row: 0,
         col: 4
       },
@@ -3658,57 +3658,57 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
-    author: 'Chad Jepperson',
+    author: 'Sarah Cheyette',
     across: {
       '1': {
-        answer: 'APES',
+        answer: 'WRAPS',
         row: 0,
         col: 0
       },
       '5': {
-        answer: 'DORM',
+        answer: 'HULA',
         row: 1,
         col: 0
       },
       '6': {
-        answer: 'SWOON',
+        answer: 'AGONE',
         row: 2,
         col: 0
       },
       '8': {
-        answer: 'EDGE',
+        answer: 'NEW',
         row: 3,
-        col: 1
+        col: 2
       },
       '9': {
-        answer: 'REST',
+        answer: 'EAGLE',
         row: 4,
-        col: 1
+        col: 0
       }
     },
     down: {
       '1': {
-        answer: 'ADS',
+        answer: 'WHALE',
         row: 0,
         col: 0
       },
       '2': {
-        answer: 'POWER',
+        answer: 'RUG',
         row: 0,
         col: 1
       },
       '3': {
-        answer: 'ERODE',
+        answer: 'ALONG',
         row: 0,
         col: 2
       },
       '4': {
-        answer: 'SMOGS',
+        answer: 'PANEL',
         row: 0,
         col: 3
       },
       '7': {
-        answer: 'NET',
+        answer: 'EWE',
         row: 2,
         col: 4
       }
@@ -3755,26 +3755,26 @@ const crosswords: CrosswordInput[] = [
     author: 'Angela Sin',
     across: {
       '1': {
-        answer: 'BELT',
+        answer: 'BENTO',
         row: 0,
         col: 0
       },
-      '3': {
+      '4': {
         answer: 'AN',
         row: 1,
         col: 3
       },
-      '4': {
+      '5': {
         answer: 'AILS',
         row: 2,
         col: 0
       },
-      '7': {
+      '8': {
         answer: 'KNOT',
         row: 3,
         col: 0
       },
-      '8': {
+      '9': {
         answer: 'ENTER',
         row: 4,
         col: 0
@@ -3791,12 +3791,17 @@ const crosswords: CrosswordInput[] = [
         row: 0,
         col: 3
       },
-      '5': {
+      '3': {
+        answer: 'ON',
+        row: 0,
+        col: 4
+      },
+      '6': {
         answer: 'INN',
         row: 2,
         col: 1
       },
-      '6': {
+      '7': {
         answer: 'LOT',
         row: 2,
         col: 2
@@ -4136,57 +4141,68 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    author: 'Tanishque',
     across: {
       '1': {
-        answer: 'SPORK',
+        answer: 'STOPS',
         row: 0,
         col: 0
       },
       '5': {
-        answer: 'CUP',
+        answer: 'NO',
         row: 1,
         col: 0
       },
       '6': {
-        answer: 'AMEND',
-        row: 2,
-        col: 0
+        answer: 'IN',
+        row: 1,
+        col: 3
       },
-      '8': {
-        answer: 'LANE',
+      '7': {
+        answer: 'OH',
         row: 3,
         col: 0
       },
       '9': {
-        answer: 'TO',
-        row: 4,
+        answer: 'UP',
+        row: 3,
         col: 3
+      },
+      '10': {
+        answer: 'TENSE',
+        row: 4,
+        col: 0
       }
     },
     down: {
       '1': {
-        answer: 'SCALD',
+        answer: 'SNOOT',
         row: 0,
         col: 0
       },
       '2': {
-        answer: 'PUMA',
+        answer: 'TO',
         row: 0,
         col: 1
       },
       '3': {
-        answer: 'OPEN',
+        answer: 'PI',
         row: 0,
-        col: 2
+        col: 3
       },
       '4': {
-        answer: 'KID',
+        answer: 'SNIPE',
         row: 0,
         col: 4
       },
-      '7': {
-        answer: 'NET',
-        row: 2,
+      '8': {
+        answer: 'HE',
+        row: 3,
+        col: 1
+      },
+      '9': {
+        answer: 'US',
+        row: 3,
         col: 3
       }
     }
@@ -4698,6 +4714,123 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  {
+    author: 'Chad Jepperson',
+    across: {
+      '1': {
+        answer: 'APES',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'DORM',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'SWOON',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'EDGE',
+        row: 3,
+        col: 1
+      },
+      '9': {
+        answer: 'REST',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ADS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'POWER',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ERODE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'SMOGS',
+        row: 0,
+        col: 3
+      },
+      '7': {
+        answer: 'NET',
+        row: 2,
+        col: 4
+      }
+    }
+  },
+  {
+    across: {
+      '1': {
+        answer: 'SPORK',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'CUP',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'AMEND',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'LANE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'TO',
+        row: 4,
+        col: 3
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SCALD',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'PUMA',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'OPEN',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'KID',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'NET',
+        row: 2,
+        col: 3
+      }
+    }
+  },
+  //87
+  //88
+  //89
+  //90
 ];
 
 export default crosswords;
