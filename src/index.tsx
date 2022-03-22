@@ -10,6 +10,8 @@ import { ToastContainer } from 'react-toastify';
 import Spinner from './components/shared/spinner';
 import * as smoothscroll from 'smoothscroll-polyfill';
 import ErrorBoundry from './components/errors/ErrorBoundry';
+import * as Sentry from "@sentry/react";
+import { BrowserTracing } from "@sentry/tracing";
 
 smoothscroll.polyfill();
 
@@ -17,6 +19,17 @@ smoothscroll.polyfill();
 // Loading app involves loading word list and crossword database which takes a long time
 const App = React.lazy(() => import('./App'));
 let persistor = persistStore(store);
+
+Sentry.init({
+  dsn: "https://dfd1f1b23843483d87cf9d87cd52f4dc@o1174397.ingest.sentry.io/6270367",
+  integrations: [new BrowserTracing()],
+  environment: process.env.NODE_ENV,
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 0.01,
+});
 
 ReactDOM.render(
   <React.StrictMode>
