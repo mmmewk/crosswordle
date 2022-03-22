@@ -33,7 +33,7 @@ const ArchiveElement : React.FC<Props> = ({ index }) => {
 
   return (
     <div onClick={onClick} className="m-3 cursor-pointer">
-      <h3 className='text-xl'>Crosswordle {index + 1}</h3>
+      <h3 className='text-xl dark:text-white'>Crosswordle {index + 1}</h3>
       <MiniCrossword gridData={gridData} cellColors={cellColors} margin={5} />
       <p className='text-slate-400'>{releaseDate}</p>
       <p className='text-slate-400'>By {crosswordData.author || 'Matthew Koppe'}</p>
