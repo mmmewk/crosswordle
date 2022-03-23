@@ -3755,19 +3755,19 @@ const crosswords: CrosswordInput[] = [
     author: 'Daniel Linssen',
     across: {
       '1': {
-        answer: 'STEAL',
+        answer: 'SPEAR',
         row: 0,
         col: 0
       },
       '6': {
-        answer: 'HOLLY',
+        answer: 'CELLO',
         row: 1,
         col: 0
       },
       '7': {
-        answer: 'AIR',
+        answer: 'AWAIT',
         row: 2,
-        col: 2
+        col: 0
       },
       '8': {
         answer: 'TEE',
@@ -3782,12 +3782,12 @@ const crosswords: CrosswordInput[] = [
     },
     down: {
       '1': {
-        answer: 'SHARE',
+        answer: 'SCARE',
         row: 0,
         col: 0
       },
       '2': {
-        answer: 'TO',
+        answer: 'PEW',
         row: 0,
         col: 1
       },
@@ -3802,7 +3802,7 @@ const crosswords: CrosswordInput[] = [
         col: 3
       },
       '5': {
-        answer: 'LYRES',
+        answer: 'ROTES',
         row: 0,
         col: 4
       }
