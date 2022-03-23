@@ -101,6 +101,11 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
 
   const share = useCallback(async () => {
     trackShare(crosswordIndex, isGameWon, isGameLost, totalGuesses);
+
+    let shareText = 'https://crosswordle.mekoppe.com';
+    if (isGameWon) shareText = `I solved the crosswordle in ${timeText}${totalGuesses} Guesses!\n${shareText}`;
+    navigator.clipboard.writeText(shareText);
+
     const svg = svgRef.current;
     if (!svg) return;
 
@@ -116,9 +121,6 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
         await addSvgFrame(svg, delay);
       }
       renderGif();
-      let shareText = 'https://crosswordle.mekoppe.com';
-      if (isGameWon) shareText = `I solved the crosswordle in ${timeText}${totalGuesses} Guesses!\n${shareText}`;
-      navigator.clipboard.writeText(shareText);
       resolve('');
     });
 
