@@ -3752,6 +3752,63 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    author: 'Daniel Linssen',
+    across: {
+      '1': {
+        answer: 'STEAL',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'HOLLY',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'AIR',
+        row: 2,
+        col: 2
+      },
+      '8': {
+        answer: 'TEE',
+        row: 3,
+        col: 2
+      },
+      '9': {
+        answer: 'EVENS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SHARE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'TO',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ELATE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'ALIEN',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'LYRES',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
     author: 'Angela Sin',
     across: {
       '1': {
@@ -3865,7 +3922,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 70
   {
     author: 'Chad Jepperson',
     across: {
@@ -3923,6 +3979,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 70
   {
     author: 'Wils E.',
     across: {
@@ -4208,58 +4265,59 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    author: 'Daniel Linssen',
     across: {
       '1': {
-        answer: 'STEMS',
+        answer: 'GHOST',
         row: 0,
         col: 0
       },
       '5': {
-        answer: 'SAT',
+        answer: 'RUM',
         row: 1,
-        col: 2
-      },
-      '6': {
-        answer: 'SIR',
-        row: 2,
-        col: 2
-      },
-      '7': {
-        answer: 'INANE',
-        row: 3,
         col: 0
       },
+      '6': {
+        answer: 'OBEYS',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'GET',
+        row: 3,
+        col: 2
+      },
       '9': {
-        answer: 'TOY',
+        answer: 'LEASE',
         row: 4,
         col: 0
       }
     },
     down: {
       '1': {
-        answer: 'SPLIT',
+        answer: 'GROWL',
         row: 0,
         col: 0
       },
       '2': {
-        answer: 'ESSAY',
+        answer: 'HUB',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'OMEGA',
         row: 0,
         col: 2
       },
-      '3': {
-        answer: 'MAIN',
-        row: 0,
-        col: 3
-      },
       '4': {
-        answer: 'STREW',
+        answer: 'TASTE',
         row: 0,
         col: 4
       },
-      '8': {
-        answer: 'NO',
-        row: 3,
-        col: 1
+      '7': {
+        answer: 'YES',
+        row: 2,
+        col: 3
       }
     }
   },
@@ -4451,7 +4509,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 80
   {
     across: {
       '3': {
@@ -4503,6 +4560,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 80
   {
     author: 'PeppermintG',
     across: {
@@ -4827,8 +4885,62 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  //87
-  //88
+  {
+    across: {
+      '1': {
+        answer: 'STEMS',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'SAT',
+        row: 1,
+        col: 2
+      },
+      '6': {
+        answer: 'SIR',
+        row: 2,
+        col: 2
+      },
+      '7': {
+        answer: 'INANE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'TOY',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SPLIT',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ESSAY',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'MAIN',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'STREW',
+        row: 0,
+        col: 4
+      },
+      '8': {
+        answer: 'NO',
+        row: 3,
+        col: 1
+      }
+    }
+  },
   //89
   //90
 ];
