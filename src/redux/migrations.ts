@@ -96,6 +96,10 @@ export const migrations : any = {
       },
       wordle: {
         ...state.wordle,
+        gameWins: {
+          ...state.wordle.gameWins,
+          64: undefined
+        },
         guesses: {
           ...state.wordle.guesses,
           64: undefined
