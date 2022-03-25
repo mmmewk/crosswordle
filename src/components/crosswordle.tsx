@@ -292,7 +292,7 @@ const Crosswordle : React.FC = () => {
   useEffect(() => {
     // Correction toast specifically for crosswordle 64
     if (crosswordIndex === 64) dispatch(setOpenModal('notice'));
-  }, [crosswordIndex]);
+  }, [crosswordIndex, dispatch]);
 
   // Prevent user from accessing puzzles that haven't yet been released
   if (defaultIndex < crosswordIndex) return <NotFound />
