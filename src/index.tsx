@@ -12,6 +12,7 @@ import * as smoothscroll from 'smoothscroll-polyfill';
 import ErrorBoundry from './components/errors/ErrorBoundry';
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 smoothscroll.polyfill();
 
@@ -50,6 +51,9 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
