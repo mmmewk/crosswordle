@@ -10,6 +10,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { Modal } from '../modals/Modal';
 import { setOpenModal } from '../../redux/slices/navigationSlice';
+import Elevator from 'elevator.js';
+
+const elevator = new Elevator({
+  mainAudio: `${process.env.PUBLIC_URL}/elevator.mp3`,
+  endAudio: `${process.env.PUBLIC_URL}/ding.mp3`,
+});
 
 const Archive : React.FC = () => {
   const navigate = useNavigate();
@@ -102,6 +108,9 @@ const Archive : React.FC = () => {
           {indicies.map((index) => <ArchiveElement index={index} key={index.toString()} />)}
         </div>
       </div>
+      <button onClick={() => elevator.elevate()} className="mx-auto px-2.5 py-1.5 mb-5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        Back to the top
+      </button>
     </div>
   )
 }

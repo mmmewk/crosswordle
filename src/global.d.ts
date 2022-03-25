@@ -5,3 +5,4 @@ declare global {
 }
 
 declare module 'redux-persist-indexeddb-storage';
+declare module 'elevator.js';

@@ -3836,6 +3836,11 @@ electron-to-chromium@^1.4.17:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.48.tgz#1948b5227aa0ca1ed690945eae1adbe9e7904575"
   integrity sha512-RT3SEmpv7XUA+tKXrZGudAWLDpa7f8qmhjcLaM6OD/ERxjQ/zAojT8/Vvo0BSzbArkElFZ1WyZ9FuwAYbkdBNA==
 
+elevator.js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/elevator.js/-/elevator.js-1.0.1.tgz#97ebb45db5093cbadeb0a307bb40cc8264673d8c"
+  integrity sha512-3+jUQIrUxDGjhF7cyrxi+NcqaDkYhQ+Y2UfVqozYMLxAY1i9l2ZjLWzPlFMFc4nx3SPYf9EPHEn1zUqpIWlXng==
+
 emittery@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/emittery/-/emittery-0.8.1.tgz#bb23cc86d03b30aa75a7f734819dee2e1ba70860"
