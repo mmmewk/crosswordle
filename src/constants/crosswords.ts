@@ -3865,6 +3865,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 70
   {
     author: 'PeppermintG',
     across: {
@@ -3979,7 +3980,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 70
   {
     author: 'Wils E.',
     across: {
@@ -4141,59 +4141,59 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
-    author: 'Chad Jepperson',
+    author: 'DJ',
     across: {
       '1': {
-        answer: 'APT',
+        answer: 'QUILT',
         row: 0,
         col: 0
       },
       '4': {
-        answer: 'SLING',
-        row: 1,
-        col: 0
-      },
-      '7': {
-        answer: 'PETAL',
+        answer: 'AHEAD',
         row: 2,
         col: 0
       },
-      '8': {
-        answer: 'SALVE',
+      '7': {
+        answer: 'DO',
         row: 3,
         col: 0
       },
+      '8': {
+        answer: 'ME',
+        row: 3,
+        col: 3
+      },
       '9': {
-        answer: 'EYE',
+        answer: 'STEPS',
         row: 4,
-        col: 2
+        col: 0
       }
     },
     down: {
       '1': {
-        answer: 'ASPS',
+        answer: 'QUADS',
         row: 0,
         col: 0
       },
       '2': {
-        answer: 'PLEA',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'TITLE',
+        answer: 'ICE',
         row: 0,
         col: 2
       },
+      '3': {
+        answer: 'TIDES',
+        row: 0,
+        col: 4
+      },
       '5': {
-        answer: 'NAVY',
-        row: 1,
-        col: 3
+        answer: 'HOT',
+        row: 2,
+        col: 1
       },
       '6': {
-        answer: 'GLEE',
-        row: 1,
-        col: 4
+        answer: 'AMP',
+        row: 2,
+        col: 3
       }
     }
   },
@@ -4322,6 +4322,905 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    author: 'Angela Sin',
+    across: {
+      '1': {
+        answer: 'GREEK',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'RED',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'ACE',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'SUMAC',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'PRANK',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'GRASP',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'RECUR',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'EDEMA',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'KNACK',
+        row: 0,
+        col: 4
+      },
+      '8': {
+        answer: 'AN',
+        row: 3,
+        col: 3
+      }
+    }
+  },
+  {
+    across: {
+      '1': {
+        answer: 'BOBS',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ONION',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'SUE',
+        row: 2,
+        col: 2
+      },
+      '8': {
+        answer: 'SMORE',
+        row: 3,
+        col: 0
+      },
+      '10': {
+        answer: 'TEN',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'BOAST',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ON',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'BISON',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'SOUR',
+        row: 0,
+        col: 3
+      },
+      '6': {
+        answer: 'NEED',
+        row: 1,
+        col: 4
+      },
+      '9': {
+        answer: 'ME',
+        row: 3,
+        col: 1
+      }
+    }
+  },
+  // 80
+  {
+    author: 'PeppermintG',
+    across: {
+      '1': {
+        answer: 'DRANK',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'RAN',
+        row: 1,
+        col: 2
+      },
+      '6': {
+        answer: 'ABOVE',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'SEE',
+        row: 3,
+        col: 2
+      },
+      '8': {
+        answer: 'SEEL',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'DRAWS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'AROSE',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'NAVEL',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'KNEE',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Clement',
+    across: {
+      '1': {
+        answer: 'SAVVY',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'AD',
+        row: 1,
+        col: 0
+      },
+      '5': {
+        answer: 'GABLE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'PEEL',
+        row: 3,
+        col: 1
+      },
+      '9': {
+        answer: 'STEED',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SAG',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ADAPT',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'YIELD',
+        row: 0,
+        col: 4
+      },
+      '6': {
+        answer: 'BEE',
+        row: 2,
+        col: 2
+      },
+      '7': {
+        answer: 'LEE',
+        row: 2,
+        col: 3
+      }
+    }
+  },
+  {
+    across: {
+      '1': {
+        answer: 'ARISE',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'SOFAS',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'IS',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'UP',
+        row: 2,
+        col: 3
+      },
+      '9': {
+        answer: 'DEITY',
+        row: 3,
+        col: 0
+      },
+      '11': {
+        answer: 'ME',
+        row: 4,
+        col: 2
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ASIDE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ROSE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'IF',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'SAUTE',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'ESPY',
+        row: 0,
+        col: 4
+      },
+      '10': {
+        answer: 'IM',
+        row: 3,
+        col: 2
+      }
+    }
+  },
+  {
+    author: 'Daniel Linssen',
+    across: {
+      '1': {
+        answer: 'SOBS',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'PARTS',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'USUAL',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'DINGO',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'STEP',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SPUD',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'OASIS',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'BRUNT',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'STAGE',
+        row: 0,
+        col: 3
+      },
+      '6': {
+        answer: 'SLOP',
+        row: 1,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'PeppermintG',
+    across: {
+      '1': {
+        answer: 'OTTER',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'NASAL',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'EVENS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'OUNCE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'TASTE',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'ROLES',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rory Little',
+    across: {
+      '1': {
+        answer: 'SIGMA',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'CHAD',
+        row: 1,
+        col: 1
+      },
+      '7': {
+        answer: 'AHOLD',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'HOSE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'ART',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '2': {
+        answer: 'ICHOR',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'GHOST',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'MALE',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'ADD',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'AHA',
+        row: 2,
+        col: 0
+      }
+    }
+  },
+  {
+    across: {
+      '1': {
+        answer: 'GALE',
+        row: 0,
+        col: 1
+      },
+      '5': {
+        answer: 'ALLOY',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'AIDE',
+        row: 2,
+        col: 1
+      },
+      '7': {
+        answer: 'URGED',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'PENS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'GLARE',
+        row: 0,
+        col: 1
+      },
+      '2': {
+        answer: 'ALIGN',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'LODES',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'EYED',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'UP',
+        row: 3,
+        col: 0
+      }
+    }
+  },
+  {
+    author: 'Stupxd',
+    across: {
+      '1': {
+        answer: 'PICKS',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'SNOOT',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'CLEAR',
+        row: 3,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'PSYCH',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'IN',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'COPE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'KO',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'STORE',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Chad Jepperson',
+    across: {
+      '1': {
+        answer: 'APES',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'DORM',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'SWOON',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'EDGE',
+        row: 3,
+        col: 1
+      },
+      '9': {
+        answer: 'REST',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ADS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'POWER',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ERODE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'SMOGS',
+        row: 0,
+        col: 3
+      },
+      '7': {
+        answer: 'NET',
+        row: 2,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Angela Sin',
+    across: {
+      '1': {
+        answer: 'CRASS',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'AORTA',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'BEGUN',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'ONE',
+        row: 3,
+        col: 2
+      },
+      '9': {
+        answer: 'EON',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'CABLE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ROE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ARGON',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'STUN',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'SANE',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  // 90
+  {
+    across: {
+      '1': {
+        answer: 'SPORK',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'CUP',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'AMEND',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'LANE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'TO',
+        row: 4,
+        col: 3
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SCALD',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'PUMA',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'OPEN',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'KID',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'NET',
+        row: 2,
+        col: 3
+      }
+    }
+  },
+  {
+    author: 'Rory Little',
+    across: {
+      '1': {
+        answer: 'PRO',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'HURT',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'IS',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'ON',
+        row: 2,
+        col: 3
+      },
+      '9': {
+        answer: 'TIKI',
+        row: 3,
+        col: 1
+      },
+      '11': {
+        answer: 'FEL',
+        row: 4,
+        col: 2
+      }
+    },
+    down: {
+      '1': {
+        answer: 'PHI',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'RUST',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'OR',
+        row: 0,
+        col: 2
+      },
+      '5': {
+        answer: 'TOKE',
+        row: 1,
+        col: 3
+      },
+      '8': {
+        answer: 'NIL',
+        row: 2,
+        col: 4
+      },
+      '10': {
+        answer: 'IF',
+        row: 3,
+        col: 2
+      }
+    }
+  },
+  {
+    across: {
+      '1': {
+        answer: 'STEMS',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'SAT',
+        row: 1,
+        col: 2
+      },
+      '6': {
+        answer: 'SIR',
+        row: 2,
+        col: 2
+      },
+      '7': {
+        answer: 'INANE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'TOY',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SPLIT',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ESSAY',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'MAIN',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'STREW',
+        row: 0,
+        col: 4
+      },
+      '8': {
+        answer: 'NO',
+        row: 3,
+        col: 1
+      }
+    }
+  },
+  {
+    author: 'Chad Jepperson',
+    across: {
+      '1': {
+        answer: 'APT',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'SLING',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'PETAL',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'SALVE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'EYE',
+        row: 4,
+        col: 2
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ASPS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'PLEA',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'TITLE',
+        row: 0,
+        col: 2
+      },
+      '5': {
+        answer: 'NAVY',
+        row: 1,
+        col: 3
+      },
+      '6': {
+        answer: 'GLEE',
+        row: 1,
+        col: 4
+      }
+    }
+  },
+  {
     across: {
       '1': {
         answer: 'TWIST',
@@ -4388,63 +5287,86 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    author: 'Tanishque',
     across: {
       '1': {
-        answer: 'BOBS',
+        answer: 'JADE',
         row: 0,
-        col: 0
+        col: 1
       },
-      '5': {
-        answer: 'ONION',
+      '4': {
+        answer: 'CODE',
         row: 1,
         col: 0
       },
-      '7': {
-        answer: 'SUE',
+      '5': {
+        answer: 'KALE',
         row: 2,
-        col: 2
+        col: 1
       },
-      '8': {
-        answer: 'SMORE',
+      '6': {
+        answer: 'LEPT',
         row: 3,
         col: 0
       },
-      '10': {
-        answer: 'TEN',
+      '7': {
+        answer: 'STAR',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'JOKES',
+        row: 0,
+        col: 1
+      },
+      '2': {
+        answer: 'ADAPT',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'DELTA',
+        row: 0,
+        col: 3
+      }
+    }
+  },
+  {
+    author: 'Stupxd',
+    across: {
+      '1': {
+        answer: 'LABEL',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'AHEAD',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'SHARE',
         row: 4,
         col: 0
       }
     },
     down: {
       '1': {
-        answer: 'BOAST',
+        answer: 'LIARS',
         row: 0,
         col: 0
       },
       '2': {
-        answer: 'ON',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'BISON',
+        answer: 'BYE',
         row: 0,
         col: 2
       },
-      '4': {
-        answer: 'SOUR',
+      '3': {
+        answer: 'LEDGE',
         row: 0,
-        col: 3
-      },
-      '6': {
-        answer: 'NEED',
-        row: 1,
         col: 4
-      },
-      '9': {
-        answer: 'ME',
-        row: 3,
-        col: 1
       }
     }
   },
@@ -4560,389 +5482,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 80
-  {
-    author: 'PeppermintG',
-    across: {
-      '1': {
-        answer: 'DRANK',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'RAN',
-        row: 1,
-        col: 2
-      },
-      '6': {
-        answer: 'ABOVE',
-        row: 2,
-        col: 0
-      },
-      '7': {
-        answer: 'SEE',
-        row: 3,
-        col: 2
-      },
-      '8': {
-        answer: 'SEEL',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'DRAWS',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'AROSE',
-        row: 0,
-        col: 2
-      },
-      '3': {
-        answer: 'NAVEL',
-        row: 0,
-        col: 3
-      },
-      '4': {
-        answer: 'KNEE',
-        row: 0,
-        col: 4
-      }
-    }
-  },
-  {
-    across: {
-      '1': {
-        answer: 'ARISE',
-        row: 0,
-        col: 0
-      },
-      '6': {
-        answer: 'SOFAS',
-        row: 1,
-        col: 0
-      },
-      '7': {
-        answer: 'IS',
-        row: 2,
-        col: 0
-      },
-      '8': {
-        answer: 'UP',
-        row: 2,
-        col: 3
-      },
-      '9': {
-        answer: 'DEITY',
-        row: 3,
-        col: 0
-      },
-      '11': {
-        answer: 'ME',
-        row: 4,
-        col: 2
-      }
-    },
-    down: {
-      '1': {
-        answer: 'ASIDE',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'ROSE',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'IF',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'SAUTE',
-        row: 0,
-        col: 3
-      },
-      '5': {
-        answer: 'ESPY',
-        row: 0,
-        col: 4
-      },
-      '10': {
-        answer: 'IM',
-        row: 3,
-        col: 2
-      }
-    }
-  },
-  {
-    author: 'PeppermintG',
-    across: {
-      '1': {
-        answer: 'OTTER',
-        row: 0,
-        col: 0
-      },
-      '4': {
-        answer: 'NASAL',
-        row: 2,
-        col: 0
-      },
-      '5': {
-        answer: 'EVENS',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'OUNCE',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'TASTE',
-        row: 0,
-        col: 2
-      },
-      '3': {
-        answer: 'ROLES',
-        row: 0,
-        col: 4
-      }
-    }
-  },
-  {
-    across: {
-      '1': {
-        answer: 'GALE',
-        row: 0,
-        col: 1
-      },
-      '5': {
-        answer: 'ALLOY',
-        row: 1,
-        col: 0
-      },
-      '6': {
-        answer: 'AIDE',
-        row: 2,
-        col: 1
-      },
-      '7': {
-        answer: 'URGED',
-        row: 3,
-        col: 0
-      },
-      '8': {
-        answer: 'PENS',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'GLARE',
-        row: 0,
-        col: 1
-      },
-      '2': {
-        answer: 'ALIGN',
-        row: 0,
-        col: 2
-      },
-      '3': {
-        answer: 'LODES',
-        row: 0,
-        col: 3
-      },
-      '4': {
-        answer: 'EYED',
-        row: 0,
-        col: 4
-      },
-      '7': {
-        answer: 'UP',
-        row: 3,
-        col: 0
-      }
-    }
-  },
-  {
-    author: 'Chad Jepperson',
-    across: {
-      '1': {
-        answer: 'APES',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'DORM',
-        row: 1,
-        col: 0
-      },
-      '6': {
-        answer: 'SWOON',
-        row: 2,
-        col: 0
-      },
-      '8': {
-        answer: 'EDGE',
-        row: 3,
-        col: 1
-      },
-      '9': {
-        answer: 'REST',
-        row: 4,
-        col: 1
-      }
-    },
-    down: {
-      '1': {
-        answer: 'ADS',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'POWER',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'ERODE',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'SMOGS',
-        row: 0,
-        col: 3
-      },
-      '7': {
-        answer: 'NET',
-        row: 2,
-        col: 4
-      }
-    }
-  },
-  {
-    across: {
-      '1': {
-        answer: 'SPORK',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'CUP',
-        row: 1,
-        col: 0
-      },
-      '6': {
-        answer: 'AMEND',
-        row: 2,
-        col: 0
-      },
-      '8': {
-        answer: 'LANE',
-        row: 3,
-        col: 0
-      },
-      '9': {
-        answer: 'TO',
-        row: 4,
-        col: 3
-      }
-    },
-    down: {
-      '1': {
-        answer: 'SCALD',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'PUMA',
-        row: 0,
-        col: 1
-      },
-      '3': {
-        answer: 'OPEN',
-        row: 0,
-        col: 2
-      },
-      '4': {
-        answer: 'KID',
-        row: 0,
-        col: 4
-      },
-      '7': {
-        answer: 'NET',
-        row: 2,
-        col: 3
-      }
-    }
-  },
-  {
-    across: {
-      '1': {
-        answer: 'STEMS',
-        row: 0,
-        col: 0
-      },
-      '5': {
-        answer: 'SAT',
-        row: 1,
-        col: 2
-      },
-      '6': {
-        answer: 'SIR',
-        row: 2,
-        col: 2
-      },
-      '7': {
-        answer: 'INANE',
-        row: 3,
-        col: 0
-      },
-      '9': {
-        answer: 'TOY',
-        row: 4,
-        col: 0
-      }
-    },
-    down: {
-      '1': {
-        answer: 'SPLIT',
-        row: 0,
-        col: 0
-      },
-      '2': {
-        answer: 'ESSAY',
-        row: 0,
-        col: 2
-      },
-      '3': {
-        answer: 'MAIN',
-        row: 0,
-        col: 3
-      },
-      '4': {
-        answer: 'STREW',
-        row: 0,
-        col: 4
-      },
-      '8': {
-        answer: 'NO',
-        row: 3,
-        col: 1
-      }
-    }
-  },
-  //89
-  //90
 ];
 
 export default crosswords;
