@@ -288,6 +288,14 @@ const Crosswordle : React.FC = () => {
     }
   }, 1000);
 
+  useEffect(() => {
+    // Correction toast specifically for crosswordle 64
+    if (crosswordIndex === 64) {
+      toast.warn('Today\'s puzzle originally included the word "INATE" which is not in the dictionary.');
+      toast.warn('I have updated the puzzle to only include real words and reset the puzzle for everyone.');
+    }
+  }, [crosswordIndex]);
+
   // Prevent user from accessing puzzles that haven't yet been released
   if (defaultIndex < crosswordIndex) return <NotFound />
 

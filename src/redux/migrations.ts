@@ -79,7 +79,46 @@ export const migrations : any = {
         highContrastMode: false,
       }
     }
-  }
+  },
+  // Fix broken crosswordle 65, if they started it and didn't win we reset the puzzle and show a toast
+  // that explains that the puzzle had a word that wasn't in the dictionary
+  4: (state: RootState) => {
+    const shouldResetStreak = state.wordle.lostCells[64];
+
+    return {
+      ...state,
+      crossword: {
+        ...state.crossword,
+        gridDatas: {
+          ...state.crossword.gridDatas,
+          64: undefined,
+        },
+      },
+      wordle: {
+        ...state.wordle,
+        guesses: {
+          ...state.wordle.guesses,
+          64: undefined
+        },
+        lostCells: {
+          ...state.wordle.lostCells,
+          64: undefined
+        },
+        shareHistories: {
+          ...state.wordle.shareHistories,
+          64: undefined
+        },
+        times: {
+          ...state.wordle.times,
+          64: undefined
+        },
+      },
+      stats: {
+        ...state.stats,
+        streak: shouldResetStreak ? state.stats.maxStreak : state.stats.streak,
+      },
+    }
+  },
 }
 
 function backfillStreak(state: RootState) {

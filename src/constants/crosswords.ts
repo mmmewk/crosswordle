@@ -3624,7 +3624,7 @@ const crosswords: CrosswordInput[] = [
         col: 0
       },
       '8': {
-        answer: 'TOTEM',
+        answer: 'TONER',
         row: 3,
         col: 0
       }
@@ -3641,7 +3641,7 @@ const crosswords: CrosswordInput[] = [
         col: 1
       },
       '3': {
-        answer: 'INATE',
+        answer: 'INANE',
         row: 0,
         col: 2
       },
@@ -3651,7 +3651,7 @@ const crosswords: CrosswordInput[] = [
         col: 3
       },
       '5': {
-        answer: 'SCAMS',
+        answer: 'SCARS',
         row: 0,
         col: 4
       }
