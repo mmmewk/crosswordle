@@ -33,6 +33,7 @@ import { incrementTimer, startTimer } from '../redux/slices/wordleSlice';
 import { useInterval } from '../lib/useInterval';
 import cn from 'classnames';
 import { useWindowListener } from '../lib/useWindowListener';
+import { Modal } from './modals/Modal';
 
 type crosswordleParams = {
   crosswordNumber?: string;
@@ -290,10 +291,7 @@ const Crosswordle : React.FC = () => {
 
   useEffect(() => {
     // Correction toast specifically for crosswordle 64
-    if (crosswordIndex === 64) {
-      toast.warn('Today\'s puzzle originally included the word "INATE" which is not in the dictionary.');
-      toast.warn('I have updated the puzzle to only include real words and reset the puzzle for everyone.');
-    }
+    if (crosswordIndex === 64) dispatch(setOpenModal('notice'));
   }, [crosswordIndex]);
 
   // Prevent user from accessing puzzles that haven't yet been released
@@ -376,6 +374,14 @@ const Crosswordle : React.FC = () => {
         <SettingsModal />
         <SubmitModal />
         <TimerHelpModal />
+        <Modal name='notice' title="Updates to today's puzzle">
+          <p className='text-gray-400'>
+            Today's puzzle originally included the word "INATE" which is a common misspelling of the word "INNATE".
+            Because of this I have modified the puzzle to fix the issue.
+            If you had previously started this puzzle I have reset it, if you still see the word "INATE" in the puzzle try refreshing the page.
+            If you previously lost this puzzle I reset your streak so you won't lose your streak.
+          </p>
+        </Modal>
       </div>
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
         <div className='w-full flex md:items-center justify-center px-20 md:p-6 md:w-1/2' >

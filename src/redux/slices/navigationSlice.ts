@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export interface NavigationState {
   openModal?: 'about' | 'help' | 'helpKeyboardOnly' | 'settings' |
               'share' | 'submit' | 'stats' | 'filters' | 'timerHelp' |
-              'menu',
+              'menu' | 'notice',
   firstRender: boolean;
 };
 

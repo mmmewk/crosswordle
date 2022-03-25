@@ -120,6 +120,7 @@ export const migrations : any = {
       stats: {
         ...state.stats,
         streak: shouldResetStreak ? state.stats.maxStreak : state.stats.streak,
+        lastDailyWin: shouldResetStreak ? +new Date() : state.stats.lastDailyWin,
       },
     }
   },
