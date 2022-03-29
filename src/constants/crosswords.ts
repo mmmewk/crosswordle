@@ -4493,7 +4493,7 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
-    author: 'Clement',
+    author: 'clamclamyan',
     across: {
       '1': {
         answer: 'SAVVY',
@@ -4510,13 +4510,13 @@ const crosswords: CrosswordInput[] = [
         row: 2,
         col: 0
       },
-      '8': {
-        answer: 'PEEL',
+      '7': {
+        answer: 'GO',
         row: 3,
         col: 1
       },
-      '9': {
-        answer: 'STEED',
+      '8': {
+        answer: 'KEYED',
         row: 4,
         col: 0
       }
@@ -4528,7 +4528,7 @@ const crosswords: CrosswordInput[] = [
         col: 0
       },
       '2': {
-        answer: 'ADAPT',
+        answer: 'ADAGE',
         row: 0,
         col: 1
       },
@@ -4538,14 +4538,9 @@ const crosswords: CrosswordInput[] = [
         col: 4
       },
       '6': {
-        answer: 'BEE',
+        answer: 'BOY',
         row: 2,
         col: 2
-      },
-      '7': {
-        answer: 'LEE',
-        row: 2,
-        col: 3
       }
     }
   },
