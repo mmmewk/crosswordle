@@ -4016,7 +4016,7 @@ const crosswords: CrosswordInput[] = [
         col: 1
       },
       '3': {
-        answer: 'ODOTS',
+        answer: 'ODORS',
         row: 0,
         col: 2
       },
