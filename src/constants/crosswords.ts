@@ -5802,6 +5802,63 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    author: 'clamclamyan',
+    across: {
+      '1': {
+        answer: 'YACHT',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ROE',
+        row: 1,
+        col: 2
+      },
+      '6': {
+        answer: 'DAY',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'EXPEL',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'LET',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'YODEL',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'CRYPT',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'HO',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'TESLA',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'AXE',
+        row: 2,
+        col: 1
+      }
+    }
+  },
+  {
     author: 'Chad Jepperson',
     across: {
       '1': {
@@ -6024,6 +6081,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 110
   {
     author: 'Tanishque',
     across: {
@@ -6071,7 +6129,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 110
   {
     author: 'Chad Jepperson',
     across: {
