@@ -5306,12 +5306,12 @@ const crosswords: CrosswordInput[] = [
     author: 'clamclamyan',
     across: {
       '1': {
-        answer: 'SCALA',
+        answer: 'SCUBA',
         row: 0,
         col: 0
       },
       '5': {
-        answer: 'MEN',
+        answer: 'PAN',
         row: 1,
         col: 2
       },
@@ -5343,12 +5343,12 @@ const crosswords: CrosswordInput[] = [
         col: 0
       },
       '2': {
-        answer: 'AM',
+        answer: 'UP',
         row: 0,
         col: 2
       },
       '3': {
-        answer: 'LEO',
+        answer: 'BAO',
         row: 0,
         col: 3
       },
