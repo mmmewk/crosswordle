@@ -290,8 +290,8 @@ const Crosswordle : React.FC = () => {
   }, 1000);
 
   useEffect(() => {
-    // Correction toast specifically for crosswordle 71
-    if (crosswordIndex === 71) dispatch(setOpenModal('notice'));
+    // Correction toast specifically for crosswordle 104
+    if (crosswordIndex === 103) dispatch(setOpenModal('notice'));
   }, [crosswordIndex, dispatch]);
 
   // Prevent user from accessing puzzles that haven't yet been released
@@ -376,8 +376,8 @@ const Crosswordle : React.FC = () => {
         <TimerHelpModal />
         <Modal name='notice' title="Updates to today's puzzle">
           <p className='text-gray-400'>
-            Today's puzzle originally had a typo "ODOTS" instead of "ODORS".
-            If you had previously started this puzzle I have reset it, if you still see the word "ODOTS" in the puzzle try refreshing the page.
+            Today's puzzle originally had a typo "ONIOM" instead of "ONION".
+            If you had previously started this puzzle I have reset it, if you still see the word "ONIOM" in the puzzle try refreshing the page.
             If you previously lost this puzzle I reset your streak so you won't lose your streak.
             Sorry for the typo!
           </p>

@@ -5775,7 +5775,7 @@ const crosswords: CrosswordInput[] = [
         col: 0
       },
       '8': {
-        answer: 'NAMES',
+        answer: 'NINES',
         row: 4,
         col: 0
       }
@@ -5787,7 +5787,7 @@ const crosswords: CrosswordInput[] = [
         col: 1
       },
       '3': {
-        answer: 'ONIOM',
+        answer: 'ONION',
         row: 0,
         col: 2
       },
