@@ -7767,230 +7767,230 @@ const crosswords: CrosswordInput[] = [
   },
   {
     author: 'Gina Foley',
-    "across": {
-        "1": {
-            "answer": "ENZME",
-            "row": 0,
-            "col": 0
-        },
-        "4": {
-            "answer": "JUMBO",
-            "row": 2,
-            "col": 0
-        },
-        "6": {
-            "answer": "BED",
-            "row": 3,
-            "col": 2
-        },
-        "7": {
-            "answer": "ATE",
-            "row": 4,
-            "col": 2
-        }
+    'across': {
+      '1': {
+        'answer': 'ENZME',
+        'row': 0,
+        'col': 0
+      },
+      '4': {
+        'answer': 'JUMBO',
+        'row': 2,
+        'col': 0
+      },
+      '6': {
+        'answer': 'BED',
+        'row': 3,
+        'col': 2
+      },
+      '7': {
+        'answer': 'ATE',
+        'row': 4,
+        'col': 2
+      }
     },
-    "down": {
-        "1": {
-            "answer": "ENJOY",
-            "row": 0,
-            "col": 0
-        },
-        "2": {
-            "answer": "ZUMBA",
-            "row": 0,
-            "col": 2
-        },
-        "3": {
-            "answer": "ERODE",
-            "row": 0,
-            "col": 4
-        },
-        "5": {
-            "answer": "BET",
-            "row": 2,
-            "col": 3
-        }
+    'down': {
+      '1': {
+        'answer': 'ENJOY',
+        'row': 0,
+        'col': 0
+      },
+      '2': {
+        'answer': 'ZUMBA',
+        'row': 0,
+        'col': 2
+      },
+      '3': {
+        'answer': 'ERODE',
+        'row': 0,
+        'col': 4
+      },
+      '5': {
+        'answer': 'BET',
+        'row': 2,
+        'col': 3
+      }
     }
   },
   {
     author: 'Kat Gotsu',
-    "across": {
-        "1": {
-            "answer": "LACKS",
-            "row": 0,
-            "col": 0
-        },
-        "5": {
-            "answer": "ALE",
-            "row": 1,
-            "col": 0
-        },
-        "6": {
-            "answer": "MAPLE",
-            "row": 2,
-            "col": 0
-        },
-        "7": {
-            "answer": "ER",
-            "row": 3,
-            "col": 0
-        },
-        "8": {
-            "answer": "SMOKY",
-            "row": 4,
-            "col": 0
-        }
+    'across': {
+      '1': {
+        'answer': 'LACKS',
+        'row': 0,
+        'col': 0
+      },
+      '5': {
+        'answer': 'ALE',
+        'row': 1,
+        'col': 0
+      },
+      '6': {
+        'answer': 'MAPLE',
+        'row': 2,
+        'col': 0
+      },
+      '7': {
+        'answer': 'ER',
+        'row': 3,
+        'col': 0
+      },
+      '8': {
+        'answer': 'SMOKY',
+        'row': 4,
+        'col': 0
+      }
     },
-    "down": {
-        "1": {
-            "answer": "LAMES",
-            "row": 0,
-            "col": 0
-        },
-        "2": {
-            "answer": "ALARM",
-            "row": 0,
-            "col": 1
-        },
-        "3": {
-            "answer": "CEP",
-            "row": 0,
-            "col": 2
-        },
-        "4": {
-            "answer": "SEEDY",
-            "row": 0,
-            "col": 4
-        }
+    'down': {
+      '1': {
+        'answer': 'LAMES',
+        'row': 0,
+        'col': 0
+      },
+      '2': {
+        'answer': 'ALARM',
+        'row': 0,
+        'col': 1
+      },
+      '3': {
+        'answer': 'CEP',
+        'row': 0,
+        'col': 2
+      },
+      '4': {
+        'answer': 'SEEDY',
+        'row': 0,
+        'col': 4
+      }
     }
   },
   {
     author: 'Kat Gotsu',
-    "across": {
-        "1": {
-            "answer": "LACED",
-            "row": 0,
-            "col": 0
-        },
-        "6": {
-            "answer": "EDEMA",
-            "row": 1,
-            "col": 0
-        },
-        "7": {
-            "answer": "NOR",
-            "row": 2,
-            "col": 2
-        },
-        "8": {
-            "answer": "TOT",
-            "row": 3,
-            "col": 0
-        },
-        "10": {
-            "answer": "SNOBS",
-            "row": 4,
-            "col": 0
-        }
+    'across': {
+      '1': {
+        'answer': 'LACED',
+        'row': 0,
+        'col': 0
+      },
+      '6': {
+        'answer': 'EDEMA',
+        'row': 1,
+        'col': 0
+      },
+      '7': {
+        'answer': 'NOR',
+        'row': 2,
+        'col': 2
+      },
+      '8': {
+        'answer': 'TOT',
+        'row': 3,
+        'col': 0
+      },
+      '10': {
+        'answer': 'SNOBS',
+        'row': 4,
+        'col': 0
+      }
     },
-    "down": {
-        "1": {
-            "answer": "LEFTS",
-            "row": 0,
-            "col": 0
-        },
-        "2": {
-            "answer": "AD",
-            "row": 0,
-            "col": 1
-        },
-        "3": {
-            "answer": "CENTO",
-            "row": 0,
-            "col": 2
-        },
-        "4": {
-            "answer": "EMO",
-            "row": 0,
-            "col": 3
-        },
-        "5": {
-            "answer": "DARES",
-            "row": 0,
-            "col": 4
-        },
-        "9": {
-            "answer": "ON",
-            "row": 3,
-            "col": 1
-        }
+    'down': {
+      '1': {
+        'answer': 'LEFTS',
+        'row': 0,
+        'col': 0
+      },
+      '2': {
+        'answer': 'AD',
+        'row': 0,
+        'col': 1
+      },
+      '3': {
+        'answer': 'CENTO',
+        'row': 0,
+        'col': 2
+      },
+      '4': {
+        'answer': 'EMO',
+        'row': 0,
+        'col': 3
+      },
+      '5': {
+        'answer': 'DARES',
+        'row': 0,
+        'col': 4
+      },
+      '9': {
+        'answer': 'ON',
+        'row': 3,
+        'col': 1
+      }
     }
   },
   {
     author: 'Kat Gotsu',
-    "across": {
-        "1": {
-            "answer": "NASAL",
-            "row": 0,
-            "col": 0
-        },
-        "6": {
-            "answer": "ARETE",
-            "row": 1,
-            "col": 0
-        },
-        "7": {
-            "answer": "TEA",
-            "row": 2,
-            "col": 0
-        },
-        "8": {
-            "answer": "AN",
-            "row": 3,
-            "col": 0
-        },
-        "9": {
-            "answer": "OF",
-            "row": 3,
-            "col": 3
-        },
-        "10": {
-            "answer": "LANKY",
-            "row": 4,
-            "col": 0
-        }
+    'across': {
+      '1': {
+        'answer': 'NASAL',
+        'row': 0,
+        'col': 0
+      },
+      '6': {
+        'answer': 'ARETE',
+        'row': 1,
+        'col': 0
+      },
+      '7': {
+        'answer': 'TEA',
+        'row': 2,
+        'col': 0
+      },
+      '8': {
+        'answer': 'AN',
+        'row': 3,
+        'col': 0
+      },
+      '9': {
+        'answer': 'OF',
+        'row': 3,
+        'col': 3
+      },
+      '10': {
+        'answer': 'LANKY',
+        'row': 4,
+        'col': 0
+      }
     },
-    "down": {
-        "1": {
-            "answer": "NATAL",
-            "row": 0,
-            "col": 0
-        },
-        "2": {
-            "answer": "ARENA",
-            "row": 0,
-            "col": 1
-        },
-        "3": {
-            "answer": "SEA",
-            "row": 0,
-            "col": 2
-        },
-        "4": {
-            "answer": "AT",
-            "row": 0,
-            "col": 3
-        },
-        "5": {
-            "answer": "LEAFY",
-            "row": 0,
-            "col": 4
-        },
-        "9": {
-            "answer": "OK",
-            "row": 3,
-            "col": 3
-        }
+    'down': {
+      '1': {
+        'answer': 'NATAL',
+        'row': 0,
+        'col': 0
+      },
+      '2': {
+        'answer': 'ARENA',
+        'row': 0,
+        'col': 1
+      },
+      '3': {
+        'answer': 'SEA',
+        'row': 0,
+        'col': 2
+      },
+      '4': {
+        'answer': 'AT',
+        'row': 0,
+        'col': 3
+      },
+      '5': {
+        'answer': 'LEAFY',
+        'row': 0,
+        'col': 4
+      },
+      '9': {
+        'answer': 'OK',
+        'row': 3,
+        'col': 3
+      }
     }
   },
 ];
