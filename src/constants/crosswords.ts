@@ -8377,6 +8377,100 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    author: 'James Mercurio',
+    across: {
+      '1': {
+        answer: 'CLAIM',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'OVARY',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'DELVE',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'CHORD',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'AVAIL',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'MAYBE',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Ben Cheyette',
+    across: {
+      '1': {
+        answer: 'SCANT',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'ALLOW',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'COMBE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'STELE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'SET',
+        row: 4,
+        col: 2
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SACS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'CLOT',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ALMES',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'NOBLE',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'TWEET',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
     author: 'Arindam Basu',
     across: {
       '1': {
@@ -8517,6 +8611,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 160
   {
     author: 'Gary D. Hart',
     across: {
@@ -8601,7 +8696,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 160
   {
     author: 'Kat Gotsu',
     'across': {
@@ -8697,6 +8791,63 @@ const crosswords: CrosswordInput[] = [
       '5': {
         answer: 'OAR',
         row: 2,
+        col: 3
+      }
+    }
+  },
+  {
+    author: 'Ben Cheyette',
+    across: {
+      '1': {
+        answer: 'SO',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'OASIS',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'UKASE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'SEIL',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'ENDED',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'SOUSE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'OAKEN',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'USE',
+        row: 0,
+        col: 4
+      },
+      '5': {
+        answer: 'SAID',
+        row: 1,
+        col: 2
+      },
+      '6': {
+        answer: 'ISLE',
+        row: 1,
         col: 3
       }
     }
@@ -8965,6 +9116,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 170
   {
     author: 'Arindam Basu',
     across: {
@@ -9130,7 +9282,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 170
   {
     author: 'Kat Gotsu',
     across: {
@@ -9508,6 +9659,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 180
   {
     author: 'Kat Gotsu',
     'across': {
