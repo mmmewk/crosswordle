@@ -8246,39 +8246,64 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
-    author: 'Kat Gotsu',
-    'across': {
+    author: 'James Drage',
+    across: {
       '1': {
-        'answer': 'CAMEL',
-        'row': 0,
-        'col': 0
+        answer: 'SHOPS',
+        row: 0,
+        col: 0
       },
-      '4': {
-        'answer': 'MARKA',
-        'row': 2,
-        'col': 0
+      '6': {
+        answer: 'CELLO',
+        row: 1,
+        col: 0
       },
-      '5': {
-        'answer': 'AISLE',
-        'row': 4,
-        'col': 0
+      '7': {
+        answer: 'ALDER',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'UM',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'AT',
+        row: 3,
+        col: 3
+      },
+      '10': {
+        answer: 'ITS',
+        row: 4,
+        col: 2
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'COMMA',
-        'row': 0,
-        'col': 0
+        answer: 'SCAUP',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'MARKS',
-        'row': 0,
-        'col': 2
+        answer: 'HELM',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'LEAVE',
-        'row': 0,
-        'col': 4
+        answer: 'OLD',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'PLEAT',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'SORTS',
+        row: 0,
+        col: 4
       }
     }
   },
@@ -9170,58 +9195,64 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    author: 'Ben Cheyette',
     across: {
       '1': {
-        answer: 'GALE',
+        answer: 'GHOUL',
         row: 0,
-        col: 1
-      },
-      '5': {
-        answer: 'ALLOY',
-        row: 1,
         col: 0
       },
       '6': {
-        answer: 'AIDE',
-        row: 2,
-        col: 1
+        answer: 'HORSE',
+        row: 1,
+        col: 0
       },
       '7': {
-        answer: 'URGED',
-        row: 3,
+        answer: 'OWL',
+        row: 2,
         col: 0
       },
       '8': {
-        answer: 'PENS',
-        row: 4,
+        answer: 'SLOTH',
+        row: 3,
         col: 0
+      },
+      '10': {
+        answer: 'PIE',
+        row: 4,
+        col: 2
       }
     },
     down: {
       '1': {
-        answer: 'GLARE',
+        answer: 'GHOST',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'HOWL',
         row: 0,
         col: 1
       },
-      '2': {
-        answer: 'ALIGN',
+      '3': {
+        answer: 'ORLOP',
         row: 0,
         col: 2
       },
-      '3': {
-        answer: 'LODES',
+      '4': {
+        answer: 'US',
         row: 0,
         col: 3
       },
-      '4': {
-        answer: 'EYED',
+      '5': {
+        answer: 'LETHE',
         row: 0,
         col: 4
       },
-      '7': {
-        answer: 'UP',
+      '9': {
+        answer: 'TI',
         row: 3,
-        col: 0
+        col: 3
       }
     }
   },
@@ -9448,6 +9479,73 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    author: 'Kat Gotsu',
+    'across': {
+      '1': {
+        'answer': 'NASAL',
+        'row': 0,
+        'col': 0
+      },
+      '6': {
+        'answer': 'ARETE',
+        'row': 1,
+        'col': 0
+      },
+      '7': {
+        'answer': 'TEA',
+        'row': 2,
+        'col': 0
+      },
+      '8': {
+        'answer': 'AN',
+        'row': 3,
+        'col': 0
+      },
+      '9': {
+        'answer': 'OF',
+        'row': 3,
+        'col': 3
+      },
+      '10': {
+        'answer': 'LANKY',
+        'row': 4,
+        'col': 0
+      }
+    },
+    'down': {
+      '1': {
+        'answer': 'NATAL',
+        'row': 0,
+        'col': 0
+      },
+      '2': {
+        'answer': 'ARENA',
+        'row': 0,
+        'col': 1
+      },
+      '3': {
+        'answer': 'SEA',
+        'row': 0,
+        'col': 2
+      },
+      '4': {
+        'answer': 'AT',
+        'row': 0,
+        'col': 3
+      },
+      '5': {
+        'answer': 'LEAFY',
+        'row': 0,
+        'col': 4
+      },
+      '9': {
+        'answer': 'OK',
+        'row': 3,
+        'col': 3
+      }
+    }
+  },
+  {
     across: {
       '1': {
         answer: 'STEMS',
@@ -9607,6 +9705,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 180
   {
     author: 'Kat Gotsu',
     'across': {
@@ -9659,7 +9758,6 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 180
   {
     author: 'Kat Gotsu',
     'across': {
@@ -9723,69 +9821,95 @@ const crosswords: CrosswordInput[] = [
     }
   },
   {
+    across: {
+      '1': {
+        answer: 'GALE',
+        row: 0,
+        col: 1
+      },
+      '5': {
+        answer: 'ALLOY',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'AIDE',
+        row: 2,
+        col: 1
+      },
+      '7': {
+        answer: 'URGED',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'PENS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'GLARE',
+        row: 0,
+        col: 1
+      },
+      '2': {
+        answer: 'ALIGN',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'LODES',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'EYED',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'UP',
+        row: 3,
+        col: 0
+      }
+    }
+  },
+  {
     author: 'Kat Gotsu',
     'across': {
       '1': {
-        'answer': 'NASAL',
+        'answer': 'CAMEL',
         'row': 0,
         'col': 0
       },
-      '6': {
-        'answer': 'ARETE',
-        'row': 1,
-        'col': 0
-      },
-      '7': {
-        'answer': 'TEA',
+      '4': {
+        'answer': 'MARKA',
         'row': 2,
         'col': 0
       },
-      '8': {
-        'answer': 'AN',
-        'row': 3,
-        'col': 0
-      },
-      '9': {
-        'answer': 'OF',
-        'row': 3,
-        'col': 3
-      },
-      '10': {
-        'answer': 'LANKY',
+      '5': {
+        'answer': 'AISLE',
         'row': 4,
         'col': 0
       }
     },
     'down': {
       '1': {
-        'answer': 'NATAL',
+        'answer': 'COMMA',
         'row': 0,
         'col': 0
       },
       '2': {
-        'answer': 'ARENA',
-        'row': 0,
-        'col': 1
-      },
-      '3': {
-        'answer': 'SEA',
+        'answer': 'MARKS',
         'row': 0,
         'col': 2
       },
-      '4': {
-        'answer': 'AT',
-        'row': 0,
-        'col': 3
-      },
-      '5': {
-        'answer': 'LEAFY',
+      '3': {
+        'answer': 'LEAVE',
         'row': 0,
         'col': 4
-      },
-      '9': {
-        'answer': 'OK',
-        'row': 3,
-        'col': 3
       }
     }
   },
