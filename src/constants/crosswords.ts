@@ -6521,711 +6521,711 @@ const crosswords: CrosswordInput[] = [
   },
   {
     author: 'Guess Who?',
-    'across': {
+    across: {
       '1': {
-        'answer': 'GAD',
-        'row': 0,
-        'col': 0
+        answer: 'GAD',
+        row: 0,
+        col: 0
       },
       '5': {
-        'answer': 'ELEMI',
-        'row': 1,
-        'col': 0
+        answer: 'ELEMI',
+        row: 1,
+        col: 0
       },
       '6': {
-        'answer': 'LIT',
-        'row': 2,
-        'col': 0
+        answer: 'LIT',
+        row: 2,
+        col: 0
       },
       '7': {
-        'answer': 'BATH',
-        'row': 3,
-        'col': 1
+        answer: 'BATH',
+        row: 3,
+        col: 1
       },
       '9': {
-        'answer': 'BIGOT',
-        'row': 4,
-        'col': 0
+        answer: 'BIGOT',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'GEL',
-        'row': 0,
-        'col': 0
+        answer: 'GEL',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'ALIBI',
-        'row': 0,
-        'col': 1
+        answer: 'ALIBI',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'DETAG',
-        'row': 0,
-        'col': 2
+        answer: 'DETAG',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'SIGHT',
-        'row': 0,
-        'col': 4
+        answer: 'SIGHT',
+        row: 0,
+        col: 4
       },
       '8': {
-        'answer': 'TO',
-        'row': 3,
-        'col': 3
+        answer: 'TO',
+        row: 3,
+        col: 3
       }
     }
   },
   {
     author: 'Yasmine Hejazi',
-    'across': {
+    across: {
       '1': {
-        'answer': 'BAYED',
-        'row': 0,
-        'col': 0
+        answer: 'BAYED',
+        row: 0,
+        col: 0
       },
       '6': {
-        'answer': 'LUNA',
-        'row': 1,
-        'col': 1
+        answer: 'LUNA',
+        row: 1,
+        col: 1
       },
       '7': {
-        'answer': 'WIPER',
-        'row': 2,
-        'col': 0
+        answer: 'WIPER',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'HE',
-        'row': 3,
-        'col': 0
+        answer: 'HE',
+        row: 3,
+        col: 0
       },
       '9': {
-        'answer': 'ME',
-        'row': 3,
-        'col': 3
+        answer: 'ME',
+        row: 3,
+        col: 3
       },
       '10': {
-        'answer': 'ONLY',
-        'row': 4,
-        'col': 0
+        answer: 'ONLY',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '2': {
-        'answer': 'ALIEN',
-        'row': 0,
-        'col': 1
+        answer: 'ALIEN',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'YUP',
-        'row': 0,
-        'col': 2
+        answer: 'YUP',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'ENEMY',
-        'row': 0,
-        'col': 3
+        answer: 'ENEMY',
+        row: 0,
+        col: 3
       },
       '5': {
-        'answer': 'DARE',
-        'row': 0,
-        'col': 4
+        answer: 'DARE',
+        row: 0,
+        col: 4
       },
       '7': {
-        'answer': 'WHO',
-        'row': 2,
-        'col': 0
+        answer: 'WHO',
+        row: 2,
+        col: 0
       }
     }
   },
   // 120
   {
     author: 'Hayden Whitehouse',
-    'across': {
+    across: {
       '1': {
-        'answer': 'PAR',
-        'row': 0,
-        'col': 0
+        answer: 'PAR',
+        row: 0,
+        col: 0
       },
       '5': {
-        'answer': 'ALE',
-        'row': 1,
-        'col': 0
+        answer: 'ALE',
+        row: 1,
+        col: 0
       },
       '6': {
-        'answer': 'CLAWS',
-        'row': 2,
-        'col': 0
+        answer: 'CLAWS',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'DOE',
-        'row': 3,
-        'col': 2
+        answer: 'DOE',
+        row: 3,
+        col: 2
       },
       '9': {
-        'answer': 'EYED',
-        'row': 4,
-        'col': 1
+        answer: 'EYED',
+        row: 4,
+        col: 1
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'PACK',
-        'row': 0,
-        'col': 0
+        answer: 'PACK',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'ALL',
-        'row': 0,
-        'col': 1
+        answer: 'ALL',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'READY',
-        'row': 0,
-        'col': 2
+        answer: 'READY',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'BASED',
-        'row': 0,
-        'col': 4
+        answer: 'BASED',
+        row: 0,
+        col: 4
       },
       '7': {
-        'answer': 'WOE',
-        'row': 2,
-        'col': 3
+        answer: 'WOE',
+        row: 2,
+        col: 3
       }
     }
   },
   {
     author: 'pir^2',
-    'across': {
+    across: {
       '1': {
-        'answer': 'SCARE',
-        'row': 0,
-        'col': 0
+        answer: 'SCARE',
+        row: 0,
+        col: 0
       },
       '5': {
-        'answer': 'RAN',
-        'row': 1,
-        'col': 2
+        answer: 'RAN',
+        row: 1,
+        col: 2
       },
       '6': {
-        'answer': 'LUCID',
-        'row': 2,
-        'col': 0
+        answer: 'LUCID',
+        row: 2,
+        col: 0
       },
       '7': {
-        'answer': 'TIRED',
-        'row': 4,
-        'col': 0
+        answer: 'TIRED',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'SPLIT',
-        'row': 0,
-        'col': 0
+        answer: 'SPLIT',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'ARC',
-        'row': 0,
-        'col': 2
+        answer: 'ARC',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'RAISE',
-        'row': 0,
-        'col': 3
+        answer: 'RAISE',
+        row: 0,
+        col: 3
       },
       '4': {
-        'answer': 'END',
-        'row': 0,
-        'col': 4
+        answer: 'END',
+        row: 0,
+        col: 4
       }
     }
   },
   {
     author: 'fifty-six/Knightmere',
-    'across': {
+    across: {
       '1': {
-        'answer': 'FACET',
-        'row': 0,
-        'col': 0
+        answer: 'FACET',
+        row: 0,
+        col: 0
       },
       '4': {
-        'answer': 'CROWS',
-        'row': 2,
-        'col': 0
+        answer: 'CROWS',
+        row: 2,
+        col: 0
       },
       '5': {
-        'answer': 'SASSY',
-        'row': 4,
-        'col': 0
+        answer: 'SASSY',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'FOCUS',
-        'row': 0,
-        'col': 0
+        answer: 'FOCUS',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'CROSS',
-        'row': 0,
-        'col': 2
+        answer: 'CROSS',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'TASTY',
-        'row': 0,
-        'col': 4
+        answer: 'TASTY',
+        row: 0,
+        col: 4
       }
     }
   },
   {
     author: 'Clare Carter',
-    'across': {
+    across: {
       '1': {
-        'answer': 'SALAD',
-        'row': 0,
-        'col': 0
+        answer: 'SALAD',
+        row: 0,
+        col: 0
       },
       '5': {
-        'answer': 'ARE',
-        'row': 1,
-        'col': 2
+        answer: 'ARE',
+        row: 1,
+        col: 2
       },
       '6': {
-        'answer': 'ANIME',
-        'row': 2,
-        'col': 0
+        answer: 'ANIME',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'MAR',
-        'row': 3,
-        'col': 0
+        answer: 'MAR',
+        row: 3,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'SCAM',
-        'row': 0,
-        'col': 0
+        answer: 'SCAM',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'LAIR',
-        'row': 0,
-        'col': 2
+        answer: 'LAIR',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'ARM',
-        'row': 0,
-        'col': 3
+        answer: 'ARM',
+        row: 0,
+        col: 3
       },
       '4': {
-        'answer': 'DEEP',
-        'row': 0,
-        'col': 4
+        answer: 'DEEP',
+        row: 0,
+        col: 4
       },
       '7': {
-        'answer': 'NAP',
-        'row': 2,
-        'col': 1
+        answer: 'NAP',
+        row: 2,
+        col: 1
       }
     }
   },
   {
     author: 'Brendan P.',
-    'across': {
+    across: {
       '1': {
-        'answer': 'SOFA',
-        'row': 0,
-        'col': 0
+        answer: 'SOFA',
+        row: 0,
+        col: 0
       },
       '5': {
-        'answer': 'TRILL',
-        'row': 1,
-        'col': 0
+        answer: 'TRILL',
+        row: 1,
+        col: 0
       },
       '7': {
-        'answer': 'TOO',
-        'row': 2,
-        'col': 2
+        answer: 'TOO',
+        row: 2,
+        col: 2
       },
       '8': {
-        'answer': 'US',
-        'row': 3,
-        'col': 3
+        answer: 'US',
+        row: 3,
+        col: 3
       },
       '9': {
-        'answer': 'SHADE',
-        'row': 4,
-        'col': 0
+        answer: 'SHADE',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'STEWS',
-        'row': 0,
-        'col': 0
+        answer: 'STEWS',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'OR',
-        'row': 0,
-        'col': 1
+        answer: 'OR',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'FIT',
-        'row': 0,
-        'col': 2
+        answer: 'FIT',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'ALOUD',
-        'row': 0,
-        'col': 3
+        answer: 'ALOUD',
+        row: 0,
+        col: 3
       },
       '6': {
-        'answer': 'LOSE',
-        'row': 1,
-        'col': 4
+        answer: 'LOSE',
+        row: 1,
+        col: 4
       }
     }
   },
   {
     author: 'Lola Dubiel',
-    'across': {
+    across: {
       '1': {
-        'answer': 'NAIVE',
-        'row': 0,
-        'col': 0
+        answer: 'NAIVE',
+        row: 0,
+        col: 0
       },
       '4': {
-        'answer': 'PSALM',
-        'row': 3,
-        'col': 0
+        answer: 'PSALM',
+        row: 3,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'NYMPH',
-        'row': 0,
-        'col': 0
+        answer: 'NYMPH',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'IDEAL',
-        'row': 0,
-        'col': 2
+        answer: 'IDEAL',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'ENEMY',
-        'row': 0,
-        'col': 4
+        answer: 'ENEMY',
+        row: 0,
+        col: 4
       }
     }
   },
   {
     author: 'Gail Wong',
-    'across': {
+    across: {
       '4': {
-        'answer': 'ACHOO',
-        'row': 1,
-        'col': 0
+        answer: 'ACHOO',
+        row: 1,
+        col: 0
       },
       '7': {
-        'answer': 'LOYAL',
-        'row': 2,
-        'col': 0
+        answer: 'LOYAL',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'COMFY',
-        'row': 3,
-        'col': 0
+        answer: 'COMFY',
+        row: 3,
+        col: 0
       },
       '9': {
-        'answer': 'LESS',
-        'row': 4,
-        'col': 1
+        answer: 'LESS',
+        row: 4,
+        col: 1
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'TALC',
-        'row': 0,
-        'col': 0
+        answer: 'TALC',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'RHYME',
-        'row': 0,
-        'col': 2
+        answer: 'RHYME',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'POLYS',
-        'row': 0,
-        'col': 4
+        answer: 'POLYS',
+        row: 0,
+        col: 4
       },
       '5': {
-        'answer': 'COOL',
-        'row': 1,
-        'col': 1
+        answer: 'COOL',
+        row: 1,
+        col: 1
       },
       '6': {
-        'answer': 'OAFS',
-        'row': 1,
-        'col': 3
+        answer: 'OAFS',
+        row: 1,
+        col: 3
       }
     }
   },
   {
     author: 'Sarah Cheyette',
-    'across': {
+    across: {
       '1': {
-        'answer': 'SATYR',
-        'row': 0,
-        'col': 0
+        answer: 'SATYR',
+        row: 0,
+        col: 0
       },
       '5': {
-        'answer': 'PAR',
-        'row': 1,
-        'col': 0
+        answer: 'PAR',
+        row: 1,
+        col: 0
       },
       '6': {
-        'answer': 'RHYME',
-        'row': 2,
-        'col': 0
+        answer: 'RHYME',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'SAD',
-        'row': 3,
-        'col': 2
+        answer: 'SAD',
+        row: 3,
+        col: 2
       },
       '9': {
-        'answer': 'TRY',
-        'row': 4,
-        'col': 2
+        answer: 'TRY',
+        row: 4,
+        col: 2
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'SPRY',
-        'row': 0,
-        'col': 0
+        answer: 'SPRY',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'AAH',
-        'row': 0,
-        'col': 1
+        answer: 'AAH',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'TRYST',
-        'row': 0,
-        'col': 2
+        answer: 'TRYST',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'REEDY',
-        'row': 0,
-        'col': 4
+        answer: 'REEDY',
+        row: 0,
+        col: 4
       },
       '7': {
-        'answer': 'MAR',
-        'row': 2,
-        'col': 3
+        answer: 'MAR',
+        row: 2,
+        col: 3
       }
     }
   },
   {
     author: 'Ben Cheyette',
-    'across': {
+    across: {
       '1': {
-        'answer': 'HARSH',
-        'row': 0,
-        'col': 0
+        answer: 'HARSH',
+        row: 0,
+        col: 0
       },
       '6': {
-        'answer': 'ELATE',
-        'row': 1,
-        'col': 0
+        answer: 'ELATE',
+        row: 1,
+        col: 0
       },
       '7': {
-        'answer': 'MADAM',
-        'row': 2,
-        'col': 0
+        answer: 'MADAM',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'PLATE',
-        'row': 3,
-        'col': 0
+        answer: 'PLATE',
+        row: 3,
+        col: 0
       },
       '9': {
-        'answer': 'SARS',
-        'row': 4,
-        'col': 0
+        answer: 'SARS',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'HEMPS',
-        'row': 0,
-        'col': 0
+        answer: 'HEMPS',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'ALALA',
-        'row': 0,
-        'col': 1
+        answer: 'ALALA',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'RADAR',
-        'row': 0,
-        'col': 2
+        answer: 'RADAR',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'STATS',
-        'row': 0,
-        'col': 3
+        answer: 'STATS',
+        row: 0,
+        col: 3
       },
       '5': {
-        'answer': 'HEME',
-        'row': 0,
-        'col': 4
+        answer: 'HEME',
+        row: 0,
+        col: 4
       }
     }
   },
   {
     author: 'Smiley',
-    'across': {
+    across: {
       '1': {
-        'answer': 'PIZZA',
-        'row': 0,
-        'col': 0
+        answer: 'PIZZA',
+        row: 0,
+        col: 0
       },
       '3': {
-        'answer': 'AGENT',
-        'row': 2,
-        'col': 0
+        answer: 'AGENT',
+        row: 2,
+        col: 0
       },
       '5': {
-        'answer': 'ACRES',
-        'row': 4,
-        'col': 0
+        answer: 'ACRES',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'PLAZA',
-        'row': 0,
-        'col': 0
+        answer: 'PLAZA',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'ALTOS',
-        'row': 0,
-        'col': 4
+        answer: 'ALTOS',
+        row: 0,
+        col: 4
       },
       '4': {
-        'answer': 'EAR',
-        'row': 2,
-        'col': 2
+        answer: 'EAR',
+        row: 2,
+        col: 2
       }
     }
   },
   // 130
   {
     author: 'Arindam Basu',
-    'across': {
+    across: {
       '1': {
-        'answer': 'CABIN',
-        'row': 0,
-        'col': 0
+        answer: 'CABIN',
+        row: 0,
+        col: 0
       },
       '4': {
-        'answer': 'BOCCI',
-        'row': 2,
-        'col': 0
+        answer: 'BOCCI',
+        row: 2,
+        col: 0
       },
       '5': {
-        'answer': 'LINES',
-        'row': 4,
-        'col': 0
+        answer: 'LINES',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'CABAL',
-        'row': 0,
-        'col': 0
+        answer: 'CABAL',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'BACON',
-        'row': 0,
-        'col': 2
+        answer: 'BACON',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'NOIRS',
-        'row': 0,
-        'col': 4
+        answer: 'NOIRS',
+        row: 0,
+        col: 4
       }
     }
   },
   {
     author: 'Kat Gotsu',
-    'across': {
+    across: {
       '1': {
-        'answer': 'PRAMS',
-        'row': 0,
-        'col': 0
+        answer: 'PRAMS',
+        row: 0,
+        col: 0
       },
       '6': {
-        'answer': 'RADIO',
-        'row': 1,
-        'col': 0
+        answer: 'RADIO',
+        row: 1,
+        col: 0
       },
       '7': {
-        'answer': 'AM',
-        'row': 2,
-        'col': 0
+        answer: 'AM',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'TO',
-        'row': 2,
-        'col': 3
+        answer: 'TO',
+        row: 2,
+        col: 3
       },
       '9': {
-        'answer': 'BET',
-        'row': 3,
-        'col': 2
+        answer: 'BET',
+        row: 3,
+        col: 2
       },
       '10': {
-        'answer': 'STORY',
-        'row': 4,
-        'col': 0
+        answer: 'STORY',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'PRAYS',
-        'row': 0,
-        'col': 0
+        answer: 'PRAYS',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'RAM',
-        'row': 0,
-        'col': 1
+        answer: 'RAM',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'AD',
-        'row': 0,
-        'col': 2
+        answer: 'AD',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'MITER',
-        'row': 0,
-        'col': 3
+        answer: 'MITER',
+        row: 0,
+        col: 3
       },
       '5': {
-        'answer': 'SOOTY',
-        'row': 0,
-        'col': 4
+        answer: 'SOOTY',
+        row: 0,
+        col: 4
       },
       '9': {
-        'answer': 'BO',
-        'row': 3,
-        'col': 2
+        answer: 'BO',
+        row: 3,
+        col: 2
       }
     }
   },
@@ -7340,53 +7340,53 @@ const crosswords: CrosswordInput[] = [
   },
   {
     author: 'Kat Gotsu',
-    'across': {
+    across: {
       '1': {
-        'answer': 'TRAPS',
-        'row': 0,
-        'col': 0
+        answer: 'TRAPS',
+        row: 0,
+        col: 0
       },
       '5': {
-        'answer': 'LIE',
-        'row': 1,
-        'col': 2
+        answer: 'LIE',
+        row: 1,
+        col: 2
       },
       '6': {
-        'answer': 'SATAN',
-        'row': 2,
-        'col': 0
+        answer: 'SATAN',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'TENS',
-        'row': 3,
-        'col': 1
+        answer: 'TENS',
+        row: 3,
+        col: 1
       },
       '9': {
-        'answer': 'ROE',
-        'row': 4,
-        'col': 2
+        answer: 'ROE',
+        row: 4,
+        col: 2
       }
     },
-    'down': {
+    down: {
       '2': {
-        'answer': 'ALTER',
-        'row': 0,
-        'col': 2
+        answer: 'ALTER',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'PIANO',
-        'row': 0,
-        'col': 3
+        answer: 'PIANO',
+        row: 0,
+        col: 3
       },
       '4': {
-        'answer': 'SENSE',
-        'row': 0,
-        'col': 4
+        answer: 'SENSE',
+        row: 0,
+        col: 4
       },
       '7': {
-        'answer': 'AT',
-        'row': 2,
-        'col': 1
+        answer: 'AT',
+        row: 2,
+        col: 1
       }
     }
   },
@@ -7652,85 +7652,85 @@ const crosswords: CrosswordInput[] = [
   // 140
   {
     author: 'Kat Gotsu',
-    'across': {
+    across: {
       '1': {
-        'answer': 'ARMOR',
-        'row': 0,
-        'col': 0
+        answer: 'ARMOR',
+        row: 0,
+        col: 0
       },
       '4': {
-        'answer': 'YARDS',
-        'row': 2,
-        'col': 0
+        answer: 'YARDS',
+        row: 2,
+        col: 0
       },
       '5': {
-        'answer': 'CRYPT',
-        'row': 4,
-        'col': 0
+        answer: 'CRYPT',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'ASYNC',
-        'row': 0,
-        'col': 0
+        answer: 'ASYNC',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'MARRY',
-        'row': 0,
-        'col': 2
+        answer: 'MARRY',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'RESET',
-        'row': 0,
-        'col': 4
+        answer: 'RESET',
+        row: 0,
+        col: 4
       }
     }
   },
   {
     author: 'Smiley',
-    'across': {
+    across: {
       '1': {
-        'answer': 'SODAS',
-        'row': 0,
-        'col': 0
+        answer: 'SODAS',
+        row: 0,
+        col: 0
       },
       '6': {
-        'answer': 'CHEST',
-        'row': 1,
-        'col': 0
+        answer: 'CHEST',
+        row: 1,
+        col: 0
       },
       '7': {
-        'answer': 'RODEO',
-        'row': 3,
-        'col': 0
+        answer: 'RODEO',
+        row: 3,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'SCARY',
-        'row': 0,
-        'col': 0
+        answer: 'SCARY',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'OH',
-        'row': 0,
-        'col': 1
+        answer: 'OH',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'DEED',
-        'row': 0,
-        'col': 2
+        answer: 'DEED',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'AS',
-        'row': 0,
-        'col': 3
+        answer: 'AS',
+        row: 0,
+        col: 3
       },
       '5': {
-        'answer': 'STOOP',
-        'row': 0,
-        'col': 4
+        answer: 'STOOP',
+        row: 0,
+        col: 4
       }
     }
   },
@@ -7986,58 +7986,58 @@ const crosswords: CrosswordInput[] = [
   },
   {
     author: 'Kat Gotsu',
-    'across': {
+    across: {
       '1': {
-        'answer': 'SLATE',
-        'row': 0,
-        'col': 0
+        answer: 'SLATE',
+        row: 0,
+        col: 0
       },
       '5': {
-        'answer': 'PESO',
-        'row': 1,
-        'col': 0
+        answer: 'PESO',
+        row: 1,
+        col: 0
       },
       '6': {
-        'answer': 'AGING',
-        'row': 2,
-        'col': 0
+        answer: 'AGING',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'MAD',
-        'row': 3,
-        'col': 0
+        answer: 'MAD',
+        row: 3,
+        col: 0
       },
       '9': {
-        'answer': 'SLEPT',
-        'row': 4,
-        'col': 0
+        answer: 'SLEPT',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'SPAMS',
-        'row': 0,
-        'col': 0
+        answer: 'SPAMS',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'LEGAL',
-        'row': 0,
-        'col': 1
+        answer: 'LEGAL',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'ASIDE',
-        'row': 0,
-        'col': 2
+        answer: 'ASIDE',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'TON',
-        'row': 0,
-        'col': 3
+        answer: 'TON',
+        row: 0,
+        col: 3
       },
       '7': {
-        'answer': 'GOT',
-        'row': 2,
-        'col': 4
+        answer: 'GOT',
+        row: 2,
+        col: 4
       }
     }
   },
@@ -8723,58 +8723,58 @@ const crosswords: CrosswordInput[] = [
   },
   {
     author: 'Kat Gotsu',
-    'across': {
+    across: {
       '1': {
-        'answer': 'PANTS',
-        'row': 0,
-        'col': 0
+        answer: 'PANTS',
+        row: 0,
+        col: 0
       },
       '6': {
-        'answer': 'FOUL',
-        'row': 1,
-        'col': 1
+        answer: 'FOUL',
+        row: 1,
+        col: 1
       },
       '7': {
-        'answer': 'SINGE',
-        'row': 2,
-        'col': 0
+        answer: 'SINGE',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'OR',
-        'row': 3,
-        'col': 0
+        answer: 'OR',
+        row: 3,
+        col: 0
       },
       '9': {
-        'answer': 'SETUP',
-        'row': 4,
-        'col': 0
+        answer: 'SETUP',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '2': {
-        'answer': 'AFIRE',
-        'row': 0,
-        'col': 1
+        answer: 'AFIRE',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'NON',
-        'row': 0,
-        'col': 2
+        answer: 'NON',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'TUG',
-        'row': 0,
-        'col': 3
+        answer: 'TUG',
+        row: 0,
+        col: 3
       },
       '5': {
-        'answer': 'SLEEP',
-        'row': 0,
-        'col': 4
+        answer: 'SLEEP',
+        row: 0,
+        col: 4
       },
       '7': {
-        'answer': 'SOS',
-        'row': 2,
-        'col': 0
+        answer: 'SOS',
+        row: 2,
+        col: 0
       }
     }
   },
@@ -8874,6 +8874,115 @@ const crosswords: CrosswordInput[] = [
         answer: 'ISLE',
         row: 1,
         col: 3
+      }
+    }
+  },
+  {
+    author: 'Jayden Swift',
+    across: {
+      '1': {
+        answer: 'CACHE',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'HA',
+        row: 1,
+        col: 2
+      },
+      '5': {
+        answer: 'CRISP',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'HALT',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'IDLES',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '2': {
+        answer: 'CHILL',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'HASTE',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'CHI',
+        row: 2,
+        col: 0
+      },
+      '6': {
+        answer: 'RAD',
+        row: 2,
+        col: 1
+      }
+    }
+  },
+  {
+    author: 'Jordan Chong',
+    across: {
+      '1': {
+        answer: 'ODE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'CORER',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'ANGER',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'SCAMS',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'TEN',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ORGAN',
+        row: 0,
+        col: 2
+      },
+      '2': {
+        answer: 'DEEM',
+        row: 0,
+        col: 3
+      },
+      '3': {
+        answer: 'ERRS',
+        row: 0,
+        col: 4
+      },
+      '4': {
+        answer: 'CAST',
+        row: 1,
+        col: 0
+      },
+      '5': {
+        answer: 'ONCE',
+        row: 1,
+        col: 1
       }
     }
   },
@@ -9042,6 +9151,7 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  // 170
   {
     author: 'Kat Gotsu',
     across: {
@@ -9141,7 +9251,63 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
-  // 170
+  {
+    author: 'Jackie Cheyette',
+    across: {
+      '1': {
+        answer: 'CELS',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'YO',
+        row: 1,
+        col: 0
+      },
+      '4': {
+        answer: 'ARENA',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'MAYOR',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'SLEDS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'CORAL',
+        row: 0,
+        col: 1
+      },
+      '2': {
+        answer: 'SOARS',
+        row: 0,
+        col: 4
+      },
+      '3': {
+        answer: 'YAMS',
+        row: 1,
+        col: 0
+      },
+      '5': {
+        answer: 'EYE',
+        row: 2,
+        col: 2
+      },
+      '6': {
+        answer: 'NOD',
+        row: 2,
+        col: 3
+      }
+    }
+  },
   {
     author: 'Arindam Basu',
     across: {
@@ -9480,71 +9646,72 @@ const crosswords: CrosswordInput[] = [
   },
   {
     author: 'Kat Gotsu',
-    'across': {
+    across: {
       '1': {
-        'answer': 'NASAL',
-        'row': 0,
-        'col': 0
+        answer: 'NASAL',
+        row: 0,
+        col: 0
       },
       '6': {
-        'answer': 'ARETE',
-        'row': 1,
-        'col': 0
+        answer: 'ARETE',
+        row: 1,
+        col: 0
       },
       '7': {
-        'answer': 'TEA',
-        'row': 2,
-        'col': 0
+        answer: 'TEA',
+        row: 2,
+        col: 0
       },
       '8': {
-        'answer': 'AN',
-        'row': 3,
-        'col': 0
+        answer: 'AN',
+        row: 3,
+        col: 0
       },
       '9': {
-        'answer': 'OF',
-        'row': 3,
-        'col': 3
+        answer: 'OF',
+        row: 3,
+        col: 3
       },
       '10': {
-        'answer': 'LANKY',
-        'row': 4,
-        'col': 0
+        answer: 'LANKY',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'NATAL',
-        'row': 0,
-        'col': 0
+        answer: 'NATAL',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'ARENA',
-        'row': 0,
-        'col': 1
+        answer: 'ARENA',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'SEA',
-        'row': 0,
-        'col': 2
+        answer: 'SEA',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'AT',
-        'row': 0,
-        'col': 3
+        answer: 'AT',
+        row: 0,
+        col: 3
       },
       '5': {
-        'answer': 'LEAFY',
-        'row': 0,
-        'col': 4
+        answer: 'LEAFY',
+        row: 0,
+        col: 4
       },
       '9': {
-        'answer': 'OK',
-        'row': 3,
-        'col': 3
+        answer: 'OK',
+        row: 3,
+        col: 3
       }
     }
   },
+  // 180
   {
     across: {
       '1': {
@@ -9660,163 +9827,162 @@ const crosswords: CrosswordInput[] = [
   },
   {
     author: 'Gina Foley',
-    'across': {
+    across: {
       '1': {
-        'answer': 'ENZME',
-        'row': 0,
-        'col': 0
+        answer: 'ENZME',
+        row: 0,
+        col: 0
       },
       '4': {
-        'answer': 'JUMBO',
-        'row': 2,
-        'col': 0
+        answer: 'JUMBO',
+        row: 2,
+        col: 0
       },
       '6': {
-        'answer': 'BED',
-        'row': 3,
-        'col': 2
+        answer: 'BED',
+        row: 3,
+        col: 2
       },
       '7': {
-        'answer': 'ATE',
-        'row': 4,
-        'col': 2
+        answer: 'ATE',
+        row: 4,
+        col: 2
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'ENJOY',
-        'row': 0,
-        'col': 0
+        answer: 'ENJOY',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'ZUMBA',
-        'row': 0,
-        'col': 2
+        answer: 'ZUMBA',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'ERODE',
-        'row': 0,
-        'col': 4
+        answer: 'ERODE',
+        row: 0,
+        col: 4
       },
       '5': {
-        'answer': 'BET',
-        'row': 2,
-        'col': 3
-      }
-    }
-  },
-  // 180
-  {
-    author: 'Kat Gotsu',
-    'across': {
-      '1': {
-        'answer': 'LACKS',
-        'row': 0,
-        'col': 0
-      },
-      '5': {
-        'answer': 'ALE',
-        'row': 1,
-        'col': 0
-      },
-      '6': {
-        'answer': 'MAPLE',
-        'row': 2,
-        'col': 0
-      },
-      '7': {
-        'answer': 'ER',
-        'row': 3,
-        'col': 0
-      },
-      '8': {
-        'answer': 'SMOKY',
-        'row': 4,
-        'col': 0
-      }
-    },
-    'down': {
-      '1': {
-        'answer': 'LAMES',
-        'row': 0,
-        'col': 0
-      },
-      '2': {
-        'answer': 'ALARM',
-        'row': 0,
-        'col': 1
-      },
-      '3': {
-        'answer': 'CEP',
-        'row': 0,
-        'col': 2
-      },
-      '4': {
-        'answer': 'SEEDY',
-        'row': 0,
-        'col': 4
+        answer: 'BET',
+        row: 2,
+        col: 3
       }
     }
   },
   {
     author: 'Kat Gotsu',
-    'across': {
+    across: {
       '1': {
-        'answer': 'LACED',
-        'row': 0,
-        'col': 0
+        answer: 'LACKS',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ALE',
+        row: 1,
+        col: 0
       },
       '6': {
-        'answer': 'EDEMA',
-        'row': 1,
-        'col': 0
+        answer: 'MAPLE',
+        row: 2,
+        col: 0
       },
       '7': {
-        'answer': 'NOR',
-        'row': 2,
-        'col': 2
+        answer: 'ER',
+        row: 3,
+        col: 0
       },
       '8': {
-        'answer': 'TOT',
-        'row': 3,
-        'col': 0
+        answer: 'SMOKY',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'LAMES',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ALARM',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'CEP',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'SEEDY',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Kat Gotsu',
+    across: {
+      '1': {
+        answer: 'LACED',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'EDEMA',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'NOR',
+        row: 2,
+        col: 2
+      },
+      '8': {
+        answer: 'TOT',
+        row: 3,
+        col: 0
       },
       '10': {
-        'answer': 'SNOBS',
-        'row': 4,
-        'col': 0
+        answer: 'SNOBS',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'LEFTS',
-        'row': 0,
-        'col': 0
+        answer: 'LEFTS',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'AD',
-        'row': 0,
-        'col': 1
+        answer: 'AD',
+        row: 0,
+        col: 1
       },
       '3': {
-        'answer': 'CENTO',
-        'row': 0,
-        'col': 2
+        answer: 'CENTO',
+        row: 0,
+        col: 2
       },
       '4': {
-        'answer': 'EMO',
-        'row': 0,
-        'col': 3
+        answer: 'EMO',
+        row: 0,
+        col: 3
       },
       '5': {
-        'answer': 'DARES',
-        'row': 0,
-        'col': 4
+        answer: 'DARES',
+        row: 0,
+        col: 4
       },
       '9': {
-        'answer': 'ON',
-        'row': 3,
-        'col': 1
+        answer: 'ON',
+        row: 3,
+        col: 1
       }
     }
   },
@@ -9878,38 +10044,287 @@ const crosswords: CrosswordInput[] = [
   },
   {
     author: 'Kat Gotsu',
-    'across': {
+    across: {
       '1': {
-        'answer': 'CAMEL',
-        'row': 0,
-        'col': 0
+        answer: 'CAMEL',
+        row: 0,
+        col: 0
       },
       '4': {
-        'answer': 'MARKA',
-        'row': 2,
-        'col': 0
+        answer: 'MARKA',
+        row: 2,
+        col: 0
       },
       '5': {
-        'answer': 'AISLE',
-        'row': 4,
-        'col': 0
+        answer: 'AISLE',
+        row: 4,
+        col: 0
       }
     },
-    'down': {
+    down: {
       '1': {
-        'answer': 'COMMA',
-        'row': 0,
-        'col': 0
+        answer: 'COMMA',
+        row: 0,
+        col: 0
       },
       '2': {
-        'answer': 'MARKS',
-        'row': 0,
-        'col': 2
+        answer: 'MARKS',
+        row: 0,
+        col: 2
       },
       '3': {
-        'answer': 'LEAVE',
-        'row': 0,
-        'col': 4
+        answer: 'LEAVE',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Kat Gotsu',
+    across: {
+      '1': {
+        answer: 'CADRE',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ALE',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'MOUSE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'POCKS',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'FEY',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'CAMP',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ALOOF',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'DEUCE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'EKES',
+        row: 0,
+        col: 4
+      },
+      '7': {
+        answer: 'SKY',
+        row: 2,
+        col: 3
+      }
+    }
+  },
+  {
+    author: 'Kat Gotsu',
+    across: {
+      '1': {
+        answer: 'TABLA',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'WHEEN',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'AN',
+        row: 2,
+        col: 3
+      },
+      '8': {
+        answer: 'HIVE',
+        row: 3,
+        col: 1
+      },
+      '10': {
+        answer: 'FEDEX',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'TWO',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'AH',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'BE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'LEAVE',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'ANNEX',
+        row: 0,
+        col: 4
+      },
+      '8': {
+        answer: 'HE',
+        row: 3,
+        col: 1
+      },
+      '9': {
+        answer: 'ID',
+        row: 3,
+        col: 2
+      }
+    }
+  },
+  {
+    author: 'Kat Gotsu',
+    across: {
+      '1': {
+        answer: 'JAUNT',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'ERROR',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'WEB',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'AID',
+        row: 3,
+        col: 2
+      },
+      '10': {
+        answer: 'LENSE',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'JEWEL',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ARE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'URBAN',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'NO',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'TRADE',
+        row: 0,
+        col: 4
+      },
+      '9': {
+        answer: 'IS',
+        row: 3,
+        col: 3
+      }
+    }
+  },
+  // 190
+  {
+    author: 'Kat Gotsu',
+    across: {
+      '1': {
+        answer: 'MEDAL',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'ANIME',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'DEPOT',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'AM',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'MY',
+        row: 4,
+        col: 0
+      },
+      '10': {
+        answer: 'GO',
+        row: 4,
+        col: 3
+      }
+    },
+    down: {
+      '1': {
+        answer: 'MADAM',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ENEMY',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'DIP',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'AMONG',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'LET',
+        row: 0,
+        col: 4
       }
     }
   },
