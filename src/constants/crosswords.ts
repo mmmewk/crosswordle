@@ -10857,6 +10857,58 @@ const crosswords: CrosswordInput[] = [
     }
   },
   // 200
+  {
+    author: 'Verulean',
+    across: {
+      '1': {
+        answer: 'ANTE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'AM',
+        row: 1,
+        col: 0
+      },
+      '4': {
+        answer: 'COUNT',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'ENSUE',
+        row: 3,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'AMONG',
+        row: 0,
+        col: 1
+      },
+      '2': {
+        answer: 'ESTER',
+        row: 0,
+        col: 4
+      },
+      '3': {
+        answer: 'ACE',
+        row: 1,
+        col: 0
+      },
+      '5': {
+        answer: 'US',
+        row: 2,
+        col: 2
+      },
+      '6': {
+        answer: 'NU',
+        row: 2,
+        col: 3
+      }
+    }
+  },
 ];
 
 export default crosswords;
