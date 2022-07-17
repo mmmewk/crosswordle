@@ -10909,6 +10909,95 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  {
+    author: 'Lucy Woodhouse',
+    across: {
+      '1': {
+        answer: 'HOTEL',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'SEPIA',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'YACHT',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'HASTY',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'TOPIC',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'LEANT',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Sarah Cheyette',
+    across: {
+      '1': {
+        answer: 'LASSO',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'OWN',
+        row: 1,
+        col: 2
+      },
+      '6': {
+        answer: 'FIE',
+        row: 2,
+        col: 2
+      },
+      '7': {
+        answer: 'REAP',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'SEC',
+        row: 4,
+        col: 2
+      }
+    },
+    down: {
+      '1': {
+        answer: 'LAIRS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'SOFAS',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'SWIPE',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'ONE',
+        row: 0,
+        col: 4
+      }
+    }
+  }
 ];
 
 export default crosswords;
