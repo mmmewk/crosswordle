@@ -10997,7 +10997,381 @@ const crosswords: CrosswordInput[] = [
         col: 4
       }
     }
-  }
+  },
+  {
+    author: 'Kate Isaacs',
+    across: {
+      '1': {
+        answer: 'CAWL',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ALOOF',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'MORSE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'ENDED',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'LEYS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'CAMEL',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ALONE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'WORDY',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'LOSES',
+        row: 0,
+        col: 3
+      },
+      '6': {
+        answer: 'FED',
+        row: 1,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Kate Isaacs',
+    across: {
+      '1': {
+        answer: 'YACHT',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ECHO',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'ATOLL',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'SORE',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'TRESS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'YEAST',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ACTOR',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'CHORE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'HOLES',
+        row: 0,
+        col: 3
+      }
+    }
+  },
+  {
+    author: 'Arindam Mukherjee',
+    across: {
+      '1': {
+        answer: 'CRAFT',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'REBAR',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'AGATE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'PASTE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'LEYS',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'CRAP',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'REGAL',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ABASE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'FATTY',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'TREES',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Kate Isaacs',
+    across: {
+      '1': {
+        answer: 'WENCH',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'IVORY',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'LIVER',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'LLAMA',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'EX',
+        row: 4,
+        col: 3
+      }
+    },
+    down: {
+      '1': {
+        answer: 'WILLS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'EVIL',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'NOVA',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'CREME',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'HYRAX',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Jessica Black',
+    across: {
+      '1': {
+        answer: 'CLAPS',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'LABEL',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'ABODE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'MOVED',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'PRESS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'CLAMP',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'LABOR',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ABOVE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'PEDES',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'SLEDS',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Anneliese Odegard',
+    across: {
+      '1': {
+        answer: 'HEART',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'ULTRA',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'DIRTY',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'HOUND',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ACTOR',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'TRACY',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Kat Gotsu',
+    across: {
+      '1': {
+        answer: 'LAMBS',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'AWAIT',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'SANDY',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'TILE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'TYRE',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'LAST',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'AWAIT',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'MANLY',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'BIDER',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'STY',
+        row: 0,
+        col: 4
+      }
+    }
+  },
 ];
 
 export default crosswords;
