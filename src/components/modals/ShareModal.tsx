@@ -12,9 +12,8 @@ import { trackShare } from '../../lib/analytics';
 import { toast } from 'react-toastify';
 import { useGameState } from '../../redux/hooks/useGameState';
 import { Modal } from './Modal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { setOpenModal } from '../../redux/slices/navigationSlice';
 import { Stats } from './Stats';
 import crosswords from '../../constants/crosswords';
 
@@ -55,14 +54,11 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
   const [cellColors, setCellColors] = useState<{ [key: string]: string }>();
   const [gridData] = useState<GridData>(createGridData(crossword));
   const totalGuesses = getTotalGuesses(guesses);
-  const dispatch = useDispatch();
   const openModal = useSelector((state: RootState) => state.navigation.openModal);
   const { showTimer } = useSelector((state: RootState) => state.settings);
   const outOfPuzzles = getPuzzleIndexForDate(new Date()) === crosswords.length - 1;
 
   let timeText = useMemo(() => (showTimer && time) ? `${formatTime(time)} with ` : '', [time, showTimer]);
-
-  const openSubmitModal = () => dispatch(setOpenModal('submit'));
 
   // Update time till next crosswordle every second
   useEffect(() => {
