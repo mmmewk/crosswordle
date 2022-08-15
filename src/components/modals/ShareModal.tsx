@@ -5,7 +5,7 @@ import { CheckIcon } from '@heroicons/react/outline';
 import { ShareIcon } from '@heroicons/react/outline';
 import { XIcon } from '@heroicons/react/outline';
 import { MiniCrossword, SVG_WIDTH, SVG_HEADER_SIZE } from '../mini-crossword/MiniCrossword';
-import { formatTime, getTotalGuesses, sleep, timeTillTomorrow } from '../../lib/utils';
+import { formatTime, getPuzzleIndexForDate, getTotalGuesses, sleep, timeTillTomorrow } from '../../lib/utils';
 import { GridData } from '../../types';
 import { createGridData } from '../../lib/crossword-utils';
 import { trackShare } from '../../lib/analytics';
@@ -58,6 +58,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
   const dispatch = useDispatch();
   const openModal = useSelector((state: RootState) => state.navigation.openModal);
   const { showTimer } = useSelector((state: RootState) => state.settings);
+  const outOfPuzzles = getPuzzleIndexForDate(new Date()) === crosswords.length - 1;
 
   let timeText = useMemo(() => (showTimer && time) ? `${formatTime(time)} with ` : '', [time, showTimer]);
 
@@ -183,10 +184,12 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
         </div>
         <div className="mt-5 sm:mt-6">
           <div className='flex justify-center items-center text-center'>
-            <div className='w-1/2 border-r-slate-300 border-r-[1px] mr-2 flex-col justify-center items-center text-center'>
-              <p>Next Crosswordle</p>
-              <p className='text-xl'>{timeTillNext}</p>
-            </div>
+            {!outOfPuzzles &&(
+              <div className='w-1/2 border-r-slate-300 border-r-[1px] mr-2 flex-col justify-center items-center text-center'>
+                <p>Next Crosswordle</p>
+                <p className='text-xl'>{timeTillNext}</p>
+              </div>
+            )}
             <div className='w-1/2 ml-2 flex justify-center items-center text-center'>
               <button
                 type="button"
@@ -205,14 +208,15 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
           </div>
         </div>
         <div className="flex flex-col mx-auto items-center m-4 md:m-6 text-center border-t border-t-slate-300">
-          <p className="p-4">Enjoying the crosswordle?</p>
-          <button
-            type="button"
-            className="mx-auto flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            onClick={openSubmitModal}
-          >
-            Submit your own crosswordle!
-          </button>
+          <p className="p-4">Thanks for Playing!</p>
+          <p className="text-sm text-gray-500">
+            I have decided to stop work on the crosswordle to make more room for other side projects in my life.
+            I will not be publishing puzzles past late August, but if you really like the game and want to take over the project
+            you can email me at{' '}
+            <a href="mailto:matthew@crosswordle.com" target='_blank' rel="noreferrer" className='text-indigo-500'>
+              matthew@crosswordle.com
+            </a>.
+          </p>
         </div>
       </div>
     </Modal>
