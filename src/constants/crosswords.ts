@@ -11372,6 +11372,534 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  {
+    author: 'Kate Isaacs',
+    across: {
+      '1': {
+        answer: 'QUIRE',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'UNTIL',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'EDEMA',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'LUMEN',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'LESS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'QUELL',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'UNDUE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ITEMS',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'RIMES',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'ELAN',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Jordan Kaufmann',
+    across: {
+      '1': {
+        answer: 'CACTI',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'AGAIN',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'PER',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'VIE',
+        row: 3,
+        col: 2
+      },
+      '10': {
+        answer: 'SNEER',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'CAPES',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'AGE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'CARVE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'TI',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'INNER',
+        row: 0,
+        col: 4
+      },
+      '9': {
+        answer: 'IE',
+        row: 3,
+        col: 3
+      }
+    }
+  },
+  {
+    author: 'Kate Isaacs',
+    across: {
+      '1': {
+        answer: 'AGILE',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'BUDIN',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'OILED',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'USE',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'TERSE',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ABOUT',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'GUISE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'IDLER',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'LIE',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'ENDUE',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Sarah Cheyette',
+    across: {
+      '1': {
+        answer: 'ABHOR',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'BEIGE',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'BLEEP',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'EL',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'YEAST',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'ABBEY',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'BELLE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'HIE',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'OGEES',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'REP',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Kate Isaacs',
+    across: {
+      '1': {
+        answer: 'ALGAE',
+        row: 0,
+        col: 0
+      },
+      '5': {
+        answer: 'ION',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'OVA',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'LESS',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'HOD',
+        row: 4,
+        col: 2
+      }
+    },
+    down: {
+      '1': {
+        answer: 'AIOLI',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'LOVE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'GNASH',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'EKE',
+        row: 0,
+        col: 4
+      },
+      '8': {
+        answer: 'SO',
+        row: 3,
+        col: 3
+      }
+    }
+  },
+  {
+    author: 'James Drage',
+    across: {
+      '1': {
+        answer: 'PLATE',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'RITES',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'IT',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'ES',
+        row: 2,
+        col: 3
+      },
+      '9': {
+        answer: 'CHINA',
+        row: 3,
+        col: 0
+      },
+      '11': {
+        answer: 'EENSY',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'PRICE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'LITHE',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'AT',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'TEENS',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'ESSAY',
+        row: 0,
+        col: 4
+      },
+      '10': {
+        answer: 'IN',
+        row: 3,
+        col: 2
+      }
+    }
+  },
+  {
+    author: 'Kate Isaacs',
+    across: {
+      '1': {
+        answer: 'NAIL',
+        row: 0,
+        col: 1
+      },
+      '5': {
+        answer: 'WORRY',
+        row: 1,
+        col: 0
+      },
+      '6': {
+        answer: 'AUGER',
+        row: 2,
+        col: 0
+      },
+      '7': {
+        answer: 'SNUTE',
+        row: 3,
+        col: 0
+      },
+      '8': {
+        answer: 'SEES',
+        row: 4,
+        col: 1
+      }
+    },
+    down: {
+      '1': {
+        answer: 'NOUNS',
+        row: 0,
+        col: 1
+      },
+      '2': {
+        answer: 'ARGUE',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'IRETE',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'LYRES',
+        row: 0,
+        col: 4
+      },
+      '5': {
+        answer: 'WAS',
+        row: 1,
+        col: 0
+      }
+    }
+  },
+  {
+    author: 'Kate Isaacs',
+    across: {
+      '1': {
+        answer: 'GLASS',
+        row: 0,
+        col: 0
+      },
+      '6': {
+        answer: 'LISTE',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'UNTIE',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'TEEMS',
+        row: 3,
+        col: 0
+      },
+      '9': {
+        answer: 'ERRS',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'GLUTE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'LINER',
+        row: 0,
+        col: 1
+      },
+      '3': {
+        answer: 'ASTER',
+        row: 0,
+        col: 2
+      },
+      '4': {
+        answer: 'STIMS',
+        row: 0,
+        col: 3
+      },
+      '5': {
+        answer: 'SEES',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Kate Isaacs',
+    across: {
+      '2': {
+        answer: 'APE',
+        row: 0,
+        col: 2
+      },
+      '5': {
+        answer: 'ROSES',
+        row: 1,
+        col: 0
+      },
+      '7': {
+        answer: 'INSET',
+        row: 2,
+        col: 0
+      },
+      '8': {
+        answer: 'EVE',
+        row: 3,
+        col: 2
+      },
+      '9': {
+        answer: 'ENTER',
+        row: 4,
+        col: 0
+      }
+    },
+    down: {
+      '1': {
+        answer: 'TRICE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ASSET',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'PEEVE',
+        row: 0,
+        col: 3
+      },
+      '4': {
+        answer: 'ESTER',
+        row: 0,
+        col: 4
+      },
+      '6': {
+        answer: 'ON',
+        row: 1,
+        col: 1
+      }
+    }
+  },
 ];
 
 export default crosswords;
