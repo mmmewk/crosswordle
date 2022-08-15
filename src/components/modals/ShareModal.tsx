@@ -210,7 +210,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
         <div className="flex flex-col mx-auto items-center m-4 md:m-6 text-center border-t border-t-slate-300">
           <p className="p-4">Thanks for Playing!</p>
           <p className="text-sm text-gray-500">
-            I have decided to stop work on the crosswordle to make more room for other side projects in my life.
+            I have decided to stop work on the crosswordle to make more room for other projects and adventures in my life.
             I will not be publishing puzzles past late August, but if you really like the game and want to take over the project
             you can email me at{' '}
             <a href="mailto:matthew@crosswordle.com" target='_blank' rel="noreferrer" className='text-indigo-500'>
