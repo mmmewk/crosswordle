@@ -12003,6 +12003,749 @@ const crosswords: CrosswordInput[] = [
       }
     }
   },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'DELTA',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'NAILS',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'MIGHT',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'DENIM',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'LYING',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'ASSET',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'HUTCH',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'ACORN',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'DELTA',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'HOARD',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'TROLL',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'HENNA',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'CAROL',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'ASTER',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'SIRES',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'CLAMS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ROTOR',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'LYRES',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'ACTOR',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'RADIO',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'SLYLY',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'ACRES',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'TODAY',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'ROOMY',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'COSTS',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'MAIZE',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'LITHE',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'CAMEL',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'SHIFT',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'SCENE',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'MAPLE',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'ANGLE',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'TASTY',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'MEANT',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'PAGES',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'ENEMY',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'CARET',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'MOTOR',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'TESLA',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'COMET',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'RATES',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'TERRA',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'BLAND',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'LATER',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'STRAY',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'BOLTS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ALTAR',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'DIRTY',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'CRATE',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'NOTES',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'EYRIE',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'CANOE',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'AFTER',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'ENSUE',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'PYLON',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'INPUT',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'TIDAL',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'PAINT',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'LIPID',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'NATAL',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'TRASH',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'NEARS',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'OPERA',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'TANGO',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'AGATE',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'HOSTA',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'PLANT',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'SWILL',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'SOULS',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'POSTS',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'ADIEU',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'TALKS',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'MAFIA',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'DANES',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'MARRY',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'MADAM',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'FINER',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'ASSAY',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'LATIN',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'ABYSS',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'NATAL',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'LEARN',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'TRYST',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'NASAL',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'NANNY',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'MEDAL',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'DARES',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'NAMED',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'NADIR',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'YELLS',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'SADLY',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'FINAL',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'REELS',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'SAFER',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'DANCE',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'YELPS',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'HOSTS',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'ACORN',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'DOLLS',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'HOARD',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'SCOWL',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'SINGS',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'SADLY',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'FINAL',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'REELS',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'SAFER',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'DANCE',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'YELPS',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'TACIT',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'PLACE',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'RINDS',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'TAPIR',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'CHAIN',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'TREES',
+        row: 0,
+        col: 4
+      }
+    }
+  },
+  {
+    author: 'Rob Owen',
+    across: {
+      '1': {
+        answer: 'SATIN',
+        row: 0,
+        col: 0
+      },
+      '4': {
+        answer: 'ABBOT',
+        row: 2,
+        col: 0
+      },
+      '5': {
+        answer: 'ROTAS',
+        row: 4,
+        col: 0
+      }     
+    },
+    down: {
+      '1': {
+        answer: 'STAIR',
+        row: 0,
+        col: 0
+      },
+      '2': {
+        answer: 'TIBET',
+        row: 0,
+        col: 2
+      },
+      '3': {
+        answer: 'NOTES',
+        row: 0,
+        col: 4
+      }
+    }
+  },
 ];
 
 export default crosswords;
+
+    
+ 
