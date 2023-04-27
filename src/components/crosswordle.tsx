@@ -32,8 +32,6 @@ import { TimerHelpModal } from './modals/TimerHelpModal';
 import { incrementTimer, startTimer } from '../redux/slices/wordleSlice';
 import { useInterval } from '../lib/useInterval';
 import cn from 'classnames';
-import { useWindowListener } from '../lib/useWindowListener';
-import { Modal } from './modals/Modal';
 
 type crosswordleParams = {
   crosswordNumber?: string;
@@ -98,10 +96,6 @@ const Crosswordle : React.FC = () => {
   useEffect(() => {
     loadValidWords();
   }, [loadValidWords]);
-
-  useWindowListener('keyup', (e: KeyboardEvent) => {
-    if (e.key === 'Shift') togglePencilMode();
-  });
 
   // After keyboard input move to the next square where you can type
   const moveToIndex = useCallback((index: number) => {
@@ -289,11 +283,6 @@ const Crosswordle : React.FC = () => {
     }
   }, 1000);
 
-  useEffect(() => {
-    // Correction toast specifically for crosswordle 104
-    if (crosswordIndex === 103) dispatch(setOpenModal('notice'));
-  }, [crosswordIndex, dispatch]);
-
   // Prevent user from accessing puzzles that haven't yet been released
   if (defaultIndex < crosswordIndex) return <NotFound />
 
@@ -374,14 +363,6 @@ const Crosswordle : React.FC = () => {
         <SettingsModal />
         <SubmitModal />
         <TimerHelpModal />
-        <Modal name='notice' title="Updates to today's puzzle">
-          <p className='text-gray-400'>
-            Today's puzzle originally had a typo "ONIOM" instead of "ONION".
-            If you had previously started this puzzle I have reset it, if you still see the word "ONIOM" in the puzzle try refreshing the page.
-            If you previously lost this puzzle I reset your streak so you won't lose your streak.
-            Sorry for the typo!
-          </p>
-        </Modal>
       </div>
       <div className='flex flex-1 flex-col w-screen overflow-x-hidden md:flex-row lg:flex-row'>
         <div className='w-full flex md:items-center justify-center px-20 md:p-6 md:w-1/2' >

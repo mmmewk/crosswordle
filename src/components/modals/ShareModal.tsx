@@ -210,7 +210,7 @@ export const ShareModal : React.FC<Props> = ({ crosswordIndex }) => {
             I will not be publishing puzzles past late August, but if you really like the game and want to take over the project
             you can email me at{' '}
             <a href="mailto:matthew@crosswordle.com" target='_blank' rel="noreferrer" className='text-indigo-500'>
-              matthew@crosswordle.com
+              mmmewk@gmail.com
             </a>.
           </p>
         </div>
