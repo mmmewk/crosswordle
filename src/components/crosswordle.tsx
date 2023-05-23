@@ -41,7 +41,8 @@ const Crosswordle : React.FC = () => {
   const navigate = useNavigate();
   const firstRender = useSelector((state: RootState) => state.navigation.firstRender);
   const { crosswordNumber } = useParams<crosswordleParams>();
-  const crosswordIndex = crosswordNumber ? (Number(crosswordNumber) - 1) : defaultIndex;
+  let crosswordIndex = crosswordNumber ? (Number(crosswordNumber) - 1) : defaultIndex;
+  crosswordIndex = Math.min(crosswordIndex, crosswords.length - 1);
   const crosswordData = crosswords[crosswordIndex];
   const { initialClue, initialDirection } = useMemo(() => getInitialClue(crosswordData), [crosswordData]);
   const crosswordRef = useRef<ElementRef<typeof Crossword>>(null);
@@ -284,7 +285,8 @@ const Crosswordle : React.FC = () => {
   }, 1000);
 
   // Prevent user from accessing puzzles that haven't yet been released
-  if (defaultIndex < crosswordIndex) return <NotFound />
+  if (crosswordNumber && Number(crosswordNumber) > (defaultIndex + 1)) return <NotFound />
+  if (defaultIndex < crosswordIndex) return <NotFound />;
 
   return (
     <div className='flex flex-col min-h-screen'>
